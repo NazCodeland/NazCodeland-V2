@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './lib//styles/index.css';
+
+@layer base {
+	:root {
+		--ff-logo-first-letter: 'Suez one', Georgia, 'Times New Roman', Times, serif;
+		/* Shared Between Light & Dark Theme */
+		--ff-logo-excluding-first-letter: 'MongoDB Value Serif', Arial, sans-serif;
+		--ff: 'Times New Roman', Times, serif;
+
+		--fs-logo-first-letter: clamp(24px, calc(17.12px + 2.14vw), 3rem);
+
+		/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1440,20,1.618,3,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+		--fs-fluid-1: clamp(1.73rem, calc(1.38rem + 1.76vw), 2.96rem);
+		--fs-fluid-2: clamp(1.44rem, calc(1.22rem + 1.12vw), 2.22rem);
+		--fs-fluid-3: clamp(1.2rem, calc(1.07rem + 0.67vw), 1.67rem);
+		--fs-fluid-4: clamp(1rem, calc(0.93rem + 0.36vw), 1.25rem);
+		--fs-fluid-5: clamp(0.83rem, calc(0.8rem + 0.15vw), 0.94rem);
+		--fs-fluid-6: clamp(0.69rem, calc(0.69rem + 0.01vw), 0.7rem);
+
+		--fw-100: 100;
+		--fw-400: 400;
+		--fw-700: 700;
+		--fw-900: 900;
+
+		/* Spacing */
+		--spacer-2: 0.125rem;
+		--spacer-4: 0.25rem;
+		--spacer-8: 0.5rem;
+		--spacer-12: 0.75rem;
+		--spacer-16: 1rem;
+		--spacer-20: 1.25rem;
+		--spacer-24: 1.5rem;
+		--spacer-32: 2rem;
+		--spacer-40: 2.5rem;
+		--spacer-48: 3rem;
+
+		--spacer-fluid-0-32-: clamp(0rem, calc(-0.86rem + 4.29vw), 2rem);
+		--spacer-fluid-4-32: clamp(0.25rem, calc(-0.25rem + 2.5vw), 2rem);
+		--spacer-fluid-8-16: clamp(0.5rem, calc(0.36rem + 0.71vw), 1rem);
+		--spacer-fluid-16-32: clamp(1rem, calc(0.71rem + 1.43vw), 2rem);
+		--spacer-fluid-16-40: clamp(1rem, calc(0.57rem + 2.14vw), 2.5rem);
+
+		/* for this one, the space remaining will 'grow' and 'shrink' 2.4x because it's preferred value is based on a viewport width of 1100-1440  */
+		/* doesn't grow when the root font size is increased by the user, needed for where it's being used */
+		--spacer-fluid-16-32-24x: clamp(16px, calc(-103.52px + 9.41vw), 32px);
+
+		/* Border-radius */
+		--radius-2: 0.125rem;
+		--radius-4: 0.25rem;
+		--radius-8: 0.5rem;
+		--radius-16: 1rem;
+
+		/* the values are ##,##,## format so that I can give these variables opacity when using them: example; rgba(var(--grey-100, .50) */
+		--grey-000: 255, 255, 255;
+		--grey-025: 251, 252, 255;
+		--grey-050: 239, 239, 239;
+		--grey-100: 231, 231, 231;
+		--grey-200: 186, 186, 186;
+		--grey-300: 153, 153, 153;
+		--grey-400: 119, 119, 119;
+		--grey-500: 86, 86, 86;
+		--grey-600: 53, 53, 53;
+		--grey-700: 20, 20, 20;
+		--grey-800: 10, 10, 10;
+		--grey-900: 5, 5, 5;
+		--grey-1000: 0, 0, 0;
+
+		--scale-hover: scale(1.03);
+		--scale-active: scale(0.99);
+
+		--breakpoint-phone: 320px;
+	}
+}
