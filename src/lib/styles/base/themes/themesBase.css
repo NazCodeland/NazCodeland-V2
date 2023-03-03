@@ -1,0 +1,82 @@
+@layer base {
+	[theme='desert'] .theme-switcher,
+	[theme='dusk'] .theme-switcher,
+	[theme='night-sky'] .theme-switcher {
+		display: none;
+	}
+
+	/*  this setting is set in reset.css but in More Contrast in firefox this is needed again */
+	[theme='dusk'] .theme-switcher:is(:hover, :focus),
+	[theme='desert'] .theme-switcher:is(:hover, :focus),
+	[theme='night-sky'] .theme-switcher:is(:hover, :focus) {
+		outline: 0.1rem solid canvasText;
+	}
+
+	[theme='dusk'] .logo .first-letter:focus-visible,
+	[theme='desert'] .logo .first-letter:focus-visible,
+	[theme='night-sky'] .logo .first-letter:focus-visible {
+		outline-width: 2px;
+		outline-color: canvasText !important;
+		outline-style: dashed;
+	}
+
+	[theme='desert'] .hamburger:is(:hover),
+	[theme='dusk'] .hamburger:is(:hover),
+	[theme='night-sky'] .hamburger:is(:hover) {
+		/* this setting is set in reset.css but in More Contrast in firefox this is needed again */
+		outline-offset: 0;
+		outline-width: 0.1rem;
+		outline-style: solid;
+		outline-color: canvasText;
+
+		border-radius: var(--spacer-4);
+	}
+
+	[theme='desert'] .profile-card .btn-outlined-primary:is(:hover, :focus),
+	[theme='dusk'] .profile-card .btn-outlined-primary:is(:hover, :focus),
+	[theme='night-sky'] .profile-card .btn-outlined-primary:is(:hover, :focus),
+	[theme='desert'] .profile-card .btn-filled-primary:is(:hover, :focus),
+	[theme='dusk'] .profile-card .btn-filled-primary:is(:hover, :focus),
+	[theme='night-sky'] .profile-card .btn-filled-primary:is(:hover, :focus) {
+		outline-color: canvasText;
+		background-color: var(--main-background);
+	}
+
+	[theme='desert'] .skill-card:is(:hover, :focus),
+	[theme='dusk'] .skill-card:is(:hover, :focus),
+	[theme='night-sky'] .skill-card:is(:hover, :focus) {
+		outline: 2px solid canvasText;
+	}
+
+	[theme='desert'] .skill-card:focus-visible,
+	[theme='dusk'] .skill-card:focus-visible,
+	[theme='night-sky'] .skill-card:focus-visible {
+		outline-style: dashed;
+	}
+
+	[theme='desert'] .site-content,
+	[theme='desert'] .profile-card__subtitle,
+	[theme='desert'] .what-i-do,
+	[theme='dusk'] .site-content,
+	[theme='dusk'] .profile-card__subtitle,
+	[theme='dusk'] .what-i-do,
+	[theme='night-sky'] .site-content,
+	[theme='night-sky'] .profile-card__subtitle,
+	[theme='night-sky'] .what-i-do {
+		color: canvasText;
+	}
+
+	/* TODO: people who prefer less contrast, do they mind elevation/box shadow?  */
+	/* TODO: if not, remove 'desert' theme off this list and perhaps tweak the box-shadow color slightly */
+	[theme='desert'] .logo *,
+	[theme='desert'] .btn,
+	[theme='desert'] .skill-card,
+	[theme='dusk'] .logo *,
+	[theme='dusk'] .btn,
+	[theme='dusk'] .skill-card,
+	[theme='night-sky'] .logo *,
+	[theme='night-sky'] .btn,
+	[theme='night-sky'] .skill-card {
+		box-shadow: none !important;
+	}
+}

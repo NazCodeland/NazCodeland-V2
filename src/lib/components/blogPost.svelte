@@ -5,7 +5,7 @@
 	export let views: string | number;
 	export let tags: string[];
 
-	let appElement = document.querySelector('.app');
+	// let appElement = document.querySelector('.app');
 
 	// console.log(appElement);
 

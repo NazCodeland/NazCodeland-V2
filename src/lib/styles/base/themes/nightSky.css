@@ -1,0 +1,79 @@
+@import './themesBase.css';
+
+@layer base {
+	:root {
+		/* night-sky contrast theme */
+		--night-sky-contrast-theme-bg-clr: 0, 0, 0;
+		--night-sky-contrast-theme-txt-clr: 255, 255, 255;
+
+		--night-sky-contrast-theme-link-txt-clr: 128, 128, 255;
+
+		/* --night-sky-contrast-theme-inactive-txt-clr: 166, 166, 166; */
+
+		/* --night-sky-contrast-theme-selected-bg-clr: 214, 180, 253; */
+		--night-sky-contrast-theme-selected-txt-clr: 43, 43, 43;
+
+		/* --night-sky-contrast-theme-button-bg-clr: 0, 0, 0; */
+		--night-sky-contrast-theme-button-txt-clr: 255, 238, 50;
+	}
+
+	/* #region night-sky*/
+	[theme='night-sky'] {
+		--html-color: var(--night-sky-contrast-theme-link-txt-clr);
+		--main-background: var(--night-sky-contrast-theme-bg-clr);
+	}
+
+	[theme='night-sky'] .logo :not([aria-hidden]) {
+		outline: 0.1px solid grayText;
+	}
+
+	[theme='night-sky'] .logo .first-letter {
+		color: rgba(var(--night-sky-contrast-theme-link-txt-clr));
+		outline-color: rgba(var(--night-sky-contrast-theme-link-txt-clr)) !important;
+	}
+
+	[theme='night-sky'] .menu__links a {
+		--nav-link-text-color: var(--night-sky-contrast-theme-link-txt-clr);
+	}
+
+	[theme='night-sky'] .menu__links li a::before {
+		background-color: rgba(var(--night-sky-contrast-theme-link-txt-clr));
+	}
+
+	[theme='night-sky'] .profile-card__image {
+		outline: 1px solid rgba(var(--night-sky-contrast-theme-link-txt-clr));
+		border-color: Canvas !important;
+	}
+
+	[theme='night-sky'] .hamburger {
+		color: rgba(var(--night-sky-contrast-theme-button-txt-clr));
+	}
+
+	/* prettier-ignore */
+	[theme='night-sky'] .profile-card .link:is(:hover, :focus){
+forced-color-adjust: none;
+color: canvas !important;
+}
+
+	[theme='night-sky'] .profile-card .link::before {
+		background-color: rgba(var(--night-sky-contrast-theme-link-txt-clr));
+	}
+
+	[theme='night-sky'] .profile-card .btn-filled-primary {
+		background-color: rgba(var(--night-sky-contrast-theme-link-txt-clr));
+	}
+
+	[theme='night-sky'] .profile-card .btn-outlined-primary {
+		color: rgba(var(--night-sky-contrast-theme-button-txt-clr));
+		outline-color: rgba(var(--night-sky-contrast-theme-button-txt-clr));
+	}
+
+	[theme='night-sky'] .what-i-do {
+		text-decoration-color: rgba(var(--night-sky-contrast-theme-link-txt-clr));
+	}
+
+	[theme='night-sky'] .skill-card {
+		outline: 1px solid rgba(var(--night-sky-contrast-theme-link-txt-clr));
+	}
+	/* #endregion night-sky */
+}

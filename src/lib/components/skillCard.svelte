@@ -1,118 +1,111 @@
 <script lang="ts">
 	/* eslint-disable import/extensions */
-	import { onMount } from 'svelte';
-	import { wait, removeUnusedClasses } from '../utilities/index';
+	export let title: string = 'title';
+	// import { onMount } from 'svelte';
+	// import { wait, removeUnusedClasses } from '../utilities/index';
 
-	onMount(async () => {
-		const monitor = document.querySelector('.monitor');
-		const monitorBody = document.querySelector('.monitor-body');
-		const monitorLeg = document.querySelector('.monitor-leg');
+	// onMount(async () => {
+	// 	const monitor = document.querySelector('.monitor');
+	// 	const monitorBody = document.querySelector('.monitor-body');
+	// 	const monitorLeg = document.querySelector('.monitor-leg');
 
-		const languageIcon = document.querySelector('.language-icon');
+	// 	const languageIcon = document.querySelector('.language-icon');
 
-		const languageIcons = [
-			'vsc.svg',
-			'html.svg',
-			'css.svg',
-			'tailwind.svg',
-			'javascript.svg',
-			'git.svg',
-			'github.svg',
-			'nodejs.svg',
-			'expressjs.svg',
-			'python.svg',
-			'svelte.svg'
-		];
+	// 	const languageIcons = [
+	// 		'vsc.svg',
+	// 		'html.svg',
+	// 		'css.svg',
+	// 		'tailwind.svg',
+	// 		'javascript.svg',
+	// 		'git.svg',
+	// 		'github.svg',
+	// 		'nodejs.svg',
+	// 		'expressjs.svg',
+	// 		'python.svg',
+	// 		'svelte.svg'
+	// 	];
 
-		async function rotateIcons(icons: string[]) {
-			for (let icon = 0; languageIcons.length > 0; icon += 1) {
-				if (icon === languageIcons.length) {
-					icon = 0;
-				}
+	// 	async function rotateIcons(icons: string[]) {
+	// 		for (let icon = 0; languageIcons.length > 0; icon += 1) {
+	// 			if (icon === languageIcons.length) {
+	// 				icon = 0;
+	// 			}
 
-				languageIcon.href.baseVal = `/images/icons/${languageIcons[icon]}`;
+	// 			languageIcon.href.baseVal = `/images/icons/${languageIcons[icon]}`;
 
-				removeUnusedClasses(monitor, monitor.classList.value);
-				removeUnusedClasses(monitorBody, monitorBody.classList.value);
-				removeUnusedClasses(monitorLeg, monitorLeg.classList.value);
+	// 			removeUnusedClasses(monitor, monitor.classList.value);
+	// 			removeUnusedClasses(monitorBody, monitorBody.classList.value);
+	// 			removeUnusedClasses(monitorLeg, monitorLeg.classList.value);
 
-				switch (languageIcons[icon]) {
-					case 'vsc.svg':
-						monitor.classList.add('vsc-svg-all-fill');
-						monitorBody.classList.add('vsc-svg-all-fill');
-						monitorLeg.classList.add('vsc-svg-all-fill');
-						break;
+	// 			switch (languageIcons[icon]) {
+	// 				case 'vsc.svg':
+	// 					monitor.classList.add('vsc-svg-all-fill');
+	// 					monitorBody.classList.add('vsc-svg-all-fill');
+	// 					monitorLeg.classList.add('vsc-svg-all-fill');
+	// 					break;
 
-					case 'html.svg':
-						monitor.classList.add('html-svg-monitor-fill');
-						break;
+	// 				case 'html.svg':
+	// 					monitor.classList.add('html-svg-monitor-fill');
+	// 					break;
 
-					case 'css.svg':
-						monitor.classList.add('css-svg-monitor-fill');
-						break;
+	// 				case 'css.svg':
+	// 					monitor.classList.add('css-svg-monitor-fill');
+	// 					break;
 
-					case 'tailwind.svg':
-						monitor.classList.add('tailwind-svg-monitor-fill');
-						break;
+	// 				case 'tailwind.svg':
+	// 					monitor.classList.add('tailwind-svg-monitor-fill');
+	// 					break;
 
-					case 'javascript.svg':
-						monitor.classList.add('javascript-svg-monitor-fill');
-						break;
+	// 				case 'javascript.svg':
+	// 					monitor.classList.add('javascript-svg-monitor-fill');
+	// 					break;
 
-					case 'git.svg':
-						monitor.classList.add('git-svg-all-fill');
-						monitorBody.classList.add('git-svg-all-fill');
-						monitorLeg.classList.add('git-svg-all-fill');
-						break;
+	// 				case 'git.svg':
+	// 					monitor.classList.add('git-svg-all-fill');
+	// 					monitorBody.classList.add('git-svg-all-fill');
+	// 					monitorLeg.classList.add('git-svg-all-fill');
+	// 					break;
 
-					case 'github.svg':
-						monitor.classList.add('github-svg-all-fill');
-						monitorBody.classList.add('github-svg-all-fill');
-						monitorLeg.classList.add('github-svg-all-fill');
-						break;
+	// 				case 'github.svg':
+	// 					monitor.classList.add('github-svg-all-fill');
+	// 					monitorBody.classList.add('github-svg-all-fill');
+	// 					monitorLeg.classList.add('github-svg-all-fill');
+	// 					break;
 
-					case 'nodejs.svg':
-						monitor.classList.add('nodejs-svg-monitor-fill');
-						monitorBody.classList.add('nodejs-svg-all-fill');
-						monitorLeg.classList.add('nodejs-svg-all-fill');
-						break;
+	// 				case 'nodejs.svg':
+	// 					monitor.classList.add('nodejs-svg-monitor-fill');
+	// 					monitorBody.classList.add('nodejs-svg-all-fill');
+	// 					monitorLeg.classList.add('nodejs-svg-all-fill');
+	// 					break;
 
-					case 'python.svg':
-						monitorBody.classList.add('python-svg-body-fill');
-						monitorLeg.classList.add('python-svg-leg-fill');
-						break;
+	// 				case 'python.svg':
+	// 					monitorBody.classList.add('python-svg-body-fill');
+	// 					monitorLeg.classList.add('python-svg-leg-fill');
+	// 					break;
 
-					case 'svelte.svg':
-						monitor.classList.add('svelte-svg-all-fill');
-						monitorBody.classList.add('svelte-svg-all-fill');
-						monitorLeg.classList.add('svelte-svg-all-fill');
-						break;
+	// 				case 'svelte.svg':
+	// 					monitor.classList.add('svelte-svg-all-fill');
+	// 					monitorBody.classList.add('svelte-svg-all-fill');
+	// 					monitorLeg.classList.add('svelte-svg-all-fill');
+	// 					break;
 
-					default:
-						break;
-				}
+	// 				default:
+	// 					break;
+	// 			}
 
-				// eslint-disable-next-line no-await-in-loop
-				await wait(2000);
-			}
-		}
+	// 			// eslint-disable-next-line no-await-in-loop
+	// 			await wait(2000);
+	// 		}
+	// 	}
 
-		if (languageIcon) rotateIcons(languageIcons);
-	});
+	// 	if (languageIcon) rotateIcons(languageIcons);
+	// });
 </script>
 
-<a href="http://www.youtube.com" class="skill-card">
-	<header class="skill-card__header">
-		<h3 class="skill-card__title"><span>Product Research</span></h3>
-	</header>
-	<div class="skill-card__content">
-		<div class="skill-card__body">
-			<p class="skill-card__copy">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias odit nemo praesentium
-				corporis blanditiis minima? Quibusdam delectus fugit sit? Hic.
-			</p>
-		</div>
-	</div>
+<a href="/" class="skill-card p-4 bg-grey-400">
+	<h3 class="skill-card__title"><span>{title}</span></h3>
+
+	<p class="skill-card__copy"><slot /></p>
 </a>
 
 <style>
@@ -128,11 +121,10 @@
 
 	.skill-card {
 		display: inline-block;
-		background-color: orange !important;
 		padding: var(--spacer-16);
 
 		--bg-opacity: var(--opacity-06-dark);
-		background-color: rgba(var(--grey-000), var(--bg-opacity));
+		/* background-color: rgba(var(--grey-000), var(--bg-opacity)); */
 
 		box-shadow: var(--box-shadow-rest);
 		transition: ease-in-out transform 0.15s;

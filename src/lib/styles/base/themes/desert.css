@@ -1,0 +1,81 @@
+@import './themesBase.css';
+
+/* #region desert*/
+@layer base {
+	:root {
+		/* desert contrast theme */
+		--desert-contrast-theme-bg-clr: 255, 250, 239;
+		--desert-contrast-theme-txt-clr: 61, 61, 61;
+
+		--desert-contrast-theme-link-txt-clr: 28, 94, 117;
+
+		/* --desert-contrast-theme-inactive-txt-clr: 103, 103, 103; */
+
+		/* --desert-contrast-theme-selected-bg-clr: 144, 57, 9; */
+		--desert-contrast-theme-selected-txt-clr: 255, 245, 227;
+
+		/* --desert-contrast-theme-button-bg-clr: 255, 250, 239; */
+		--desert-contrast-theme-button-txt-clr: 32, 32, 32;
+	}
+
+	[theme='desert'] {
+		--html-color: var(--desert-contrast-theme-link-txt-clr);
+		--main-background: var(--desert-contrast-theme-bg-clr);
+	}
+
+	[theme='desert'] .logo :not([aria-hidden]) {
+		outline: 0.1px solid grayText;
+	}
+
+	[theme='desert'] .logo .first-letter {
+		color: rgba(var(--desert-contrast-theme-link-txt-clr));
+		outline-color: rgba(var(--desert-contrast-theme-link-txt-clr));
+	}
+	[theme='desert'] .logo .first-letter:is(:hover, :focus) {
+		outline-color: rgba(var(--desert-contrast-theme-link-txt-clr));
+	}
+
+	[theme='desert'] .menu__links a {
+		--nav-link-text-color: var(--desert-contrast-theme-link-txt-clr);
+	}
+
+	[theme='desert'] .menu__links li a::before {
+		background-color: rgba(var(--desert-contrast-theme-link-txt-clr));
+	}
+
+	[theme='desert'] .profile-card__image {
+		outline: 1px solid rgba(var(--desert-contrast-theme-link-txt-clr));
+		border-color: rgba(var(--desert-contrast-theme-bg-clr)) !important;
+	}
+
+	[theme='desert'] .hamburger {
+		color: rgba(var(--desert-contrast-theme-button-txt-clr));
+	}
+
+	[theme='desert'] .profile-card .link:is(:hover, :focus) {
+		color: canvas;
+	}
+	[theme='desert'] .profile-card .link::before {
+		background-color: rgba(var(--desert-contrast-theme-link-txt-clr));
+	}
+
+	[theme='desert'] .profile-card .btn-filled-primary {
+		background-color: rgba(var(--desert-contrast-theme-link-txt-clr));
+		color: canvas;
+	}
+
+	[theme='desert'] .profile-card .btn-outlined-primary {
+		color: rgba(var(--desert-contrast-theme-button-txt-clr));
+		outline-color: rgba(var(--desert-contrast-theme-link-txt-clr));
+	}
+
+	[theme='desert'] .what-i-do {
+		text-decoration-color: rgba(var(--desert-contrast-theme-link-txt-clr));
+	}
+
+	[theme='desert'] .skill-card {
+		outline: 1px solid rgba(var(--desert-contrast-theme-link-txt-clr));
+	}
+
+	/* #endregion desert */
+}

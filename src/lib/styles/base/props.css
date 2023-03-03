@@ -10,10 +10,10 @@
 } */
 @layer base {
 	:root {
-		--ff-logo-first-letter: 'Suez one', Georgia, 'Times New Roman', Times, serif;
+		/* --ff-logo-first-letter: 'Suez one', Georgia, 'Times New Roman', Times, serif; */
 		/* Shared Between Light & Dark Theme */
-		--ff-logo-excluding-first-letter: 'MongoDB Value Serif', Arial, sans-serif;
-		--ff: 'Times New Roman', Times, serif;
+		/* --ff-logo-excluding-first-letter: 'MongoDB Value Serif', Arial, sans-serif; */
+		/* --ff: 'Times New Roman', Times, serif; */
 
 		--fs-logo-first-letter: clamp(24px, calc(17.12px + 2.14vw), 3rem);
 
@@ -26,13 +26,15 @@
 		--fs-fluid-5: clamp(0.83rem, calc(0.8rem + 0.15vw), 0.94rem);
 		--fs-fluid-6: clamp(0.69rem, calc(0.69rem + 0.01vw), 0.7rem);
 
-		--fw-100: 100;
+		/* Built into tailwind */
+		/* --fw-100: 100;
 		--fw-400: 400;
 		--fw-700: 700;
-		--fw-900: 900;
+		--fw-900: 900; */
 
+		/* Built into tailwind */
 		/* Spacing */
-		--spacer-2: 0.125rem;
+		/* --spacer-2: 0.125rem;
 		--spacer-4: 0.25rem;
 		--spacer-8: 0.5rem;
 		--spacer-12: 0.75rem;
@@ -41,7 +43,7 @@
 		--spacer-24: 1.5rem;
 		--spacer-32: 2rem;
 		--spacer-40: 2.5rem;
-		--spacer-48: 3rem;
+		--spacer-48: 3rem; */
 
 		--spacer-fluid-0-32-: clamp(0rem, calc(-0.86rem + 4.29vw), 2rem);
 		--spacer-fluid-4-32: clamp(0.25rem, calc(-0.25rem + 2.5vw), 2rem);
@@ -53,11 +55,12 @@
 		/* doesn't grow when the root font size is increased by the user, needed for where it's being used */
 		--spacer-fluid-16-32-24x: clamp(16px, calc(-103.52px + 9.41vw), 32px);
 
-		/* Border-radius */
-		--radius-2: 0.125rem;
-		--radius-4: 0.25rem;
+		/* Built into tailwind */
+		/* Border-radius
+--radius-2: 0.125rem;/* 
+		--radius-4: 0.25rem;/* 
 		--radius-8: 0.5rem;
-		--radius-16: 1rem;
+		--radius-16: 1rem; */
 
 		/* the values are ##,##,## format so that I can give these variables opacity when using them: example; rgba(var(--grey-100, .50) */
 		--grey-000: 255, 255, 255;
@@ -74,9 +77,13 @@
 		--grey-900: 5, 5, 5;
 		--grey-1000: 0, 0, 0;
 
-		--scale-hover: scale(1.03);
-		--scale-active: scale(0.99);
+		/* --scale-hover: scale(1.03);
+--scale-active: scale(0.99); */
 
-		--breakpoint-phone: 320px;
+		--html-color: var(--primary-color);
+
+		--primary-color: 100, 149, 237;
+
+		/* --svg-transition-duration: 1.4s; */
 	}
 }

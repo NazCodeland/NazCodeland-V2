@@ -1,0 +1,125 @@
+/* ------------------------------------------------------------- */
+/* COMMON forced-colors: active and [color-scheme="light"] */
+/* ------------------------------------------------------------- */
+
+/* TODO: put all the selectors in one @media (forced-colors: active) */
+
+/* NOTE: use cases not covered.
+          These two use cases are extremely rare so, I won't be implementing a solution.
+          
+  1) if the user changes their OS theme while the site is open,
+      it won't update the theme on the website. The next time they open the site, 
+      it will update the theme 
+
+  2) if the user has the site open and then changes their OS contras themes, changes
+      the contrast theme on their OS, the site will have minor contrast issues
+*/
+
+/* #region light and dark mode */
+/* light & dark contrast palette tweaks*/
+@media (forced-colors: active) {
+	.theme-switcher {
+		display: none !important;
+	}
+
+	/* NOTE: if you add another 'light' contrast theme, then this will select both of those themes. */
+	[color-scheme='light'][theme='null'] .btn-filled-primary {
+		color: canvas !important;
+	}
+
+	/* if user is using their own OS contrast theme, hide the sites contrast themes */
+	.palettes {
+		display: none !important;
+	}
+
+	.site-content-wrapper {
+		background-color: activeText !important;
+	}
+
+	.swatches {
+		forced-color-adjust: none;
+	}
+
+	.menu__links li a::before {
+		background-color: linkText !important;
+	}
+
+	.profile-card__image {
+		border-color: canvas !important;
+		outline-width: 1px;
+		outline-style: solid;
+		outline-color: activeText;
+	}
+
+	.link::before {
+		background-color: activeText !important;
+	}
+
+	.btn-filled-primary {
+		forced-color-adjust: none;
+		background-color: activeText !important;
+		color: markText !important;
+	}
+
+	.what-i-do {
+		text-decoration-color: activeText !important;
+	}
+
+	/* #endregion light and dark mode */
+
+	/* ---------------------------------------------------------- */
+
+	/* #region lightMode*/
+
+	/* light contrast palette */
+
+	[color-scheme='light'] .site-content,
+	[color-scheme='light'] .logo :not(.first-letter),
+	[color-scheme='light'] .menu__links a,
+	[color-scheme='light'] .profile-card__title,
+	[color-scheme='light'] .profile-card__subtitle,
+	[color-scheme='light'] .what-i-do,
+	[color-scheme='light'] .skill-card__title,
+	[color-scheme='light'] .skill-card__copy {
+		color: markText;
+	}
+
+	[color-scheme='light'] .hamburger {
+		stroke: markText;
+	}
+
+	[color-scheme='light'] .btn-outlined-primary {
+		color: markText !important;
+		outline-color: linkText !important;
+	}
+	/* #endregion lightMode */
+
+	/* ---------------------------------------------------------- */
+
+	/* #region darkMode*/
+	/* dark contrast palette */
+
+	[color-scheme='dark'] .site-content {
+		margin-block-start: var(--spacer-fluid-4-32) !important;
+	}
+
+	[color-scheme='dark'] .logo :not(.first-letter) {
+		outline-width: 0.01rem;
+	}
+
+	[color-scheme='dark'] .menu {
+		border-color: activeText !important;
+	}
+
+	[color-scheme='dark'] .link,
+	[color-scheme='dark'] .skill-card__title,
+	[color-scheme='dark'] .skill-card__copy {
+		color: canvasText;
+	}
+
+	[color-scheme='dark'] .btn-outlined-primary:is(:hover, :focus) {
+		outline-color: canvasText;
+	}
+
+	/* #endregion darkMode */
+}
