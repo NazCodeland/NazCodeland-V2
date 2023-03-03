@@ -1,14 +1,11 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { createEventDispatcher } from 'svelte';
 
-	if (browser) {
-		const menuBtn = document.querySelector('.hamburger');
-		const palettesContainer = document.querySelector('.palettes');
-
-		const showPalettes = (event) => {
-			palettesContainer.classList.toggle('show-palettes');
-		};
-	}
+	const dispatch = createEventDispatcher();
+	const showPalettes = () => {
+		dispatch('showPalette');
+	};
 </script>
 
 <button on:click={showPalettes} type="button" tabindex="0" class="hamburger" aria-label="menu">
