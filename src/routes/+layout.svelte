@@ -1,11 +1,14 @@
 <script lang="ts">
 	import '../app.css';
 	import setColorSchemeAttribute from '$lib/components/colorSchemeToggle/action/setColorSchemeAttribute';
-	import ThemePalettes from '$lib/components/ThemePalettes.svelte';
 
 	import ColorSchemeToggle from '$lib/components/ColorSchemeToggle.svelte';
-	import Menu from '$lib/components/Menu.svelte';
-	import Hamburger from '$lib/components/svgs/Hamburger.svelte';
+	import Hamburger from '$lib/components/Hamburger.svelte';
+
+	let togglePalette = true;
+	function showPalette() {
+		togglePalette = true;
+	}
 </script>
 
 <div class="bg-primaryColor p-8" use:setColorSchemeAttribute>
@@ -27,10 +30,7 @@
 				<!-- this needs to be done so that in mobile viewpoints, when the menu is minimized the navigation still shows up in landmarks -->
 				<Hamburger />
 			</div>
-
-			<Menu />
 		</header>
-		<ThemePalettes />
 
 		<main class="container flex justify-center">
 			<div>

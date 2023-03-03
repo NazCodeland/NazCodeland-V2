@@ -1,4 +1,5 @@
 <script>
+	import ThemePalettes from '$lib/components/Hamburger/Menu/ThemePalettes.svelte';
 </script>
 
 <nav class="menu">
@@ -15,6 +16,7 @@
 		</li>
 		<li><a href="/contact">Contact</a></li>
 		<li><a href="/blog">Blog</a></li>
+		<li><ThemePalettes /></li>
 	</ul>
 </nav>
 

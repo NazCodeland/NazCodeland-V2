@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
 	const palettes = ['mainPalette', 'desert', 'dusk', 'night-sky'];
 
 	function updateThemePalette() {}

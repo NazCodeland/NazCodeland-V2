@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { createEventDispatcher } from 'svelte';
+	import Menu from '$lib/components/Hamburger/Menu.svelte';
 
 	const dispatch = createEventDispatcher();
 	const showPalettes = () => {
@@ -17,6 +18,7 @@
 			fill="currentColor"
 		/>
 	</svg>
+	<Menu />
 </button>
 
 <style>
