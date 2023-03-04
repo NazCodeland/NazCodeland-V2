@@ -3,7 +3,7 @@ import { writable, type Writable } from 'svelte/store';
 import { getPreferredClrScheme } from '../../../utilities/index';
 
 // subscriptions always run with the initial value
-export const colorSchemeStore = writable('light');
+export const colorSchemeStore: Writable<string> = writable('light');
 
 export function toggleColorScheme() {
 	colorSchemeStore.update((theme: string) => {
