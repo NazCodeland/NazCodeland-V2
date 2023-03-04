@@ -74,6 +74,7 @@
 	}
 
 	.palette {
+		appearance: none;
 		display: inline-block;
 		inline-size: 30px;
 		block-size: 30px;
