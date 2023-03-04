@@ -1,8 +1,9 @@
-<script>
+<script lang="ts">
 	import ThemePalettes from './Menu/ThemePalettes.svelte';
+	export let togglePalette: Boolean;
 </script>
 
-<nav class="menu">
+<nav class="menu {togglePalette ? 'showPalettes' : ''}">
 	<ul class="menu__links">
 		<li><a href="/" autofocus>Home</a></li>
 		<li><a href="/about">About Me</a></li>
@@ -27,8 +28,8 @@
 		gap: var(--spacer-fluid-16-32-24x);
 	}
 
-	menu {
-		position: absolute;
+	.menu {
+		/* position: absolute; */
 		inset-inline: calc(clamp(1rem, calc(0.57rem + 2.14vw), 2.5rem) * -1);
 		inset-block-start: clamp(3rem, calc(1.96rem + 6vw), 6rem);
 
@@ -55,7 +56,7 @@
 
 		padding-inline: var(--spacer-fluid-16-40);
 
-		visibility: hidden;
+		/* visibility: hidden; */
 
 		/* unable to transition when using clamp for block-size */
 		/* transition: block-size 1s, padding-block 1s; */
@@ -65,7 +66,7 @@
 		/* able to transition if I use 4rem alone */
 		block-size: clamp(1rem, 50%, 4rem);
 		padding-block: 0.5rem;
-		visibility: visible;
+		/* visibility: visible; */
 	}
 
 	.menu__links li {
@@ -112,7 +113,7 @@
 			block-size: initial;
 			padding-inline: 0;
 
-			visibility: visible;
+			/* visibility: visible; */
 		}
 	}
 </style>

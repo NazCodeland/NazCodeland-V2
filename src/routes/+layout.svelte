@@ -5,10 +5,10 @@
 	import ColorSchemeToggle from '$lib/components/ColorSchemeToggle.svelte';
 	import Menu from '$lib/components/Menu.svelte';
 
-	let togglePalette = true;
-	function showPalette() {
-		togglePalette = true;
-	}
+	// let togglePalette = true;
+	// function showPalettes() {
+	// 	togglePalette = true;
+	// }
 </script>
 
 <div class="bg-primaryColor p-8" use:setColorSchemeAttribute>
@@ -29,8 +29,9 @@
 				<!-- TODO: the styles for this menu need to be adjusted -->
 				<!-- this needs to be done so that in mobile viewpoints, when the menu is minimized the navigation still shows up in landmarks -->
 
+				<Menu />
 				<!-- prettier-ignore -->
-				<button on:click={showPalettes} type="button" tabindex="0" class="hamburger" aria-label="menu">
+				<button  type="button" tabindex="0" class="hamburger" aria-label="menu">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
 							fill-rule="evenodd"
@@ -39,8 +40,8 @@
 							fill="currentColor"
 						/>
 					</svg>
+					
 				</button>
-				<Menu />
 			</div>
 		</header>
 
