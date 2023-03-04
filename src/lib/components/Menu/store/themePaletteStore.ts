@@ -1,13 +1,21 @@
 import { browser } from '$app/environment';
 import { writable } from 'svelte/store';
 
-let selectedTheme;
-if (browser) selectedTheme = window.localStorage.getItem('NazCodeland.theme');
-export const themePaletteStore = writable(selectedTheme ?? 'mainPalette');
+export const themePaletteStore = writable('mainPalette');
 
-themePaletteStore.subscribe((themePalette) => {
-	console.log('within store');
+function initializeThemePalette() {
 	if (browser) {
-		window.localStorage.setItem('NazCodeland.theme', themePalette);
+		const theme = window.localStorage.getItem('NazCodeland.theme');
+		if (theme) {
+			themePaletteStore.set(theme);
+		}
+	}
+}
+
+themePaletteStore.subscribe((theme) => {
+	if (browser) {
+		window.localStorage.setItem('NazCodeland.theme', theme);
 	}
 });
+
+initializeThemePalette();

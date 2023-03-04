@@ -1,2 +1,3 @@
+change the paletteTheme name in localstorage and elsewherre to something different
 convert svg components into svg files
 fix clashing css styles

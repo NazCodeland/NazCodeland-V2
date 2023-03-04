@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { get } from 'svelte/store';
-	import { getPreferredClrScheme } from '../../utilities/index';
 	import { colorSchemeStore } from '../colorSchemeToggle/store/colorSchemeStore';
+	import { getBrowserPreferredColorScheme } from '../colorSchemeToggle/store/colorSchemeStore';
 	import { themePaletteStore } from './store/themePaletteStore';
 	import setThemePaletteStoreAttribute from './ThemePalettes/action/setThemePaletteStoreAttribute';
 	const palettes = ['mainPalette', 'desert', 'dusk', 'night-sky'];
@@ -17,7 +17,7 @@
 		let colorScheme: string;
 		switch ((event.target as HTMLInputElement).value) {
 			case 'mainPalette':
-				colorScheme = getPreferredClrScheme();
+				colorScheme = getBrowserPreferredColorScheme();
 				break;
 			case 'desert':
 				colorScheme = 'light';
