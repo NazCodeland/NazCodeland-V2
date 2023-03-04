@@ -12,7 +12,7 @@ export default function setAttributeOnDocument(_: HTMLElement) {
 	const unsubscribePalette = paletteStore.subscribe((themePalette) => {
 		console.log('within palette');
 		if (browser) {
-			document.querySelector(':root')?.setAttribute('theme', themePalette);
+			document.querySelector(':root')?.setAttribute('themePalette', themePalette);
 		}
 	});
 

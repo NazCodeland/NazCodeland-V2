@@ -9,8 +9,8 @@ export const colorSchemeStore: Writable<ColorScheme> = writable('light');
 export const paletteStore: Writable<themePalette> = writable('main');
 
 export function toggleColorScheme() {
-	colorSchemeStore.update((theme: string) => {
-		return theme === 'light' ? 'dark' : 'light';
+	colorSchemeStore.update((ColorScheme: string) => {
+		return ColorScheme === 'light' ? 'dark' : 'light';
 	});
 }
 
@@ -26,9 +26,9 @@ function initializeColorScheme() {
 }
 function initializeThemePalette() {
 	if (browser) {
-		const theme = window.localStorage.getItem('NazCodeland.themePalette');
-		if (theme) {
-			paletteStore.set(theme);
+		const themePalette = window.localStorage.getItem('NazCodeland.themePalette');
+		if (themePalette) {
+			paletteStore.set(themePalette);
 		}
 	}
 }
@@ -40,8 +40,8 @@ initializeThemePalette();
 colorSchemeStore.subscribe((colorScheme) => {
 	if (browser) window.localStorage.setItem('NazCodeland.colorScheme', colorScheme);
 });
-paletteStore.subscribe((theme) => {
+paletteStore.subscribe((themePalette) => {
 	if (browser) {
-		window.localStorage.setItem('NazCodeland.theme', theme);
+		window.localStorage.setItem('NazCodeland.themePalette', themePalette);
 	}
 });
