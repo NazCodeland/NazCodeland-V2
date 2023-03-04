@@ -1,8 +1,12 @@
 import { browser } from '$app/environment';
 import { writable, type Writable } from 'svelte/store';
 
+type ColorScheme = 'light' | 'dark';
+type Palette = 'main' | 'desert' | 'dusk' | 'night-sky';
+
 // subscriptions always run with the initial value
-export const colorSchemeStore: Writable<string> = writable('light');
+export const colorSchemeStore: Writable<ColorScheme> = writable('light');
+export const paletteStore: Writable<Palette> = writable('main');
 
 export function toggleColorScheme() {
 	colorSchemeStore.update((theme: string) => {
@@ -10,8 +14,11 @@ export function toggleColorScheme() {
 	});
 }
 
-export function getBrowserPreferredColorScheme() {
-	return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+function getBrowserPreferredColorScheme(): ColorScheme {
+	if (browser) {
+		return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
+	return 'light';
 }
 
 function initializeColorScheme() {
@@ -27,15 +34,12 @@ colorSchemeStore.subscribe((colorScheme) => {
 });
 
 // paletteStore
-export const paletteStore = writable('mainPalette');
 
 function initializeThemePalette() {
 	if (browser) {
-		const theme = window.localStorage.getItem('NazCodeland.theme');
-		console.log('-------------', theme);
-		if (theme) {
-			console.log(theme);
-			paletteStore.set(theme);
+		const userPalette = window.localStorage.getItem('NazCodeland.palette');
+		if (userPalette) {
+			paletteStore.set(userPalette as Palette);
 		}
 	}
 }

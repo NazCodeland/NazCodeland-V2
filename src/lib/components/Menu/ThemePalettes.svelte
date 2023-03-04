@@ -5,7 +5,7 @@
 	import { getBrowserPreferredColorScheme } from '../../stores/colorSchemeAndPaletteStore';
 	import { paletteStore } from '../../stores/colorSchemeAndPaletteStore';
 	import setAttributeOnDocument from '../../actions/setAttributeOnDocument';
-	const palettes = ['mainPalette', 'desert', 'dusk', 'night-sky'];
+	const palettes = ['main', 'desert', 'dusk', 'night-sky'];
 
 	function updatePaletteStore(event: MouseEvent) {
 		paletteStore.update((storeValue) => (storeValue = (event.target as HTMLInputElement).value));
@@ -14,7 +14,7 @@
 		// console.log((event.target as HTMLInputElement).value);
 		let colorScheme: string;
 		switch ((event.target as HTMLInputElement).value) {
-			case 'mainPalette':
+			case 'main':
 				colorScheme = getBrowserPreferredColorScheme();
 				break;
 			case 'desert':
@@ -90,7 +90,7 @@
 		outline-color: canvasText;
 	}
 
-	.mainPalette {
+	.main {
 		background-color: rgba(var(--primary-color));
 	}
 

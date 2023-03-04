@@ -18,62 +18,62 @@
 		--desert-contrast-theme-button-txt-clr: 32, 32, 32;
 	}
 
-	[theme='desert'] {
+	[palette='desert'] {
 		--html-color: var(--desert-contrast-theme-link-txt-clr);
 		--main-background: var(--desert-contrast-theme-bg-clr);
 	}
 
-	[theme='desert'] .logo :not([aria-hidden]) {
+	[palette='desert'] .logo :not([aria-hidden]) {
 		outline: 0.1px solid grayText;
 	}
 
-	[theme='desert'] .logo .first-letter {
+	[palette='desert'] .logo .first-letter {
 		color: rgba(var(--desert-contrast-theme-link-txt-clr));
 		outline-color: rgba(var(--desert-contrast-theme-link-txt-clr));
 	}
-	[theme='desert'] .logo .first-letter:is(:hover, :focus) {
+	[palette='desert'] .logo .first-letter:is(:hover, :focus) {
 		outline-color: rgba(var(--desert-contrast-theme-link-txt-clr));
 	}
 
-	[theme='desert'] .menu__links a {
+	[palette='desert'] .menu__links a {
 		--nav-link-text-color: var(--desert-contrast-theme-link-txt-clr);
 	}
 
-	[theme='desert'] .menu__links li a::before {
+	[palette='desert'] .menu__links li a::before {
 		background-color: rgba(var(--desert-contrast-theme-link-txt-clr));
 	}
 
-	[theme='desert'] .profile-card__image {
+	[palette='desert'] .profile-card__image {
 		outline: 1px solid rgba(var(--desert-contrast-theme-link-txt-clr));
 		border-color: rgba(var(--desert-contrast-theme-bg-clr)) !important;
 	}
 
-	[theme='desert'] .hamburger {
+	[palette='desert'] .hamburger {
 		color: rgba(var(--desert-contrast-theme-button-txt-clr));
 	}
 
-	[theme='desert'] .profile-card .link:is(:hover, :focus) {
+	[palette='desert'] .profile-card .link:is(:hover, :focus) {
 		color: canvas;
 	}
-	[theme='desert'] .profile-card .link::before {
+	[palette='desert'] .profile-card .link::before {
 		background-color: rgba(var(--desert-contrast-theme-link-txt-clr));
 	}
 
-	[theme='desert'] .profile-card .btn-filled-primary {
+	[palette='desert'] .profile-card .btn-filled-primary {
 		background-color: rgba(var(--desert-contrast-theme-link-txt-clr));
 		color: canvas;
 	}
 
-	[theme='desert'] .profile-card .btn-outlined-primary {
+	[palette='desert'] .profile-card .btn-outlined-primary {
 		color: rgba(var(--desert-contrast-theme-button-txt-clr));
 		outline-color: rgba(var(--desert-contrast-theme-link-txt-clr));
 	}
 
-	[theme='desert'] .what-i-do {
+	[palette='desert'] .what-i-do {
 		text-decoration-color: rgba(var(--desert-contrast-theme-link-txt-clr));
 	}
 
-	[theme='desert'] .skill-card {
+	[palette='desert'] .skill-card {
 		outline: 1px solid rgba(var(--desert-contrast-theme-link-txt-clr));
 	}
 
