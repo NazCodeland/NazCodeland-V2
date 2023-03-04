@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-
+	import { get } from 'svelte/store';
 	import { colorSchemeStore } from '../colorSchemeToggle/store/colorSchemeStore';
 	import { themePaletteStore } from './store/themePaletteStore';
 	const palettes = ['mainPalette', 'desert', 'dusk', 'night-sky'];
@@ -23,11 +23,7 @@
 		updateThemePaletteStore(event);
 	}
 
-	let theme: string = '';
-	themePaletteStore.subscribe((themePalette) => {
-		theme = themePalette;
-	});
-	let selectedPalette: string = theme;
+	let selectedPalette = get(themePaletteStore);
 </script>
 
 <div class="palettes">
