@@ -7,11 +7,11 @@ export default function setColorSchemeAttribute(_: HTMLElement) {
 		if (browser) {
 			document.querySelector(':root')?.setAttribute('color-scheme', colorScheme);
 		}
-
-		return {
-			destroy() {
-				unsubscribe();
-			}
-		};
 	});
+
+	return {
+		destroy() {
+			unsubscribe();
+		}
+	};
 }

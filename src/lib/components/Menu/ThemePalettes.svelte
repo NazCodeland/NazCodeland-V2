@@ -5,7 +5,6 @@
 	import { colorSchemeStore } from '../colorSchemeToggle/store/colorSchemeStore';
 	import { themePaletteStore } from './store/themePaletteStore';
 	const palettes = ['mainPalette', 'desert', 'dusk', 'night-sky'];
-	const palettesBg = ['', 'light', 'dark', 'dark'];
 
 	function updateThemePaletteAttribute(event: MouseEvent) {
 		if (browser) {
