@@ -1,14 +1,18 @@
 <script lang="ts">
 	import { toggleColorScheme } from './colorSchemeToggle/store/colorSchemeStore';
+	import { themePaletteStore } from './Menu/store/themePaletteStore';
 	import Day from './colorSchemeToggle/Day.svelte';
 	import Night from './colorSchemeToggle/Night.svelte';
+
+	let themePaletteValue: string;
+	themePaletteStore.subscribe((value) => (themePaletteValue = value));
 </script>
 
 <button
 	on:click={toggleColorScheme}
 	type="button"
 	aria-label="site-wide theme switcher"
-	class="theme-switcher"
+	class="theme-switcher {themePaletteValue !== 'mainPalette' ? 'hidden' : ''}"
 >
 	<div class="day-and-night-svg-container svg-size">
 		<div class="svg-day common-svg-styles" title="light mode">
