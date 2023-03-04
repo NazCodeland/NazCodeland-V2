@@ -6,19 +6,24 @@
 	const palettes = ['mainPalette', 'desert', 'dusk', 'night-sky'];
 	const dayNNight = ['dark', 'light', 'dark', 'dark'];
 
-	function updateThemePalette(event: MouseEvent) {
+	function updateThemePaletteAttribute(event: MouseEvent) {
 		if (browser) {
 			document
 				.querySelector(':root')
 				?.setAttribute('theme', (event.target as HTMLInputElement).value);
 		}
+	}
+	function updateThemePaletteStore(event: MouseEvent) {
 		themePaletteStore.update(
 			(storeValue) => (storeValue = (event.target as HTMLInputElement).value)
 		);
 	}
+	function handleClick(event: MouseEvent) {
+		updateThemePaletteAttribute(event);
+		updateThemePaletteStore(event);
+	}
 
 	let theme: string = '';
-	console.log(theme);
 	themePaletteStore.subscribe((themePalette) => {
 		theme = themePalette;
 	});
@@ -28,7 +33,7 @@
 <div class="palettes">
 	{#each palettes as palette}
 		<input
-			on:click={updateThemePalette}
+			on:click={handleClick}
 			type="radio"
 			bind:group={selectedPalette}
 			value={palette}

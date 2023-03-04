@@ -5,9 +5,8 @@ let selectedTheme;
 if (browser) selectedTheme = window.localStorage.getItem('NazCodeland.theme');
 export const themePaletteStore = writable(selectedTheme ?? 'mainPalette');
 
-themePaletteStore.subscribe((theme) => {
+themePaletteStore.subscribe((themePalette) => {
 	if (browser) {
-		console.log(theme);
-		window.localStorage.setItem('NazCodeland.theme', theme);
+		window.localStorage.setItem('NazCodeland.theme', themePalette);
 	}
 });
