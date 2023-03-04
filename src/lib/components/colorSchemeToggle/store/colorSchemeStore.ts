@@ -14,7 +14,7 @@ export function toggleColorScheme() {
 function initializeColorScheme() {
 	if (browser) {
 		const userTheme =
-			window.localStorage.getItem('NazCodeland.colorScheme') || getPreferredClrScheme();
+			window.localStorage.getItem('NazCodeland.colorScheme') ?? getPreferredClrScheme();
 		colorSchemeStore.set(userTheme);
 	}
 }

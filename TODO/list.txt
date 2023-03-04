@@ -1,0 +1,2 @@
+convert svg components into svg files
+fix clashing css styles
