@@ -1,12 +1,40 @@
 <script lang="ts">
-	const palettes = ['mainPalette', 'desert', 'dusk', 'night-sky'];
+	import { browser } from '$app/environment';
 
-	function updateThemePalette() {}
+	import { colorSchemeStore } from '../colorSchemeToggle/store/colorSchemeStore';
+	import { themePaletteStore } from './store/themePaletteStore';
+	const palettes = ['mainPalette', 'desert', 'dusk', 'night-sky'];
+	const dayNNight = ['dark', 'light', 'dark', 'dark'];
+
+	function updateThemePalette(event: MouseEvent) {
+		if (browser) {
+			document
+				.querySelector(':root')
+				?.setAttribute('theme', (event.target as HTMLInputElement).value);
+		}
+		themePaletteStore.update(
+			(storeValue) => (storeValue = (event.target as HTMLInputElement).value)
+		);
+	}
+
+	let theme: string = '';
+	console.log(theme);
+	themePaletteStore.subscribe((themePalette) => {
+		theme = themePalette;
+	});
+	let selectedPalette: string = theme;
 </script>
 
 <div class="palettes">
 	{#each palettes as palette}
-		<button on:click={updateThemePalette} type="button" name={palette} class="palette {palette}" />
+		<input
+			on:click={updateThemePalette}
+			type="radio"
+			bind:group={selectedPalette}
+			value={palette}
+			name="palette"
+			class="palette {palette}"
+		/>
 	{/each}
 </div>
 
