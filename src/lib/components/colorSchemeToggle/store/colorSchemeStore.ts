@@ -5,7 +5,10 @@ import { writable, type Writable } from 'svelte/store';
 export let colorSchemeStore: Writable<string>;
 
 if (browser) {
-	colorSchemeStore = writable(getPreferredClrScheme());
+	// TODO: What is going on here
+	colorSchemeStore = writable(
+		window.localStorage.getItem('NazCodeland.colorScheme') ?? getPreferredClrScheme()
+	);
 
 	colorSchemeStore.subscribe((colorScheme) => {
 		window.localStorage.setItem('NazCodeland.colorScheme', colorScheme);
@@ -13,9 +16,7 @@ if (browser) {
 }
 
 export function toggleColorScheme() {
-	if (browser) {
-		const changedColorScheme =
-			window.localStorage.getItem('NazCodeland.colorScheme') === 'light' ? 'dark' : 'light';
-		colorSchemeStore.set(changedColorScheme);
-	}
+	colorSchemeStore.update((n: string) => {
+		return n === 'light' ? 'dark' : 'light';
+	});
 }
