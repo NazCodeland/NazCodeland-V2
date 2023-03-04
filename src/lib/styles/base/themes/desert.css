@@ -19,7 +19,6 @@
 	}
 
 	[theme='desert'] {
-		color: black !important;
 		--html-color: var(--desert-contrast-theme-link-txt-clr);
 		--main-background: var(--desert-contrast-theme-bg-clr);
 	}
