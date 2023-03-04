@@ -14,11 +14,8 @@ export function toggleColorScheme() {
 	});
 }
 
-function getBrowserPreferredColorScheme(): ColorScheme {
-	if (browser) {
-		return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	}
-	return 'light';
+export function getBrowserPreferredColorScheme() {
+	return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
 function initializeColorScheme() {
@@ -27,25 +24,22 @@ function initializeColorScheme() {
 		colorSchemeStore.set(colorScheme ?? getBrowserPreferredColorScheme());
 	}
 }
-initializeColorScheme();
-
-colorSchemeStore.subscribe((colorScheme) => {
-	if (browser) window.localStorage.setItem('NazCodeland.colorScheme', colorScheme);
-});
-
-// paletteStore
-
 function initializeThemePalette() {
 	if (browser) {
-		const themePalette = window.localStorage.getItem('NazCodeland.themePalette');
-		if (themePalette) {
-			paletteStore.set(themePalette as Palette);
+		const theme = window.localStorage.getItem('NazCodeland.themePalette');
+		if (theme) {
+			paletteStore.set(theme);
 		}
 	}
 }
-
+// initialize first
+initializeColorScheme();
 initializeThemePalette();
 
+// then subscribe
+colorSchemeStore.subscribe((colorScheme) => {
+	if (browser) window.localStorage.setItem('NazCodeland.colorScheme', colorScheme);
+});
 paletteStore.subscribe((theme) => {
 	if (browser) {
 		window.localStorage.setItem('NazCodeland.theme', theme);
