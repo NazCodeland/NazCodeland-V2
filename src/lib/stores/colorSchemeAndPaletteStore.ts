@@ -20,12 +20,11 @@ function initializeColorScheme() {
 		colorSchemeStore.set(colorScheme ?? getBrowserPreferredColorScheme());
 	}
 }
+initializeColorScheme();
 
 colorSchemeStore.subscribe((colorScheme) => {
 	if (browser) window.localStorage.setItem('NazCodeland.colorScheme', colorScheme);
 });
-
-initializeColorScheme();
 
 // paletteStore
 export const paletteStore = writable('mainPalette');
@@ -33,16 +32,18 @@ export const paletteStore = writable('mainPalette');
 function initializeThemePalette() {
 	if (browser) {
 		const theme = window.localStorage.getItem('NazCodeland.theme');
+		console.log('-------------', theme);
 		if (theme) {
+			console.log(theme);
 			paletteStore.set(theme);
 		}
 	}
 }
+
+initializeThemePalette();
 
 paletteStore.subscribe((theme) => {
 	if (browser) {
 		window.localStorage.setItem('NazCodeland.theme', theme);
 	}
 });
-
-initializeThemePalette();

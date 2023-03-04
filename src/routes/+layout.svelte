@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import setColorSchemeAttribute from '$lib/actions/setColorSchemeAttribute';
+	import setAttributeOnDocument from '$lib/actions/setAttributeOnDocument';
 
 	import ColorSchemeToggle from '$lib/components/ColorSchemeToggle.svelte';
 	import Menu from '$lib/components/Menu.svelte';
@@ -11,7 +11,7 @@
 	// }
 </script>
 
-<div class="bg-primaryColor p-8" use:setColorSchemeAttribute>
+<div class="bg-primaryColor p-8" use:setAttributeOnDocument>
 	<div class="relative flex flex-col p-8 font-body text-lg rounded-2xl bg-mainBackground">
 		<!--  -->
 		<header class="site-wide-header mb-32">
