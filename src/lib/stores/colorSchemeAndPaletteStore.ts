@@ -28,7 +28,6 @@ colorSchemeStore.subscribe((colorScheme) => {
 initializeColorScheme();
 
 // paletteStore
-
 export const paletteStore = writable('mainPalette');
 
 function initializeThemePalette() {

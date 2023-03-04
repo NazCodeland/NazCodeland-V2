@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { toggleColorScheme } from './colorSchemeToggle/store/colorSchemeStore';
-	import { themePaletteStore } from './Menu/store/themePaletteStore';
+	import { toggleColorScheme } from '../stores/colorSchemeStore';
+	import { themePaletteStore } from '../stores/themePaletteStore';
 	import Day from './colorSchemeToggle/Day.svelte';
 	import Night from './colorSchemeToggle/Night.svelte';
 

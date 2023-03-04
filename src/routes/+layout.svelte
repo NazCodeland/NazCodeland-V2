@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import setColorSchemeAttribute from '$lib/components/colorSchemeToggle/action/setColorSchemeAttribute';
+	import setColorSchemeAttribute from '$lib/actions/setColorSchemeAttribute';
 
 	import ColorSchemeToggle from '$lib/components/ColorSchemeToggle.svelte';
 	import Menu from '$lib/components/Menu.svelte';
