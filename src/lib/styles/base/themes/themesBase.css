@@ -1,28 +1,28 @@
 @layer base {
-	[palette='desert'] .theme-switcher,
-	[palette='dusk'] .theme-switcher,
-	[palette='night-sky'] .theme-switcher {
+	[themePalette='desert'] .theme-switcher,
+	[themePalette='dusk'] .theme-switcher,
+	[themePalette='night-sky'] .theme-switcher {
 		display: none;
 	}
 
 	/*  this setting is set in reset.css but in More Contrast in firefox this is needed again */
-	[palette='dusk'] .theme-switcher:is(:hover, :focus),
-	[palette='desert'] .theme-switcher:is(:hover, :focus),
-	[palette='night-sky'] .theme-switcher:is(:hover, :focus) {
+	[themePalette='dusk'] .theme-switcher:is(:hover, :focus),
+	[themePalette='desert'] .theme-switcher:is(:hover, :focus),
+	[themePalette='night-sky'] .theme-switcher:is(:hover, :focus) {
 		outline: 0.1rem solid canvasText;
 	}
 
-	[palette='dusk'] .logo .first-letter:focus-visible,
-	[palette='desert'] .logo .first-letter:focus-visible,
-	[palette='night-sky'] .logo .first-letter:focus-visible {
+	[themePalette='dusk'] .logo .first-letter:focus-visible,
+	[themePalette='desert'] .logo .first-letter:focus-visible,
+	[themePalette='night-sky'] .logo .first-letter:focus-visible {
 		outline-width: 2px;
 		outline-color: canvasText !important;
 		outline-style: dashed;
 	}
 
-	[palette='desert'] .hamburger:is(:hover),
-	[palette='dusk'] .hamburger:is(:hover),
-	[palette='night-sky'] .hamburger:is(:hover) {
+	[themePalette='desert'] .hamburger:is(:hover),
+	[themePalette='dusk'] .hamburger:is(:hover),
+	[themePalette='night-sky'] .hamburger:is(:hover) {
 		/* this setting is set in reset.css but in More Contrast in firefox this is needed again */
 		outline-offset: 0;
 		outline-width: 0.1rem;
@@ -32,51 +32,51 @@
 		border-radius: var(--spacer-4);
 	}
 
-	[palette='desert'] .profile-card .btn-outlined-primary:is(:hover, :focus),
-	[palette='dusk'] .profile-card .btn-outlined-primary:is(:hover, :focus),
-	[palette='night-sky'] .profile-card .btn-outlined-primary:is(:hover, :focus),
-	[palette='desert'] .profile-card .btn-filled-primary:is(:hover, :focus),
-	[palette='dusk'] .profile-card .btn-filled-primary:is(:hover, :focus),
-	[palette='night-sky'] .profile-card .btn-filled-primary:is(:hover, :focus) {
+	[themePalette='desert'] .profile-card .btn-outlined-primary:is(:hover, :focus),
+	[themePalette='dusk'] .profile-card .btn-outlined-primary:is(:hover, :focus),
+	[themePalette='night-sky'] .profile-card .btn-outlined-primary:is(:hover, :focus),
+	[themePalette='desert'] .profile-card .btn-filled-primary:is(:hover, :focus),
+	[themePalette='dusk'] .profile-card .btn-filled-primary:is(:hover, :focus),
+	[themePalette='night-sky'] .profile-card .btn-filled-primary:is(:hover, :focus) {
 		outline-color: canvasText;
 		background-color: var(--main-background);
 	}
 
-	[palette='desert'] .skill-card:is(:hover, :focus),
-	[palette='dusk'] .skill-card:is(:hover, :focus),
-	[palette='night-sky'] .skill-card:is(:hover, :focus) {
+	[themePalette='desert'] .skill-card:is(:hover, :focus),
+	[themePalette='dusk'] .skill-card:is(:hover, :focus),
+	[themePalette='night-sky'] .skill-card:is(:hover, :focus) {
 		outline: 2px solid canvasText;
 	}
 
-	[palette='desert'] .skill-card:focus-visible,
-	[palette='dusk'] .skill-card:focus-visible,
-	[palette='night-sky'] .skill-card:focus-visible {
+	[themePalette='desert'] .skill-card:focus-visible,
+	[themePalette='dusk'] .skill-card:focus-visible,
+	[themePalette='night-sky'] .skill-card:focus-visible {
 		outline-style: dashed;
 	}
 
-	[palette='desert'] .site-content,
-	[palette='desert'] .profile-card__subtitle,
-	[palette='desert'] .what-i-do,
-	[palette='dusk'] .site-content,
-	[palette='dusk'] .profile-card__subtitle,
-	[palette='dusk'] .what-i-do,
-	[palette='night-sky'] .site-content,
-	[palette='night-sky'] .profile-card__subtitle,
-	[palette='night-sky'] .what-i-do {
+	[themePalette='desert'] .site-content,
+	[themePalette='desert'] .profile-card__subtitle,
+	[themePalette='desert'] .what-i-do,
+	[themePalette='dusk'] .site-content,
+	[themePalette='dusk'] .profile-card__subtitle,
+	[themePalette='dusk'] .what-i-do,
+	[themePalette='night-sky'] .site-content,
+	[themePalette='night-sky'] .profile-card__subtitle,
+	[themePalette='night-sky'] .what-i-do {
 		color: canvasText;
 	}
 
 	/* TODO: people who prefer less contrast, do they mind elevation/box shadow?  */
 	/* TODO: if not, remove 'desert' theme off this list and perhaps tweak the box-shadow color slightly */
-	[palette='desert'] .logo *,
-	[palette='desert'] .btn,
-	[palette='desert'] .skill-card,
-	[palette='dusk'] .logo *,
-	[palette='dusk'] .btn,
-	[palette='dusk'] .skill-card,
-	[palette='night-sky'] .logo *,
-	[palette='night-sky'] .btn,
-	[palette='night-sky'] .skill-card {
+	[themePalette='desert'] .logo *,
+	[themePalette='desert'] .btn,
+	[themePalette='desert'] .skill-card,
+	[themePalette='dusk'] .logo *,
+	[themePalette='dusk'] .btn,
+	[themePalette='dusk'] .skill-card,
+	[themePalette='night-sky'] .logo *,
+	[themePalette='night-sky'] .btn,
+	[themePalette='night-sky'] .skill-card {
 		box-shadow: none !important;
 	}
 }

@@ -2,11 +2,11 @@ import { browser } from '$app/environment';
 import { writable, type Writable } from 'svelte/store';
 
 type ColorScheme = 'light' | 'dark';
-type Palette = 'main' | 'desert' | 'dusk' | 'night-sky';
+type themePalette = 'main' | 'desert' | 'dusk' | 'night-sky';
 
 // subscriptions always run with the initial value
 export const colorSchemeStore: Writable<ColorScheme> = writable('light');
-export const paletteStore: Writable<Palette> = writable('main');
+export const paletteStore: Writable<themePalette> = writable('main');
 
 export function toggleColorScheme() {
 	colorSchemeStore.update((theme: string) => {
@@ -37,9 +37,9 @@ colorSchemeStore.subscribe((colorScheme) => {
 
 function initializeThemePalette() {
 	if (browser) {
-		const userPalette = window.localStorage.getItem('NazCodeland.palette');
-		if (userPalette) {
-			paletteStore.set(userPalette as Palette);
+		const themePalette = window.localStorage.getItem('NazCodeland.themePalette');
+		if (themePalette) {
+			paletteStore.set(themePalette as Palette);
 		}
 	}
 }

@@ -17,59 +17,59 @@
 		--dusk-contrast-theme-button-txt-clr: 182, 246, 240;
 	}
 	/* #region dusk*/
-	[palette='dusk'] {
+	[themePalette='dusk'] {
 		--html-color: var(--dusk-contrast-theme-link-txt-clr);
 		--main-background: var(--dusk-contrast-theme-bg-clr);
 	}
 
-	[palette='dusk'] .logo :not([aria-hidden]) {
+	[themePalette='dusk'] .logo :not([aria-hidden]) {
 		outline: 0.1px solid grayText;
 	}
 
-	[palette='dusk'] .logo .first-letter {
+	[themePalette='dusk'] .logo .first-letter {
 		color: rgba(var(--dusk-contrast-theme-link-txt-clr));
 		outline-color: rgba(var(--dusk-contrast-theme-link-txt-clr)) !important;
 	}
 
-	[palette='dusk'] .menu__links a {
+	[themePalette='dusk'] .menu__links a {
 		--nav-link-text-color: var(--dusk-contrast-theme-link-txt-clr);
 	}
 
-	[palette='dusk'] .menu__links li a::before {
+	[themePalette='dusk'] .menu__links li a::before {
 		background-color: rgba(var(--dusk-contrast-theme-link-txt-clr));
 	}
 
-	[palette='dusk'] .profile-card__image {
+	[themePalette='dusk'] .profile-card__image {
 		outline: 1px solid rgba(var(--dusk-contrast-theme-button-txt-clr));
 		border-color: rgba(var(--dusk-contrast-theme-bg-clr)) !important;
 	}
 
-	[palette='dusk'] .hamburger {
+	[themePalette='dusk'] .hamburger {
 		color: rgba(var(--dusk-contrast-theme-button-txt-clr));
 	}
 
-	[palette='dusk'] .profile-card .link:is(:hover, :focus),
-	[palette='dusk'] .profile-card .btn-filled-primary {
+	[themePalette='dusk'] .profile-card .link:is(:hover, :focus),
+	[themePalette='dusk'] .profile-card .btn-filled-primary {
 		color: markText;
 	}
-	[palette='dusk'] .profile-card .link::before {
+	[themePalette='dusk'] .profile-card .link::before {
 		background-color: rgba(var(--dusk-contrast-theme-link-txt-clr));
 	}
 
-	[palette='dusk'] .profile-card .btn-filled-primary {
+	[themePalette='dusk'] .profile-card .btn-filled-primary {
 		background-color: rgba(var(--dusk-contrast-theme-link-txt-clr));
 	}
 
-	[palette='dusk'] .profile-card .btn-outlined-primary {
+	[themePalette='dusk'] .profile-card .btn-outlined-primary {
 		color: rgba(var(--dusk-contrast-theme-button-txt-clr));
 		outline-color: rgba(var(--dusk-contrast-theme-button-txt-clr));
 	}
 
-	[palette='dusk'] .what-i-do {
+	[themePalette='dusk'] .what-i-do {
 		text-decoration-color: rgba(var(--dusk-contrast-theme-link-txt-clr));
 	}
 
-	[palette='dusk'] .skill-card {
+	[themePalette='dusk'] .skill-card {
 		outline: 1px solid rgba(var(--dusk-contrast-theme-link-txt-clr));
 	}
 
