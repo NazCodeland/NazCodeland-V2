@@ -4,6 +4,7 @@
 	import { getPreferredClrScheme } from '../../utilities/index';
 	import { colorSchemeStore } from '../colorSchemeToggle/store/colorSchemeStore';
 	import { themePaletteStore } from './store/themePaletteStore';
+	import setThemePaletteStoreAttribute from './ThemePalettes/action/setThemePaletteStoreAttribute';
 	const palettes = ['mainPalette', 'desert', 'dusk', 'night-sky'];
 
 	function updateThemePaletteAttribute(event: MouseEvent) {
@@ -54,6 +55,7 @@
 <div class="palettes">
 	{#each palettes as palette}
 		<input
+			use:setThemePaletteStoreAttribute
 			on:click={handleClick}
 			type="radio"
 			bind:group={selectedPalette}
