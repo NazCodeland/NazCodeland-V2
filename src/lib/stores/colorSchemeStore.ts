@@ -26,3 +26,24 @@ colorSchemeStore.subscribe((colorScheme) => {
 });
 
 initializeColorScheme();
+
+// paletteStore
+
+export const paletteStore = writable('mainPalette');
+
+function initializeThemePalette() {
+	if (browser) {
+		const theme = window.localStorage.getItem('NazCodeland.theme');
+		if (theme) {
+			paletteStore.set(theme);
+		}
+	}
+}
+
+paletteStore.subscribe((theme) => {
+	if (browser) {
+		window.localStorage.setItem('NazCodeland.theme', theme);
+	}
+});
+
+initializeThemePalette();
