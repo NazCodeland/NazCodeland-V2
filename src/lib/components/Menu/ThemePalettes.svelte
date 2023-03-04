@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { get } from 'svelte/store';
+	import { getPreferredClrScheme } from '../../utilities/index';
 	import { colorSchemeStore } from '../colorSchemeToggle/store/colorSchemeStore';
 	import { themePaletteStore } from './store/themePaletteStore';
 	const palettes = ['mainPalette', 'desert', 'dusk', 'night-sky'];
-	const dayNNight = ['dark', 'light', 'dark', 'dark'];
+	const palettesBg = ['', 'light', 'dark', 'dark'];
 
 	function updateThemePaletteAttribute(event: MouseEvent) {
 		if (browser) {
@@ -18,11 +19,36 @@
 			(storeValue) => (storeValue = (event.target as HTMLInputElement).value)
 		);
 	}
+	function updateColorSchemeStore(event: MouseEvent) {
+		// console.log((event.target as HTMLInputElement).value);
+		let colorScheme: string;
+		switch ((event.target as HTMLInputElement).value) {
+			case 'mainPalette':
+				colorScheme = getPreferredClrScheme();
+				break;
+			case 'desert':
+				colorScheme = 'light';
+				break;
+			case 'dusk':
+				colorScheme = 'dark';
+				break;
+			case 'night-sky':
+				colorScheme = 'dark';
+				break;
+			default:
+				break;
+		}
+		colorSchemeStore.update((value) => (value = colorScheme));
+	}
+
 	function handleClick(event: MouseEvent) {
 		updateThemePaletteAttribute(event);
 		updateThemePaletteStore(event);
+		updateColorSchemeStore(event);
 	}
 
+	// if the page is refreshed, the correct input(the last selected one)
+	//  will be selected after page refresh
 	let selectedPalette = get(themePaletteStore);
 </script>
 
