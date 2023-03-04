@@ -13,9 +13,16 @@ export function toggleColorScheme() {
 
 function initializeColorScheme() {
 	if (browser) {
-		const userTheme =
-			window.localStorage.getItem('NazCodeland.colorScheme') ?? getPreferredClrScheme();
-		colorSchemeStore.set(userTheme);
+		const userTheme = window.localStorage.getItem('NazCodeland.colorScheme');
+		if (userTheme) {
+			colorSchemeStore.set(userTheme);
+		} else {
+			if (matchMedia('(prefers-color-scheme: light)').matches) {
+				colorSchemeStore.set('light');
+			} else {
+				colorSchemeStore.set('dark');
+			}
+		}
 	}
 }
 

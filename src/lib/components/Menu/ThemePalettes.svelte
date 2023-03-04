@@ -7,13 +7,6 @@
 	import setThemePaletteStoreAttribute from './ThemePalettes/action/setThemePaletteStoreAttribute';
 	const palettes = ['mainPalette', 'desert', 'dusk', 'night-sky'];
 
-	function updateThemePaletteAttribute(event: MouseEvent) {
-		if (browser) {
-			document
-				.querySelector(':root')
-				?.setAttribute('theme', (event.target as HTMLInputElement).value);
-		}
-	}
 	function updateThemePaletteStore(event: MouseEvent) {
 		themePaletteStore.update(
 			(storeValue) => (storeValue = (event.target as HTMLInputElement).value)
@@ -42,7 +35,6 @@
 	}
 
 	function handleClick(event: MouseEvent) {
-		updateThemePaletteAttribute(event);
 		updateThemePaletteStore(event);
 		updateColorSchemeStore(event);
 	}
