@@ -39,18 +39,18 @@ export function toggleColorScheme() {
 
 function initializeColorScheme() {
 	if (browser) {
-		if (!trySetScheme(window.localStorage.getItem('NazCodeland.colorScheme'))) {
+		if (!trySetColorScheme(window.localStorage.getItem('NazCodeland.colorScheme'))) {
 			colorSchemeStore.set(getBrowserPreferredColorScheme());
 		}
 	}
 }
 function initializeThemePalette() {
 	if (browser) {
-		trySetPalette(window.localStorage.getItem('NazCodeland.themePalette'));
+		trySetThemePalette(window.localStorage.getItem('NazCodeland.themePalette'));
 	}
 }
 
-function getBrowserPreferredColorScheme(): ColorScheme {
+export function getBrowserPreferredColorScheme(): ColorScheme {
 	if (browser) {
 		if (matchMedia(`(prefers-color-scheme: ${ColorScheme.dark})`).matches) {
 			return ColorScheme.dark;
@@ -59,9 +59,23 @@ function getBrowserPreferredColorScheme(): ColorScheme {
 	return ColorScheme.light;
 }
 
+function getColorSchemeFromThemePalette(themePalette: ThemePalette): ColorScheme {
+	switch (themePalette) {
+		case 'main':
+			return getBrowserPreferredColorScheme();
+		case 'dusk':
+		case 'nightSky':
+			return ColorScheme.dark;
+		case 'desert':
+		default:
+			return ColorScheme.light;
+	}
+}
+// initialize first
 initializeColorScheme();
 initializeThemePalette();
 
+// then subscribe
 colorSchemeStore.subscribe((colorScheme) => {
 	if (browser) {
 		window.localStorage.setItem('NazCodeland.colorScheme', colorScheme);
@@ -71,4 +85,5 @@ themePaletteStore.subscribe((themePalette) => {
 	if (browser) {
 		window.localStorage.setItem('NazCodeland.themePalette', themePalette);
 	}
+	getColorSchemeFromThemePalette(themePalette);
 });

@@ -1,5 +1,5 @@
 import { browser } from '$app/environment';
-import { colorSchemeStore, paletteStore } from '../stores/colorSchemeAndPaletteStore';
+import { colorSchemeStore, themePaletteStore } from '../stores/colorSchemeAndPaletteStore';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function setAttributeOnDocument(_: HTMLElement) {
@@ -9,8 +9,7 @@ export default function setAttributeOnDocument(_: HTMLElement) {
 		}
 	});
 
-	const unsubscribePalette = paletteStore.subscribe((themePalette) => {
-		console.log('within palette');
+	const unsubscribePalette = themePaletteStore.subscribe((themePalette) => {
 		if (browser) {
 			document.querySelector(':root')?.setAttribute('themePalette', themePalette);
 		}

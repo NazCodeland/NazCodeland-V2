@@ -1,45 +1,16 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
 	import { get } from 'svelte/store';
-	import { colorSchemeStore } from '../../stores/colorSchemeAndPaletteStore';
-	import { getBrowserPreferredColorScheme } from '../../stores/colorSchemeAndPaletteStore';
-	import { paletteStore } from '../../stores/colorSchemeAndPaletteStore';
-	import setAttributeOnDocument from '../../actions/setAttributeOnDocument';
+	import { themePaletteStore, trySetThemePalette } from '$lib/stores/colorSchemeAndPaletteStore';
+
 	const palettes = ['main', 'desert', 'dusk', 'nightSky'];
 
-	function updatePaletteStore(event: MouseEvent) {
-		paletteStore.update((storeValue) => (storeValue = (event.target as HTMLInputElement).value));
-	}
-	function updateColorSchemeStore(event: MouseEvent) {
-		// console.log((event.target as HTMLInputElement).value);
-		let colorScheme: string;
-		switch ((event.target as HTMLInputElement).value) {
-			case 'main':
-				colorScheme = getBrowserPreferredColorScheme();
-				break;
-			case 'desert':
-				colorScheme = 'light';
-				break;
-			case 'dusk':
-				colorScheme = 'dark';
-				break;
-			case 'nightSky':
-				colorScheme = 'dark';
-				break;
-			default:
-				break;
-		}
-		colorSchemeStore.update((value) => (value = colorScheme));
-	}
-
 	function handleClick(event: MouseEvent) {
-		updatePaletteStore(event);
-		updateColorSchemeStore(event);
+		trySetThemePalette((event.target as HTMLInputElement).value);
 	}
 
 	// if the page is refreshed, the correct input(the last selected one)
 	//  will be selected after page refresh
-	let selectedPalette = get(paletteStore);
+	let selectedPalette = get(themePaletteStore);
 </script>
 
 <div class="palettes">
