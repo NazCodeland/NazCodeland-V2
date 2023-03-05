@@ -16,14 +16,14 @@ export enum ThemePalette {
 export const colorSchemeStore: Writable<ColorScheme> = writable(ColorScheme.light);
 export const themePaletteStore: Writable<ThemePalette> = writable(ThemePalette.main);
 
-export function trySetScheme(value: any) {
+export function trySetColorScheme(value: any) {
 	if (typeof value === 'string' && value in ColorScheme) {
 		colorSchemeStore.set(value as ColorScheme);
 		return true;
 	}
 	return false;
 }
-export function trySetPalette(value: any) {
+export function trySetThemePalette(value: any) {
 	if (typeof value === 'string' && value in ThemePalette) {
 		themePaletteStore.set(value as ThemePalette);
 		return true;
