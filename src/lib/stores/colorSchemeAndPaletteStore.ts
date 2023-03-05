@@ -85,5 +85,5 @@ themePaletteStore.subscribe((themePalette) => {
 	if (browser) {
 		window.localStorage.setItem('NazCodeland.themePalette', themePalette);
 	}
-	getColorSchemeFromThemePalette(themePalette);
+	colorSchemeStore.set(getColorSchemeFromThemePalette(themePalette));
 });

@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { get } from 'svelte/store';
-	import { themePaletteStore, trySetThemePalette } from '$lib/stores/colorSchemeAndPaletteStore';
-
-	const palettes = ['main', 'desert', 'dusk', 'nightSky'];
+	import {
+		ThemePalette,
+		themePaletteStore,
+		trySetThemePalette
+	} from '$lib/stores/colorSchemeAndPaletteStore';
 
 	function handleClick(event: MouseEvent) {
 		trySetThemePalette((event.target as HTMLInputElement).value);
@@ -14,7 +16,7 @@
 </script>
 
 <div class="palettes">
-	{#each palettes as palette}
+	{#each Object.keys(ThemePalette) as palette}
 		<input
 			on:click={handleClick}
 			type="radio"
