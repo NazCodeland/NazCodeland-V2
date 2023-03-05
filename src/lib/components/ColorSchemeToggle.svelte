@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { toggleColorScheme, paletteStore } from '../stores/colorSchemeAndPaletteStore';
+	import { toggleColorScheme, themePaletteStore } from '../stores/colorSchemeAndPaletteStore';
 	import Day from './colorSchemeToggle/Day.svelte';
 	import Night from './colorSchemeToggle/Night.svelte';
 
 	let themePaletteValue: string;
-	paletteStore.subscribe((value: string) => (themePaletteValue = value));
+	themePaletteStore.subscribe((value: string) => (themePaletteValue = value));
 </script>
 
 <button
