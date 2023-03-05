@@ -1,20 +1,20 @@
 @layer base {
 	[themePalette='desert'] .theme-switcher,
 	[themePalette='dusk'] .theme-switcher,
-	[themePalette='night-sky'] .theme-switcher {
+	[themePalette='nightSky'] .theme-switcher {
 		display: none;
 	}
 
 	/*  this setting is set in reset.css but in More Contrast in firefox this is needed again */
 	[themePalette='dusk'] .theme-switcher:is(:hover, :focus),
 	[themePalette='desert'] .theme-switcher:is(:hover, :focus),
-	[themePalette='night-sky'] .theme-switcher:is(:hover, :focus) {
+	[themePalette='nightSky'] .theme-switcher:is(:hover, :focus) {
 		outline: 0.1rem solid canvasText;
 	}
 
 	[themePalette='dusk'] .logo .first-letter:focus-visible,
 	[themePalette='desert'] .logo .first-letter:focus-visible,
-	[themePalette='night-sky'] .logo .first-letter:focus-visible {
+	[themePalette='nightSky'] .logo .first-letter:focus-visible {
 		outline-width: 2px;
 		outline-color: canvasText !important;
 		outline-style: dashed;
@@ -22,7 +22,7 @@
 
 	[themePalette='desert'] .hamburger:is(:hover),
 	[themePalette='dusk'] .hamburger:is(:hover),
-	[themePalette='night-sky'] .hamburger:is(:hover) {
+	[themePalette='nightSky'] .hamburger:is(:hover) {
 		/* this setting is set in reset.css but in More Contrast in firefox this is needed again */
 		outline-offset: 0;
 		outline-width: 0.1rem;
@@ -34,23 +34,23 @@
 
 	[themePalette='desert'] .profile-card .btn-outlined-primary:is(:hover, :focus),
 	[themePalette='dusk'] .profile-card .btn-outlined-primary:is(:hover, :focus),
-	[themePalette='night-sky'] .profile-card .btn-outlined-primary:is(:hover, :focus),
+	[themePalette='nightSky'] .profile-card .btn-outlined-primary:is(:hover, :focus),
 	[themePalette='desert'] .profile-card .btn-filled-primary:is(:hover, :focus),
 	[themePalette='dusk'] .profile-card .btn-filled-primary:is(:hover, :focus),
-	[themePalette='night-sky'] .profile-card .btn-filled-primary:is(:hover, :focus) {
+	[themePalette='nightSky'] .profile-card .btn-filled-primary:is(:hover, :focus) {
 		outline-color: canvasText;
 		background-color: var(--main-background);
 	}
 
 	[themePalette='desert'] .skill-card:is(:hover, :focus),
 	[themePalette='dusk'] .skill-card:is(:hover, :focus),
-	[themePalette='night-sky'] .skill-card:is(:hover, :focus) {
+	[themePalette='nightSky'] .skill-card:is(:hover, :focus) {
 		outline: 2px solid canvasText;
 	}
 
 	[themePalette='desert'] .skill-card:focus-visible,
 	[themePalette='dusk'] .skill-card:focus-visible,
-	[themePalette='night-sky'] .skill-card:focus-visible {
+	[themePalette='nightSky'] .skill-card:focus-visible {
 		outline-style: dashed;
 	}
 
@@ -60,9 +60,9 @@
 	[themePalette='dusk'] .site-content,
 	[themePalette='dusk'] .profile-card__subtitle,
 	[themePalette='dusk'] .what-i-do,
-	[themePalette='night-sky'] .site-content,
-	[themePalette='night-sky'] .profile-card__subtitle,
-	[themePalette='night-sky'] .what-i-do {
+	[themePalette='nightSky'] .site-content,
+	[themePalette='nightSky'] .profile-card__subtitle,
+	[themePalette='nightSky'] .what-i-do {
 		color: canvasText;
 	}
 
@@ -74,9 +74,9 @@
 	[themePalette='dusk'] .logo *,
 	[themePalette='dusk'] .btn,
 	[themePalette='dusk'] .skill-card,
-	[themePalette='night-sky'] .logo *,
-	[themePalette='night-sky'] .btn,
-	[themePalette='night-sky'] .skill-card {
+	[themePalette='nightSky'] .logo *,
+	[themePalette='nightSky'] .btn,
+	[themePalette='nightSky'] .skill-card {
 		box-shadow: none !important;
 	}
 }

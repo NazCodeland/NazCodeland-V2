@@ -5,7 +5,7 @@
 	import { getBrowserPreferredColorScheme } from '../../stores/colorSchemeAndPaletteStore';
 	import { paletteStore } from '../../stores/colorSchemeAndPaletteStore';
 	import setAttributeOnDocument from '../../actions/setAttributeOnDocument';
-	const palettes = ['main', 'desert', 'dusk', 'night-sky'];
+	const palettes = ['main', 'desert', 'dusk', 'nightSky'];
 
 	function updatePaletteStore(event: MouseEvent) {
 		paletteStore.update((storeValue) => (storeValue = (event.target as HTMLInputElement).value));
@@ -23,7 +23,7 @@
 			case 'dusk':
 				colorScheme = 'dark';
 				break;
-			case 'night-sky':
+			case 'nightSky':
 				colorScheme = 'dark';
 				break;
 			default:
@@ -100,8 +100,8 @@
 	.dusk {
 		background-color: rgba(var(--dusk-contrast-theme-bg-clr));
 	}
-	.night-sky {
-		background-color: rgba(var(--night-sky-contrast-theme-bg-clr));
+	.nightSky {
+		background-color: rgba(var(--nightSky-contrast-theme-bg-clr));
 	}
 
 	@media (min-width: 20rem) {

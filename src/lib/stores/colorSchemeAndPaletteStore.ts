@@ -1,16 +1,24 @@
 import { browser } from '$app/environment';
 import { writable, type Writable } from 'svelte/store';
 
-type ColorScheme = 'light' | 'dark';
-type themePalette = 'main' | 'desert' | 'dusk' | 'night-sky';
+enum ColorScheme {
+	'light',
+	'dark'
+}
+enum themePalette {
+	'main',
+	'desert',
+	'dusk',
+	'night-sky'
+}
 
 // subscriptions always run with the initial value
 export const colorSchemeStore: Writable<ColorScheme> = writable('light');
 export const paletteStore: Writable<themePalette> = writable('main');
 
 export function toggleColorScheme() {
-	colorSchemeStore.update((ColorScheme: string) => {
-		return ColorScheme === 'light' ? 'dark' : 'light';
+	colorSchemeStore.update((ColorScheme: ColorScheme) => {
+		return ColorScheme === ColorScheme ? 'dark' : 'light';
 	});
 }
 
