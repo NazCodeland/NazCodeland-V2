@@ -2,3 +2,5 @@ change the paletteTheme name in localstorage and elsewherre to something differe
 convert svg components into svg files
 fix clashing css styles
 give the palettes a title and make them keyboard accessible
+
+remove all the .index files and import functions/files directly 
