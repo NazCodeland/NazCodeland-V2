@@ -1,6 +1,9 @@
 import { browser } from '$app/environment';
 import { writable, type Writable } from 'svelte/store';
 
+// on typescript website, naming convention for Enums is to capitalize
+// the first letter of Enum members and to capitalize the whole value
+// we should follow convention right?
 export enum ColorSchemeEnum {
 	light = 'light',
 	dark = 'dark'
@@ -32,8 +35,8 @@ export function trySetThemePalette(value: unknown) {
 }
 
 export function toggleColorScheme() {
-	colorSchemeStore.update((scheme: ColorSchemeEnum) => {
-		return scheme === ColorSchemeEnum.light ? ColorSchemeEnum.dark : ColorSchemeEnum.light;
+	colorSchemeStore.update((colorScheme: ColorSchemeEnum) => {
+		return colorScheme === ColorSchemeEnum.light ? ColorSchemeEnum.dark : ColorSchemeEnum.light;
 	});
 }
 
