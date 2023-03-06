@@ -47,6 +47,8 @@ function initializeColorScheme() {
 		}
 	}
 }
+
+// is initializeThemePalette needed?
 function initializeThemePalette() {
 	if (browser) {
 		trySetThemePalette(window.localStorage.getItem('NazCodeland.themePalette'));
