@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { get } from 'svelte/store';
 	import {
-		ThemePalette,
+		ThemePaletteEnum,
 		themePaletteStore,
 		trySetThemePalette
 	} from '$lib/stores/colorSchemeAndPaletteStore';
@@ -16,7 +16,7 @@
 </script>
 
 <div class="palettes">
-	{#each Object.keys(ThemePalette) as palette}
+	{#each Object.keys(ThemePaletteEnum) as palette}
 		<input
 			on:click={handleClick}
 			type="radio"

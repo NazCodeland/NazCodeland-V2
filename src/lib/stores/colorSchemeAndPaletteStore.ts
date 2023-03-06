@@ -1,11 +1,11 @@
 import { browser } from '$app/environment';
 import { writable, type Writable } from 'svelte/store';
 
-export enum ColorScheme {
+export enum ColorSchemeEnum {
 	light = 'light',
 	dark = 'dark'
 }
-export enum ThemePalette {
+export enum ThemePaletteEnum {
 	main = 'main',
 	desert = 'desert',
 	dusk = 'dusk',
@@ -13,27 +13,27 @@ export enum ThemePalette {
 }
 
 // subscriptions always run with the initial value
-export const colorSchemeStore: Writable<ColorScheme> = writable(ColorScheme.light);
-export const themePaletteStore: Writable<ThemePalette> = writable(ThemePalette.main);
+export const colorSchemeStore: Writable<ColorSchemeEnum> = writable(ColorSchemeEnum.light);
+export const themePaletteStore: Writable<ThemePaletteEnum> = writable(ThemePaletteEnum.main);
 
-export function trySetColorScheme(value: any) {
-	if (typeof value === 'string' && value in ColorScheme) {
-		colorSchemeStore.set(value as ColorScheme);
+export function trySetColorScheme(value: unknown) {
+	if (typeof value === 'string' && value in ColorSchemeEnum) {
+		colorSchemeStore.set(value as ColorSchemeEnum);
 		return true;
 	}
 	return false;
 }
-export function trySetThemePalette(value: any) {
-	if (typeof value === 'string' && value in ThemePalette) {
-		themePaletteStore.set(value as ThemePalette);
+export function trySetThemePalette(value: unknown) {
+	if (typeof value === 'string' && value in ThemePaletteEnum) {
+		themePaletteStore.set(value as ThemePaletteEnum);
 		return true;
 	}
 	return false;
 }
 
 export function toggleColorScheme() {
-	colorSchemeStore.update((scheme: ColorScheme) => {
-		return scheme === ColorScheme.light ? ColorScheme.dark : ColorScheme.light;
+	colorSchemeStore.update((scheme: ColorSchemeEnum) => {
+		return scheme === ColorSchemeEnum.light ? ColorSchemeEnum.dark : ColorSchemeEnum.light;
 	});
 }
 
@@ -50,25 +50,25 @@ function initializeThemePalette() {
 	}
 }
 
-export function getBrowserPreferredColorScheme(): ColorScheme {
+export function getBrowserPreferredColorScheme(): ColorSchemeEnum {
 	if (browser) {
-		if (matchMedia(`(prefers-color-scheme: ${ColorScheme.dark})`).matches) {
-			return ColorScheme.dark;
+		if (matchMedia(`(prefers-color-scheme: ${ColorSchemeEnum.dark})`).matches) {
+			return ColorSchemeEnum.dark;
 		}
 	}
-	return ColorScheme.light;
+	return ColorSchemeEnum.light;
 }
 
-function getColorSchemeFromThemePalette(themePalette: ThemePalette): ColorScheme {
+function getColorSchemeFromThemePalette(themePalette: ThemePaletteEnum): ColorSchemeEnum {
 	switch (themePalette) {
 		case 'main':
 			return getBrowserPreferredColorScheme();
 		case 'dusk':
 		case 'nightSky':
-			return ColorScheme.dark;
+			return ColorSchemeEnum.dark;
 		case 'desert':
 		default:
-			return ColorScheme.light;
+			return ColorSchemeEnum.light;
 	}
 }
 // initialize first

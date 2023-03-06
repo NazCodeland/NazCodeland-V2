@@ -4,3 +4,6 @@ fix clashing css styles
 give the palettes a title and make them keyboard accessible
 
 remove all the .index files and import functions/files directly 
+
+the site seems to load with no background color then background color kicks in, why is that.
+This behavior is slightly different than expressjs version
