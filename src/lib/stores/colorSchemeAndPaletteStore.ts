@@ -61,12 +61,14 @@ export function getBrowserPreferredColorScheme(): ColorSchemeEnum {
 
 function getColorSchemeFromThemePalette(themePalette: ThemePaletteEnum): ColorSchemeEnum {
 	switch (themePalette) {
-		case 'main':
+		case ThemePaletteEnum.main:
 			return getBrowserPreferredColorScheme();
-		case 'dusk':
-		case 'nightSky':
+
+		case ThemePaletteEnum.dusk:
+		case ThemePaletteEnum.nightSky:
 			return ColorSchemeEnum.dark;
-		case 'desert':
+
+		case ThemePaletteEnum.desert:
 		default:
 			return ColorSchemeEnum.light;
 	}
