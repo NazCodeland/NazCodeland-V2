@@ -9,18 +9,18 @@
 	function handleClick(event: MouseEvent) {
 		trySetThemePalette((event.target as HTMLInputElement).value);
 	}
-
-	// if the page is refreshed, the correct input(the last selected one)
-	//  will be selected after page refresh
-	let selectedPalette = get(themePaletteStore);
 </script>
 
+<!--
+	bind:group={$themePaletteStore} is so that the correct 
+	input(the last selected one) will be selected after page refresh 
+-->
 <div class="palettes">
 	{#each Object.keys(ThemePaletteEnum) as palette}
 		<input
 			on:click={handleClick}
 			type="radio"
-			bind:group={selectedPalette}
+			bind:group={$themePaletteStore}
 			value={palette}
 			name="palette"
 			class="palette {palette}"
