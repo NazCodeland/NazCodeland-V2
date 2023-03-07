@@ -18,9 +18,10 @@
 		--nightSky-contrast-theme-button-txt-clr: 255, 238, 50;
 	}
 
-	/* themePalette color */
+	/* ThemePalette color */
+	/* look into what specificity issue is overriding this style */
 	[color-scheme='dark'] .nightSky {
-		/* background-color: rgba(var(--light-nightSky-contrast-theme-bg-clr)); */
+		background-color: rgba(var(--dark-nightSky-contrast-theme-bg-clr)) !important;
 	}
 
 	/* #region nightSky*/

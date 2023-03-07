@@ -16,14 +16,16 @@
 -->
 <div class="palettes">
 	{#each Object.keys(ThemePaletteEnum) as palette}
-		<input
-			on:click={handleClick}
-			type="radio"
-			bind:group={$themePaletteStore}
-			value={palette}
-			name="palette"
-			class="palette {palette}"
-		/>
+		{#if palette !== 'main'}
+			<input
+				on:click={handleClick}
+				type="radio"
+				bind:group={$themePaletteStore}
+				value={palette}
+				name="palette"
+				class="palette {palette}"
+			/>
+		{/if}
 	{/each}
 </div>
 
@@ -54,7 +56,7 @@
 		outline-width: 2px;
 		outline-style: solid;
 		outline-color: darkGray;
-		border: none;
+		border-radius: 50%;
 	}
 
 	.palette:is(:hover, :focus) {
@@ -62,20 +64,21 @@
 		outline-color: canvasText;
 	}
 
+	/* related to main */
 	.main {
 		background-color: rgba(var(--primary-color));
 	}
 
 	.desert {
-		background-color: rgba(var(--desert-contrast-theme-bg-clr));
+		background-color: rgba(var(--light-desert-contrast-theme-bg-clr));
 	}
 
 	.dusk {
-		background-color: rgba(242, 143, 247) !important;
+		background-color: rgba(var(--light-dusk-contrast-theme-bg-clr));
 	}
 
 	.nightSky {
-		background-color: rgba(255, 157, 0) !important;
+		background-color: rgba(var(--light-nightSky-contrast-theme-bg-clr));
 	}
 
 	@media (min-width: 20rem) {

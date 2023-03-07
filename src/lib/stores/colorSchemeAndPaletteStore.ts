@@ -15,6 +15,7 @@ export enum ThemePaletteEnum {
 	nightSky = 'nightSky'
 }
 
+// related to main
 // subscriptions always run with the initial value
 export const colorSchemeStore: Writable<ColorSchemeEnum> = writable(ColorSchemeEnum.light);
 export const themePaletteStore: Writable<ThemePaletteEnum> = writable(ThemePaletteEnum.main);
@@ -62,20 +63,6 @@ export function getBrowserPreferredColorScheme(): ColorSchemeEnum {
 	return ColorSchemeEnum.light;
 }
 
-function getColorSchemeFromThemePalette(themePalette: ThemePaletteEnum): ColorSchemeEnum {
-	switch (themePalette) {
-		case ThemePaletteEnum.main:
-			return getBrowserPreferredColorScheme();
-
-		case ThemePaletteEnum.dusk:
-		case ThemePaletteEnum.nightSky:
-			return ColorSchemeEnum.dark;
-
-		case ThemePaletteEnum.desert:
-		default:
-			return ColorSchemeEnum.light;
-	}
-}
 // initialize first
 initializeColorScheme();
 initializeThemePalette();
@@ -90,6 +77,4 @@ themePaletteStore.subscribe((themePalette) => {
 	if (browser) {
 		window.localStorage.setItem('NazCodeland.themePalette', themePalette);
 	}
-	// the colorSchemeStore item no longer needs to be updated based on the themePlatte color
-	// colorSchemeStore.set(getColorSchemeFromThemePalette(themePalette));
 });

@@ -19,9 +19,10 @@
 		--light-desert-contrast-theme-button-txt-clr: 32, 32, 32;
 	}
 
-	/* themePalette color */
+	/* ThemePalette color */
+	/* look into what specificity issue is overriding this style */
 	[color-scheme='dark'] .desert {
-		background-color: rgba(7, 239, 7, 1) !important;
+		background-color: rgba(var(--dark-desert-contrast-theme-bg-clr)) !important;
 	}
 
 	/* -------------------------------------------- */

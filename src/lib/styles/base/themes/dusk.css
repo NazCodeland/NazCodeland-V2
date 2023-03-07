@@ -3,8 +3,8 @@
 @layer base {
 	:root {
 		/* dusk contrast theme */
-		--light-dusk-contrast-theme-bg-clr: 45, 50, 54;
-		--dark-dusk-contrast-theme-bg-clr: 150, 153, 155;
+		--light-dusk-contrast-theme-bg-clr: 149, 153, 154;
+		--dark-dusk-contrast-theme-bg-clr: 44, 50, 54;
 
 		--light-dusk-contrast-theme-txt-clr: 255, 255, 255;
 
@@ -19,9 +19,12 @@
 		--light-dusk-contrast-theme-button-txt-clr: 182, 246, 240;
 	}
 
+	/* ThemePalette color */
+	/* look into what specificity issue is overriding this style */
 	[color-scheme='dark'] .dusk {
-		background-color: rgba(var(--light-dusk-contrast-theme-bg-clr));
+		background-color: rgba(var(--dark-dusk-contrast-theme-bg-clr)) !important;
 	}
+
 	/* #region dusk*/
 	[color-scheme='light'][themePalette='dusk'] {
 		--html-color: var(--light-dusk-contrast-theme-link-txt-clr);
