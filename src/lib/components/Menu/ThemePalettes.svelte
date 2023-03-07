@@ -16,16 +16,14 @@
 -->
 <div class="palettes">
 	{#each Object.keys(ThemePaletteEnum) as palette}
-		{#if palette !== 'main'}
-			<input
-				on:click={handleClick}
-				type="radio"
-				bind:group={$themePaletteStore}
-				value={palette}
-				name="palette"
-				class="palette {palette}"
-			/>
-		{/if}
+		<input
+			on:click={handleClick}
+			type="radio"
+			bind:group={$themePaletteStore}
+			value={palette}
+			name="palette"
+			class="palette {palette}"
+		/>
 	{/each}
 </div>
 
@@ -64,9 +62,9 @@
 		outline-color: canvasText;
 	}
 
-	/* related to main */
+	/* why can't I target an attribute to give it a style */
 	.main {
-		background-color: rgba(var(--primary-color));
+		background-color: rgba(251, 252, 253);
 	}
 
 	.desert {

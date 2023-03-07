@@ -15,7 +15,6 @@ export enum ThemePaletteEnum {
 	nightSky = 'nightSky'
 }
 
-// related to main
 // subscriptions always run with the initial value
 export const colorSchemeStore: Writable<ColorSchemeEnum> = writable(ColorSchemeEnum.light);
 export const themePaletteStore: Writable<ThemePaletteEnum> = writable(ThemePaletteEnum.main);
