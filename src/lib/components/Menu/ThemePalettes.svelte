@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { get } from 'svelte/store';
 	import {
 		ThemePaletteEnum,
 		themePaletteStore,
@@ -9,18 +8,18 @@
 	function handleClick(event: MouseEvent) {
 		trySetThemePalette((event.target as HTMLInputElement).value);
 	}
-
-	// if the page is refreshed, the correct input(the last selected one)
-	//  will be selected after page refresh
-	let selectedPalette = get(themePaletteStore);
 </script>
 
+<!--
+	bind:group={$themePaletteStore} is so that the correct 
+	input(the last selected one) will be selected after page refresh 
+-->
 <div class="palettes">
 	{#each Object.keys(ThemePaletteEnum) as palette}
 		<input
 			on:click={handleClick}
 			type="radio"
-			bind:group={selectedPalette}
+			bind:group={$themePaletteStore}
 			value={palette}
 			name="palette"
 			class="palette {palette}"
@@ -70,11 +69,13 @@
 	.desert {
 		background-color: rgba(var(--desert-contrast-theme-bg-clr));
 	}
+
 	.dusk {
-		background-color: rgba(var(--dusk-contrast-theme-bg-clr));
+		background-color: rgba(242, 143, 247) !important;
 	}
+
 	.nightSky {
-		background-color: rgba(var(--nightSky-contrast-theme-bg-clr));
+		background-color: rgba(255, 157, 0) !important;
 	}
 
 	@media (min-width: 20rem) {

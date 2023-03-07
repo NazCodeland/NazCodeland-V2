@@ -90,5 +90,6 @@ themePaletteStore.subscribe((themePalette) => {
 	if (browser) {
 		window.localStorage.setItem('NazCodeland.themePalette', themePalette);
 	}
-	colorSchemeStore.set(getColorSchemeFromThemePalette(themePalette));
+	// the colorSchemeStore item no longer needs to be updated based on the themePlatte color
+	// colorSchemeStore.set(getColorSchemeFromThemePalette(themePalette));
 });
