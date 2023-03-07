@@ -1,17 +1,13 @@
 <script lang="ts">
 	import { get } from 'svelte/store';
-	import {
-		toggleColorScheme,
-		setColorSchemeHoverToTrue,
-		setColorSchemeHoverToFalse
-	} from '../stores/colorSchemeAndPaletteStore';
+	import { toggleColorScheme, setColorSchemeHover } from '../stores/colorSchemeAndPaletteStore';
 	import Day from './colorSchemeToggle/Day.svelte';
 	import Night from './colorSchemeToggle/Night.svelte';
 </script>
 
 <button
-	on:mouseenter={setColorSchemeHoverToTrue}
-	on:mouseleave={setColorSchemeHoverToFalse}
+	on:mouseenter={() => setColorSchemeHover(true)}
+	on:mouseleave={() => setColorSchemeHover(false)}
 	on:click={toggleColorScheme}
 	type="button"
 	aria-label="site-wide theme switcher"

@@ -25,11 +25,8 @@ export const themePaletteStore: Writable<ThemePaletteEnum> = writable(ThemePalet
 
 export const colorSchemeHoverStore: Writable<boolean> = writable(false);
 
-export function setColorSchemeHoverToTrue() {
-	colorSchemeHoverStore.set(true);
-}
-export function setColorSchemeHoverToFalse() {
-	colorSchemeHoverStore.set(false);
+export function setColorSchemeHover(value: boolean) {
+	colorSchemeHoverStore.set(value);
 }
 
 export function trySetColorScheme(value: unknown) {

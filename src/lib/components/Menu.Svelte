@@ -23,18 +23,15 @@
 <style>
 	.lastItem {
 		position: absolute;
-		left: 29px;
-		top: 9px;
+		inset-inline-start: 29px;
+		inset-block-start: 9px;
 	}
 
 	.menu {
 		display: flex;
 		align-items: center;
 		gap: var(--spacer-fluid-16-32-24x);
-	}
-
-	.menu {
-		/* position: absolute; */
+		position: absolute;
 		inset-inline: calc(clamp(1rem, calc(0.57rem + 2.14vw), 2.5rem) * -1);
 		inset-block-start: clamp(3rem, calc(1.96rem + 6vw), 6rem);
 

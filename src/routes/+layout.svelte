@@ -1,11 +1,9 @@
 <script lang="ts">
 	import '../app.css';
 	import setAttributeOnDocumentAction from '$lib/actions/setAttributeOnDocumentAction';
-
+	import { toggleShowMenuStore, showMenuStore } from '$lib/stores/menuStore';
 	import ColorSchemeToggle from '$lib/components/ColorSchemeToggle.svelte';
 	import Menu from '$lib/components/Menu.svelte';
-
-	console.log('hey');
 </script>
 
 <div class="bg-primaryColor p-8" use:setAttributeOnDocumentAction>
@@ -28,7 +26,10 @@
 
 				<Menu />
 				<!-- prettier-ignore -->
-				<button  type="button" tabindex="0" class="hamburger" aria-label="menu">
+				<button
+					on:click={toggleShowMenuStore}	
+					type="button" tabindex="0" 
+					class="hamburger {$showMenuStore ? 'open' : ''}" aria-label="menu">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
 							fill-rule="evenodd"
@@ -56,6 +57,11 @@
 </div>
 
 <style>
+	.open .menu__links {
+		/* able to transition if I use 4rem alone */
+		block-size: clamp(1rem, 50%, 4rem);
+		padding-block: 0.5rem;
+	}
 	.site-wide-header {
 		display: flex;
 		align-items: center;

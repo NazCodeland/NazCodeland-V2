@@ -40,7 +40,7 @@
 		inset-block-start: 10rem;
 		/* visibility: hidden; */
 		background-color: none;
-		/* z-index: -1; */
+		z-index: -1;
 	}
 
 	/* .showPalettes {
