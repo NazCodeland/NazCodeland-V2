@@ -5,10 +5,7 @@
 	import ColorSchemeToggle from '$lib/components/ColorSchemeToggle.svelte';
 	import Menu from '$lib/components/Menu.svelte';
 
-	// let togglePalette = true;
-	// function showPalettes() {
-	// 	togglePalette = true;
-	// }
+	console.log('hey');
 </script>
 
 <div class="bg-primaryColor p-8" use:setAttributeOnDocumentAction>

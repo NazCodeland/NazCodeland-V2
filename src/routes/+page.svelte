@@ -1,5 +1,5 @@
 <script>
-	import SkillCard from '../lib/components/SkillCard.svelte';
+	import SkillCard from '../lib/components/skillCard.svelte';
 </script>
 
 <div class="introduction-section mb-32">

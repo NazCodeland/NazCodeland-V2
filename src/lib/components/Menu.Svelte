@@ -1,15 +1,14 @@
-<script lang="ts">
+<script>
 	import ThemePalettes from './Menu/ThemePalettes.svelte';
-	export let togglePalette: Boolean;
 </script>
 
-<nav class="menu {togglePalette ? 'showPalettes' : ''}">
+<nav class="menu">
 	<ul class="menu__links">
 		<li><a href="/" autofocus>Home</a></li>
 		<li><a href="/about">About Me</a></li>
-		<li><a href="/portfolio">Portfolio</a></li>
+		<li><a href="/portfolio" />Portfolio</li>
+		<li><a href="/viewResume">Resume</a></li>
 		<li>
-			<a href="/viewResume">Resume</a>
 			<ul class="nested-menu">
 				<li><a href="/design">UX/UI Design</a></li>
 				<li><a href="/development">Web Development</a></li>
@@ -17,11 +16,17 @@
 		</li>
 		<li><a href="/contact">Contact</a></li>
 		<li><a href="/blog">Blog</a></li>
-		<li><ThemePalettes /></li>
+		<li class="lastItem"><ThemePalettes /></li>
 	</ul>
 </nav>
 
 <style>
+	.lastItem {
+		position: absolute;
+		left: 29px;
+		top: 9px;
+	}
+
 	.menu {
 		display: flex;
 		align-items: center;
@@ -56,8 +61,6 @@
 
 		padding-inline: var(--spacer-fluid-16-40);
 
-		/* visibility: hidden; */
-
 		/* unable to transition when using clamp for block-size */
 		/* transition: block-size 1s, padding-block 1s; */
 	}
@@ -66,12 +69,12 @@
 		/* able to transition if I use 4rem alone */
 		block-size: clamp(1rem, 50%, 4rem);
 		padding-block: 0.5rem;
-		/* visibility: visible; */
 	}
 
-	.menu__links li {
+	/* NOTE: is this needed? */
+	/* .menu__links li {
 		position: relative;
-	}
+	} */
 
 	.menu__links a {
 		white-space: nowrap;

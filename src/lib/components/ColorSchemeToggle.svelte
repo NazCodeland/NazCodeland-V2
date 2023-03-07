@@ -1,10 +1,17 @@
 <script lang="ts">
-	import { toggleColorScheme } from '../stores/colorSchemeAndPaletteStore';
+	import { get } from 'svelte/store';
+	import {
+		toggleColorScheme,
+		setColorSchemeHoverToTrue,
+		setColorSchemeHoverToFalse
+	} from '../stores/colorSchemeAndPaletteStore';
 	import Day from './colorSchemeToggle/Day.svelte';
 	import Night from './colorSchemeToggle/Night.svelte';
 </script>
 
 <button
+	on:mouseenter={setColorSchemeHoverToTrue}
+	on:mouseleave={setColorSchemeHoverToFalse}
 	on:click={toggleColorScheme}
 	type="button"
 	aria-label="site-wide theme switcher"
@@ -44,6 +51,7 @@ decide if you want to register the clicks and do another 360deg rotation or turn
 	.theme-switcher:focus {
 		outline: 0.1rem solid canvasText;
 	}
+
 	.theme-switcher:focus-visible {
 		outline-style: dashed;
 	}
