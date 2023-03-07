@@ -3,31 +3,33 @@
 @layer base {
 	:root {
 		/* dusk contrast theme */
-		--dusk-contrast-theme-bg-clr: 45, 50, 54;
-		--dusk-contrast-theme-txt-clr: 255, 255, 255;
+		--light-dusk-contrast-theme-bg-clr: 45, 50, 54;
+		--dark-dusk-contrast-theme-bg-clr: 150, 153, 155;
 
-		--dusk-contrast-theme-link-txt-clr: 112, 235, 222;
+		--light-dusk-contrast-theme-txt-clr: 255, 255, 255;
+
+		--light-dusk-contrast-theme-link-txt-clr: 112, 235, 222;
 
 		/* --dusk-contrast-theme-inactive-txt-clr: 166, 166, 166; */
 
 		/* --dusk-contrast-theme-selected-bg-clr: 161, 191, 222; */
-		--dusk-contrast-theme-selected-txt-clr: 33, 45, 59;
+		--light-dusk-contrast-theme-selected-txt-clr: 33, 45, 59;
 
 		/* --dusk-contrast-theme-button-bg-clr: 45, 50, 54; */
-		--dusk-contrast-theme-button-txt-clr: 182, 246, 240;
+		--light-dusk-contrast-theme-button-txt-clr: 182, 246, 240;
 	}
 
 	[color-scheme='dark'] .dusk {
-		background-color: rgba(var(--dusk-contrast-theme-bg-clr));
+		background-color: rgba(var(--light-dusk-contrast-theme-bg-clr));
 	}
 	/* #region dusk*/
-	[themePalette='dusk'] {
-		--html-color: var(--dusk-contrast-theme-link-txt-clr);
-		--main-background: var(--dusk-contrast-theme-bg-clr);
+	[color-scheme='light'][themePalette='dusk'] {
+		--html-color: var(--light-dusk-contrast-theme-link-txt-clr);
+		--main-background: var(--light-dusk-contrast-theme-bg-clr);
 	}
 	[color-scheme='dark'][themePalette='dusk'] {
 		--html-color: var(--desert-contrast-theme-link-txt-clr);
-		--main-background: 0, 125, 146;
+		--main-background: var(--dark-dusk-contrast-theme-bg-clr);
 	}
 
 	[themePalette='dusk'] .logo :not([aria-hidden]) {
@@ -35,25 +37,25 @@
 	}
 
 	[themePalette='dusk'] .logo .first-letter {
-		color: rgba(var(--dusk-contrast-theme-link-txt-clr));
-		outline-color: rgba(var(--dusk-contrast-theme-link-txt-clr)) !important;
+		color: rgba(var(--light-dusk-contrast-theme-link-txt-clr));
+		outline-color: rgba(var(--light-dusk-contrast-theme-link-txt-clr)) !important;
 	}
 
 	[themePalette='dusk'] .menu__links a {
-		--nav-link-text-color: var(--dusk-contrast-theme-link-txt-clr);
+		--nav-link-text-color: var(--light-dusk-contrast-theme-link-txt-clr);
 	}
 
 	[themePalette='dusk'] .menu__links li a::before {
-		background-color: rgba(var(--dusk-contrast-theme-link-txt-clr));
+		background-color: rgba(var(--light-dusk-contrast-theme-link-txt-clr));
 	}
 
 	[themePalette='dusk'] .profile-card__image {
-		outline: 1px solid rgba(var(--dusk-contrast-theme-button-txt-clr));
-		border-color: rgba(var(--dusk-contrast-theme-bg-clr)) !important;
+		outline: 1px solid rgba(var(--light-dusk-contrast-theme-button-txt-clr));
+		border-color: rgba(var(--light-dusk-contrast-theme-bg-clr)) !important;
 	}
 
 	[themePalette='dusk'] .hamburger {
-		color: rgba(var(--dusk-contrast-theme-button-txt-clr));
+		color: rgba(var(--light-dusk-contrast-theme-button-txt-clr));
 	}
 
 	[themePalette='dusk'] .profile-card .link:is(:hover, :focus),
@@ -61,24 +63,24 @@
 		color: markText;
 	}
 	[themePalette='dusk'] .profile-card .link::before {
-		background-color: rgba(var(--dusk-contrast-theme-link-txt-clr));
+		background-color: rgba(var(--light-dusk-contrast-theme-link-txt-clr));
 	}
 
 	[themePalette='dusk'] .profile-card .btn-filled-primary {
-		background-color: rgba(var(--dusk-contrast-theme-link-txt-clr));
+		background-color: rgba(var(--light-dusk-contrast-theme-link-txt-clr));
 	}
 
 	[themePalette='dusk'] .profile-card .btn-outlined-primary {
-		color: rgba(var(--dusk-contrast-theme-button-txt-clr));
-		outline-color: rgba(var(--dusk-contrast-theme-button-txt-clr));
+		color: rgba(var(--light-dusk-contrast-theme-button-txt-clr));
+		outline-color: rgba(var(--light-dusk-contrast-theme-button-txt-clr));
 	}
 
 	[themePalette='dusk'] .what-i-do {
-		text-decoration-color: rgba(var(--dusk-contrast-theme-link-txt-clr));
+		text-decoration-color: rgba(var(--light-dusk-contrast-theme-link-txt-clr));
 	}
 
 	[themePalette='dusk'] .skill-card {
-		outline: 1px solid rgba(var(--dusk-contrast-theme-link-txt-clr));
+		outline: 1px solid rgba(var(--light-dusk-contrast-theme-link-txt-clr));
 	}
 
 	/* #endregion dusk */

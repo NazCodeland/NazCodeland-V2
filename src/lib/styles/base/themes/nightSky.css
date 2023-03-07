@@ -3,7 +3,8 @@
 @layer base {
 	:root {
 		/* nightSky contrast theme */
-		--nightSky-contrast-theme-bg-clr: 0, 0, 0;
+		--light-nightSky-contrast-theme-bg-clr: 197, 227, 247;
+		--dark-nightSky-contrast-theme-bg-clr: 11, 60, 97;
 		--nightSky-contrast-theme-txt-clr: 255, 255, 255;
 
 		--nightSky-contrast-theme-link-txt-clr: 128, 128, 255;
@@ -17,18 +18,20 @@
 		--nightSky-contrast-theme-button-txt-clr: 255, 238, 50;
 	}
 
+	/* themePalette color */
 	[color-scheme='dark'] .nightSky {
-		background-color: rgba(var(--nightSky-contrast-theme-bg-clr));
+		/* background-color: rgba(var(--light-nightSky-contrast-theme-bg-clr)); */
 	}
+
 	/* #region nightSky*/
-	[themePalette='nightSky'] {
+	[color-scheme='light'][themePalette='nightSky'] {
 		--html-color: var(--nightSky-contrast-theme-link-txt-clr);
-		--main-background: var(--nightSky-contrast-theme-bg-clr);
+		--main-background: var(--light-nightSky-contrast-theme-bg-clr);
 	}
 
 	[color-scheme='dark'][themePalette='nightSky'] {
 		--html-color: var(--desert-contrast-theme-link-txt-clr);
-		--main-background: 128, 0, 128;
+		--main-background: var(--dark-nightSky-contrast-theme-bg-clr);
 	}
 
 	[themePalette='nightSky'] .logo :not([aria-hidden]) {
