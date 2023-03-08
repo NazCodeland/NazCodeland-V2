@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import setAttributeOnDocumentAction from '$lib/actions/setAttributeOnDocumentAction';
-	import { toggleShowMenuStore, showMenuStore } from '$lib/stores/menuStore';
+	import { toggleShowMenu, showMenuStore } from '$lib/stores/menuStore';
 	import ColorSchemeToggle from '$lib/components/ColorSchemeToggle.svelte';
 	import Menu from '$lib/components/Menu.svelte';
 </script>
@@ -28,7 +28,7 @@
 				<Menu />
 				<!-- prettier-ignore -->
 				<button
-					on:click={toggleShowMenuStore}	
+					on:click={toggleShowMenu}	
 					type="button" tabindex="0" 
 					class="hamburger {$showMenuStore ? 'open' : ''}" aria-label="menu">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
