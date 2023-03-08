@@ -3,6 +3,7 @@
 	import setAttributeOnDocumentAction from '$lib/actions/setAttributeOnDocumentAction';
 	import ColorSchemeToggle from '$lib/components/ColorSchemeToggle.svelte';
 	import Menu from '$lib/components/Menu.svelte';
+	import { toggleMenu } from '$lib/stores/menuStore';
 </script>
 
 <div class="bg-primaryColor p-4-32 pt-4-48" use:setAttributeOnDocumentAction>
@@ -32,7 +33,7 @@
 				<!-- hamburger icon -->
 				<!-- prettier-ignore -->
 				<button
-					on:click={toggleShowMenu}	
+					on:click={toggleMenu}	
 					type="button" tabindex="0" 
 					class="hamburger" aria-label="menu">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
