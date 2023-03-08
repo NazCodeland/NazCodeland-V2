@@ -4,10 +4,14 @@ import { writable, type Writable } from 'svelte/store';
 // on typescript website, naming convention for Enums is to capitalize
 // the first letter of Enum members and to capitalize the whole value
 // we should follow convention right?
+
+// type ColorSchemeHover = true | false;
+
 export enum ColorSchemeEnum {
 	light = 'light',
 	dark = 'dark'
 }
+
 export enum ThemePaletteEnum {
 	main = 'main',
 	desert = 'desert',
@@ -18,6 +22,12 @@ export enum ThemePaletteEnum {
 // subscriptions always run with the initial value
 export const colorSchemeStore: Writable<ColorSchemeEnum> = writable(ColorSchemeEnum.light);
 export const themePaletteStore: Writable<ThemePaletteEnum> = writable(ThemePaletteEnum.main);
+
+export const colorSchemeHoverStore: Writable<boolean> = writable(false);
+
+export function setColorSchemeHover(value: boolean) {
+	colorSchemeHoverStore.set(value);
+}
 
 export function trySetColorScheme(value: unknown) {
 	if (typeof value === 'string' && value in ColorSchemeEnum) {
@@ -64,20 +74,6 @@ export function getBrowserPreferredColorScheme(): ColorSchemeEnum {
 	return ColorSchemeEnum.light;
 }
 
-function getColorSchemeFromThemePalette(themePalette: ThemePaletteEnum): ColorSchemeEnum {
-	switch (themePalette) {
-		case ThemePaletteEnum.main:
-			return getBrowserPreferredColorScheme();
-
-		case ThemePaletteEnum.dusk:
-		case ThemePaletteEnum.nightSky:
-			return ColorSchemeEnum.dark;
-
-		case ThemePaletteEnum.desert:
-		default:
-			return ColorSchemeEnum.light;
-	}
-}
 // initialize first
 initializeColorScheme();
 initializeThemePalette();
@@ -92,5 +88,4 @@ themePaletteStore.subscribe((themePalette) => {
 	if (browser) {
 		window.localStorage.setItem('NazCodeland.themePalette', themePalette);
 	}
-	colorSchemeStore.set(getColorSchemeFromThemePalette(themePalette));
 });

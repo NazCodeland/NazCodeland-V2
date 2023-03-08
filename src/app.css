@@ -73,4 +73,14 @@
 		/* --scale-hover: scale(1.03);
 --scale-active: scale(0.99); */
 	}
+
+	a:focus-visible,
+	button:focus-visible {
+		outline-style: dashed;
+	}
+
+	a {
+		outline-color: canvasText;
+		outline-width: 0.1rem;
+	}
 }

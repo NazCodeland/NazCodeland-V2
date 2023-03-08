@@ -1,0 +1,24 @@
+@layer base {
+	:root {
+		/* main contrast theme */
+		/* --light-main-contrast-theme-bg-clr: 197, 227, 247; */
+		--dark-main-contrast-theme-bg-clr: 18, 18, 18;
+		/* --main-contrast-theme-txt-clr: 255, 255, 255; */
+
+		/* --main-contrast-theme-link-txt-clr: 128, 128, 255; */
+
+		/* --main-contrast-theme-inactive-txt-clr: 166, 166, 166; */
+
+		/* --main-contrast-theme-selected-bg-clr: 214, 180, 253; */
+		/* --main-contrast-theme-selected-txt-clr: 43, 43, 43; */
+
+		/* --main-contrast-theme-button-bg-clr: 0, 0, 0; */
+		/* --main-contrast-theme-button-txt-clr: 255, 238, 50; */
+	}
+}
+
+/* ThemePalette color */
+/* look into what specificity issue is overriding this style */
+[color-scheme='dark'] .main {
+	background-color: rgba(var(--dark-main-contrast-theme-bg-clr)) !important;
+}

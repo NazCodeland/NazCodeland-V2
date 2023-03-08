@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { get } from 'svelte/store';
 	import {
 		ThemePaletteEnum,
 		themePaletteStore,
-		trySetThemePalette
+		trySetThemePalette,
+		colorSchemeHoverStore
 	} from '$lib/stores/colorSchemeAndPaletteStore';
 
 	function handleClick(event: MouseEvent) {
@@ -15,7 +15,7 @@
 	bind:group={$themePaletteStore} is so that the correct 
 	input(the last selected one) will be selected after page refresh 
 -->
-<div class="palettes">
+<div class="palettes {$colorSchemeHoverStore ? 'expand' : ''}">
 	{#each Object.keys(ThemePaletteEnum) as palette}
 		<input
 			on:click={handleClick}
@@ -38,24 +38,26 @@
 		position: sticky;
 		inset-inline-end: var(--spacer-fluid-16-40);
 		inset-block-start: 10rem;
-		visibility: hidden;
+		/* visibility: hidden; */
 		background-color: none;
+		z-index: -1;
 	}
 
-	.showPalettes {
+	/* .showPalettes {
 		visibility: visible;
-	}
+	} */
 
 	.palette {
 		appearance: none;
 		display: inline-block;
-		inline-size: 30px;
-		block-size: 30px;
+		inline-size: 20px;
+		block-size: 20px;
 		border-radius: var(--spacer-4);
 		outline-width: 2px;
 		outline-style: solid;
 		outline-color: darkGray;
-		border: none;
+		border-radius: 50%;
+		position: absolute;
 	}
 
 	.palette:is(:hover, :focus) {
@@ -63,21 +65,60 @@
 		outline-color: canvasText;
 	}
 
+	.expand .main {
+		inset-block-start: -36px;
+	}
+	.expand .desert {
+		inset-block-end: -38px;
+		inset-inline-start: -52px;
+	}
+	.expand .dusk {
+		inset-block-start: 35px;
+	}
+	.expand .nightSky {
+		inset-inline-end: 32px;
+		inset-block-start: -17px;
+	}
+
+	.expand .main,
+	.expand .desert,
+	.expand .dusk,
+	.expand .nightSky {
+		transition: inset 1s;
+	}
+
+	.main,
+	.desert,
+	.dusk,
+	.nightSky {
+		transition-delay: 1s;
+		transition-duration: 1s;
+	}
+
+	/* why can't I target an attribute to give it a style */
 	.main {
-		background-color: rgba(var(--primary-color));
+		inset-block-start: 0px;
+		background-color: rgba(251, 252, 253);
 	}
 
 	.desert {
-		background-color: rgba(var(--desert-contrast-theme-bg-clr));
-	}
-	.dusk {
-		background-color: rgba(var(--dusk-contrast-theme-bg-clr));
-	}
-	.nightSky {
-		background-color: rgba(var(--nightSky-contrast-theme-bg-clr));
+		inset-block-end: -20px;
+		inset-inline-start: -20px;
+		background-color: rgba(var(--light-desert-contrast-theme-bg-clr));
 	}
 
-	@media (min-width: 20rem) {
+	.dusk {
+		inset-block-start: 0;
+		background-color: rgba(var(--light-dusk-contrast-theme-bg-clr));
+	}
+
+	.nightSky {
+		inset-inline-end: 0px;
+		inset-block-start: 0px;
+		background-color: rgba(var(--light-nightSky-contrast-theme-bg-clr));
+	}
+
+	/* @media (min-width: 20rem) {
 		.palettes {
 			inset-block-start: clamp(9.81rem, calc(7.01rem + 14.02vw), 19.63rem);
 		}
@@ -100,5 +141,5 @@
 		.palettes {
 			inset-block-start: clamp(6rem, calc(-4.18rem + 17.98vw), 10rem);
 		}
-	}
+	} */
 </style>
