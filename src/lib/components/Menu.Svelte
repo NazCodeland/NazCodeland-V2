@@ -1,10 +1,7 @@
 <script>
 	import ThemePalettes from './Menu/ThemePalettes.svelte';
-	import { showMenuStore } from '$lib/stores/showMenuStore';
-	import {
-		showThemePalettesStore,
-		toggleShowThemePalettesStore
-	} from '$lib/stores/showThemePalette';
+	import { menuStore } from '$lib/stores/menuStore';
+	import { ThemePalettesStore, toggleThemePalettesStore } from '$lib/stores/themePaletteStore';
 
 	function handleClick() {}
 </script>
@@ -16,9 +13,8 @@ inset-block-start: clamp(3rem, calc(1.96rem + 6vw), 6rem); -->
 
 <nav class="menu absolute">
 	<ul
-		class="flex flex-wrap gap-16-32 px-16-40 justify-center {$showMenuStore
-			? 'inline-block'
-			: 'hidden'}">
+		class="flex flex-wrap gap-16-32 px-16-40 justify-center 
+		{$menuStore ? 'inline-block' : 'hidden'}">
 		<li><a href="/" autofocus>Home</a></li>
 		<li class="flex-shrink-0"><a href="/about">About Me</a></li>
 		<li><a href="/portfolio" />Portfolio</li>
@@ -32,9 +28,9 @@ inset-block-start: clamp(3rem, calc(1.96rem + 6vw), 6rem); -->
 		<li><a href="/contact">Contact</a></li>
 		<li><a href="/blog">Blog</a></li>
 		<li>
-			<a on:click={toggleShowThemePalettesStore} href="#">Themes</a>
+			<a on:click={toggleThemePalettesStore} href="#">Themes</a>
 		</li>
-		{#if $showThemePalettesStore}<ThemePalettes />{/if}
+		{#if $ThemePalettesStore}<ThemePalettes />{/if}
 	</ul>
 </nav>
 

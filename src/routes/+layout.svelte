@@ -1,7 +1,6 @@
 <script lang="ts">
 	import '../app.css';
 	import setAttributeOnDocumentAction from '$lib/actions/setAttributeOnDocumentAction';
-	import { toggleShowMenu } from '$lib/stores/showMenuStore';
 	import ColorSchemeToggle from '$lib/components/ColorSchemeToggle.svelte';
 	import Menu from '$lib/components/Menu.svelte';
 </script>

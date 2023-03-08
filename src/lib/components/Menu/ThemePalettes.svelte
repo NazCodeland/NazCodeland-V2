@@ -4,7 +4,7 @@
 		themePaletteStore,
 		trySetThemePalette,
 		colorSchemeHoverStore
-	} from '$lib/stores/colorSchemeAndPaletteStore';
+	} from '$lib/stores/colorSchemeAndThemePaletteStore';
 
 	function handleClick(event: MouseEvent) {
 		trySetThemePalette((event.currentTarget as HTMLInputElement).value);

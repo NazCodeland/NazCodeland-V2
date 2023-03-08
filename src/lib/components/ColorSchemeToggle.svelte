@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { get } from 'svelte/store';
-	import { toggleColorScheme, setColorSchemeHover } from '../stores/colorSchemeAndPaletteStore';
+	import {
+		toggleColorScheme,
+		setColorSchemeHover
+	} from '../stores/colorSchemeAndThemePaletteStore';
 	import Day from './colorSchemeToggle/Day.svelte';
 	import Night from './colorSchemeToggle/Night.svelte';
 </script>

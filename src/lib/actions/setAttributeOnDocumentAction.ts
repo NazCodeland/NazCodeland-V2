@@ -1,5 +1,5 @@
 import { browser } from '$app/environment';
-import { colorSchemeStore, themePaletteStore } from '../stores/colorSchemeAndPaletteStore';
+import { colorSchemeStore, themePaletteStore } from '../stores/colorSchemeAndThemePaletteStore';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function setAttributeOnDocumentAction(_: HTMLElement) {
