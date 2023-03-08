@@ -15,9 +15,9 @@ inset-block-start: clamp(3rem, calc(1.96rem + 6vw), 6rem); -->
 	<ul
 		class="flex flex-wrap gap-16-32 px-16-40 justify-center 
 		{$menuStore ? 'inline-block' : 'hidden'}">
-		<li><a href="/" autofocus>Home</a></li>
+		<li><a href="/">Home</a></li>
 		<li class="flex-shrink-0"><a href="/about">About Me</a></li>
-		<li><a href="/portfolio" />Portfolio</li>
+		<li><a href="/portfolio">Portfolio</a></li>
 		<li><a href="/viewResume">Resume</a></li>
 		<li class="hidden">
 			<ul>
@@ -28,7 +28,7 @@ inset-block-start: clamp(3rem, calc(1.96rem + 6vw), 6rem); -->
 		<li><a href="/contact">Contact</a></li>
 		<li><a href="/blog">Blog</a></li>
 		<li>
-			<a on:click={toggleThemePalettesStore} href="#">Themes</a>
+			<a on:click={toggleThemePalettesStore} href="#NA">Themes</a>
 		</li>
 		{#if $ThemePalettesStore}<ThemePalettes />{/if}
 	</ul>
