@@ -7,7 +7,7 @@
 	} from '$lib/stores/colorSchemeAndPaletteStore';
 
 	function handleClick(event: MouseEvent) {
-		trySetThemePalette((event.target as HTMLInputElement).value);
+		trySetThemePalette((event.currentTarget as HTMLInputElement).value);
 	}
 </script>
 
@@ -15,7 +15,7 @@
 	bind:group={$themePaletteStore} is so that the correct 
 	input(the last selected one) will be selected after page refresh 
 -->
-<div class="palettes {$colorSchemeHoverStore ? 'expand' : ''}">
+<div class="palettes gap-6 justify-between {$colorSchemeHoverStore ? 'expand' : ''}">
 	{#each Object.keys(ThemePaletteEnum) as palette}
 		<input
 			on:click={handleClick}
@@ -23,24 +23,21 @@
 			bind:group={$themePaletteStore}
 			value={palette}
 			name="palette"
-			class="palette {palette}"
-		/>
+			class="palette {palette}" />
 	{/each}
 </div>
 
 <style>
 	.palettes {
 		display: flex;
-		flex-direction: column;
-		gap: var(--spacer-16);
-		align-items: flex-end;
+		/* flex-direction: column; */
+		/* align-items: flex-end; */
 
-		position: sticky;
-		inset-inline-end: var(--spacer-fluid-16-40);
-		inset-block-start: 10rem;
+		/* position: sticky; */
+		/* inset-inline-end: var(--spacer-fluid-16-40); */
+		/* inset-block-start: 10rem; */
 		/* visibility: hidden; */
 		background-color: none;
-		z-index: -1;
 	}
 
 	/* .showPalettes {
@@ -50,14 +47,14 @@
 	.palette {
 		appearance: none;
 		display: inline-block;
-		inline-size: 20px;
-		block-size: 20px;
+		inline-size: 30px;
+		block-size: 30px;
 		border-radius: var(--spacer-4);
 		outline-width: 2px;
 		outline-style: solid;
 		outline-color: darkGray;
 		border-radius: 50%;
-		position: absolute;
+		/* position: absolute; */
 	}
 
 	.palette:is(:hover, :focus) {
@@ -65,7 +62,7 @@
 		outline-color: canvasText;
 	}
 
-	.expand .main {
+	/* .expand .main {
 		inset-block-start: -36px;
 	}
 	.expand .desert {
@@ -78,7 +75,7 @@
 	.expand .nightSky {
 		inset-inline-end: 32px;
 		inset-block-start: -17px;
-	}
+	} */
 
 	.expand .main,
 	.expand .desert,

@@ -11,8 +11,7 @@
 	on:click={toggleColorScheme}
 	type="button"
 	aria-label="site-wide theme switcher"
-	class="theme-switcher"
->
+	class="theme-switcher">
 	<div class="day-and-night-svg-container svg-size">
 		<div class="svg-day common-svg-styles" title="light mode">
 			<Day />

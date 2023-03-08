@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import setAttributeOnDocumentAction from '$lib/actions/setAttributeOnDocumentAction';
-	import { toggleShowMenu, showMenuStore } from '$lib/stores/menuStore';
+	import { toggleShowMenu } from '$lib/stores/showMenuStore';
 	import ColorSchemeToggle from '$lib/components/ColorSchemeToggle.svelte';
 	import Menu from '$lib/components/Menu.svelte';
 </script>
@@ -9,8 +9,11 @@
 <div class="bg-primaryColor p-4-32 pt-4-48" use:setAttributeOnDocumentAction>
 	<div class="relative flex flex-col p-16-40 font-body text-lg rounded-2xl bg-mainBackground">
 		<!--  -->
-		<header class="flex justify-between mb-8 pb-8 sticky bg-mainBackground z-10 left-[-1px] items-center">
-			<a href="#maincontent" class="absolute -left-[1000px] -top-[13px] px-4 rounded text-grey-900 bg-primaryColor focus-visible:left-1">
+		<header
+			class="flex justify-between mb-8 pb-8 sticky bg-mainBackground z-10 left-[-1px] items-center">
+			<a
+				href="#maincontent"
+				class="absolute -left-[1000px] -top-[13px] px-4 rounded text-grey-900 bg-primaryColor focus-visible:left-1">
 				Skip to main content</a>
 
 			<div class="flex gap-16-32-24x items-center">
@@ -30,7 +33,7 @@
 				<button
 					on:click={toggleShowMenu}	
 					type="button" tabindex="0" 
-					class="hamburger {$showMenuStore ? 'open' : ''}" aria-label="menu">
+					class="hamburger" aria-label="menu">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
 							fill-rule="evenodd"
@@ -77,7 +80,7 @@
 		background-color: rgba(var(--main-background));
 		z-index: 10;
 	} */
-/* 
+	/* 
 	.theme-switcher-and-logo {
 		display: flex;
 		align-items: center;
