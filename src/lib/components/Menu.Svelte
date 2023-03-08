@@ -1,30 +1,53 @@
 <script>
 	import ThemePalettes from './Menu/ThemePalettes.svelte';
+	import { showMenuStore } from '$lib/stores/showMenuStore';
+	import {
+		showThemePalettesStore,
+		toggleShowThemePalettesStore
+	} from '$lib/stores/showThemePalette';
+
+	function handleClick() {}
 </script>
 
-<nav>
-	<ul class="hidden">
+<!-- 
+	inset-inline: 
+	calc(clamp(1rem, calc(0.57rem + 2.14vw), 2.5rem) * -1);
+inset-block-start: clamp(3rem, calc(1.96rem + 6vw), 6rem); -->
+
+<nav class="menu absolute">
+	<ul
+		class="flex flex-wrap gap-16-32 px-16-40 justify-center {$showMenuStore
+			? 'inline-block'
+			: 'hidden'}">
 		<li><a href="/" autofocus>Home</a></li>
-		<li><a href="/about">About Me</a></li>
+		<li class="flex-shrink-0"><a href="/about">About Me</a></li>
 		<li><a href="/portfolio" />Portfolio</li>
 		<li><a href="/viewResume">Resume</a></li>
-		<li>
-			<ul class="hidden">
+		<li class="hidden">
+			<ul>
 				<li><a href="/design">UX/UI Design</a></li>
 				<li><a href="/development">Web Development</a></li>
 			</ul>
 		</li>
 		<li><a href="/contact">Contact</a></li>
 		<li><a href="/blog">Blog</a></li>
-		<li class="lastItem"><ThemePalettes /></li>
+		<li>
+			<a on:click={toggleShowThemePalettesStore} href="#">Themes</a>
+		</li>
+		{#if $showThemePalettesStore}<ThemePalettes />{/if}
 	</ul>
 </nav>
 
 <style>
-	.lastItem {
+	/* .lastItem {
 		position: absolute;
 		inset-inline-start: 29px;
 		inset-block-start: 9px;
+	} */
+
+	.menu {
+		inset-inline: calc(clamp(1rem, calc(0.57rem + 2.14vw), 2.5rem) * -1);
+		inset-block-start: clamp(3rem, calc(1.96rem + 6vw), 6rem);
 	}
 
 	/* .menu {
