@@ -43,7 +43,8 @@ module.exports = {
 				'4-48': 'var(--spacer-fluid-4-48)',
 				'16-32': 'var(--spacer-fluid-16-32)',
 				'16-40': 'var(--spacer-fluid-16-40)',
-				'16-32-24x': 'var(--spacer-fluid-16-32-2\\.4x)'
+				'16-32-24x': 'var(--spacer-fluid-16-32-2\\.4x)',
+				'88-132': 'var(--spacer-fluid-88-132)'
 			}
 		}
 	},

@@ -10,7 +10,7 @@
 	<div class="relative flex flex-col p-16-40 font-body text-lg rounded-2xl bg-mainBackground">
 		<!--  -->
 		<header
-			class="flex justify-between mb-8 pb-8 sticky bg-mainBackground z-10 left-[-1px] items-center">
+			class="flex justify-between pb-8 mb-88-132 sticky bg-mainBackground z-10 left-[-1px] items-center">
 			<a
 				href="#maincontent"
 				class="absolute -left-[1000px] -top-[13px] px-4 rounded text-grey-900 bg-primaryColor focus-visible:left-1">
@@ -29,6 +29,8 @@
 				<!-- this needs to be done so that in mobile viewpoints, when the menu is minimized the navigation still shows up in landmarks -->
 
 				<Menu />
+
+				<!-- hamburger icon -->
 				<!-- prettier-ignore -->
 				<button
 					on:click={toggleShowMenu}	

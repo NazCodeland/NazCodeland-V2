@@ -83,4 +83,12 @@
 		outline-color: canvasText;
 		outline-width: 0.1rem;
 	}
+
+	.profileImageSize {
+		inline-size: clamp(9.375rem, calc(6.34rem + 15.18vw), 20rem);
+		block-size: clamp(9.38rem, calc(6.34rem + 15.18vw), 20rem);
+	}
+	.profileImageBorderW {
+		border-width: clamp(0.5rem, calc(0.43rem + 0.36vw), 0.75rem);
+	}
 }

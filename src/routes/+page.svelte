@@ -5,12 +5,11 @@
 <div class="introduction-section mb-32">
 	<article class="profile-card">
 		<img
-			class="profile-card__image"
+			class="profileImageSize profileImageBorderW border-solid rounded-full m-auto"
 			src="/images/someImage.jpeg"
 			width="320"
 			height="320"
-			alt="of Nazar"
-		/>
+			alt="of Nazar" />
 
 		<div class="profile-card__content">
 			<h2 class="profile-card__title">
@@ -41,8 +40,7 @@
 
 	<SkillCard title="Product Research"
 		>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias odit nemo praesentium corporis
-		blanditiis minima? Quibusdam delectus fugit sit? Hic."</SkillCard
-	>
+		blanditiis minima? Quibusdam delectus fugit sit? Hic."</SkillCard>
 	<SkillCard title="Web Design">
 		Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur nobis laudantium ea.
 		Maiores, non! Numquam veritatis possimus accusantium, odio, natus quo consectetur, vel libero
