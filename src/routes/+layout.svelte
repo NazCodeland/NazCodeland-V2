@@ -6,13 +6,14 @@
 	import Menu from '$lib/components/Menu.svelte';
 </script>
 
-<div class="bg-primaryColor p-8" use:setAttributeOnDocumentAction>
-	<div class="relative flex flex-col p-8 font-body text-lg rounded-2xl bg-mainBackground">
+<div class="bg-primaryColor p-4-32 pt-4-48" use:setAttributeOnDocumentAction>
+	<div class="relative flex flex-col p-16-40 font-body text-lg rounded-2xl bg-mainBackground">
 		<!--  -->
-		<header class="site-wide-header mb-32">
-			<a href="#maincontent" class="skipToMain">Skip to main content</a>
+		<header class="flex justify-between mb-8 pb-8 sticky bg-mainBackground z-10 left-[-1px] items-center">
+			<a href="#maincontent" class="absolute -left-[1000px] -top-[13px] px-4 rounded text-grey-900 bg-primaryColor focus-visible:left-1">
+				Skip to main content</a>
 
-			<div class="theme-switcher-and-logo">
+			<div class="flex gap-16-32-24x items-center">
 				<!-- TODO: navigation touches logo -->
 				<!-- TODO: add an icon for low/high contrast https://www.shutterstock.com/search/automatic-contrast-icon -->
 				<ColorSchemeToggle />
@@ -20,7 +21,7 @@
 				<h1 class="logo" aria-labelledby="logo">NazCodeland</h1>
 			</div>
 
-			<div class="menu-and-filter">
+			<div class="flex">
 				<!-- TODO: the styles for this menu need to be adjusted -->
 				<!-- this needs to be done so that in mobile viewpoints, when the menu is minimized the navigation still shows up in landmarks -->
 
@@ -57,16 +58,15 @@
 </div>
 
 <style>
-	.open .menu__links {
-		/* able to transition if I use 4rem alone */
+	/* .open .menu__links {
+		able to transition if I use 4rem alone
 		block-size: clamp(1rem, 50%, 4rem);
 		padding-block: 0.5rem;
-	}
-	.site-wide-header {
+	} */
+	/* .site-wide-header {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		/* doesn't grow based on root font-size set by the user, needed in 'px' for where it's being used */
 		gap: var(--spacer-8);
 
 		margin-block-end: clamp(5.5rem, calc(4.64rem + 4.29vw), 8.25rem);
@@ -76,29 +76,8 @@
 		inset-block-start: -1px;
 		background-color: rgba(var(--main-background));
 		z-index: 10;
-	}
-
-	.skipToMain {
-		position: absolute;
-		inset-inline-start: -10000px;
-		inset-block-start: -13px;
-
-		padding-inline: 1rem;
-		border-radius: var(--spacer-4);
-
-		color: rgba(var(--grey-900));
-		background-color: rgba(var(--primary-color));
-
-		/* for cases where user has 'absolute positioning' turned off */
-		overflow: hidden;
-
-		z-index: 10;
-	}
-
-	.skipToMain:focus-visible {
-		inset-inline-start: 2px;
-	}
-
+	} */
+/* 
 	.theme-switcher-and-logo {
 		display: flex;
 		align-items: center;
@@ -120,7 +99,7 @@
 		background-color: transparent;
 	}
 
-	/* this setting is set in reset.css but in More Contrast in firefox this is needed again */
+	this setting is set in reset.css but in More Contrast in firefox this is needed again
 	.hamburger:focus {
 		outline-offset: 0;
 		outline-width: 0.1rem;
@@ -138,5 +117,5 @@
 		.hamburger {
 			display: none;
 		}
-	}
+	} */
 </style>

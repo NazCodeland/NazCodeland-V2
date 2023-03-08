@@ -45,15 +45,16 @@
 		--spacer-40: 2.5rem;
 		--spacer-48: 3rem; */
 
-		--spacer-fluid-0-32-: clamp(0rem, calc(-0.86rem + 4.29vw), 2rem);
+		--spacer-fluid-0-32: clamp(0rem, calc(-0.86rem + 4.29vw), 2rem);
 		--spacer-fluid-4-32: clamp(0.25rem, calc(-0.25rem + 2.5vw), 2rem);
+		--spacer-fluid-4-48: clamp(0.5rem, calc(-0.07rem + 2.86vw), 3rem);
 		--spacer-fluid-8-16: clamp(0.5rem, calc(0.36rem + 0.71vw), 1rem);
 		--spacer-fluid-16-32: clamp(1rem, calc(0.71rem + 1.43vw), 2rem);
 		--spacer-fluid-16-40: clamp(1rem, calc(0.57rem + 2.14vw), 2.5rem);
 
-		/* for this one, the space remaining will 'grow' and 'shrink' 2.4x because it's preferred value is based on a viewport width of 1100-1440  */
-		/* doesn't grow when the root font size is increased by the user, needed for where it's being used */
-		--spacer-fluid-16-32-24x: clamp(16px, calc(-103.52px + 9.41vw), 32px);
+		/* for this one, the space remaining will grow and shrink 2.4x the normal rate because it's preferred value is based on a viewport width of 1100-1440=340px  */
+		/* since its in px units it wont grow when the root font size is increased by the user, this behavior needed for where it's being used */
+		--spacer-fluid-16-32-2\.4x: clamp(16px, calc(-103.52px + 9.41vw), 32px);
 
 		/* Built into tailwind */
 		/* Border-radius
