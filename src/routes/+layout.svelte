@@ -11,7 +11,7 @@
 	<div class="flex-col p-16-40 font-body text-lg rounded-2xl bg-mainBackground">
 		<!--  -->
 		<header
-			class="sticky top-0 flex justify-between pl-3 pt-6 pb-8 mb-88-132 bg-mainBackground z-10 left-[-1px] items-center">
+			class="sticky top-0 flex justify-between pl-3 pt-6 pb-8 mb-88-132 bg-mainBackground z-10 gap-4 items-center">
 			<a
 				href="#maincontent"
 				class="absolute -left-[1000px] -top-[13px] px-4 rounded text-grey-900 bg-primaryColor focus-visible:left-16">

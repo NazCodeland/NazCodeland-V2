@@ -5,8 +5,6 @@ import { writable, type Writable } from 'svelte/store';
 // the first letter of Enum members and to capitalize the whole value
 // we should follow convention right?
 
-// type ColorSchemeHover = true | false;
-
 export enum ColorSchemeEnum {
 	light = 'light',
 	dark = 'dark'
@@ -52,7 +50,6 @@ function initializeColorScheme() {
 	}
 }
 
-// is initializeThemePalette needed?
 function initializeThemePalette() {
 	if (browser) {
 		trySetThemePalette(window.localStorage.getItem('NazCodeland.themePalette'));
