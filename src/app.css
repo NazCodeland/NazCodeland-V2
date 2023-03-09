@@ -76,19 +76,44 @@
 
 	a:focus-visible,
 	button:focus-visible {
-		outline-style: dashed;
+		@apply outline-dashed;
 	}
 
 	a {
-		outline-color: canvasText;
-		outline-width: 0.1rem;
+		@apply outline-[0.1rem]  
+		outline-[canvasText];
 	}
 
 	.profileImageSize {
-		inline-size: clamp(9.375rem, calc(6.34rem + 15.18vw), 20rem);
-		block-size: clamp(9.38rem, calc(6.34rem + 15.18vw), 20rem);
+		@apply w-[clamp(9.375rem,_calc(6.34rem_+_15.18vw),_20rem)] 
+		h-[clamp(9.38rem,_calc(6.34rem_+_15.18vw),_20rem)];
 	}
 	.profileImageBorderW {
-		border-width: clamp(0.5rem, calc(0.43rem + 0.36vw), 0.75rem);
+		@apply border-[clamp(0.5rem,_calc(0.43rem_+_0.36vw),_0.75rem)];
 	}
+
+	.logo *:not([aria-hidden='true']) {
+		@apply inline-block
+		tracking-[clamp(0rem,_calc(-0.07rem_+_0.36vw),_0.5rem)]
+		px-[0.05rem]
+		outline-[0.1px]
+		outline
+		shadow-logo
+		transition-transform
+		duration-200
+		hover:uppercase
+		hover:-translate-y-5
+		hover:scale-[2]
+		hover:rotate-[20deg];
+	}
+
+	/* 
+	font-family: var(--ff-logo-excluding-first-letter);
+	font-size: clamp(1.375rem, calc(0.75rem + 1.94vw), 2.25rem);
+	line-height: clamp(1.5rem, calc(0.98rem + 2.61vw), 3rem);
+	cursor: default;
+
+	color: rgba(var(--logo-remaining-letters-color));
+
+	transition: transform 0.2s; */
 }

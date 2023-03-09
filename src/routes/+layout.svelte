@@ -2,6 +2,7 @@
 	import '../app.css';
 	import setAttributeOnDocumentAction from '$lib/actions/setAttributeOnDocumentAction';
 	import ColorSchemeToggle from '$lib/components/ColorSchemeToggle.svelte';
+	import Logo from '$lib/components/Logo.svelte';
 	import Menu from '$lib/components/Menu.svelte';
 	import { toggleMenu } from '$lib/stores/menuStore';
 </script>
@@ -21,7 +22,7 @@
 				<!-- TODO: add an icon for low/high contrast https://www.shutterstock.com/search/automatic-contrast-icon -->
 				<ColorSchemeToggle />
 
-				<h1 class="logo" aria-labelledby="logo">NazCodeland</h1>
+				<Logo />
 			</div>
 
 			<div class="flex">

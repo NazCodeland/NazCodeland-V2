@@ -5,7 +5,7 @@ module.exports = {
 		fontFamily: {
 			body: "'Times New Roman', Times, serif",
 			logoFirstL: "'Suez one', Georgia, 'Times New Roman', Times, serif",
-			logoNotFirstL: 'Arial, sans-serif'
+			logoNotFirstL: "'Suez one', system-ui, Arial, sans-serif"
 		},
 
 		extend: {
@@ -45,6 +45,21 @@ module.exports = {
 				'16-40': 'var(--spacer-fluid-16-40)',
 				'16-32-24x': 'var(--spacer-fluid-16-32-2\\.4x)',
 				'88-132': 'var(--spacer-fluid-88-132)'
+			},
+			lineHeight: {
+				logoFirstL: 'clamp(48px, calc(31.36px + 5.22vw), 96px)',
+				logoNotFistL: 'clamp(1.5rem, calc(0.98rem + 2.61vw), 3rem)'
+			},
+			fontSize: {
+				logoFirstL: 'clamp(24px, calc(17.12px + 2.14vw), 3rem)',
+				logoNotFirstL: 'clamp(1.375rem, calc(0.75rem + 1.94vw), 2.25rem)'
+			},
+			letterSpacing: {},
+			width: {
+				image: 'clamp(9.375rem, calc(6.34rem + 15.18vw), 20rem)'
+			},
+			boxShadow: {
+				logo: '0.8px 0.8px 0.8px 0.8px rgba(204, 219, 232, 1), -0.8px -0.8px 0.8px 0.8px rgba(255, 255, 255, 1)'
 			}
 		}
 	},

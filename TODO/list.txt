@@ -7,3 +7,11 @@ remove all the .index files and import functions/files directly
 
 the site seems to load with no background color then background color kicks in, why is that.
 This behavior is slightly different than expressjs version
+
+
+- Perhaps colorSchemeAndThemePaletteStore can be broken up into two stores
+since the logic of these two components is not intertwined anymore
+
+
+- menuStore.ts and ThemePaletteStore.ts have 95% same functionality. Should
+I turn it into one function if not possible, should I move them into one file?
