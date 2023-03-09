@@ -1,21 +1,12 @@
 <script>
-	import ThemePalettes from './colorSchemeToggle/ThemePalettes.svelte';
 	import { menuStore } from '$lib/stores/menuStore';
-	import { ThemePalettesStore, toggleThemePalettesStore } from '$lib/stores/themePaletteStore';
-
-	function handleClick() {}
 </script>
 
-<!-- 
-	inset-inline: 
-	calc(clamp(1rem, calc(0.57rem + 2.14vw), 2.5rem) * -1);
-inset-block-start: clamp(3rem, calc(1.96rem + 6vw), 6rem); -->
-
 <nav
-	class="inset-x-menuInline top-menuBlock -z-10 bg-mainBackground mt-2 pt-10 pb-1 border-b border-solid border-primaryColor absolute">
+	class="md:[all:unset] inset-x-menuInline top-menuBlock -z-10 bg-mainBackground mt-2 pt-10 pb-1 border-b border-solid border-primaryColor absolute">
 	<ul
-		class="flex flex-wrap gap-16-32 px-16-40 justify-center 
-		{$menuStore ? 'inline-block' : 'hidden'}">
+		class="flex flex-wrap gap-16-32  justify-center 
+		{$menuStore ? 'inline-block' : 'hidden'} md:flex">
 		<li><a href="/">Home</a></li>
 		<li class="flex-shrink-0"><a href="/about">About Me</a></li>
 		<li><a href="/portfolio">Portfolio</a></li>

@@ -28,7 +28,6 @@
 			<div class="flex">
 				<!-- TODO: the styles for this menu need to be adjusted -->
 				<!-- this needs to be done so that in mobile viewpoints, when the menu is minimized the navigation still shows up in landmarks -->
-
 				<Menu />
 
 				<!-- hamburger icon -->
@@ -36,7 +35,7 @@
 				<button
 					on:click={toggleMenu}	
 					type="button" tabindex="0" 
-					class="hamburger" aria-label="menu">
+					class="md:hidden hamburger" aria-label="menu">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
 							fill-rule="evenodd"
@@ -64,15 +63,6 @@
 </div>
 
 <style>
-	.someTing {
-		position: sticky;
-		top: 20px;
-		/* height: 500px; */
-		overflow-y: scroll;
-	}
-	.someTing::-webkit-scrollbar {
-		display: none; /* for Chrome, Safari, and Opera */
-	}
 	/* .open .menu__links {
 		able to transition if I use 4rem alone
 		block-size: clamp(1rem, 50%, 4rem);

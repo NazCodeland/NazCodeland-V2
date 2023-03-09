@@ -64,6 +64,9 @@ module.exports = {
 			},
 			boxShadow: {
 				logo: '0.8px 0.8px 0.8px 0.8px rgba(204, 219, 232, 1), -0.8px -0.8px 0.8px 0.8px rgba(255, 255, 255, 1)'
+			},
+			screens: {
+				md: '850px'
 			}
 		}
 	},
