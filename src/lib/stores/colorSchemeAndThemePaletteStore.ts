@@ -26,7 +26,7 @@ function getColorSchemeList() {
 }
 
 function ThemePaletteList() {
-	return Object.keys(ColorSchemeEnum);
+	return Object.keys(ThemePaletteEnum);
 }
 
 export function trySetColorScheme(value: unknown) {

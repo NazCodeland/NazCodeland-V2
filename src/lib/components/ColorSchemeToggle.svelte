@@ -10,6 +10,8 @@
 	<button
 		on:mouseenter={() => showThemePalette(true)}
 		on:mouseleave={() => showThemePalette(false)}
+		on:focus={() => showThemePalette(true)}
+		on:focusout={() => showThemePalette(false)}
 		on:click={toggleColorScheme}
 		type="button"
 		aria-label="site-wide theme switcher"

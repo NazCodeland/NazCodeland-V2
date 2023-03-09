@@ -6,7 +6,7 @@
 		trySetThemePalette
 	} from '$lib/stores/colorSchemeAndThemePaletteStore';
 
-	function handleClick(event: MouseEvent) {
+	function handleEvent(event: MouseEvent | KeyboardEvent) {
 		trySetThemePalette((event.currentTarget as HTMLInputElement).value);
 	}
 </script>
@@ -15,17 +15,21 @@
 	bind:group={$themePaletteStore} is so that the correct 
 	input(the last selected one) will be selected after page refresh 
 -->
-<div class="palettes {$colorSchemeStore ? 'showPalettes' : ''}">
+<form action="" class="palettes {$colorSchemeStore ? 'showPalettes' : ''}">
 	{#each Object.keys(ThemePaletteEnum) as palette}
-		<input
-			on:click={handleClick}
-			type="radio"
-			bind:group={$themePaletteStore}
-			value={palette}
-			name="palette"
-			class="palette {palette} " />
+		<label for={palette}>
+			<input
+				on:click={handleEvent}
+				on:keypress={handleEvent}
+				bind:group={$themePaletteStore}
+				tabindex="0"
+				type="radio"
+				value={palette}
+				name={palette}
+				class="palette {palette}" />
+		</label>
 	{/each}
-</div>
+</form>
 
 <style>
 	.palettes {
@@ -90,6 +94,7 @@
 	.desert,
 	.dusk,
 	.nightSky {
+		transition-property: inset;
 		transition-delay: 1s;
 		transition-duration: 1s;
 	}
