@@ -23,12 +23,6 @@ export enum ThemePaletteEnum {
 export const colorSchemeStore: Writable<ColorSchemeEnum> = writable(ColorSchemeEnum.light);
 export const themePaletteStore: Writable<ThemePaletteEnum> = writable(ThemePaletteEnum.main);
 
-export const colorSchemeHoverStore: Writable<boolean> = writable(false);
-
-export function setColorSchemeHover(value: boolean) {
-	colorSchemeHoverStore.set(value);
-}
-
 export function trySetColorScheme(value: unknown) {
 	if (typeof value === 'string' && value in ColorSchemeEnum) {
 		colorSchemeStore.set(value as ColorSchemeEnum);

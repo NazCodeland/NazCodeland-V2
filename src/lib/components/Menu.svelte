@@ -1,5 +1,5 @@
 <script>
-	import ThemePalettes from './Menu/ThemePalettes.svelte';
+	import ThemePalettes from './colorSchemeToggle/ThemePalettes.svelte';
 	import { menuStore } from '$lib/stores/menuStore';
 	import { ThemePalettesStore, toggleThemePalettesStore } from '$lib/stores/themePaletteStore';
 
@@ -27,10 +27,6 @@ inset-block-start: clamp(3rem, calc(1.96rem + 6vw), 6rem); -->
 		</li>
 		<li><a href="/contact">Contact</a></li>
 		<li><a href="/blog">Blog</a></li>
-		<li>
-			<a on:click={toggleThemePalettesStore} href="#NA">Themes</a>
-		</li>
-		{#if $ThemePalettesStore}<ThemePalettes />{/if}
 	</ul>
 </nav>
 

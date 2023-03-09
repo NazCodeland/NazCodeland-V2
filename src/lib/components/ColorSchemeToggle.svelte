@@ -1,28 +1,30 @@
 <script lang="ts">
-	import {
-		toggleColorScheme,
-		setColorSchemeHover
-	} from '../stores/colorSchemeAndThemePaletteStore';
+	import { setThemePaletteHover } from './colorSchemeToggle/ThemePalettes/Store/themePaletteHoverStore';
+	import { toggleColorScheme } from '../stores/colorSchemeAndThemePaletteStore';
 	import Day from './colorSchemeToggle/Day.svelte';
 	import Night from './colorSchemeToggle/Night.svelte';
+	import ThemePalettes from './colorSchemeToggle/ThemePalettes.svelte';
 </script>
 
-<button
-	on:mouseenter={() => setColorSchemeHover(true)}
-	on:mouseleave={() => setColorSchemeHover(false)}
-	on:click={toggleColorScheme}
-	type="button"
-	aria-label="site-wide theme switcher"
-	class="theme-switcher">
-	<div class="day-and-night-svg-container svg-size">
-		<div class="svg-day common-svg-styles" title="light mode">
-			<Day />
+<div class="relative z-10">
+	<button
+		on:mouseenter={() => setThemePaletteHover(true)}
+		on:mouseleave={() => setThemePaletteHover(false)}
+		on:click={toggleColorScheme}
+		type="button"
+		aria-label="site-wide theme switcher"
+		class="theme-switcher">
+		<div class="day-and-night-svg-container svg-size">
+			<div class="svg-day common-svg-styles" title="light mode">
+				<Day />
+			</div>
+			<div class="svg-night  common-svg-styles" title="dark mode">
+				<Night />
+			</div>
 		</div>
-		<div class="svg-night  common-svg-styles" title="dark mode">
-			<Night />
-		</div>
-	</div>
-</button>
+	</button>
+	<ThemePalettes />
+</div>
 
 <style>
 	/* TODO: both icons show on page load/refresh since they are inline, fix that */
