@@ -58,6 +58,10 @@ module.exports = {
 			width: {
 				image: 'clamp(9.375rem, calc(6.34rem + 15.18vw), 20rem)'
 			},
+			inset: {
+				menuInline: ' calc(clamp(1rem, calc(0.57rem + 2.14vw), 2.5rem) * -1)',
+				menuBlock: 'clamp(3rem, calc(1.96rem + 6vw), 4rem)'
+			},
 			boxShadow: {
 				logo: '0.8px 0.8px 0.8px 0.8px rgba(204, 219, 232, 1), -0.8px -0.8px 0.8px 0.8px rgba(255, 255, 255, 1)'
 			}
