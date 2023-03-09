@@ -12,7 +12,7 @@
 				? `<a href="/" class="relative font-logoFirstL text-logoFirstL font-bold leading-logoFirstL cursor-pointer rounded-sm text-primaryColor" id="logo" aria-label="NazCodeland">
 					${letter}
 					</a>`
-				: `<span class="font-logoNotFirstL text-logoNotFirstL leading-logoNotFistL cursor-default text-slate-900">
+				: `<span class="font-logoNotFirstL text-logoNotFirstL leading-logoNotFistL cursor-default">
 					${letter}
 					</span>`;
 		});
