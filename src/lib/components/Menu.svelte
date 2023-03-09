@@ -11,7 +11,8 @@
 	calc(clamp(1rem, calc(0.57rem + 2.14vw), 2.5rem) * -1);
 inset-block-start: clamp(3rem, calc(1.96rem + 6vw), 6rem); -->
 
-<nav class="menu absolute">
+<nav
+	class="-z-10 bg-mainBackground mt-2 pt-10 pb-1 border-b border-solid border-primaryColor menu absolute">
 	<ul
 		class="flex flex-wrap gap-16-32 px-16-40 justify-center 
 		{$menuStore ? 'inline-block' : 'hidden'}">

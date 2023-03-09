@@ -8,13 +8,13 @@
 </script>
 
 <div class="bg-primaryColor p-4-32 pt-4-48" use:setAttributeOnDocumentAction>
-	<div class="relative flex flex-col p-16-40 font-body text-lg rounded-2xl bg-mainBackground">
+	<div class="flex-col p-16-40 font-body text-lg rounded-2xl bg-mainBackground">
 		<!--  -->
 		<header
-			class="flex justify-between pl-3 pt-2 pb-8 mb-88-132 sticky bg-mainBackground z-10 left-[-1px] items-center">
+			class="sticky top-0 flex justify-between pl-3 pt-6 pb-8 mb-88-132 bg-mainBackground z-10 left-[-1px] items-center">
 			<a
 				href="#maincontent"
-				class="absolute -left-[1000px] -top-[13px] px-4 rounded text-grey-900 bg-primaryColor focus-visible:left-1">
+				class="absolute -left-[1000px] -top-[13px] px-4 rounded text-grey-900 bg-primaryColor focus-visible:left-16">
 				Skip to main content</a>
 
 			<div class="flex gap-16-32-24x items-center">
@@ -50,7 +50,7 @@
 			</div>
 		</header>
 
-		<main class="container flex justify-center">
+		<main class="someTing container flex justify-center">
 			<div>
 				<slot />
 			</div>
@@ -64,6 +64,15 @@
 </div>
 
 <style>
+	.someTing {
+		position: sticky;
+		top: 20px;
+		/* height: 500px; */
+		overflow-y: scroll;
+	}
+	.someTing::-webkit-scrollbar {
+		display: none; /* for Chrome, Safari, and Opera */
+	}
 	/* .open .menu__links {
 		able to transition if I use 4rem alone
 		block-size: clamp(1rem, 50%, 4rem);
