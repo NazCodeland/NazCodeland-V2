@@ -40,7 +40,7 @@ inset-block-start: clamp(3rem, calc(1.96rem + 6vw), 6rem); -->
 
 	.menu {
 		inset-inline: calc(clamp(1rem, calc(0.57rem + 2.14vw), 2.5rem) * -1);
-		inset-block-start: clamp(3rem, calc(1.96rem + 6vw), 6rem);
+		inset-block-start: clamp(3rem, calc(1.96rem + 6vw), 4rem);
 	}
 
 	/* .menu {
