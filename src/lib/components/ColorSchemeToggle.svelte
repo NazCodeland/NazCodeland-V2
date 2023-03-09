@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { setThemePaletteHover } from './colorSchemeToggle/ThemePalettes/Store/themePaletteHoverStore';
+	import { setColorScheme as showThemePalette } from './colorSchemeToggle/store/ColorSchemeStore';
 	import { toggleColorScheme } from '../stores/colorSchemeAndThemePaletteStore';
 	import Day from './colorSchemeToggle/Day.svelte';
 	import Night from './colorSchemeToggle/Night.svelte';
@@ -8,8 +8,8 @@
 
 <div class="relative z-10">
 	<button
-		on:mouseenter={() => setThemePaletteHover(true)}
-		on:mouseleave={() => setThemePaletteHover(false)}
+		on:mouseenter={() => showThemePalette(true)}
+		on:mouseleave={() => showThemePalette(false)}
 		on:click={toggleColorScheme}
 		type="button"
 		aria-label="site-wide theme switcher"

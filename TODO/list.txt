@@ -15,3 +15,16 @@ since the logic of these two components is not intertwined anymore
 
 - menuStore.ts and ThemePaletteStore.ts have 95% same functionality. Should
 I turn it into one function if not possible, should I move them into one file?
+
+--------------------------------------------------------------------
+ColorSchemeStore has stores in two different locations. One is in the root of
+lib and the other within the ColorScheme component folder.
+
+the value of the store in the folder only impacts it's nested component. On
+hover, the nested component shows up. What's tricky is that the lib/stores
+store for ColorScheme has the same name as the folder store, but they don't 
+clash because its in two different locations.
+
+Question, since there is already a global colorScheme store should I also
+move the folder store there?
+--------------------------------------------------------------------

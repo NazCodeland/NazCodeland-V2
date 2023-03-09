@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { themePaletteHoverStore } from './ThemePalettes/Store/themePaletteHoverStore';
+	import { colorSchemeStore } from './store/ColorSchemeStore';
 	import {
 		ThemePaletteEnum,
 		themePaletteStore,
@@ -15,7 +15,7 @@
 	bind:group={$themePaletteStore} is so that the correct 
 	input(the last selected one) will be selected after page refresh 
 -->
-<div class="palettes {$themePaletteHoverStore ? 'showPalettes' : ''}">
+<div class="palettes {$colorSchemeStore ? 'showPalettes' : ''}">
 	{#each Object.keys(ThemePaletteEnum) as palette}
 		<input
 			on:click={handleClick}
