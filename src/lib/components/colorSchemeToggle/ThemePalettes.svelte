@@ -63,7 +63,7 @@
 
 	/* why can't I target an attribute to give it a style */
 	.main {
-		inset-inline-start: 0px;
+		inset-inline-start: 1px;
 		inset-block-start: -35px;
 		background-color: rgba(251, 252, 253);
 	}
@@ -81,8 +81,8 @@
 	}
 
 	.nightSky {
-		inset-inline-start: 0px;
-		inset-block-start: 35px;
+		inset-inline-start: 1px;
+		inset-block-start: clamp(2.19rem, calc(2.09rem + 0.46vw), 2.5rem);
 		background-color: rgba(var(--light-nightSky-contrast-theme-bg-clr));
 	}
 
@@ -106,7 +106,7 @@
 
 		/* mobile design */
 		.showPalettes .main {
-			inset-inline-start: 0px;
+			inset-inline-start: 2px;
 			inset-block-start: -35px;
 		}
 		.showPalettes .desert {
@@ -115,11 +115,11 @@
 		}
 		.showPalettes .dusk {
 			inset-inline-start: -31px;
-			inset-block-start: 18px;
+			inset-block-start: 20px;
 		}
 		.showPalettes .nightSky {
-			inset-inline-start: 0px;
-			inset-block-start: 35px;
+			inset-inline-start: 1px;
+			inset-block-start: clamp(2.19rem, calc(2.09rem + 0.46vw), 2.5rem);
 		}
 
 		.showPalettes .main,
