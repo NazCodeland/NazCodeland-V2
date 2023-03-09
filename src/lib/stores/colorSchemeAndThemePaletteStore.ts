@@ -21,15 +21,23 @@ export enum ThemePaletteEnum {
 export const colorSchemeStore: Writable<ColorSchemeEnum> = writable(ColorSchemeEnum.light);
 export const themePaletteStore: Writable<ThemePaletteEnum> = writable(ThemePaletteEnum.main);
 
+function getColorSchemeList() {
+	return Object.keys(ColorSchemeEnum);
+}
+
+function ThemePaletteList() {
+	return Object.keys(ColorSchemeEnum);
+}
+
 export function trySetColorScheme(value: unknown) {
-	if (typeof value === 'string' && value in ColorSchemeEnum) {
+	if (typeof value === 'string' && getColorSchemeList().includes(value)) {
 		colorSchemeStore.set(value as ColorSchemeEnum);
 		return true;
 	}
 	return false;
 }
 export function trySetThemePalette(value: unknown) {
-	if (typeof value === 'string' && value in ThemePaletteEnum) {
+	if (typeof value === 'string' && ThemePaletteList().includes(value)) {
 		themePaletteStore.set(value as ThemePaletteEnum);
 		return true;
 	}
