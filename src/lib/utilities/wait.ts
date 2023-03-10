@@ -4,3 +4,5 @@ const wait = (amount: number) =>
 	});
 
 export default wait;
+
+wait(2000);
