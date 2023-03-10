@@ -12,6 +12,7 @@ module.exports = {
 			colors: {
 				primaryColor: 'rgba(var(--primary-color))',
 				mainBackground: 'rgba(var(--main-background))',
+				colorSchemeToggle: 'rgba(var(--svg-background-color))',
 				grey: {
 					1: 'rgba(var(--grey-000), <alpha-value>)',
 					25: 'rgba(var(--grey-025), <alpha-value>)',

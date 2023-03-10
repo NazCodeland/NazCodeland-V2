@@ -51,7 +51,7 @@
     /* light / dark icon variables */
     --svg-angle-day: -90deg;
     --svg-angle-night: 0deg;
-    --svg-background-color: 00,00,00;
+    --svg-background-color: 00, 00, 00;
     animation: sunSet 2s;
     
     

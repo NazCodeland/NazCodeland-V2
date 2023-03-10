@@ -4,6 +4,10 @@
 	import Day from './colorSchemeToggle/Day.svelte';
 	import Night from './colorSchemeToggle/Night.svelte';
 	import ThemePalettes from './colorSchemeToggle/ThemePalettes.svelte';
+	/* TODO: both icons show on page load/refresh since they are inline, fix that */
+	/* TODO motion-reduce:duration for the transition/animation */
+	/* TODO: change the night/day animation into a 360deg animation but when the user clicks twice
+decide if you want to register the clicks and do another 360deg rotation or turn back the animation */
 </script>
 
 <div class="relative z-10">
@@ -15,8 +19,9 @@
 		on:click={toggleColorScheme}
 		type="button"
 		aria-label="site-wide theme switcher"
-		class="theme-switcher">
-		<div class="day-and-night-svg-container svg-size">
+		class="flex rounded-full bg-transparent outline-2 outline-[canvasText] hover:outline focus:outline focus-visible:outline-dashed">
+		<div
+			class="bgClr svg-size relative overflow-hidden rounded-full transition-[background-color] delay-[0s] duration-[2000s]">
 			<div class="svg-day common-svg-styles" title="light mode">
 				<Day />
 			</div>
@@ -29,40 +34,12 @@
 </div>
 
 <style>
-	/* TODO: both icons show on page load/refresh since they are inline, fix that */
-	/* TODO motion-reduce:duration for the transition/animation */
-	/* TODO: change the night/day animation into a 360deg animation but when the user clicks twice
-decide if you want to register the clicks and do another 360deg rotation or turn back the animation */
-
-	.theme-switcher {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-color: transparent;
-		border: none;
-		border-radius: 50%;
-		min-inline-size: 36px;
-		max-inline-size: 50px;
-		min-block-size: 36px;
-		max-block-size: 50px;
-		overflow: hidden;
-	}
-
-	/*  this setting is set in reset.css but in More Contrast in firefox this is needed again */
-	.theme-switcher:focus {
-		outline: 0.1rem solid canvasText;
-	}
-
-	.theme-switcher:focus-visible {
-		outline-style: dashed;
-	}
-
 	.svg-size {
 		min-inline-size: clamp(2.25rem, calc(2.18rem + 0.36vw), 2.5rem);
 		min-block-size: clamp(2.25rem, calc(2.18rem + 0.36vw), 2.5rem);
 	}
 
-	.day-and-night-svg-container {
+	.bgClr {
 		position: relative;
 		background-color: rgba(var(--svg-background-color));
 		transition: background-color 2s;
