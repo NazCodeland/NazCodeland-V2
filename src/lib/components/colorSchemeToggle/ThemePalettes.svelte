@@ -17,7 +17,7 @@
 -->
 <form
 	action=""
-	class="palettes absolute -z-10 top-2 left-2 {$colorSchemeStore ? 'showPalettes' : ''}">
+	class="palettes absolute top-2 left-2 -z-10 {$colorSchemeStore ? 'showPalettes' : ''}">
 	{#each Object.keys(ThemePaletteEnum) as palette}
 		<label for={palette}>
 			<input
@@ -28,15 +28,15 @@
 				type="radio"
 				value={palette}
 				name={palette}
-				class="absolute appearance-none w-5 h-5 outline-2 outline outline-slate-500 hover:outline-[canvasText]
-				focus:outline-[canvasText] rounded-full {palette} transition-[inset] delay-1000 duration-1000 " />
+				class="absolute h-5 w-5 appearance-none rounded-full outline outline-2 outline-slate-500
+				hover:outline-[canvasText] focus:outline-[canvasText] {palette} transition-[inset] delay-1000 duration-1000 " />
 		</label>
 	{/each}
 </form>
 
 <style lang="postcss">
 	.main {
-		@apply left-[1px]
+		@apply left-[clamp(0rem,_calc(0.04rem_+_0.09vw),_0.1rem)]
 		-top-[35px]
 		bg-[canvas];
 	}
@@ -54,7 +54,7 @@
 	}
 
 	.nightSky {
-		@apply left-[1px]
+		@apply left-[clamp(0.06rem,_calc(0.03rem_+_0.18vw),_0.17rem)]
 		top-[clamp(2.19rem,_calc(2.09rem_+_0.46vw),_2.5rem)]
 		bg-[rgba(var(--nightSky-contrast-theme-bg-clr))];
 	}
@@ -82,7 +82,7 @@
 			top-5;
 		}
 		.showPalettes .nightSky {
-			@apply left-0
+			@apply left-[clamp(0.06rem,_calc(0.03rem_+_0.18vw),_0.17rem)]
 			top-[clamp(2.19rem,_calc(2.09rem_+_0.46vw),_2.5rem)];
 		}
 
@@ -90,7 +90,7 @@
 		.showPalettes .desert,
 		.showPalettes .dusk,
 		.showPalettes .nightSky {
-			@apply duration-[250ms] delay-[0ms] ease-out;
+			@apply delay-[0ms] duration-[250ms] ease-out;
 		}
 	}
 </style>

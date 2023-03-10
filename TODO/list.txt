@@ -20,3 +20,10 @@ clash because its in two different locations.
 Question, since there is already a global colorScheme store should I also
 move the folder store there?
 --------------------------------------------------------------------
+
+
+
+	/* TODO: both icons show on page load/refresh since they are inline, fix that */
+	/* TODO motion-reduce:duration for the transition/animation */
+	/* TODO: change the night/day animation into a 360deg animation but when the user clicks twice
+decide if you want to register the clicks and do another 360deg rotation or turn back the animation */

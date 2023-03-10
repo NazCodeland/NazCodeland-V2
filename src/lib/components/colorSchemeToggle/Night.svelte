@@ -1,3 +1,6 @@
+<script>
+</script>
+
 <svg
 	class="svg-size"
 	width="36"
@@ -84,3 +87,43 @@
 		</g>
 	</g>
 </svg>
+
+<style>
+	/* night svg icon */
+
+	.star01 {
+		animation: blink-animation 1s steps(2, start) infinite;
+	}
+	.star02 {
+		animation: blink-animation 2s steps(5, start) infinite;
+	}
+
+	.star03 {
+		animation: blink-animation 3s steps(8, start) infinite;
+	}
+	.star04 {
+		animation: blink-animation 2s steps(5, start) infinite;
+	}
+
+	.star05 {
+		animation: blink-animation 2s steps(5, start) infinite;
+	}
+
+	.star06 {
+		animation: blink-animation 6s steps(2, start) infinite;
+	}
+
+	.star09 {
+		animation: blink-animation 6s steps(12, start) infinite;
+	}
+	.star07,
+	.star08 {
+		animation: blink-animation 2s steps(5, start) infinite;
+	}
+
+	@keyframes blink-animation {
+		to {
+			visibility: hidden;
+		}
+	}
+</style>

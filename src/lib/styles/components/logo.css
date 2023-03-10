@@ -2,20 +2,20 @@
 	/* logo styles */
 	.logo *:not([aria-hidden='true']) {
 		@apply inline-block
-		tracking-[clamp(0.15rem,_calc(-0.07rem_+_0.36vw),_0.5rem)]
 		px-[0.05rem]
-		outline-[0.1px]
-		outline
+		tracking-[clamp(0.15rem,_calc(-0.07rem_+_0.36vw),_0.5rem)]
 		shadow-logo
+		outline
+		outline-[0.1px]
 		transition-transform
 		duration-200;
 	}
 
 	.logo *:not([aria-hidden='true']):hover {
-		@apply uppercase
-		-translate-y-5
+		@apply -translate-y-5
+		rotate-[20deg]
 		scale-[2]
-		rotate-[20deg];
+		uppercase;
 	}
 
 	.logo > span :nth-child(1) {
