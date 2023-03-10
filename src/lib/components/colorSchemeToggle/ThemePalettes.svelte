@@ -37,7 +37,7 @@
 <style lang="postcss">
 	.main {
 		@apply left-[1px]
-		top-[1px]
+		-top-[35px]
 		bg-[canvas];
 	}
 
