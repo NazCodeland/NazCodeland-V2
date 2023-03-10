@@ -21,7 +21,7 @@ decide if you want to register the clicks and do another 360deg rotation or turn
 		aria-label="site-wide theme switcher"
 		class="flex rounded-full bg-transparent outline-2 outline-[canvasText] hover:outline focus:outline focus-visible:outline-dashed">
 		<div
-			class="bgClr svg-size relative overflow-hidden rounded-full transition-[background-color] delay-[0s] duration-[2000s]">
+			class="svg-size relative overflow-hidden rounded-full bg-colorSchemeToggle transition-[background-color] delay-[0s] duration-[2s]">
 			<div class="svg-day common-svg-styles" title="light mode">
 				<Day />
 			</div>
@@ -37,14 +37,6 @@ decide if you want to register the clicks and do another 360deg rotation or turn
 	.svg-size {
 		min-inline-size: clamp(2.25rem, calc(2.18rem + 0.36vw), 2.5rem);
 		min-block-size: clamp(2.25rem, calc(2.18rem + 0.36vw), 2.5rem);
-	}
-
-	.bgClr {
-		position: relative;
-		background-color: rgba(var(--svg-background-color));
-		transition: background-color 2s;
-		border-radius: 50%;
-		overflow: hidden;
 	}
 
 	.common-svg-styles {
