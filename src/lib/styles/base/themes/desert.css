@@ -3,9 +3,6 @@
 /* #region desert*/
 @layer base {
 	:root {
-		/* desert contrast theme */
-		--light-desert-contrast-theme-bg-clr: 255, 250, 239;
-		--dark-desert-contrast-theme-bg-clr: 86, 56, 37;
 		--light-desert-contrast-theme-txt-clr: 61, 61, 61;
 
 		--light-desert-contrast-theme-link-txt-clr: 28, 94, 117;
@@ -21,18 +18,21 @@
 
 	/* ThemePalette color */
 	/* look into what specificity issue is overriding this style */
-	[color-scheme='dark'] .desert {
-		background-color: rgba(var(--dark-desert-contrast-theme-bg-clr)) !important;
+	[color-scheme='light'] {
+		--desert-contrast-theme-bg-clr: 255, 250, 239;
+	}
+	[color-scheme='dark'] {
+		--desert-contrast-theme-bg-clr: 86, 56, 37;
 	}
 
 	/* -------------------------------------------- */
 	[color-scheme='light'][themePalette='desert'] {
 		--html-color: var(--light-desert-contrast-theme-link-txt-clr);
-		--main-background: var(--light-desert-contrast-theme-bg-clr);
+		--main-background: var(--desert-contrast-theme-bg-clr);
 	}
 	[color-scheme='dark'][themePalette='desert'] {
 		--html-color: var(--light-desert-contrast-theme-link-txt-clr);
-		--main-background: var(--dark-desert-contrast-theme-bg-clr);
+		--main-background: var(--desert-contrast-theme-bg-clr);
 	}
 	[themePalette='desert'] .logo :not([aria-hidden]) {
 		outline: 0.1px solid grayText;
@@ -56,7 +56,7 @@
 
 	[themePalette='desert'] .profile-card__image {
 		outline: 1px solid rgba(var(--light-desert-contrast-theme-link-txt-clr));
-		border-color: rgba(var(--light-desert-contrast-theme-bg-clr)) !important;
+		border-color: rgba(var(--desert-contrast-theme-bg-clr)) !important;
 	}
 
 	[themePalette='desert'] .hamburger {

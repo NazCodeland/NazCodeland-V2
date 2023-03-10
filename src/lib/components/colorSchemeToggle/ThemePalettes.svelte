@@ -15,7 +15,9 @@
 	bind:group={$themePaletteStore} is so that the correct 
 	input(the last selected one) will be selected after page refresh 
 -->
-<form action="" class="palettes {$colorSchemeStore ? 'showPalettes' : ''}">
+<form
+	action=""
+	class="palettes absolute -z-10 top-2 left-2 {$colorSchemeStore ? 'showPalettes' : ''}">
 	{#each Object.keys(ThemePaletteEnum) as palette}
 		<label for={palette}>
 			<input
@@ -26,137 +28,69 @@
 				type="radio"
 				value={palette}
 				name={palette}
-				class="palette {palette}" />
+				class="absolute appearance-none w-5 h-5 outline-2 outline outline-slate-500 hover:outline-[canvasText]
+				focus:outline-[canvasText] rounded-full {palette} transition-[inset] delay-1000 duration-1000" />
 		</label>
 	{/each}
 </form>
 
-<style>
-	.palettes {
-		/* display: flex; */
-		/* flex-direction: column; */
-		/* align-items: flex-end; */
-
-		/* position: sticky; */
-		/* inset-inline-end: var(--spacer-fluid-16-40); */
-		/* inset-block-start: 10rem; */
-		/* visibility: hidden; */
-		/* background-color: none; */
-		position: absolute;
-		inset-block-start: 8px;
-		inset-inline-start: 8px;
-		z-index: -10;
-	}
-
-	.palette {
-		appearance: none;
-		/* display: inline-block; */
-		inline-size: 20px;
-		block-size: 20px;
-		outline-width: 2px;
-		outline-style: solid;
-		outline-color: darkGray;
-		border-radius: 50%;
-		position: absolute;
-	}
-
-	.palette:is(:hover, :focus) {
-		outline-width: 2px;
-		outline-color: canvasText;
-	}
-
-	/* why can't I target an attribute to give it a style */
+<style lang="postcss">
 	.main {
-		inset-inline-start: 1px;
-		inset-block-start: -35px;
-		background-color: rgba(251, 252, 253);
+		@apply left-[1px]
+		top-[1px]
+		bg-[canvas];
 	}
 
 	.desert {
-		inset-inline-start: -31px;
-		inset-block-start: -18px;
-		background-color: rgba(var(--light-desert-contrast-theme-bg-clr));
+		@apply -left-[31px]
+		-top-[18px]
+		bg-[rgba(var(--desert-contrast-theme-bg-clr))];
 	}
 
 	.dusk {
-		inset-inline-start: -31px;
-		inset-block-start: 18px;
-		background-color: rgba(var(--light-dusk-contrast-theme-bg-clr));
+		@apply -left-[31px]
+		top-[18px]
+		bg-[rgba(var(--dusk-contrast-theme-bg-clr))];
 	}
 
 	.nightSky {
-		inset-inline-start: 1px;
-		inset-block-start: clamp(2.19rem, calc(2.09rem + 0.46vw), 2.5rem);
-		background-color: rgba(var(--light-nightSky-contrast-theme-bg-clr));
+		@apply left-[1px]
+		top-[clamp(2.19rem,_calc(2.09rem_+_0.46vw),_2.5rem)]
+		bg-[rgba(var(--nightSky-contrast-theme-bg-clr))];
 	}
 
-	.main,
-	.desert,
-	.dusk,
-	.nightSky {
-		transition-property: inset;
-		transition-delay: 1s;
-		transition-duration: 1s;
-	}
-
+	/* mobile design */
 	@media (hover: hover) {
 		.main,
 		.desert,
 		.dusk,
 		.nightSky {
-			inset-inline-start: 1px;
-			inset-block-start: 1px;
-			/* transition: inset 1s; */
+			@apply left-[1px]
+			top-[1px];
 		}
 
-		/* mobile design */
 		.showPalettes .main {
-			inset-inline-start: 2px;
-			inset-block-start: -35px;
+			@apply left-0.5
+			-top-[35px];
 		}
 		.showPalettes .desert {
-			inset-inline-start: -31px;
-			inset-block-start: -18px;
+			@apply -left-[31px]
+			-top-[18px];
 		}
 		.showPalettes .dusk {
-			inset-inline-start: -31px;
-			inset-block-start: 20px;
+			@apply -left-[31px]
+			top-5;
 		}
 		.showPalettes .nightSky {
-			inset-inline-start: 1px;
-			inset-block-start: clamp(2.19rem, calc(2.09rem + 0.46vw), 2.5rem);
+			@apply left-0
+			top-[clamp(2.19rem,_calc(2.09rem_+_0.46vw),_2.5rem)];
 		}
 
 		.showPalettes .main,
 		.showPalettes .desert,
 		.showPalettes .dusk,
 		.showPalettes .nightSky {
-			transition: inset 1s;
+			@apply duration-[250ms] delay-[0ms] ease-out;
 		}
 	}
-
-	/* @media (min-width: 20rem) {
-		.palettes {
-			inset-block-start: clamp(9.81rem, calc(7.01rem + 14.02vw), 19.63rem);
-		}
-	}
-
-	@media (min-width: 27.625rem) {
-		.palettes {
-			inset-block-start: clamp(8rem, calc(4.46rem + 12.83vw), 16rem);
-		}
-	}
-
-	@media (min-width: 53rem) {
-		.palettes {
-			inset-block-start: 6rem;
-			visibility: visible;
-		}
-	}
-
-	@media (min-width: 56.625rem) {
-		.palettes {
-			inset-block-start: clamp(6rem, calc(-4.18rem + 17.98vw), 10rem);
-		}
-	} */
 </style>

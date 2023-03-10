@@ -83,7 +83,9 @@
 		@apply outline-[0.1rem]  
 		outline-[canvasText];
 	}
+}
 
+@layer components {
 	.profileImageSize {
 		@apply w-[clamp(9.375rem,_calc(6.34rem_+_15.18vw),_20rem)] 
 		h-[clamp(9.38rem,_calc(6.34rem_+_15.18vw),_20rem)];
@@ -113,14 +115,4 @@
 	.logo > span :nth-child(1) {
 		@apply ml-[0.1rem];
 	}
-
-	/* 
-	font-family: var(--ff-logo-excluding-first-letter);
-	font-size: clamp(1.375rem, calc(0.75rem + 1.94vw), 2.25rem);
-	line-height: clamp(1.5rem, calc(0.98rem + 2.61vw), 3rem);
-	cursor: default;
-
-	color: rgba(var(--logo-remaining-letters-color));
-
-	transition: transform 0.2s; */
 }

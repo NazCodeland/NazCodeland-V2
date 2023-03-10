@@ -16,9 +16,3 @@
 		/* --main-contrast-theme-button-txt-clr: 255, 238, 50; */
 	}
 }
-
-/* ThemePalette color */
-/* look into what specificity issue is overriding this style */
-[color-scheme='dark'] .main {
-	background-color: rgba(var(--dark-main-contrast-theme-bg-clr)) !important;
-}

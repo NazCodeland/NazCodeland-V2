@@ -3,8 +3,6 @@
 @layer base {
 	:root {
 		/* dusk contrast theme */
-		--light-dusk-contrast-theme-bg-clr: 149, 153, 154;
-		--dark-dusk-contrast-theme-bg-clr: 44, 50, 54;
 
 		--light-dusk-contrast-theme-txt-clr: 255, 255, 255;
 
@@ -21,18 +19,21 @@
 
 	/* ThemePalette color */
 	/* look into what specificity issue is overriding this style */
-	[color-scheme='dark'] .dusk {
-		background-color: rgba(var(--dark-dusk-contrast-theme-bg-clr)) !important;
+	[color-scheme='light'] {
+		--dusk-contrast-theme-bg-clr: 149, 153, 154;
+	}
+	[color-scheme='dark'] {
+		--dusk-contrast-theme-bg-clr: 44, 50, 54;
 	}
 
 	/* #region dusk*/
 	[color-scheme='light'][themePalette='dusk'] {
 		--html-color: var(--light-dusk-contrast-theme-link-txt-clr);
-		--main-background: var(--light-dusk-contrast-theme-bg-clr);
+		--main-background: var(--dusk-contrast-theme-bg-clr);
 	}
 	[color-scheme='dark'][themePalette='dusk'] {
 		--html-color: var(--desert-contrast-theme-link-txt-clr);
-		--main-background: var(--dark-dusk-contrast-theme-bg-clr);
+		--main-background: var(--dusk-contrast-theme-bg-clr);
 	}
 
 	[themePalette='dusk'] .logo :not([aria-hidden]) {
@@ -54,7 +55,7 @@
 
 	[themePalette='dusk'] .profile-card__image {
 		outline: 1px solid rgba(var(--light-dusk-contrast-theme-button-txt-clr));
-		border-color: rgba(var(--light-dusk-contrast-theme-bg-clr)) !important;
+		border-color: rgba(var(--dusk-contrast-theme-bg-clr)) !important;
 	}
 
 	[themePalette='dusk'] .hamburger {

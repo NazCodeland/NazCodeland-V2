@@ -66,7 +66,8 @@ module.exports = {
 				logo: '0.8px 0.8px 0.8px 0.8px rgba(204, 219, 232, 1), -0.8px -0.8px 0.8px 0.8px rgba(255, 255, 255, 1)'
 			},
 			screens: {
-				md: '868px'
+				md: '868px',
+				main: { raw: '(hover: hover)' }
 			}
 		}
 	},
