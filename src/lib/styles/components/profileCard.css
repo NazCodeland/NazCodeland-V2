@@ -1,0 +1,10 @@
+@layer components {
+	.imageSize {
+		@apply w-[clamp(9.375rem,_calc(6.34rem_+_15.18vw),_20rem)] 
+		h-[clamp(9.38rem,_calc(6.34rem_+_15.18vw),_20rem)];
+	}
+
+	.imageBorderW {
+		@apply border-[clamp(0.5rem,_calc(0.43rem_+_0.36vw),_0.75rem)];
+	}
+}

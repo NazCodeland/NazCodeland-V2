@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
 
 	let logo: HTMLElement;
 	let logoText: string = 'NazCodeland';
@@ -31,4 +30,5 @@
 <h1 class="flex-shrink-0 logo rounded-sm" bind:this={logo} aria-labelledby="logo">NazCodeland</h1>
 
 <style>
+	/* this component contains some styles in app.css */
 </style>

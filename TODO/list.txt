@@ -1,9 +1,7 @@
-change the paletteTheme name in localstorage and elsewherre to something different
-convert svg components into svg files
-fix clashing css styles
-give the palettes a title and make them keyboard accessible
+-> convert svg components into svg files
+-> give the palettes a title
 
-remove all the .index files and import functions/files directly 
+-> remove all the .index files and import functions/files directly 
 
 the site seems to load with no background color then background color kicks in, why is that.
 This behavior is slightly different than expressjs version

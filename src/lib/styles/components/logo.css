@@ -1,0 +1,24 @@
+@layer components {
+	/* logo styles */
+	.logo *:not([aria-hidden='true']) {
+		@apply inline-block
+		tracking-[clamp(0.15rem,_calc(-0.07rem_+_0.36vw),_0.5rem)]
+		px-[0.05rem]
+		outline-[0.1px]
+		outline
+		shadow-logo
+		transition-transform
+		duration-200;
+	}
+
+	.logo *:not([aria-hidden='true']):hover {
+		@apply uppercase
+		-translate-y-5
+		scale-[2]
+		rotate-[20deg];
+	}
+
+	.logo > span :nth-child(1) {
+		@apply ml-[0.1rem];
+	}
+}

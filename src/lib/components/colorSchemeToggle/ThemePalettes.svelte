@@ -29,7 +29,7 @@
 				value={palette}
 				name={palette}
 				class="absolute appearance-none w-5 h-5 outline-2 outline outline-slate-500 hover:outline-[canvasText]
-				focus:outline-[canvasText] rounded-full {palette} transition-[inset] delay-1000 duration-1000" />
+				focus:outline-[canvasText] rounded-full {palette} transition-[inset] delay-1000 duration-1000 " />
 		</label>
 	{/each}
 </form>
