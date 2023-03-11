@@ -25,13 +25,11 @@
 			what I am learning and to reference it in the future.
 		</p>
 
-		<footer class="mt-2 flex flex-wrap gap-4 [@media(width<=380px)]:flex-col">
+		<footer class="mt-2 flex flex-wrap gap-2 [@media(width>=328px)]:gap-4">
 			<a
-				class="btn btn-filled-primary  flex-grow transition-[flex-grow] delay-[0s] duration-[4s] [@media(width>=28rem)]:flex-grow-0 "
+				class="btn btn-filled-primary  transition-[flex-grow] delay-[0s] duration-[4s] "
 				href="/portfolio">View Portfolio</a>
-			<a
-				class="btn btn-outlined-primary self-center [@media(width<=380px)]:min-w-[12rem]"
-				href="/resume">View Resume</a>
+			<a class="btn btn-outlined-primary" href="/resume">View Resume</a>
 		</footer>
 	</div>
 </article>

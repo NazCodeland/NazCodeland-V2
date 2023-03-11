@@ -1,11 +1,20 @@
 <script lang="ts">
-	export let title: string = 'title';
+	export let title: string;
 </script>
 
-<a href="/" class="skill-card bg-grey-400 p-4">
-	<h3 class="skill-card__title"><span>{title}</span></h3>
+<a
+	href="/"
+	class="flex-auto basis-[30ch] bg-grey-1/6 p-4 shadow-rest transition-transform delay-[0s] duration-[0.15s] ease-in-out hover:scale-[1.1] hover:cursor-pointer hover:bg-grey-1/20 hover:shadow-hover active:scale-99 active:bg-grey-1/6 active:shadow-active">
+	<header class="mb-8-16 flex items-end gap-4">
+		<slot name="icon" />
+		<h3 class="mb-0">
+			<span>{title}</span>
+		</h3>
+	</header>
 
-	<p class="skill-card__copy"><slot /></p>
+	<p class="skill-card__copy">
+		<slot />
+	</p>
 </a>
 
 <style>

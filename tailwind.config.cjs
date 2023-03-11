@@ -7,6 +7,21 @@ module.exports = {
 			logoFirstL: "'Suez one', Georgia, 'Times New Roman', Times, serif",
 			logoNotFirstL: "'Suez one', system-ui, Arial, sans-serif"
 		},
+		opacity: {
+			00: 'var(--opacity-00-dark)',
+			01: 'var(--opacity-01-dark)',
+			02: 'var(--opacity-02-dark)',
+			03: 'var(--opacity-03-dark)',
+			04: 'var(--opacity-04-dark)',
+			05: 'var(--opacity-05-dark)',
+			06: 'var(--opacity-06-dark)',
+			07: 'var(--opacity-07-dark)',
+			08: 'var(--opacity-08-dark)',
+			09: 'var(--opacity-09-dark)',
+			20: 'var(--opacity-20-dark)',
+			25: 'var(--opacity-25-dark)',
+			30: 'var(--opacity-30-dark)'
+		},
 
 		extend: {
 			fontSize: {
@@ -49,6 +64,7 @@ module.exports = {
 			spacing: {
 				'4-32': 'var(--spacer-fluid-4-32)',
 				'4-48': 'var(--spacer-fluid-4-48)',
+				'8-16': 'var(--spacer-fluid-8-16)',
 				'16-32': 'var(--spacer-fluid-16-32)',
 				'16-40': 'var(--spacer-fluid-16-40)',
 				'16-32-24x': 'var(--spacer-fluid-16-32-2\\.4x)',
