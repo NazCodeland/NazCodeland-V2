@@ -16,23 +16,16 @@
 		/* --dusk-contrast-theme-button-bg-clr: 45, 50, 54; */
 		--light-dusk-contrast-theme-button-txt-clr: 182, 246, 240;
 	}
-
-	/* ThemePalette color */
-	/* look into what specificity issue is overriding this style */
 	[color-scheme='light'] {
-		--dusk-contrast-theme-bg-clr: 149, 153, 154;
+		--dusk-contrast-theme-bg-clr: 190, 194, 194;
 	}
 	[color-scheme='dark'] {
 		--dusk-contrast-theme-bg-clr: 44, 50, 54;
 	}
-
-	[themePalette='desert'] {
-		--box-shadow-logo: 0.8px 0.8px 0.8px 0.8px rgba(204, 219, 232, 1),
-			-0.8px -0.8px 0.8px 0.8px rgba(204, 219, 232, 1);
-	}
-
 	/* #region dusk*/
 	[color-scheme='light'][themePalette='dusk'] {
+		--box-shadow-logo: 0.8px 0.8px 0.8px 0.8px rgba(204, 219, 232, 0.8),
+			-0.8px -0.8px 0.8px 0.8px rgba(204, 219, 232, 0.4) !important;
 		--html-color: var(--light-dusk-contrast-theme-link-txt-clr);
 		--main-background: var(--dusk-contrast-theme-bg-clr);
 	}

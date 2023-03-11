@@ -16,8 +16,6 @@
 		--nightSky-contrast-theme-button-txt-clr: 255, 238, 50;
 	}
 
-	/* ThemePalette color */
-	/* look into what specificity issue is overriding this style */
 	[color-scheme='light'] {
 		--nightSky-contrast-theme-bg-clr: 197, 227, 247;
 	}
@@ -28,6 +26,8 @@
 
 	/* #region nightSky*/
 	[color-scheme='light'][themePalette='nightSky'] {
+		--box-shadow-logo: 0.8px 0.8px 0.8px 0.8px rgba(188, 194, 193, 0.5),
+			-0.8px -0.8px 0.8px 0.8px rgba(188, 194, 193, 0.4) !important;
 		--html-color: var(--nightSky-contrast-theme-link-txt-clr);
 		--main-background: var(--nightSky-contrast-theme-bg-clr);
 	}
