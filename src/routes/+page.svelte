@@ -8,7 +8,7 @@
 </div>
 
 <section class="skills-section mb-32">
-	<h2 class="text-4xl font-bold ">What I Do</h2>
+	<h2 class="">What I Do</h2>
 
 	<SkillCard title="Product Research"
 		>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias odit nemo praesentium corporis

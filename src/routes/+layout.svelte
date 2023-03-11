@@ -8,16 +8,16 @@
 </script>
 
 <div class="bg-primaryColor p-4-32 pt-4-48" use:setAttributeOnDocumentAction>
-	<div class="flex-col p-16-40 font-body text-lg rounded-2xl bg-mainBackground">
+	<div class="flex-col rounded-2xl bg-mainBackground p-16-40 font-body text-lg">
 		<!--  -->
 		<header
-			class="sticky top-0 flex justify-between pl-3 pt-6 pb-5 mb-88-132 bg-mainBackground z-10 gap-4 items-center">
+			class="sticky top-0 z-10 mb-88-132 flex items-center justify-between gap-4 bg-mainBackground pl-3 pt-6 pb-5">
 			<a
 				href="#maincontent"
-				class="absolute -left-[1000px] -top-[13px] px-4 rounded text-grey-900 bg-primaryColor focus-visible:left-16">
+				class="absolute -left-[1000px] -top-[13px] rounded bg-primaryColor px-4 text-grey-900 focus-visible:left-16">
 				Skip to main content</a>
 
-			<div class="flex gap-16-32-24x items-center">
+			<div class="flex items-center gap-16-32-24x">
 				<!-- TODO: navigation touches logo -->
 				<!-- TODO: add an icon for low/high contrast https://www.shutterstock.com/search/automatic-contrast-icon -->
 				<ColorSchemeToggle />
@@ -49,10 +49,8 @@
 			</div>
 		</header>
 
-		<main class="container flex justify-center">
-			<div>
-				<slot />
-			</div>
+		<main>
+			<slot />
 		</main>
 
 		<footer class="site-wide-footer">

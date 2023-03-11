@@ -89,8 +89,6 @@
 </svg>
 
 <style>
-	/* night svg icon */
-
 	.star01 {
 		animation: blink-animation 1s steps(2, start) infinite;
 	}

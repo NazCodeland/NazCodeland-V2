@@ -17,6 +17,20 @@
 		--fs-fluid-5: clamp(0.83rem, calc(0.8rem + 0.15vw), 0.94rem);
 		--fs-fluid-6: clamp(0.69rem, calc(0.69rem + 0.01vw), 0.7rem);
 
+		--grey-000: 255, 255, 255;
+		--grey-025: 251, 252, 255;
+		--grey-050: 239, 239, 239;
+		--grey-100: 231, 231, 231;
+		--grey-200: 186, 186, 186;
+		--grey-300: 153, 153, 153;
+		--grey-400: 119, 119, 119;
+		--grey-500: 86, 86, 86;
+		--grey-600: 53, 53, 53;
+		--grey-700: 20, 20, 20;
+		--grey-800: 10, 10, 10;
+		--grey-900: 5, 5, 5;
+		--grey-1000: 0, 0, 0;
+
 		--spacer-fluid-0-32: clamp(0rem, calc(-0.86rem + 4.29vw), 2rem);
 		--spacer-fluid-4-32: clamp(0.25rem, calc(-0.25rem + 2.5vw), 2rem);
 		--spacer-fluid-4-48: clamp(0.5rem, calc(-0.07rem + 2.86vw), 3rem);

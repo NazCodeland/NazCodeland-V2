@@ -1,0 +1,58 @@
+/*  base btn turns into secondary upon :hover
+secondary turns into primary upon :hover
+*/
+@layer components {
+	.btn {
+		display: inline-block;
+		white-space: nowrap;
+		min-inline-size: 110px;
+		padding: clamp(0.5rem, calc(0.66rem + -0.18vw), 0.63rem) var(--spacer-16);
+
+		text-align: center;
+
+		/* --btn-text-color is not defined so it will fallback to inheriting the color in this situation */
+		color: rgba(var(--btn-text-color));
+
+		--btn-bg-opacity: var(--opacity-06-dark);
+		--btn-bg: var(--grey-000);
+		background-color: rgba(var(--btn-bg), var(--btn-bg-opacity));
+
+		box-shadow: var(--box-shadow-rest);
+		transition: ease-in-out transform 0.15s;
+	}
+
+	.btn:is(:hover, :focus) {
+		--btn-bg-opacity: var(--opacity-20-dark);
+		box-shadow: var(--box-shadow-hover);
+		transform: var(--scale-hover);
+	}
+
+	.btn:active {
+		--btn-bg-opacity: var(--opacity-06-dark);
+		box-shadow: var(--box-shadow-active);
+		transform: var(--scale-active);
+	}
+
+	.btn-filled-primary {
+		--btn-bg-opacity: 0.9;
+		--btn-bg: var(--primary-color);
+		--btn-text-color: var(--primary-color-text);
+		outline-color: rgba(var(--primary-color));
+	}
+
+	.btn-filled-primary:is(:hover, :focus) {
+		--btn-bg-opacity: 1;
+	}
+	.btn-filled-primary:active {
+		--btn-bg-opacity: 0.9;
+	}
+
+	.btn-outlined-primary {
+		outline-color: rgba(var(--primary-color));
+	}
+
+	.btn-disabled {
+		background-color: rgba(var(--grey-200));
+		color: rgba(var(--grey-500));
+	}
+}
