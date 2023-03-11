@@ -55,8 +55,8 @@ module.exports = {
 				'2sm': '4px'
 			},
 			scale: {
-				103: 1.03,
-				99: 0.99
+				103: '1.03',
+				99: '0.99'
 			},
 			transitionDuration: {
 				1400: '1.4s'
