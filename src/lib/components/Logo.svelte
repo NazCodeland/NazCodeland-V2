@@ -9,11 +9,12 @@
 	{#each logoTextArray as letter}
 		{#if letter === 'N'}
 			<!-- prettier-ignore -->
-			<a href="/" class="relative font-logoFirstL text-logoFirstL font-bold leading-logoFirstL cursor-pointer rounded-sm text-primaryColor" id="logo" aria-label="NazCodeland">
+			<a href="/" class="relative font-logoFirstL text-logoFirstL font-bold leading-logoFirstL cursor-pointer rounded-sm text-primaryColor mr-[1px]" id="logo" aria-label="NazCodeland">
 			{letter}
 		</a>
 		{:else}
-			<span class="flex cursor-default font-logoNotFirstL text-logoNotFirstL leading-logoNotFistL">
+			<span
+				class="flex cursor-default font-logoNotFirstL text-logoNotFirstL leading-logoNotFistL text-logo">
 				{letter}
 			</span>
 		{/if}
@@ -26,6 +27,7 @@
 		@apply inline-block
 		px-[0.05rem]
 		tracking-[clamp(0.15rem,_calc(-0.07rem_+_0.36vw),_0.5rem)]
+
 		shadow-logo
 		transition-transform
 		duration-200;

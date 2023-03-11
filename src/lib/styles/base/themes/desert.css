@@ -25,6 +25,11 @@
 		--desert-contrast-theme-bg-clr: 86, 56, 37;
 	}
 
+	[themePalette='desert'] {
+		--box-shadow-logo: 0.8px 0.8px 0.8px 0.8px rgba(204, 219, 232, 1),
+			-0.8px -0.8px 0.8px 0.8px rgba(204, 219, 232, 1);
+	}
+
 	/* -------------------------------------------- */
 	[color-scheme='light'][themePalette='desert'] {
 		--html-color: var(--light-desert-contrast-theme-link-txt-clr);
@@ -33,9 +38,6 @@
 	[color-scheme='dark'][themePalette='desert'] {
 		--html-color: var(--light-desert-contrast-theme-link-txt-clr);
 		--main-background: var(--desert-contrast-theme-bg-clr);
-	}
-	[themePalette='desert'] .logo :not([aria-hidden]) {
-		outline: 0.1px solid grayText;
 	}
 
 	[themePalette='desert'] .logo .first-letter {

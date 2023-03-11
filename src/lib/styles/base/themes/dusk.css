@@ -36,10 +36,6 @@
 		--main-background: var(--dusk-contrast-theme-bg-clr);
 	}
 
-	[themePalette='dusk'] .logo :not([aria-hidden]) {
-		outline: 0.1px solid grayText;
-	}
-
 	[themePalette='dusk'] .logo .first-letter {
 		color: rgba(var(--light-dusk-contrast-theme-link-txt-clr));
 		outline-color: rgba(var(--light-dusk-contrast-theme-link-txt-clr)) !important;

@@ -37,10 +37,6 @@
 		--main-background: var(--nightSky-contrast-theme-bg-clr);
 	}
 
-	[themePalette='nightSky'] .logo :not([aria-hidden]) {
-		outline: 0.1px solid grayText;
-	}
-
 	[themePalette='nightSky'] .logo .first-letter {
 		color: rgba(var(--nightSky-contrast-theme-link-txt-clr));
 		outline-color: rgba(var(--nightSky-contrast-theme-link-txt-clr)) !important;

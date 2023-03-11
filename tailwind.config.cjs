@@ -32,6 +32,7 @@ module.exports = {
 			colors: {
 				primaryColor: 'rgba(var(--primary-color))',
 				mainBackground: 'rgba(var(--main-background))',
+				logo: 'var(--grey-900)',
 				colorSchemeToggle: 'rgba(var(--svg-background-color))',
 				base: 'rgba(var(--text-color)',
 				muted: 'rgba(var(--text-color), var(--low-emphasis-text-dark, 0.6))',
@@ -83,7 +84,7 @@ module.exports = {
 				menuBlock: 'clamp(3rem, calc(1.96rem + 6vw), 4rem)'
 			},
 			boxShadow: {
-				logo: '0.8px 0.8px 0.8px 0.8px rgba(204, 219, 232, 1), -0.8px -0.8px 0.8px 0.8px rgba(255, 255, 255, 1)',
+				logo: 'var(--box-shadow-logo)',
 				rest: 'var(--box-shadow-rest)',
 				hover: 'var(--box-shadow-hover)',
 				active: 'var(--box-shadow-active)'
