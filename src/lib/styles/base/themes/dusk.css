@@ -18,7 +18,9 @@
 	}
 	[color-scheme='light'] {
 		--dusk-contrast-theme-bg-clr: 190, 194, 194;
+		--box-shadow-hover: 0px 14px 28px rgba(74, 77, 77, 0.1), 0px 10px 10px rgba(74, 77, 77, 0.1);
 	}
+
 	[color-scheme='dark'] {
 		--dusk-contrast-theme-bg-clr: 44, 50, 54;
 	}

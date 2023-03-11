@@ -17,6 +17,7 @@
 	}
 	[color-scheme='light'] {
 		--desert-contrast-theme-bg-clr: 255, 250, 239;
+		--box-shadow-hover: 0px 14px 28px rgba(204, 219, 232, 1), 0px 10px 10px rgba(255, 255, 255, 0.1);
 	}
 	[color-scheme='dark'] {
 		--desert-contrast-theme-bg-clr: 86, 56, 37;
