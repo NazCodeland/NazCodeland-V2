@@ -20,15 +20,13 @@
 	{/each}
 </h1>
 
-<style>
+<style lang="postcss">
 	/* this component contains some styles in logo.css */
 	.logo *:not([aria-hidden='true']) {
 		@apply inline-block
 		px-[0.05rem]
 		tracking-[clamp(0.15rem,_calc(-0.07rem_+_0.36vw),_0.5rem)]
 		shadow-logo
-		outline
-		outline-[0.1px]
 		transition-transform
 		duration-200;
 	}
@@ -42,5 +40,12 @@
 
 	.logo > span :nth-child(1) {
 		@apply ml-[0.1rem];
+	}
+
+	[color-scheme='dark'] .logo *:not([aria-hidden='true']) {
+		@apply shadow-none
+		outline
+		outline-[0.1px]
+		outline-slate-50/20;
 	}
 </style>

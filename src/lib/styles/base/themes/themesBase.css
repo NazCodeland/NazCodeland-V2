@@ -68,15 +68,4 @@
 
 	/* TODO: people who prefer less contrast, do they mind elevation/box shadow?  */
 	/* TODO: if not, remove 'desert' theme off this list and perhaps tweak the box-shadow color slightly */
-	[themePalette='desert'] .logo *,
-	[themePalette='desert'] .btn,
-	[themePalette='desert'] .skill-card,
-	[themePalette='dusk'] .logo *,
-	[themePalette='dusk'] .btn,
-	[themePalette='dusk'] .skill-card,
-	[themePalette='nightSky'] .logo *,
-	[themePalette='nightSky'] .btn,
-	[themePalette='nightSky'] .skill-card {
-		box-shadow: none !important;
-	}
 }

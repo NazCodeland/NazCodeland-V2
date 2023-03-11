@@ -84,9 +84,9 @@ module.exports = {
 			},
 			boxShadow: {
 				logo: '0.8px 0.8px 0.8px 0.8px rgba(204, 219, 232, 1), -0.8px -0.8px 0.8px 0.8px rgba(255, 255, 255, 1)',
-				rest: ' 1px 1px 3px rgba(0, 0, 0, 0.12), 1px 1px 2px rgba(0, 0, 0, 0.24)',
-				hover: ' 0px 14px 28px rgba(204, 219, 232, 1), 0px 10px 10px rgba(255, 255, 255, 1)',
-				active: '1px 1px 3px rgba(0, 0, 0, 0.12), 1px 1px 2px rgba(0, 0, 0, 0.24)'
+				rest: 'var(--box-shadow-rest)',
+				hover: 'var(--box-shadow-hover)',
+				active: 'var(--box-shadow-active)'
 			},
 			screens: {
 				md: '868px'
