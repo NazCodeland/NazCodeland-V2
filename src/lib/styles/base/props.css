@@ -43,5 +43,6 @@
 		/* --svg-transition-duration: 1.4s; */
 
 		--padding-top-html: var(--spacer-fluid-4-32);
+		--logoNotFirstL: var(--grey-900);
 	}
 }

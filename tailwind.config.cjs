@@ -39,8 +39,8 @@ module.exports = {
 			colors: {
 				primaryColor: 'rgba(var(--primary-color))',
 				mainBackground: 'rgba(var(--main-background))',
-				logoFirstLClr: 'var(--grey-900)',
-				logoNotFirstLClr: 'var(--grey-900)',
+				logoFirstLClr: 'rgba(var(--primary-color))',
+				logoNotFirstLClr: 'rgba(var(--logoNotFirstL))',
 				colorSchemeToggle: 'rgba(var(--svg-background-color))',
 				base: 'rgba(var(--text-color)',
 				muted: 'rgba(var(--text-color), var(--low-emphasis-text-dark, 0.6))',

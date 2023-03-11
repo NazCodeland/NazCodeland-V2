@@ -62,6 +62,8 @@
 
 
       --padding-top-html: var(--spacer-fluid-16-48) !important;
+      --logoNotFirstL: var(--grey-025), var(--high-emphasis-text-dark) !important;
+
     }
 
 /* #endregion darkScheme */
