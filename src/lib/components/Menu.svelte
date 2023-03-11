@@ -3,9 +3,9 @@
 </script>
 
 <nav
-	class="absolute inset-x-menuInline top-menuBlock -z-10 mt-2 border-b border-solid border-primaryColor bg-mainBackground pt-10 pb-1 md:[all:unset]">
+	class="absolute inset-x-menuInline top-menuBlock -z-10 mt-2 border-b border-solid border-primaryColor bg-mainBackground px-4 pt-10 pb-1 md:[all:unset]">
 	<ul
-		class="flex flex-wrap justify-center  gap-16-32 
+		class="flex flex-wrap justify-center gap-16-32 
 		{$menuStore ? 'inline-block' : 'hidden'} md:flex">
 		<li><a href="/">Home</a></li>
 		<li class="flex-shrink-0"><a href="/about">About Me</a></li>

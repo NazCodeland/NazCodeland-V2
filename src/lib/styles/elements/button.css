@@ -2,59 +2,59 @@
 secondary turns into primary upon :hover
 */
 
-/* button element is not styled with tailwind because we can't redeclare css variables inside tailwind @apply */
 @layer components {
+	/* prettier-ignore */
 	.btn {
-		display: inline-block;
-		white-space: nowrap;
-		min-inline-size: 110px;
-		padding: clamp(0.5rem, calc(0.66rem + -0.18vw), 0.63rem) 16px;
-
-		text-align: center;
-
+		@apply min-w-[110px]
+		whitespace-nowrap 
+		bg-[rgba(var(--btn-bg),var(--btn-bg-opacity))]
+		py-[clamp(0.5rem,_calc(0.66rem_+_-0.18vw),_0.63rem)]
+		px-4
+		text-center
 		/* --btn-text-color is not defined so it will fallback to inheriting the color in this situation */
-		color: rgba(var(--btn-text-color));
+		text-[rgba(var(--btn-text-color))]
+		shadow-rest 
 
-		--btn-bg-opacity: var(--opacity-06-dark);
-		--btn-bg: var(--grey-000);
-		background-color: rgba(var(--btn-bg), var(--btn-bg-opacity));
-
-		box-shadow: var(--box-shadow-rest);
-		transition: ease-in-out transform 0.15s;
+		[--btn-bg:var(--grey-000)] 
+		[--btn-bg-opacity:var(--opacity-06-dark)];
 	}
 
 	.btn:is(:hover, :focus) {
-		--btn-bg-opacity: var(--opacity-20-dark);
-		box-shadow: var(--box-shadow-hover);
-		transform: var(--scale-hover);
+		@apply scale-hover
+		shadow-hover
+		transition-[transform]
+		delay-[0s] 
+		duration-[0.15s]
+		ease-in-out
+		[--btn-bg-opacity:var(--opacity-20-dark)];
 	}
 
 	.btn:active {
-		--btn-bg-opacity: var(--opacity-06-dark);
-		box-shadow: var(--box-shadow-active);
-		transform: var(--scale-active);
+		@apply scale-active
+		shadow-active
+		[--btn-bg-opacity:var(--opacity-06-dark)];
 	}
 
 	.btn-filled-primary {
-		--btn-bg-opacity: 0.9;
-		--btn-bg: var(--primary-color);
-		--btn-text-color: var(--primary-color-text);
-		outline-color: rgba(var(--primary-color));
+		@apply outline-[rgba(var(--primary-color))]
+		[--btn-bg:var(--primary-color)]
+		[--btn-text-color:var(--primary-color-text)]
+		[--btn-bg-opacity:0.9];
 	}
 
 	.btn-filled-primary:is(:hover, :focus) {
-		--btn-bg-opacity: 1;
+		@apply [--btn-bg-opacity:1];
 	}
 	.btn-filled-primary:active {
-		--btn-bg-opacity: 0.9;
+		@apply [--btn-bg-opacity:0.9];
 	}
 
 	.btn-outlined-primary {
-		outline-color: rgba(var(--primary-color));
+		@apply outline-[rgba(var(--primary-color))];
 	}
 
 	.btn-disabled {
-		background-color: rgba(var(--grey-200));
-		color: rgba(var(--grey-500));
+		@apply background-[rgba(var(--grey-200))]
+		text-[rgba(var(--grey-500))];
 	}
 }

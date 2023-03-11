@@ -27,7 +27,7 @@
 	});
 </script>
 
-<h1 class="logo flex-shrink-0 rounded-sm" bind:this={logo} aria-labelledby="logo">NazCodeland</h1>
+<h1 class="logo flex-shrink-0 rounded-sm " bind:this={logo} aria-labelledby="logo">NazCodeland</h1>
 
 <style>
 	/* this component contains some styles in logo.css */

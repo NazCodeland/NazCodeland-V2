@@ -27,7 +27,7 @@
 
 		<footer class="mt-2 flex flex-wrap gap-2 [@media(width>=328px)]:gap-4">
 			<a
-				class="btn btn-filled-primary  transition-[flex-grow] delay-[0s] duration-[4s] "
+				class="btn btn-filled-primary flex-grow transition-[flex-grow] delay-[0s] duration-[4s] [@media(width>900px)]:flex-grow-0 "
 				href="/portfolio">View Portfolio</a>
 			<a class="btn btn-outlined-primary" href="/resume">View Resume</a>
 		</footer>

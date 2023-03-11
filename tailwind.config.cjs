@@ -55,8 +55,8 @@ module.exports = {
 				'2sm': '4px'
 			},
 			scale: {
-				103: '1.03',
-				99: '0.99'
+				hover: '1.03',
+				active: '0.99'
 			},
 			transitionDuration: {
 				1400: '1.4s'
