@@ -1,12 +1,14 @@
 /*  base btn turns into secondary upon :hover
 secondary turns into primary upon :hover
 */
+
+/* button element is not styled with tailwind because we can't redeclare css variables inside tailwind @apply */
 @layer components {
 	.btn {
 		display: inline-block;
 		white-space: nowrap;
 		min-inline-size: 110px;
-		padding: clamp(0.5rem, calc(0.66rem + -0.18vw), 0.63rem) var(--spacer-16);
+		padding: clamp(0.5rem, calc(0.66rem + -0.18vw), 0.63rem) 16px;
 
 		text-align: center;
 

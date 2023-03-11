@@ -5,7 +5,6 @@
 @tailwind utilities;
 
 /* normalize */
-/* h1-h6 */
 @layer base {
 	h1,
 	h2,
@@ -36,9 +35,14 @@
 	h6 {
 		font-size: var(--fs-fluid-6);
 	}
-}
 
-@layer base {
+	a {
+		@apply rounded-lg
+		no-underline
+		outline-[0.1rem]
+		outline-[transparent];
+	}
+
 	a:focus-visible,
 	button:focus-visible {
 		@apply outline-dashed;
