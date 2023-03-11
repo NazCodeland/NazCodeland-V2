@@ -59,5 +59,9 @@
     --box-shadow-rest: none;
     --box-shadow-hover: none;
     --box-shadow-active: none;
-  }
+
+
+      --padding-top-html: var(--spacer-fluid-16-48) !important;
+    }
+
 /* #endregion darkScheme */

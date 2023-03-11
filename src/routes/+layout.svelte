@@ -7,7 +7,9 @@
 	import { toggleMenu } from '$lib/stores/menuStore';
 </script>
 
-<div class="bg-primaryColor p-4-32 pt-4-48" use:setAttributeOnDocumentAction>
+<div
+	class="bg-primaryColor p-4-32 pt-dynamic transition-[padding-top] delay-[0] duration-1000"
+	use:setAttributeOnDocumentAction>
 	<div class="flex-col rounded-2xl bg-mainBackground p-16-40 font-body text-lg">
 		<!--  -->
 		<header

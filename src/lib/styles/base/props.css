@@ -5,18 +5,6 @@
 /* root styles */
 @layer base {
 	:root {
-		--ff: 'Times New Roman', Times, serif;
-
-		--fs-logo-first-letter: clamp(24px, calc(17.12px + 2.14vw), 3rem);
-
-		/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1440,20,1.618,3,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-		--fs-fluid-1: clamp(1.73rem, calc(1.38rem + 1.76vw), 2.96rem);
-		--fs-fluid-2: clamp(1.44rem, calc(1.22rem + 1.12vw), 2.22rem);
-		--fs-fluid-3: clamp(1.2rem, calc(1.07rem + 0.67vw), 1.67rem);
-		--fs-fluid-4: clamp(1rem, calc(0.93rem + 0.36vw), 1.25rem);
-		--fs-fluid-5: clamp(0.83rem, calc(0.8rem + 0.15vw), 0.94rem);
-		--fs-fluid-6: clamp(0.69rem, calc(0.69rem + 0.01vw), 0.7rem);
-
 		--grey-000: 255, 255, 255;
 		--grey-025: 251, 252, 255;
 		--grey-050: 239, 239, 239;
@@ -37,7 +25,7 @@
 		--spacer-fluid-8-16: clamp(0.5rem, calc(0.36rem + 0.71vw), 1rem);
 		--spacer-fluid-16-32: clamp(1rem, calc(0.71rem + 1.43vw), 2rem);
 		--spacer-fluid-16-40: clamp(1rem, calc(0.57rem + 2.14vw), 2.5rem);
-
+		--spacer-fluid-16-48: clamp(1rem, calc(0.43rem + 2.86vw), 3rem);
 		/* for this one, the space remaining will 'grow' and 'shrink' 2.4x because it's preferred value is based on a viewport width of 1100-1440  */
 		/* doesn't grow when the root font size is increased by the user, needed for where it's being used */
 		--spacer-fluid-16-32-24x: clamp(16px, calc(-103.52px + 9.41vw), 32px);
@@ -53,5 +41,7 @@
 		--html-color: var(--primary-color);
 		--primary-color: 100, 149, 237;
 		/* --svg-transition-duration: 1.4s; */
+
+		--padding-top-html: var(--spacer-fluid-4-32);
 	}
 }

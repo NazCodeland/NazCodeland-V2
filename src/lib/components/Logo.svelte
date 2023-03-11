@@ -14,7 +14,7 @@
 		</a>
 		{:else}
 			<span
-				class="flex cursor-default font-logoNotFirstL text-logoNotFirstL leading-logoNotFistL text-logo">
+				class="text-logo flex cursor-default font-logoNotFirstL text-logoNotFirstL leading-logoNotFistL">
 				{letter}
 			</span>
 		{/if}

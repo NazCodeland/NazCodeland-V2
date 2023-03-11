@@ -26,6 +26,11 @@
 		--dusk-contrast-theme-bg-clr: 44, 50, 54;
 	}
 
+	[themePalette='desert'] {
+		--box-shadow-logo: 0.8px 0.8px 0.8px 0.8px rgba(204, 219, 232, 1),
+			-0.8px -0.8px 0.8px 0.8px rgba(204, 219, 232, 1);
+	}
+
 	/* #region dusk*/
 	[color-scheme='light'][themePalette='dusk'] {
 		--html-color: var(--light-dusk-contrast-theme-link-txt-clr);
