@@ -99,25 +99,25 @@
 	/* #region darkMode*/
 	/* dark contrast palette */
 
-	.dark .site-content {
+	[color-scheme='dark'] .site-content {
 		margin-block-start: var(--spacer-fluid-4-32) !important;
 	}
 
-	.dark .logo :not(.first-letter) {
+	[color-scheme='dark'] .logo :not(.first-letter) {
 		outline-width: 0.01rem;
 	}
 
-	.dark .menu {
+	[color-scheme='dark'] .menu {
 		border-color: activeText !important;
 	}
 
-	.dark .link,
-	.dark .skill-card__title,
-	.dark .skill-card__copy {
+	[color-scheme='dark'] .link,
+	[color-scheme='dark'] .skill-card__title,
+	[color-scheme='dark'] .skill-card__copy {
 		color: canvasText;
 	}
 
-	.dark .btn-outlined-primary:is(:hover, :focus) {
+	[color-scheme='dark'] .btn-outlined-primary:is(:hover, :focus) {
 		outline-color: canvasText;
 	}
 

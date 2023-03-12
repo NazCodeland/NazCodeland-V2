@@ -19,65 +19,65 @@
 		--light-dusk-contrast-theme-button-txt-clr: 182, 246, 240;
 	}
 
-	.dark {
+	[color-scheme='dark'] {
 		--dusk-contrast-theme-bg-clr: 44, 50, 54;
 	}
 	/* #region dusk*/
-	.dusk {
+	[themePalette='dusk'] {
 		--box-shadow-logo: 0.8px 0.8px 0.8px 0.8px rgba(204, 219, 232, 0.8),
 			-0.8px -0.8px 0.8px 0.8px rgba(204, 219, 232, 0.4) !important;
 		--html-color: var(--light-dusk-contrast-theme-link-txt-clr);
 		--main-background: var(--dusk-contrast-theme-bg-clr);
 	}
-	.dark.dusk {
+	[color-scheme='dark'][themePalette='dusk'] {
 		--html-color: var(--desert-contrast-theme-link-txt-clr);
 		--main-background: var(--dusk-contrast-theme-bg-clr);
 	}
 
-	.dusk .logo .first-letter {
+	[themePalette='dusk'] .logo .first-letter {
 		color: rgba(var(--light-dusk-contrast-theme-link-txt-clr));
 		outline-color: rgba(var(--light-dusk-contrast-theme-link-txt-clr)) !important;
 	}
 
-	.dusk .menu__links a {
+	[themePalette='dusk'] .menu__links a {
 		--nav-link-text-color: var(--light-dusk-contrast-theme-link-txt-clr);
 	}
 
-	.dusk .menu__links li a::before {
+	[themePalette='dusk'] .menu__links li a::before {
 		background-color: rgba(var(--light-dusk-contrast-theme-link-txt-clr));
 	}
 
-	.dusk .profile-card__image {
+	[themePalette='dusk'] .profile-card__image {
 		outline: 1px solid rgba(var(--light-dusk-contrast-theme-button-txt-clr));
 		border-color: rgba(var(--dusk-contrast-theme-bg-clr)) !important;
 	}
 
-	.dusk .hamburger {
+	[themePalette='dusk'] .hamburger {
 		color: rgba(var(--light-dusk-contrast-theme-button-txt-clr));
 	}
 
-	.dusk .profile-card .link:is(:hover, :focus),
-	.dusk .profile-card .btn-filled-primary {
+	[themePalette='dusk'] .profile-card .link:is(:hover, :focus),
+	[themePalette='dusk'] .profile-card .btn-filled-primary {
 		color: markText;
 	}
-	.dusk .profile-card .link::before {
+	[themePalette='dusk'] .profile-card .link::before {
 		background-color: rgba(var(--light-dusk-contrast-theme-link-txt-clr));
 	}
 
-	.dusk .profile-card .btn-filled-primary {
+	[themePalette='dusk'] .profile-card .btn-filled-primary {
 		background-color: rgba(var(--light-dusk-contrast-theme-link-txt-clr));
 	}
 
-	.dusk .profile-card .btn-outlined-primary {
+	[themePalette='dusk'] .profile-card .btn-outlined-primary {
 		color: rgba(var(--light-dusk-contrast-theme-button-txt-clr));
 		outline-color: rgba(var(--light-dusk-contrast-theme-button-txt-clr));
 	}
 
-	.dusk .what-i-do {
+	[themePalette='dusk'] .what-i-do {
 		text-decoration-color: rgba(var(--light-dusk-contrast-theme-link-txt-clr));
 	}
 
-	.dusk .skill-card {
+	[themePalette='dusk'] .skill-card {
 		outline: 1px solid rgba(var(--light-dusk-contrast-theme-link-txt-clr));
 	}
 

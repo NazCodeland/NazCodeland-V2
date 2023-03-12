@@ -19,66 +19,66 @@
 		--light-desert-contrast-theme-button-txt-clr: 32, 32, 32;
 	}
 
-	.dark {
+	[color-scheme='dark'] {
 		--desert-contrast-theme-bg-clr: 86, 56, 37;
 	}
 	/* -------------------------------------------- */
-	.desert {
+	[themePalette='desert'] {
 		--html-color: var(--light-desert-contrast-theme-link-txt-clr);
 		--main-background: var(--desert-contrast-theme-bg-clr);
 	}
-	.dark.desert {
+	[color-scheme='dark'][themePalette='desert'] {
 		--html-color: var(--light-desert-contrast-theme-link-txt-clr);
 		--main-background: var(--desert-contrast-theme-bg-clr);
 	}
 
-	.desert .logo .first-letter {
+	[themePalette='desert'] .logo .first-letter {
 		color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 		outline-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
-	.desert .logo .first-letter:is(:hover, :focus) {
+	[themePalette='desert'] .logo .first-letter:is(:hover, :focus) {
 		outline-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 
-	.desert .menu__links a {
+	[themePalette='desert'] .menu__links a {
 		--nav-link-text-color: var(--light-desert-contrast-theme-link-txt-clr);
 	}
 
-	.desert .menu__links li a::before {
+	[themePalette='desert'] .menu__links li a::before {
 		background-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 
-	.desert .profile-card__image {
+	[themePalette='desert'] .profile-card__image {
 		outline: 1px solid rgba(var(--light-desert-contrast-theme-link-txt-clr));
 		border-color: rgba(var(--desert-contrast-theme-bg-clr)) !important;
 	}
 
-	.desert .hamburger {
+	[themePalette='desert'] .hamburger {
 		color: rgba(var(--light-desert-contrast-theme-button-txt-clr));
 	}
 
-	.desert .profile-card .link:is(:hover, :focus) {
+	[themePalette='desert'] .profile-card .link:is(:hover, :focus) {
 		color: canvas;
 	}
-	.desert .profile-card .link::before {
+	[themePalette='desert'] .profile-card .link::before {
 		background-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 
-	.desert .profile-card .btn-filled-primary {
+	[themePalette='desert'] .profile-card .btn-filled-primary {
 		background-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 		color: canvas;
 	}
 
-	.desert .profile-card .btn-outlined-primary {
+	[themePalette='desert'] .profile-card .btn-outlined-primary {
 		color: rgba(var(--light-desert-contrast-theme-button-txt-clr));
 		outline-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 
-	.desert .what-i-do {
+	[themePalette='desert'] .what-i-do {
 		text-decoration-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 
-	.desert .skill-card {
+	[themePalette='desert'] .skill-card {
 		outline: 1px solid rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 

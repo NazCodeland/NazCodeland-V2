@@ -6,7 +6,7 @@
 		}
 	}
 
-	.dark {
+	[color-scheme='dark'] {
 		color-scheme: dark;
 
 		/* Light text opacity on dark backgrounds from material design guidelines */

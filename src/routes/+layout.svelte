@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import setClassOnDocumentAction from '$lib/actions/setClassOnDocumentAction';
+	import setAttributeOnDocumentAction from '$lib/actions/setAttributeOnDocumentAction';
 	import ColorSchemeToggle from '$lib/components/ColorSchemeToggle.svelte';
 	import Logo from '$lib/components/Logo.svelte';
 	import Menu from '$lib/components/Menu.svelte';
@@ -9,7 +9,7 @@
 
 <div
 	class="bg-primaryColor p-4-32 pt-dynamic transition-[padding-top] delay-[0] duration-1000"
-	use:setClassOnDocumentAction>
+	use:setAttributeOnDocumentAction>
 	<div class="flex-col rounded-2xl bg-mainBackground p-16-40 font-body text-lg">
 		<!--  -->
 		<header
@@ -56,7 +56,7 @@
 		</main>
 
 		<footer
-			class="site-wide-footer dark flex justify-end border-b border-solid border-primaryColor">
+			class="site-wide-footer dark flex justify-end border-b border-solid border-primaryColor dark:bg-green-900">
 			<p>&copy; 2023 NazCodeland</p>
 		</footer>
 		<!--  -->

@@ -17,69 +17,69 @@
 		--nightSky-contrast-theme-button-txt-clr: 255, 238, 50;
 	}
 
-	.dark {
+	[color-scheme='dark'] {
 		--nightSky-contrast-theme-bg-clr: 11, 60, 97;
 	}
 
 	/* #region nightSky*/
-	.nightSky {
+	[themePalette='nightSky'] {
 		--box-shadow-logo: 0.8px 0.8px 0.8px 0.8px rgba(188, 194, 193, 0.5),
 			-0.8px -0.8px 0.8px 0.8px rgba(188, 194, 193, 0.4) !important;
 		--html-color: var(--nightSky-contrast-theme-link-txt-clr);
 		--main-background: var(--nightSky-contrast-theme-bg-clr);
 	}
 
-	.dark.nightSky {
+	[color-scheme='dark'][themePalette='nightSky'] {
 		--html-color: var(--desert-contrast-theme-link-txt-clr);
 		--main-background: var(--nightSky-contrast-theme-bg-clr);
 	}
 
-	.nightSky .logo .first-letter {
+	[themePalette='nightSky'] .logo .first-letter {
 		color: rgba(var(--nightSky-contrast-theme-link-txt-clr));
 		outline-color: rgba(var(--nightSky-contrast-theme-link-txt-clr)) !important;
 	}
 
-	.nightSky .menu__links a {
+	[themePalette='nightSky'] .menu__links a {
 		--nav-link-text-color: var(--nightSky-contrast-theme-link-txt-clr);
 	}
 
-	.nightSky .menu__links li a::before {
+	[themePalette='nightSky'] .menu__links li a::before {
 		background-color: rgba(var(--nightSky-contrast-theme-link-txt-clr));
 	}
 
-	.nightSky .profile-card__image {
+	[themePalette='nightSky'] .profile-card__image {
 		outline: 1px solid rgba(var(--nightSky-contrast-theme-link-txt-clr));
 		border-color: Canvas !important;
 	}
 
-	.nightSky .hamburger {
+	[themePalette='nightSky'] .hamburger {
 		color: rgba(var(--nightSky-contrast-theme-button-txt-clr));
 	}
 
 	/* prettier-ignore */
-	.nightSky .profile-card .link:is(:hover, :focus){
+	[themePalette="nightSky"] .profile-card .link:is(:hover, :focus){
 forced-color-adjust: none;
 color: canvas !important;
 }
 
-	.nightSky .profile-card .link::before {
+	[themePalette='nightSky'] .profile-card .link::before {
 		background-color: rgba(var(--nightSky-contrast-theme-link-txt-clr));
 	}
 
-	.nightSky .profile-card .btn-filled-primary {
+	[themePalette='nightSky'] .profile-card .btn-filled-primary {
 		background-color: rgba(var(--nightSky-contrast-theme-link-txt-clr));
 	}
 
-	.nightSky .profile-card .btn-outlined-primary {
+	[themePalette='nightSky'] .profile-card .btn-outlined-primary {
 		color: rgba(var(--nightSky-contrast-theme-button-txt-clr));
 		outline-color: rgba(var(--nightSky-contrast-theme-button-txt-clr));
 	}
 
-	.nightSky .what-i-do {
+	[themePalette='nightSky'] .what-i-do {
 		text-decoration-color: rgba(var(--nightSky-contrast-theme-link-txt-clr));
 	}
 
-	.nightSky .skill-card {
+	[themePalette='nightSky'] .skill-card {
 		outline: 1px solid rgba(var(--nightSky-contrast-theme-link-txt-clr));
 	}
 	/* #endregion nightSky */
