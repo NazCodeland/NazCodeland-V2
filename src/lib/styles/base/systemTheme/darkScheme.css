@@ -1,12 +1,10 @@
 @layer base {
-	/* #region darkScheme media query */
-
-	/* prettier-ignore */
 	@media (prefers-color-scheme: dark) {
-    :root{
-      /* css theming variables can be placed here for a css fallback implementation for light/dark mode incase javascript fails */
-      --i-will-leave-it-empty: 0;}
-  }
+		:root {
+			/* css theming variables can be placed here for a css fallback implementation for light/dark mode incase javascript fails */
+			--i-will-leave-it-empty: 0;
+		}
+	}
 
 	.dark {
 		color-scheme: dark;

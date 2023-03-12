@@ -1,4 +1,11 @@
 @layer base {
+	@media (prefers-color-scheme: light) {
+		:root {
+			/* css theming variables can be placed here for a css fallback implementation for light/dark mode incase javascript fails */
+			--i-will-leave-it-empty: 0;
+		}
+	}
+
 	:root {
 		/* css theming variables can be placed here for a css fallback implementation for light/dark mode incase javascript fails */
 		--i-will-leave-it-empty: 0;
@@ -31,6 +38,4 @@
 		--box-shadow-hover: 0px 14px 28px rgba(204, 219, 232, 1), 0px 10px 10px rgba(255, 255, 255, 1);
 		--box-shadow-active: 1px 1px 3px rgba(0, 0, 0, 0.12), 1px 1px 2px rgba(0, 0, 0, 0.24);
 	}
-	/* @media (prefers-color-scheme: light) {
-	} */
 }

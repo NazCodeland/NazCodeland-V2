@@ -6,7 +6,7 @@ import { writable, type Writable } from 'svelte/store';
 // we should follow convention right?
 
 export enum ColorSchemeEnum {
-	light = '',
+	light = 'light',
 	dark = 'dark'
 }
 
@@ -83,7 +83,6 @@ colorSchemeStore.subscribe((colorScheme) => {
 		window.localStorage.setItem('NazCodeland.colorScheme', colorScheme);
 	}
 });
-
 themePaletteStore.subscribe((themePalette) => {
 	if (browser) {
 		window.localStorage.setItem('NazCodeland.themePalette', themePalette);

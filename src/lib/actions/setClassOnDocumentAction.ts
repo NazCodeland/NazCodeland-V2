@@ -5,7 +5,7 @@ import { colorSchemeStore, themePaletteStore } from '../stores/colorSchemeAndThe
 export default function setClassOnDocumentAction(_: HTMLElement) {
 	const unsubscribeColorScheme = colorSchemeStore.subscribe((colorScheme) => {
 		if (browser) {
-			document.querySelector(':root')?.classList.toggle('dark');
+			document.querySelector(':root')?.classList.add(colorScheme);
 		}
 	});
 
