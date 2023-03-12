@@ -7,63 +7,52 @@
       /* css theming variables can be placed here for a css fallback implementation for light/dark mode incase javascript fails */
       --i-will-leave-it-empty: 0;}
   }
+
+	.dark {
+		color-scheme: dark;
+
+		/* Light text opacity on dark backgrounds from material design guidelines */
+		--high-emphasis-text-dark: 0.87;
+		--medium-emphasis-text-dark: 0.6;
+		--low-emphasis-text-dark: 0.45;
+		--very-low-emphasis-text-dark: 0.38;
+
+		--opacity-00-dark: 0%;
+		--opacity-01-dark: 5%;
+		--opacity-02-dark: 7%;
+		--opacity-03-dark: 8%;
+		--opacity-04-dark: 9%;
+		--opacity-05-dark: 11%;
+		--opacity-06-dark: 12%;
+		--opacity-07-dark: 14%;
+		--opacity-08-dark: 15%;
+		--opacity-09-dark: 16%;
+		--opacity-20-dark: 20%;
+		--opacity-25-dark: 25%;
+		--opacity-30-dark: 30%;
+
+		--body-margin-top: clamp(0.5rem, calc(-0.07rem + 2.86vw), 3rem);
+
+		--main-background: 18, 18, 18;
+
+		--logo-remaining-letters-color: var(--grey-025), var(--high-emphasis-text-dark);
+		--nav-link-text-color: var(--grey-000), var(--medium-emphasis-text-dark);
+
+		--text-color: var(--grey-000);
+
+		--primary-color-text: var(--grey-900);
+
+		/* light / dark icon variables */
+		--svg-angle-day: -90deg;
+		--svg-angle-night: 0deg;
+		--svg-background-color: 00, 00, 00;
+		animation: sunSet 2s;
+
+		--box-shadow-rest: none;
+		--box-shadow-hover: none;
+		--box-shadow-active: none;
+
+		--padding-top-html: var(--spacer-fluid-16-48) !important;
+		--logoNotFirstL: var(--grey-025), var(--high-emphasis-text-dark) !important;
+	}
 }
-/* #endregion darkScheme media query */
-
-/* #region lightScheme */
-/* prettier-ignore */
-[color-scheme='dark'] {
-    color-scheme: dark;
-    
-    /* Light text opacity on dark backgrounds from material design guidelines */
-    --high-emphasis-text-dark: 0.87;
-    --medium-emphasis-text-dark: 0.60;
-    --low-emphasis-text-dark: 0.45;
-    --very-low-emphasis-text-dark: 0.38;
-    
-    --opacity-00-dark: 0%;
-    --opacity-01-dark: 5%;
-    --opacity-02-dark: 7%;
-    --opacity-03-dark: 8%;
-    --opacity-04-dark: 9%;
-    --opacity-05-dark: 11%;
-    --opacity-06-dark: 12%;
-    --opacity-07-dark: 14%;
-    --opacity-08-dark: 15%;
-    --opacity-09-dark: 16%;
-    --opacity-20-dark: 20%;
-    --opacity-25-dark: 25%;
-    --opacity-30-dark: 30%;
-    
-    --body-margin-top:  clamp(0.50rem, calc(-0.07rem + 2.86vw), 3rem);
-  
-    --main-background: 18, 18, 18;
-  
-  
-    --logo-remaining-letters-color: var(--grey-025), var(--high-emphasis-text-dark);
-    --nav-link-text-color: var(--grey-000), var(--medium-emphasis-text-dark);
-    
-    --text-color: var(--grey-000);
-    
-    --primary-color-text: var(--grey-900);
-    
-  
-    /* light / dark icon variables */
-    --svg-angle-day: -90deg;
-    --svg-angle-night: 0deg;
-    --svg-background-color: 00, 00, 00;
-    animation: sunSet 2s;
-    
-    
-    /* offset-x | offset-y | blur-radius | spread-radius | color */
-    --box-shadow-rest: none;
-    --box-shadow-hover: none;
-    --box-shadow-active: none;
-
-
-      --padding-top-html: var(--spacer-fluid-16-48) !important;
-      --logoNotFirstL: var(--grey-025), var(--high-emphasis-text-dark) !important;
-
-    }
-
-/* #endregion darkScheme */

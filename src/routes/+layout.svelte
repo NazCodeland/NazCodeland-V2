@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import setAttributeOnDocumentAction from '$lib/actions/setAttributeOnDocumentAction';
+	import setClassOnDocumentAction from '$lib/actions/setClassOnDocumentAction';
 	import ColorSchemeToggle from '$lib/components/ColorSchemeToggle.svelte';
 	import Logo from '$lib/components/Logo.svelte';
 	import Menu from '$lib/components/Menu.svelte';
@@ -9,14 +9,14 @@
 
 <div
 	class="bg-primaryColor p-4-32 pt-dynamic transition-[padding-top] delay-[0] duration-1000"
-	use:setAttributeOnDocumentAction>
+	use:setClassOnDocumentAction>
 	<div class="flex-col rounded-2xl bg-mainBackground p-16-40 font-body text-lg">
 		<!--  -->
 		<header
-			class="sticky top-0 z-10 mb-88-132 flex items-center justify-between gap-4 bg-mainBackground pl-3 pt-6 pb-5">
+			class="sticky top-0 z-10 mb-88-132 flex items-center justify-between gap-4 bg-mainBackground pl-3 pt-6 pb-3 md:border-b md:border-solid md:border-primaryColor">
 			<a
 				href="#maincontent"
-				class="absolute -left-[1000px] -top-[13px] rounded bg-primaryColor px-4 text-grey-900 focus-visible:left-16">
+				class="absolute -left-[1000px] -top-[13px] rounded bg-primaryColor px-4 text-grey-900 focus-visible:left-16 ">
 				Skip to main content</a>
 
 			<div class="flex items-center gap-16-32-24x">
@@ -55,7 +55,8 @@
 			<slot />
 		</main>
 
-		<footer class="site-wide-footer">
+		<footer
+			class="site-wide-footer dark flex justify-end border-b border-solid border-primaryColor">
 			<p>&copy; 2023 NazCodeland</p>
 		</footer>
 		<!--  -->

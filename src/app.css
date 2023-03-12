@@ -13,27 +13,27 @@
 	}
 
 	h1 {
-		font-size: var(--fs-fluid-1);
+		@apply text-fluid-1;
 	}
 
 	h2 {
-		font-size: var(--fs-fluid-2);
+		@apply text-fluid-2;
 	}
 
 	h3 {
-		font-size: var(--fs-fluid-3);
+		@apply text-fluid-3;
 	}
 
 	h4 {
-		font-size: var(--fs-fluid-4);
+		@apply text-fluid-4;
 	}
 
 	h5 {
-		font-size: var(--fs-fluid-5);
+		@apply text-fluid-5;
 	}
 
 	h6 {
-		font-size: var(--fs-fluid-6);
+		@apply text-fluid-6;
 	}
 
 	a {

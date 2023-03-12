@@ -6,7 +6,7 @@ import { writable, type Writable } from 'svelte/store';
 // we should follow convention right?
 
 export enum ColorSchemeEnum {
-	light = 'light',
+	light = '',
 	dark = 'dark'
 }
 
@@ -50,6 +50,15 @@ export function toggleColorScheme() {
 	});
 }
 
+export function getBrowserPreferredColorScheme(): ColorSchemeEnum {
+	if (browser) {
+		if (matchMedia(`(prefers-color-scheme: ${ColorSchemeEnum.dark})`).matches) {
+			return ColorSchemeEnum.dark;
+		}
+	}
+	return ColorSchemeEnum.light;
+}
+
 function initializeColorScheme() {
 	if (browser) {
 		if (!trySetColorScheme(window.localStorage.getItem('NazCodeland.colorScheme'))) {
@@ -64,15 +73,6 @@ function initializeThemePalette() {
 	}
 }
 
-export function getBrowserPreferredColorScheme(): ColorSchemeEnum {
-	if (browser) {
-		if (matchMedia(`(prefers-color-scheme: ${ColorSchemeEnum.dark})`).matches) {
-			return ColorSchemeEnum.dark;
-		}
-	}
-	return ColorSchemeEnum.light;
-}
-
 // initialize first
 initializeColorScheme();
 initializeThemePalette();
@@ -83,6 +83,7 @@ colorSchemeStore.subscribe((colorScheme) => {
 		window.localStorage.setItem('NazCodeland.colorScheme', colorScheme);
 	}
 });
+
 themePaletteStore.subscribe((themePalette) => {
 	if (browser) {
 		window.localStorage.setItem('NazCodeland.themePalette', themePalette);

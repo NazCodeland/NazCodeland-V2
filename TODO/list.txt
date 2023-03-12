@@ -20,7 +20,10 @@ clash because its in two different locations.
 Question, since there is already a global colorScheme store should I also
 move the folder store there?
 --------------------------------------------------------------------
-
+I can set attributes/classes on the HTML element from within the store, why are we 
+choosing to do it with an actions? it feels like the store code should
+set the attribute/class on the HTML element instead of disconnecting it out to an actions?
+--------------------------------------------------------------------
 
 
 	/* TODO: both icons show on page load/refresh since they are inline, fix that */

@@ -3,6 +3,9 @@
 /* #region desert*/
 @layer base {
 	:root {
+		--desert-contrast-theme-bg-clr: 255, 250, 239;
+		--box-shadow-hover: 0px 14px 28px rgba(204, 219, 232, 1), 0px 10px 10px rgba(255, 255, 255, 0.1);
+
 		--light-desert-contrast-theme-txt-clr: 61, 61, 61;
 
 		--light-desert-contrast-theme-link-txt-clr: 28, 94, 117;
@@ -15,70 +18,67 @@
 		/* --desert-contrast-theme-button-bg-clr: 255, 250, 239; */
 		--light-desert-contrast-theme-button-txt-clr: 32, 32, 32;
 	}
-	[color-scheme='light'] {
-		--desert-contrast-theme-bg-clr: 255, 250, 239;
-		--box-shadow-hover: 0px 14px 28px rgba(204, 219, 232, 1), 0px 10px 10px rgba(255, 255, 255, 0.1);
-	}
-	[color-scheme='dark'] {
+
+	.dark {
 		--desert-contrast-theme-bg-clr: 86, 56, 37;
 	}
 	/* -------------------------------------------- */
-	[color-scheme='light'][themePalette='desert'] {
+	.desert {
 		--html-color: var(--light-desert-contrast-theme-link-txt-clr);
 		--main-background: var(--desert-contrast-theme-bg-clr);
 	}
-	[color-scheme='dark'][themePalette='desert'] {
+	.dark.desert {
 		--html-color: var(--light-desert-contrast-theme-link-txt-clr);
 		--main-background: var(--desert-contrast-theme-bg-clr);
 	}
 
-	[themePalette='desert'] .logo .first-letter {
+	.desert .logo .first-letter {
 		color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 		outline-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
-	[themePalette='desert'] .logo .first-letter:is(:hover, :focus) {
+	.desert .logo .first-letter:is(:hover, :focus) {
 		outline-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 
-	[themePalette='desert'] .menu__links a {
+	.desert .menu__links a {
 		--nav-link-text-color: var(--light-desert-contrast-theme-link-txt-clr);
 	}
 
-	[themePalette='desert'] .menu__links li a::before {
+	.desert .menu__links li a::before {
 		background-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 
-	[themePalette='desert'] .profile-card__image {
+	.desert .profile-card__image {
 		outline: 1px solid rgba(var(--light-desert-contrast-theme-link-txt-clr));
 		border-color: rgba(var(--desert-contrast-theme-bg-clr)) !important;
 	}
 
-	[themePalette='desert'] .hamburger {
+	.desert .hamburger {
 		color: rgba(var(--light-desert-contrast-theme-button-txt-clr));
 	}
 
-	[themePalette='desert'] .profile-card .link:is(:hover, :focus) {
+	.desert .profile-card .link:is(:hover, :focus) {
 		color: canvas;
 	}
-	[themePalette='desert'] .profile-card .link::before {
+	.desert .profile-card .link::before {
 		background-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 
-	[themePalette='desert'] .profile-card .btn-filled-primary {
+	.desert .profile-card .btn-filled-primary {
 		background-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 		color: canvas;
 	}
 
-	[themePalette='desert'] .profile-card .btn-outlined-primary {
+	.desert .profile-card .btn-outlined-primary {
 		color: rgba(var(--light-desert-contrast-theme-button-txt-clr));
 		outline-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 
-	[themePalette='desert'] .what-i-do {
+	.desert .what-i-do {
 		text-decoration-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 
-	[themePalette='desert'] .skill-card {
+	.desert .skill-card {
 		outline: 1px solid rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 

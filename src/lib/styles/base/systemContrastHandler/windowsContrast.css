@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------- */
-/* COMMON forced-colors: active and [color-scheme="light"] */
+/* COMMON forced-colors: active and color-scheme = light
 /* ------------------------------------------------------------- */
 
 /* TODO: put all the selectors in one @media (forced-colors: active) */
@@ -23,7 +23,7 @@
 	}
 
 	/* NOTE: if you add another 'light' contrast theme, then this will select both of those themes. */
-	[color-scheme='light'][theme='null'] .btn-filled-primary {
+	[theme='null'] .btn-filled-primary {
 		color: canvas !important;
 	}
 
@@ -73,22 +73,22 @@
 
 	/* light contrast palette */
 
-	[color-scheme='light'] .site-content,
-	[color-scheme='light'] .logo :not(.first-letter),
-	[color-scheme='light'] .menu__links a,
-	[color-scheme='light'] .profile-card__title,
-	[color-scheme='light'] .profile-card__subtitle,
-	[color-scheme='light'] .what-i-do,
-	[color-scheme='light'] .skill-card__title,
-	[color-scheme='light'] .skill-card__copy {
+	.site-content,
+	.logo :not(.first-letter),
+	.menu__links a,
+	.profile-card__title,
+	.profile-card__subtitle,
+	.what-i-do,
+	.skill-card__title,
+	.skill-card__copy {
 		color: markText;
 	}
 
-	[color-scheme='light'] .hamburger {
+	.hamburger {
 		stroke: markText;
 	}
 
-	[color-scheme='light'] .btn-outlined-primary {
+	.btn-outlined-primary {
 		color: markText !important;
 		outline-color: linkText !important;
 	}
@@ -99,25 +99,25 @@
 	/* #region darkMode*/
 	/* dark contrast palette */
 
-	[color-scheme='dark'] .site-content {
+	.dark .site-content {
 		margin-block-start: var(--spacer-fluid-4-32) !important;
 	}
 
-	[color-scheme='dark'] .logo :not(.first-letter) {
+	.dark .logo :not(.first-letter) {
 		outline-width: 0.01rem;
 	}
 
-	[color-scheme='dark'] .menu {
+	.dark .menu {
 		border-color: activeText !important;
 	}
 
-	[color-scheme='dark'] .link,
-	[color-scheme='dark'] .skill-card__title,
-	[color-scheme='dark'] .skill-card__copy {
+	.dark .link,
+	.dark .skill-card__title,
+	.dark .skill-card__copy {
 		color: canvasText;
 	}
 
-	[color-scheme='dark'] .btn-outlined-primary:is(:hover, :focus) {
+	.dark .btn-outlined-primary:is(:hover, :focus) {
 		outline-color: canvasText;
 	}
 

@@ -44,7 +44,7 @@
 		@apply ml-[0.1rem];
 	}
 
-	[color-scheme='dark'] .logo *:not([aria-hidden='true']) {
+	.dark .logo *:not([aria-hidden='true']) {
 		@apply shadow-none
 		outline
 		outline-[0.1px]
