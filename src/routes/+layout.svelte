@@ -13,7 +13,7 @@
 	<div class="flex-col rounded-2xl bg-site p-16-40 font-body text-lg">
 		<!--  -->
 		<header
-			class="sticky top-0 z-10 mb-88-132 flex items-center justify-between gap-4 bg-site pl-3 pt-6 pb-3 md:border-b md:border-solid md:border-primaryColor">
+			class="sticky top-0 z-20 mb-88-132 flex items-center justify-between gap-4 bg-site pl-3 pt-6 pb-3 md:border-b md:border-solid md:border-primaryColor">
 			<a
 				href="#maincontent"
 				class="absolute -left-[1000px] -top-[13px] rounded bg-primaryColor px-4 text-grey-900 focus-visible:left-16 ">

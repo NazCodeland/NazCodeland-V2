@@ -20,9 +20,20 @@
 
 		<p class="max-w-[60ch]">
 			Hey👋 <br />welcome to my little spot on the web. I made this website to showcase my skill
-			set, through my <a href="/portfolio" class="link outline-none">Portfolio</a>, to potential
-			employers. It's also a place for me to <a href="/blog" class="link outline-none">Blog</a> about
-			what I am learning and to reference it in the future.
+			set, through my
+			<a
+				href="/portfolio"
+				class="relative z-10 inline-block outline-none delay-[0] before:absolute before:bottom-0 before:h-0.5 
+				before:w-full before:bg-primaryColor before:transition-[h] before:duration-200 before:content-[''] 
+				hover:text-[markText] hover:before:-z-10 hover:before:h-full hover:before:bg-primaryColor focus:text-[markText]"
+				>Portfolio</a
+			>, to potential employers. It's also a place for me to
+			<a
+				href="/blog"
+				class="relative z-10 inline-block outline-none delay-[0] before:absolute before:bottom-0 before:h-0.5 
+			before:w-full before:bg-primaryColor before:transition-[h] before:duration-200 before:content-[''] 
+			hover:text-[markText] hover:before:-z-10 hover:before:h-full hover:before:bg-primaryColor focus:text-[markText]"
+				>Blog</a> about what I am learning and to reference it in the future.
 		</p>
 
 		<footer class="mt-2 flex flex-wrap gap-2 [@media(width>=328px)]:gap-4">
@@ -40,7 +51,6 @@
 		@apply h-[clamp(9.38rem,_calc(6.34rem_+_15.18vw),_20rem)] 
 		w-[clamp(9.375rem,_calc(6.34rem_+_15.18vw),_20rem)];
 	}
-
 	.imageBorderW {
 		@apply border-[clamp(0.5rem,_calc(0.43rem_+_0.36vw),_0.75rem)];
 	}
