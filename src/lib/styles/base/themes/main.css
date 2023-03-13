@@ -20,16 +20,14 @@
 }
 
 [themePalette='main'] {
-	/* css props defined outside of main.css */
-	--siteWrapper: var(--primary);
+	/* ------------------------------------------------ */
 	--site: var(--secondary);
+	--siteWrapper: var(--primary);
 
-	--btn-base-bg: 251, 252, 253;
-
-	/* css props defined within main.css */
 	--primary: 96, 149, 245;
 
-	--btn-filled-bg: var(--primary);
+	--btn-bg: 251, 252, 253;
+	--filled-bg: var(--primary);
 
 	--outline-clr: var(--secondary);
 	--outline-primary-clr: var(--primary);

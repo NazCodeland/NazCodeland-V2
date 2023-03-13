@@ -38,7 +38,6 @@
 		--spacer-fluid-16-32-2\.4x: clamp(12px, calc(-103.52px + 9.41vw), 32px);
 
 		/* do I need these still? */
-		--siteWrapper: var(--primary-color);
 		--primary-color: 100, 149, 237;
 		/* --svg-transition-duration: 1.4s; */
 

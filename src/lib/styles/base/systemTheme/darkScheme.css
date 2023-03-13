@@ -31,8 +31,6 @@
 
 		--body-margin-top: clamp(0.5rem, calc(-0.07rem + 2.86vw), 3rem);
 
-		--site: 18, 18, 18;
-
 		--logo-remaining-letters-color: var(--grey-025), var(--high-emphasis-text-dark);
 		--nav-link-text-color: var(--grey-000), var(--medium-emphasis-text-dark);
 

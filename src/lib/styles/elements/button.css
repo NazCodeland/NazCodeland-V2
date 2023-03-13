@@ -1,5 +1,3 @@
-/*  */
-
 @layer components {
 	.btn {
 		/* display: inline-block; is this needed?*/
@@ -12,7 +10,7 @@
 		color: rgba(var(--btn-text-color));
 
 		--btn-bg-opacity: var(--opacity-06-dark, 1);
-		background-color: rgba(var(--btn-base-bg), var(--btn-bg-opacity));
+		background-color: rgba(var(--btn-bg), var(--btn-bg-opacity));
 
 		box-shadow: var(--box-shadow-rest);
 		transition: ease-in-out transform 0.15s;
@@ -36,7 +34,7 @@
 
 	.btn-filled-primary {
 		--btn-bg-opacity: 0.9;
-		--btn-base-bg: var(--btn-filled-bg);
+		--btn-bg: var(--filled-bg);
 		--btn-text-color: var(--primary-color-text);
 		--outline-clr: var(--outline-primary-clr);
 	}
