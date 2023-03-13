@@ -1,10 +1,4 @@
 @layer base {
-	[themePalette='desert'] .theme-switcher,
-	[themePalette='dusk'] .theme-switcher,
-	[themePalette='nightSky'] .theme-switcher {
-		display: none;
-	}
-
 	/*  this setting is set in reset.css but in More Contrast in firefox this is needed again */
 	[themePalette='dusk'] .theme-switcher:is(:hover, :focus),
 	[themePalette='desert'] .theme-switcher:is(:hover, :focus),
@@ -39,7 +33,7 @@
 	[themePalette='dusk'] .profile-card .btn-filled-primary:is(:hover, :focus),
 	[themePalette='nightSky'] .profile-card .btn-filled-primary:is(:hover, :focus) {
 		outline-color: canvasText;
-		background-color: var(--main-background);
+		background-color: var(--site);
 	}
 
 	[themePalette='desert'] .skill-card:is(:hover, :focus),

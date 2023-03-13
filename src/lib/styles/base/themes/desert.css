@@ -3,8 +3,7 @@
 /* #region desert*/
 @layer base {
 	:root {
-		--desert-contrast-theme-bg-clr: 255, 250, 239;
-		--box-shadow-hover: 0px 14px 28px rgba(204, 219, 232, 1), 0px 10px 10px rgba(255, 255, 255, 0.1);
+		/* --box-shadow-hover: 0px 14px 28px rgba(204, 219, 232, 1), 0px 10px 10px rgba(255, 255, 255, 0.1); */
 
 		--light-desert-contrast-theme-txt-clr: 61, 61, 61;
 
@@ -17,20 +16,28 @@
 
 		/* --desert-contrast-theme-button-bg-clr: 255, 250, 239; */
 		--light-desert-contrast-theme-button-txt-clr: 32, 32, 32;
+		/* applying nightSky css custom variables to site-wide css custom variables */
 	}
 
-	[color-scheme='dark'] {
+	[themePalette='desert'] {
+		--primary: 0, 100, 0;
+	}
+
+	[color-scheme='light'][themePalette='desert'] {
+		--secondary: 255, 250, 235;
+	}
+
+	[color-scheme='dark'][themePalette='desert'] {
+		--secondary: 95, 56, 31;
+	}
+
+	[color-scheme='light'][themePalette='desert'] {
+		--desert-contrast-theme-bg-clr: 255, 250, 239;
+	}
+	[color-scheme='dark'][themePalette='desert'] {
 		--desert-contrast-theme-bg-clr: 86, 56, 37;
 	}
 	/* -------------------------------------------- */
-	[themePalette='desert'] {
-		--html-color: var(--light-desert-contrast-theme-link-txt-clr);
-		--main-background: var(--desert-contrast-theme-bg-clr);
-	}
-	[color-scheme='dark'][themePalette='desert'] {
-		--html-color: var(--light-desert-contrast-theme-link-txt-clr);
-		--main-background: var(--desert-contrast-theme-bg-clr);
-	}
 
 	[themePalette='desert'] .logo .first-letter {
 		color: rgba(var(--light-desert-contrast-theme-link-txt-clr));

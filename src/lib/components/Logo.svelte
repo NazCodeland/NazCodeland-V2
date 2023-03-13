@@ -8,10 +8,13 @@
 <h1 class="logo flex-shrink-0 rounded-sm " aria-labelledby="logo">
 	{#each logoTextArray as letter}
 		{#if letter === 'N'}
-			<!-- prettier-ignore -->
-			<a href="/" class="relative font-logoFirstL text-logoFirstL font-bold leading-logoFirstL cursor-pointer rounded-sm text-logoFirstLClr mr-[1px]" id="logo" aria-label="NazCodeland">
-			{letter}
-		</a>
+			<a
+				href="/"
+				class="relative mr-[1px] cursor-pointer rounded-sm font-logoFirstL text-logoFirstL font-bold leading-logoFirstL text-logoFirstLClr"
+				id="logo"
+				aria-label="NazCodeland">
+				{letter}
+			</a>
 		{:else}
 			<span
 				class="flex cursor-default font-logoNotFirstL text-logoNotFirstL leading-logoNotFistL text-logoNotFirstLClr">
@@ -45,8 +48,7 @@
 	}
 
 	[color-scheme='dark'] .logo *:not([aria-hidden='true']) {
-		@apply shadow-none
-		outline
+		@apply outline
 		outline-[0.1px]
 		outline-slate-50/20;
 	}

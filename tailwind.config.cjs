@@ -39,7 +39,8 @@ module.exports = {
 			},
 			colors: {
 				primaryColor: 'rgba(var(--primary-color))',
-				mainBackground: 'rgba(var(--main-background))',
+				siteWrapper: 'rgba(var(--siteWrapper))',
+				site: 'rgba(var(--site))',
 				logoFirstLClr: 'rgba(var(--primary-color))',
 				logoNotFirstLClr: 'rgba(var(--logoNotFirstL))',
 				colorSchemeToggle: 'rgba(var(--svg-background-color))',
@@ -65,8 +66,8 @@ module.exports = {
 				'2sm': '4px'
 			},
 			scale: {
-				hover: '1.03',
-				active: '0.99'
+				hover: 'var(--scale-hover)',
+				active: 'var(--scale-active)'
 			},
 			transitionDuration: {
 				1400: '1.4s'

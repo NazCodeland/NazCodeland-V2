@@ -15,6 +15,29 @@
 		/* --main-contrast-theme-selected-txt-clr: 43, 43, 43; */
 
 		/* --main-contrast-theme-button-bg-clr: 0, 0, 0; */
-		/* --main-contrast-theme-button-txt-clr: 255, 238, 50; */
+		--main-contrast-theme-button-txt-clr: 255, 0, 0;
+		--btn-bg: var(--secondary);
+		--siteWrapper: var(--primary);
+		--site: var(--secondary);
 	}
+}
+
+[themePalette='main'] {
+	--primary: 96, 149, 245;
+}
+
+[color-scheme='light'][themePalette='main'] {
+	/* css variable defintions for main theme */
+	--secondary: 251, 252, 253;
+	/* prettier-ignore */
+	/* --box-shadow-logo: 0.8px 0.8px 0.8px 0.8px rgba(188, 194, 193, 0.5), -0.8px -0.8px 0.8px 0.8px rgba(188, 194, 193, 0.4); */
+
+	/* css variable usage */
+}
+
+[color-scheme='dark'][themePalette='main'] {
+	/* css variable definitions for main theme */
+	--secondary: 18, 18, 18;
+
+	/* css variable usage */
 }

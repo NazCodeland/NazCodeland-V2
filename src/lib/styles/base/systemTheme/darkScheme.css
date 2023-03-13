@@ -31,7 +31,7 @@
 
 		--body-margin-top: clamp(0.5rem, calc(-0.07rem + 2.86vw), 3rem);
 
-		--main-background: 18, 18, 18;
+		--site: 18, 18, 18;
 
 		--logo-remaining-letters-color: var(--grey-025), var(--high-emphasis-text-dark);
 		--nav-link-text-color: var(--grey-000), var(--medium-emphasis-text-dark);
@@ -46,6 +46,7 @@
 		--svg-background-color: 00, 00, 00;
 		animation: sunSet 2s;
 
+		--box-shadow-logo: none;
 		--box-shadow-rest: none;
 		--box-shadow-hover: none;
 		--box-shadow-active: none;
