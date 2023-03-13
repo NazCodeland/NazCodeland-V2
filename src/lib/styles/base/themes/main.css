@@ -15,29 +15,40 @@
 		/* --main-contrast-theme-selected-txt-clr: 43, 43, 43; */
 
 		/* --main-contrast-theme-button-bg-clr: 0, 0, 0; */
-		--main-contrast-theme-button-txt-clr: 255, 0, 0;
-		--btn-bg: var(--secondary);
-		--siteWrapper: var(--primary);
-		--site: var(--secondary);
+		/* --main-contrast-theme-button-txt-clr: 255, 0, 0; */
 	}
 }
 
 [themePalette='main'] {
+	/* css props defined outside of main.css */
+	--siteWrapper: var(--primary);
+	--site: var(--secondary);
+
+	--btn-base-bg: 251, 252, 253;
+
+	/* css props defined within main.css */
 	--primary: 96, 149, 245;
+
+	--btn-filled-bg: var(--primary);
+
+	--outline-clr: var(--secondary);
+	--outline-primary-clr: var(--primary);
+	--outline-tertiary-clr: var(--tertiary);
 }
 
 [color-scheme='light'][themePalette='main'] {
 	/* css variable defintions for main theme */
 	--secondary: 251, 252, 253;
+	--tertiary: 255, 0, 0;
+
 	/* prettier-ignore */
 	/* --box-shadow-logo: 0.8px 0.8px 0.8px 0.8px rgba(188, 194, 193, 0.5), -0.8px -0.8px 0.8px 0.8px rgba(188, 194, 193, 0.4); */
-
 	/* css variable usage */
 }
 
 [color-scheme='dark'][themePalette='main'] {
 	/* css variable definitions for main theme */
 	--secondary: 18, 18, 18;
-
+	--tertiary: 255, 240, 0;
 	/* css variable usage */
 }

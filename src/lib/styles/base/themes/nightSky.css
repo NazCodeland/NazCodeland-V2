@@ -26,10 +26,12 @@
 
 	[color-scheme='light'][themePalette='nightSky'] {
 		--secondary: 188, 227, 250;
+		--tertiary: 255, 240, 0;
 	}
 
 	[color-scheme='dark'][themePalette='nightSky'] {
 		--secondary: 0, 60, 106;
+		--tertiary: 0, 255, 0;
 	}
 
 	/* ---------------------------- */

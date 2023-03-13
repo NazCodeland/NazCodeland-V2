@@ -1,8 +1,4 @@
-/*  base btn turns into secondary upon :hover
-secondary turns into primary upon :hover
-*/
-
-/* --btn-text-color is not defined so it will fallback to inheriting the color in this situation */
+/*  */
 
 @layer components {
 	.btn {
@@ -16,10 +12,14 @@ secondary turns into primary upon :hover
 		color: rgba(var(--btn-text-color));
 
 		--btn-bg-opacity: var(--opacity-06-dark, 1);
-		background-color: rgba(var(--btn-bg));
+		background-color: rgba(var(--btn-base-bg), var(--btn-bg-opacity));
 
 		box-shadow: var(--box-shadow-rest);
 		transition: ease-in-out transform 0.15s;
+
+		outline-width: 1px;
+		outline-style: solid;
+		outline-color: rgba(var(--outline-clr));
 	}
 
 	.btn:is(:hover, :focus) {
@@ -35,11 +35,10 @@ secondary turns into primary upon :hover
 	}
 
 	.btn-filled-primary {
-		--btn-filled-bg: var(--primary);
 		--btn-bg-opacity: 0.9;
-		--btn-bg: var(--btn-filled-bg);
+		--btn-base-bg: var(--btn-filled-bg);
 		--btn-text-color: var(--primary-color-text);
-		outline-color: rgba(var(--primary-color));
+		--outline-clr: var(--outline-primary-clr);
 	}
 
 	.btn-filled-primary:is(:hover, :focus) {
@@ -50,7 +49,7 @@ secondary turns into primary upon :hover
 	}
 
 	.btn-outlined-primary {
-		outline-color: rgba(var(--primary-color));
+		--outline-clr: var(--outline-tertiary-clr);
 	}
 
 	.btn-disabled {

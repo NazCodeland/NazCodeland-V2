@@ -25,10 +25,12 @@
 
 	[color-scheme='light'][themePalette='desert'] {
 		--secondary: 255, 250, 235;
+		--tertiary: 255, 0, 0;
 	}
 
 	[color-scheme='dark'][themePalette='desert'] {
 		--secondary: 95, 56, 31;
+		--tertiary: 255, 152, 0;
 	}
 
 	[color-scheme='light'][themePalette='desert'] {

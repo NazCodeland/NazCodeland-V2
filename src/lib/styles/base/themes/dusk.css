@@ -23,11 +23,13 @@
 	}
 
 	[color-scheme='light'][themePalette='dusk'] {
-		--secondary: 147, 153, 153;
+		--secondary: 188, 194, 194;
+		--tertiary: 0, 255, 0;
 	}
 
 	[color-scheme='dark'][themePalette='dusk'] {
 		--secondary: 44, 50, 54;
+		--tertiary: 255, 0, 0;
 	}
 
 	[color-scheme='light'] {
