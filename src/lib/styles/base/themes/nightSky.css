@@ -35,7 +35,6 @@
 		--text-primary: var(--tertiary);
 	}
 
-	/* ---------------------------- */
 	[data-themePalette='nightSky'] .logo .first-letter {
 		color: rgba(var(--nightSky-contrast-theme-link-txt-clr));
 		outline-color: rgba(var(--nightSky-contrast-theme-link-txt-clr)) !important;
@@ -58,10 +57,9 @@
 		color: rgba(var(--nightSky-contrast-theme-button-txt-clr));
 	}
 
-	/* prettier-ignore */
-	[data-themePalette="nightSky"] .profile-card .link:is(:hover, :focus){
-	forced-color-adjust: none;
-	color: canvas !important;
+	[data-themePalette='nightSky'] .profile-card .link:is(:hover, :focus) {
+		forced-color-adjust: none;
+		color: canvas !important;
 	}
 
 	[data-themePalette='nightSky'] .profile-card .link::before {

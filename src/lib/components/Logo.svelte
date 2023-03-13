@@ -5,12 +5,12 @@
 </script>
 
 <!-- TODO: this should not be an H1 -->
-<h1 class="logo flex-shrink-0 rounded-sm " aria-labelledby="logo">
+<h1 class="logo flex-shrink-0 rounded-sm" aria-labelledby="logo">
 	{#each logoTextArray as letter}
 		{#if letter === 'N'}
 			<a
 				href="/"
-				class="relative mr-[1px] cursor-pointer rounded-sm font-logoFirstL text-logoFirstL font-bold leading-logoFirstL text-logoFirstLClr"
+				class="relative mr-[1px] cursor-pointer rounded-sm font-logoFirstL text-logoFirstL font-bold leading-logoFirstL text-logoFirstLClr outline outline-primaryColor"
 				id="logo"
 				aria-label="NazCodeland">
 				{letter}
@@ -47,7 +47,7 @@
 		@apply ml-[0.1rem];
 	}
 
-	[color-scheme='dark'] .logo *:not([aria-hidden='true']) {
+	[color-scheme='dark'] .logo *:not([aria-hidden='true'], a) {
 		@apply outline
 		outline-[0.1px]
 		outline-slate-50/20;

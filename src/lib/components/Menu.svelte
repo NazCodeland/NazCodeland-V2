@@ -3,7 +3,7 @@
 </script>
 
 <nav
-	class="absolute inset-x-menuInline top-menuBlock -z-10 mt-2 border-b border-solid border-primaryColor bg-site px-4 pt-10 pb-1 md:[all:unset]">
+	class="absolute inset-x-menuInline top-menuBlock -z-10 mt-2 border-b border-solid border-primaryColor bg-site px-4 pt-10 pb-1 text-primaryColor group-data-[themePalette=main]:text-[canvasText] md:[all:unset]">
 	<ul
 		class="flex flex-wrap justify-center gap-16-32 
 		{$menuStore ? 'inline-block' : 'hidden'} md:flex">

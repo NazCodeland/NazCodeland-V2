@@ -44,19 +44,19 @@
 	.desert {
 		@apply -left-[31px]
 		-top-[18px]
-		bg-[rgba(var(--desert-contrast-theme-bg-clr))];
+		bg-[rgba(var(--desert-theme-bg-clr))];
 	}
 
 	.dusk {
 		@apply -left-[31px]
 		top-[18px]
-		bg-[rgba(var(--dusk-contrast-theme-bg-clr))];
+		bg-[rgba(var(--dusk-theme-bg-clr))];
 	}
 
 	.nightSky {
 		@apply left-[clamp(0.06rem,_calc(0.03rem_+_0.18vw),_0.17rem)]
 		top-[clamp(2.19rem,_calc(2.09rem_+_0.46vw),_2.5rem)]
-		bg-[rgba(var(--nightSky-contrast-theme-bg-clr))];
+		bg-[rgba(var(--nightSky-theme-bg-clr))];
 	}
 
 	/* mobile design */
