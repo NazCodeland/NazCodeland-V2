@@ -17,7 +17,7 @@
 
 		outline-width: 1px;
 		outline-style: solid;
-		outline-color: rgba(var(--outline-clr));
+		outline-color: rgba(var(--outline-color));
 	}
 
 	.btn:is(:hover, :focus) {
@@ -36,7 +36,7 @@
 		--btn-bg-opacity: 0.9;
 		--btn-bg: var(--filled-bg);
 		--btn-text-color: var(--primary-color-text);
-		--outline-clr: var(--outline-primary-clr);
+		--outline-color: var(--primary-color);
 	}
 
 	.btn-filled-primary:is(:hover, :focus) {
@@ -47,7 +47,8 @@
 	}
 
 	.btn-outlined-primary {
-		--outline-clr: var(--outline-tertiary-clr);
+		--btn-text-color: var(--text-primary);
+		--outline-color: var(--tertiary-color);
 	}
 
 	.btn-disabled {

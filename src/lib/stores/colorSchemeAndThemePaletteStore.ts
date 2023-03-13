@@ -69,7 +69,7 @@ function initializeColorScheme() {
 
 function initializeThemePalette() {
 	if (browser) {
-		trySetThemePalette(window.localStorage.getItem('NazCodeland.themePalette'));
+		trySetThemePalette(window.localStorage.getItem('NazCodeland.data-themePalette'));
 	}
 }
 
@@ -85,6 +85,6 @@ colorSchemeStore.subscribe((colorScheme) => {
 });
 themePaletteStore.subscribe((themePalette) => {
 	if (browser) {
-		window.localStorage.setItem('NazCodeland.themePalette', themePalette);
+		window.localStorage.setItem('NazCodeland.data-themePalette', themePalette);
 	}
 });

@@ -4,7 +4,7 @@
 	:root {
 		/* main contrast theme */
 		/* --light-main-contrast-theme-bg-clr: 197, 227, 247; */
-		--dark-main-contrast-theme-bg-clr: 18, 18, 18;
+		/* --dark-main-contrast-theme-bg-clr: 18, 18, 18; */
 		/* --main-contrast-theme-txt-clr: 255, 255, 255; */
 
 		/* --main-contrast-theme-link-txt-clr: 128, 128, 255; */
@@ -16,37 +16,36 @@
 
 		/* --main-contrast-theme-button-bg-clr: 0, 0, 0; */
 		/* --main-contrast-theme-button-txt-clr: 255, 0, 0; */
+		--site: var(--secondary);
+		--siteWrapper: var(--primary);
+
+		--filled-bg: var(--primary);
+
+		--outline-color: var(--secondary);
+		--primary-color: var(--primary);
+		--tertiary-color: var(--tertiary);
+		--text-primary-color: var(--text-primary);
 	}
 }
 
-[themePalette='main'] {
+[data-themePalette='main'] {
 	/* ------------------------------------------------ */
-	--site: var(--secondary);
-	--siteWrapper: var(--primary);
-
 	--primary: 96, 149, 245;
-
 	--btn-bg: 251, 252, 253;
-	--filled-bg: var(--primary);
-
-	--outline-clr: var(--secondary);
-	--outline-primary-clr: var(--primary);
-	--outline-tertiary-clr: var(--tertiary);
+	--tertiary: var(--primary);
 }
 
-[color-scheme='light'][themePalette='main'] {
+[color-scheme='light'][data-themePalette='main'] {
 	/* css variable defintions for main theme */
 	--secondary: 251, 252, 253;
-	--tertiary: 255, 0, 0;
 
 	/* prettier-ignore */
 	/* --box-shadow-logo: 0.8px 0.8px 0.8px 0.8px rgba(188, 194, 193, 0.5), -0.8px -0.8px 0.8px 0.8px rgba(188, 194, 193, 0.4); */
 	/* css variable usage */
 }
 
-[color-scheme='dark'][themePalette='main'] {
+[color-scheme='dark'][data-themePalette='main'] {
 	/* css variable definitions for main theme */
 	--secondary: 18, 18, 18;
-	--tertiary: 255, 240, 0;
 	/* css variable usage */
 }

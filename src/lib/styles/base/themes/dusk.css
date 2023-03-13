@@ -6,30 +6,31 @@
 
 		/* --box-shadow-hover: 0px 14px 28px rgba(74, 77, 77, 0.1), 0px 10px 10px rgba(74, 77, 77, 0.1); */
 
-		dusk-contrast-theme-txt-clr: 255, 255, 255;
+		/* dusk-contrast-theme-txt-clr: 255, 255, 255; */
 
-		dusk-contrast-theme-link-txt-clr: 112, 235, 222;
+		/* dusk-contrast-theme-link-txt-clr: 112, 235, 222; */
 
 		/* --dusk-contrast-theme-inactive-txt-clr: 166, 166, 166; */
 
 		/* --dusk-contrast-theme-selected-bg-clr: 161, 191, 222; */
-		dusk-contrast-theme-selected-txt-clr: 33, 45, 59;
+		/* dusk-contrast-theme-selected-txt-clr: 33, 45, 59; */
 
 		/* --dusk-contrast-theme-button-bg-clr: 45, 50, 54; */
-		dusk-contrast-theme-button-txt-clr: 182, 246, 240;
+		/* dusk-contrast-theme-button-txt-clr: 182, 246, 240; */
 	}
-	[themePalette='dusk'] {
+	[data-themePalette='dusk'] {
 		--primary: 56, 235, 244;
 	}
 
-	[color-scheme='light'][themePalette='dusk'] {
+	[color-scheme='light'][data-themePalette='dusk'] {
 		--secondary: 188, 194, 194;
-		--tertiary: 0, 255, 0;
+		--tertiary: var(--primary);
 	}
 
-	[color-scheme='dark'][themePalette='dusk'] {
+	[color-scheme='dark'][data-themePalette='dusk'] {
 		--secondary: 44, 50, 54;
-		--tertiary: 255, 0, 0;
+		--tertiary: 29, 158, 0;
+		--text-primary: var(--tertiary);
 	}
 
 	[color-scheme='light'] {
@@ -40,50 +41,50 @@
 		--dusk-contrast-theme-bg-clr: 44, 50, 54;
 	}
 
-	[themePalette='dusk'] .logo .first-letter {
+	[data-themePalette='dusk'] .logo .first-letter {
 		color: rgba(var(dusk-contrast-theme-link-txt-clr));
 		outline-color: rgba(var(dusk-contrast-theme-link-txt-clr)) !important;
 	}
 
-	[themePalette='dusk'] .menu__links a {
+	[data-themePalette='dusk'] .menu__links a {
 		--nav-link-text-color: var(dusk-contrast-theme-link-txt-clr);
 	}
 
-	[themePalette='dusk'] .menu__links li a::before {
+	[data-themePalette='dusk'] .menu__links li a::before {
 		background-color: rgba(var(dusk-contrast-theme-link-txt-clr));
 	}
 
-	[themePalette='dusk'] .profile-card__image {
+	[data-themePalette='dusk'] .profile-card__image {
 		outline: 1px solid rgba(var(dusk-contrast-theme-button-txt-clr));
 		border-color: rgba(var(--dusk-contrast-theme-bg-clr)) !important;
 	}
 
-	[themePalette='dusk'] .hamburger {
+	[data-themePalette='dusk'] .hamburger {
 		color: rgba(var(dusk-contrast-theme-button-txt-clr));
 	}
 
-	[themePalette='dusk'] .profile-card .link:is(:hover, :focus),
-	[themePalette='dusk'] .profile-card .btn-filled-primary {
+	[data-themePalette='dusk'] .profile-card .link:is(:hover, :focus),
+	[data-themePalette='dusk'] .profile-card .btn-filled-primary {
 		color: markText;
 	}
-	[themePalette='dusk'] .profile-card .link::before {
+	[data-themePalette='dusk'] .profile-card .link::before {
 		background-color: rgba(var(dusk-contrast-theme-link-txt-clr));
 	}
 
-	[themePalette='dusk'] .profile-card .btn-filled-primary {
+	[data-themePalette='dusk'] .profile-card .btn-filled-primary {
 		background-color: rgba(var(dusk-contrast-theme-link-txt-clr));
 	}
 
-	[themePalette='dusk'] .profile-card .btn-outlined-primary {
+	[data-themePalette='dusk'] .profile-card .btn-outlined-primary {
 		color: rgba(var(dusk-contrast-theme-button-txt-clr));
 		outline-color: rgba(var(dusk-contrast-theme-button-txt-clr));
 	}
 
-	[themePalette='dusk'] .what-i-do {
+	[data-themePalette='dusk'] .what-i-do {
 		text-decoration-color: rgba(var(dusk-contrast-theme-link-txt-clr));
 	}
 
-	[themePalette='dusk'] .skill-card {
+	[data-themePalette='dusk'] .skill-card {
 		outline: 1px solid rgba(var(dusk-contrast-theme-link-txt-clr));
 	}
 

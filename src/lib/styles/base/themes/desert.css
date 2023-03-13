@@ -5,89 +5,92 @@
 	:root {
 		/* --box-shadow-hover: 0px 14px 28px rgba(204, 219, 232, 1), 0px 10px 10px rgba(255, 255, 255, 0.1); */
 
-		--light-desert-contrast-theme-txt-clr: 61, 61, 61;
+		/* --light-desert-contrast-theme-txt-clr: 61, 61, 61; */
 
-		--light-desert-contrast-theme-link-txt-clr: 28, 94, 117;
+		/* --light-desert-contrast-theme-link-txt-clr: 28, 94, 117; */
 
 		/* --desert-contrast-theme-inactive-txt-clr: 103, 103, 103; */
 
 		/* --desert-contrast-theme-selected-bg-clr: 144, 57, 9; */
-		--light-desert-contrast-theme-selected-txt-clr: 255, 245, 227;
+		/* --light-desert-contrast-theme-selected-txt-clr: 255, 245, 227; */
 
 		/* --desert-contrast-theme-button-bg-clr: 255, 250, 239; */
-		--light-desert-contrast-theme-button-txt-clr: 32, 32, 32;
+		/* --light-desert-contrast-theme-button-txt-clr: 32, 32, 32; */
 		/* applying nightSky css custom variables to site-wide css custom variables */
 	}
 
-	[themePalette='desert'] {
-		--primary: 0, 100, 0;
+	[data-themePalette='desert'] {
+		--primary: 4, 94, 129;
+		--btn-bg: 255, 250, 235;
 	}
 
-	[color-scheme='light'][themePalette='desert'] {
+	[color-scheme='light'][data-themePalette='desert'] {
 		--secondary: 255, 250, 235;
-		--tertiary: 255, 0, 0;
+		--tertiary: var(--primary);
 	}
 
-	[color-scheme='dark'][themePalette='desert'] {
+	[color-scheme='dark'][data-themePalette='desert'] {
 		--secondary: 95, 56, 31;
 		--tertiary: 255, 152, 0;
+		--text-primary: var(--tertiary);
 	}
+	/* ---------------------------------- */
 
-	[color-scheme='light'][themePalette='desert'] {
+	[color-scheme='light'][data-themePalette='desert'] {
 		--desert-contrast-theme-bg-clr: 255, 250, 239;
 	}
-	[color-scheme='dark'][themePalette='desert'] {
+	[color-scheme='dark'][data-themePalette='desert'] {
 		--desert-contrast-theme-bg-clr: 86, 56, 37;
 	}
 	/* -------------------------------------------- */
 
-	[themePalette='desert'] .logo .first-letter {
+	[data-themePalette='desert'] .logo .first-letter {
 		color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 		outline-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
-	[themePalette='desert'] .logo .first-letter:is(:hover, :focus) {
+	[data-themePalette='desert'] .logo .first-letter:is(:hover, :focus) {
 		outline-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 
-	[themePalette='desert'] .menu__links a {
+	[data-themePalette='desert'] .menu__links a {
 		--nav-link-text-color: var(--light-desert-contrast-theme-link-txt-clr);
 	}
 
-	[themePalette='desert'] .menu__links li a::before {
+	[data-themePalette='desert'] .menu__links li a::before {
 		background-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 
-	[themePalette='desert'] .profile-card__image {
+	[data-themePalette='desert'] .profile-card__image {
 		outline: 1px solid rgba(var(--light-desert-contrast-theme-link-txt-clr));
 		border-color: rgba(var(--desert-contrast-theme-bg-clr)) !important;
 	}
 
-	[themePalette='desert'] .hamburger {
+	[data-themePalette='desert'] .hamburger {
 		color: rgba(var(--light-desert-contrast-theme-button-txt-clr));
 	}
 
-	[themePalette='desert'] .profile-card .link:is(:hover, :focus) {
+	[data-themePalette='desert'] .profile-card .link:is(:hover, :focus) {
 		color: canvas;
 	}
-	[themePalette='desert'] .profile-card .link::before {
+	[data-themePalette='desert'] .profile-card .link::before {
 		background-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 
-	[themePalette='desert'] .profile-card .btn-filled-primary {
+	[data-themePalette='desert'] .profile-card .btn-filled-primary {
 		background-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 		color: canvas;
 	}
 
-	[themePalette='desert'] .profile-card .btn-outlined-primary {
+	[data-themePalette='desert'] .profile-card .btn-outlined-primary {
 		color: rgba(var(--light-desert-contrast-theme-button-txt-clr));
 		outline-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 
-	[themePalette='desert'] .what-i-do {
+	[data-themePalette='desert'] .what-i-do {
 		text-decoration-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 
-	[themePalette='desert'] .skill-card {
+	[data-themePalette='desert'] .skill-card {
 		outline: 1px solid rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 

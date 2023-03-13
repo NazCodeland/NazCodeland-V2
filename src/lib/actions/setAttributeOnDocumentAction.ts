@@ -11,7 +11,7 @@ export default function setAttributeOnDocumentAction(_: HTMLElement) {
 
 	const unsubscribePalette = themePaletteStore.subscribe((themePalette) => {
 		if (browser) {
-			document.querySelector(':root')?.setAttribute('themePalette', themePalette);
+			document.querySelector(':root')?.setAttribute('data-themePalette', themePalette);
 		}
 	});
 
