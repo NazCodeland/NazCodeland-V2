@@ -41,7 +41,7 @@
 
 	.desert {
 		inset-inline-start: -31px;
-		inset-block-start: 18px;
+		inset-block-start: -18px;
 		background-color: rgb(255, 250, 235);
 	}
 	:global([color-scheme='dark']) .desert {
@@ -65,6 +65,11 @@
 	:global([color-scheme='dark']) .nightSky {
 		background-color: rgb(0, 60, 106);
 	}
+
+	/* this chunk of code has some duplication in it. It can be reduced by
+	toggling a class that  does `@apply left-[1px] top-[1px];` instead of doing
+	that by targeting all the classes inside the `@media (hover: hover)`. On a 
+	project time constraint so will skip this for now */
 
 	/* mobile design */
 	@media (hover: hover) {

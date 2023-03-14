@@ -10,7 +10,7 @@
 <div
 	class="bg-primaryColor p-4-32 pt-dynamic transition-[padding-top] delay-[0] duration-1000"
 	use:setAttributeOnDocumentAction>
-	<div class="flex-col rounded-2xl bg-secondaryColor p-16-40 font-body text-lg">
+	<div class="flex-col rounded-2xl bg-secondaryColor p-16-40 font-body text-fluid-4">
 		<!--  -->
 		<header
 			class="sticky top-0 z-20 mb-88-132 flex items-center justify-between gap-4 bg-secondaryColor pl-3 pt-6 pb-3 md:border-b md:border-solid md:border-primaryColor">

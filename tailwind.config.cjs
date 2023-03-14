@@ -84,7 +84,8 @@ module.exports = {
 			},
 			lineHeight: {
 				logoFirstL: 'clamp(48px, calc(31.36px + 5.22vw), 96px)',
-				logoNotFistL: 'clamp(1.5rem, calc(0.98rem + 2.61vw), 3rem)'
+				logoNotFistL: 'clamp(1.5rem, calc(0.98rem + 2.61vw), 3rem)',
+				body: 'clamp(1.5rem, calc(1.36rem + 0.71vw), 2rem)'
 			},
 			letterSpacing: {},
 			width: {
