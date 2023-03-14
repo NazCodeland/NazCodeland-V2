@@ -39,8 +39,7 @@ module.exports = {
 			},
 			colors: {
 				primaryColor: 'rgba(var(--primary-color))',
-				siteWrapper: 'rgba(var(--siteWrapper))',
-				site: 'rgba(var(--site))',
+				secondaryColor: 'rgba(var(--secondary-color))',
 				logoFirstLClr: 'rgba(var(--primary-color))',
 				logoNotFirstLClr: 'rgba(var(--logoNotFirstL))',
 				colorSchemeToggle: 'rgba(var(--svg-background-color))',

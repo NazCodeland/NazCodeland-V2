@@ -19,8 +19,6 @@
 
 		--text-color: var(--grey-900);
 
-		/* --primary-color-text: var(--grey-000); */
-
 		/* light / dark mode icon variables */
 		/* making the assumption the user visits site using light mode */
 		--svg-background-color: 135, 206, 235;

@@ -36,8 +36,6 @@
 
 		--text-color: var(--grey-000);
 
-		/* --primary-color-text: var(--grey-900); */
-
 		/* light / dark icon variables */
 		--svg-angle-day: -90deg;
 		--svg-angle-night: 0deg;

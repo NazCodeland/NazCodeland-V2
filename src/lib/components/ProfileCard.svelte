@@ -3,7 +3,8 @@
 
 <article class="flex w-full flex-wrap items-center justify-center gap-16-40">
 	<img
-		class="imageSize imageBorderW rounded-full border-solid border-grey-1 shadow-rest dark:border-grey-600"
+		class="h-[clamp(9.38rem,_calc(6.34rem_+_15.18vw),_20rem)] w-[clamp(9.375rem,_calc(6.34rem_+_15.18vw),_20rem)] rounded-full  border-[clamp(0.5rem,_calc(0.43rem_+_0.36vw),_0.75rem)] border-solid
+		border-transparent shadow-rest dark:border-slate-50/6"
 		src="/images/someImage.jpeg"
 		width="320"
 		height="320"
@@ -46,12 +47,5 @@
 	</div>
 </article>
 
-<style lang="postcss">
-	.imageSize {
-		@apply h-[clamp(9.38rem,_calc(6.34rem_+_15.18vw),_20rem)] 
-		w-[clamp(9.375rem,_calc(6.34rem_+_15.18vw),_20rem)];
-	}
-	.imageBorderW {
-		@apply border-[clamp(0.5rem,_calc(0.43rem_+_0.36vw),_0.75rem)];
-	}
+<style>
 </style>

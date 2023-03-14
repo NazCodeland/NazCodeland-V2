@@ -16,14 +16,15 @@
 
 		/* --main-contrast-theme-button-bg-clr: 0, 0, 0; */
 		/* --main-contrast-theme-button-txt-clr: 255, 0, 0; */
-		--site: var(--secondary);
-		--siteWrapper: var(--primary);
 
 		--filled-bg: var(--primary);
 
 		--outline-color: var(--secondary);
+
 		--primary-color: var(--primary);
+		--secondary-color: var(--secondary);
 		--tertiary-color: var(--tertiary);
+
 		--text-primary-color: var(--text-primary);
 	}
 }
