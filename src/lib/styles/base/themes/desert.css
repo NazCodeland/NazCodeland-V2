@@ -37,10 +37,6 @@
 
 	/* -------------------------------------------- */
 
-	[data-themePalette='desert'] .menu__links a {
-		--nav-link-text-color: var(--light-desert-contrast-theme-link-txt-clr);
-	}
-
 	[data-themePalette='desert'] .menu__links li a::before {
 		background-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
