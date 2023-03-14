@@ -9,7 +9,7 @@
 
 <section class="mb-32">
 	<h2
-		class="mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] underline decoration-primaryColor decoration-double">
+		class="mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] underline decoration-tertiaryColor decoration-double">
 		What I Do
 	</h2>
 

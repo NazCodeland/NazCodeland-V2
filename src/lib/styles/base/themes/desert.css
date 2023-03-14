@@ -1,22 +1,8 @@
 @import './themesBase.css';
 
-/* #region desert*/
 @layer base {
 	:root {
 		/* --box-shadow-hover: 0px 14px 28px rgba(204, 219, 232, 1), 0px 10px 10px rgba(255, 255, 255, 0.1); */
-
-		/* --light-desert-contrast-theme-txt-clr: 61, 61, 61; */
-
-		/* --light-desert-contrast-theme-link-txt-clr: 28, 94, 117; */
-
-		/* --desert-contrast-theme-inactive-txt-clr: 103, 103, 103; */
-
-		/* --desert-contrast-theme-selected-bg-clr: 144, 57, 9; */
-		/* --light-desert-contrast-theme-selected-txt-clr: 255, 245, 227; */
-
-		--desert-theme-button-bg-clr: 255, 250, 239;
-		/* --light-desert-contrast-theme-button-txt-clr: 32, 32, 32; */
-		/* applying nightSky css custom variables to site-wide css custom variables */
 	}
 
 	[data-themePalette='desert'] {
@@ -34,20 +20,4 @@
 		--tertiary: 255, 152, 0;
 		--text-primary: var(--tertiary);
 	}
-
-	/* -------------------------------------------- */
-
-	[data-themePalette='desert'] .hamburger {
-		color: rgba(var(--light-desert-contrast-theme-button-txt-clr));
-	}
-
-	[data-themePalette='desert'] .what-i-do {
-		text-decoration-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
-	}
-
-	[data-themePalette='desert'] .skill-card {
-		outline: 1px solid rgba(var(--light-desert-contrast-theme-link-txt-clr));
-	}
-
-	/* #endregion desert */
 }

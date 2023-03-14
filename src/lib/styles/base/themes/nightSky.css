@@ -1,25 +1,6 @@
 @import './themesBase.css';
 
 @layer base {
-	:root {
-		/* shared between white and dark mode */
-
-		/* --nightSky-contrast-theme-txt-clr: 255, 255, 255; */
-
-		/* --nightSky-contrast-theme-link-txt-clr: 128, 128, 255; */
-
-		/* light mode css variables */
-
-		/* --nightSky-contrast-theme-inactive-txt-clr: 166, 166, 166; */
-
-		/* --nightSky-contrast-theme-selected-bg-clr: 214, 180, 253; */
-		/* --nightSky-contrast-theme-selected-txt-clr: 43, 43, 43; */
-
-		/* --nightSky-contrast-theme-button-bg-clr: 0, 0, 0; */
-		/* --nightSky-contrast-theme-button-txt-clr: 255, 238, 50; */
-		/* applying nightSky css custom variables to site-wide css custom variables */
-	}
-
 	[data-themePalette='nightSky'] {
 		--primary: 153, 128, 253;
 	}
@@ -34,53 +15,4 @@
 		--tertiary: 255, 242, 0;
 		--text-primary: var(--tertiary);
 	}
-
-	[data-themePalette='nightSky'] .logo .first-letter {
-		color: rgba(var(--nightSky-contrast-theme-link-txt-clr));
-		outline-color: rgba(var(--nightSky-contrast-theme-link-txt-clr)) !important;
-	}
-
-	[data-themePalette='nightSky'] .menu__links a {
-		--nav-link-text-color: var(--nightSky-contrast-theme-link-txt-clr);
-	}
-
-	[data-themePalette='nightSky'] .menu__links li a::before {
-		background-color: rgba(var(--nightSky-contrast-theme-link-txt-clr));
-	}
-
-	[data-themePalette='nightSky'] .profile-card__image {
-		outline: 1px solid rgba(var(--nightSky-contrast-theme-link-txt-clr));
-		border-color: Canvas !important;
-	}
-
-	[data-themePalette='nightSky'] .hamburger {
-		color: rgba(var(--nightSky-contrast-theme-button-txt-clr));
-	}
-
-	[data-themePalette='nightSky'] .profile-card .link:is(:hover, :focus) {
-		forced-color-adjust: none;
-		color: canvas !important;
-	}
-
-	[data-themePalette='nightSky'] .profile-card .link::before {
-		background-color: rgba(var(--nightSky-contrast-theme-link-txt-clr));
-	}
-
-	[data-themePalette='nightSky'] .profile-card .btn-filled-primary {
-		background-color: rgba(var(--nightSky-contrast-theme-link-txt-clr));
-	}
-
-	[data-themePalette='nightSky'] .profile-card .btn-outlined-primary {
-		color: rgba(var(--nightSky-contrast-theme-button-txt-clr));
-		outline-color: rgba(var(--nightSky-contrast-theme-button-txt-clr));
-	}
-
-	[data-themePalette='nightSky'] .what-i-do {
-		text-decoration-color: rgba(var(--nightSky-contrast-theme-link-txt-clr));
-	}
-
-	[data-themePalette='nightSky'] .skill-card {
-		outline: 1px solid rgba(var(--nightSky-contrast-theme-link-txt-clr));
-	}
-	/* #endregion nightSky */
 }

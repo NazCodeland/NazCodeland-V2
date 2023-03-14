@@ -1,23 +1,6 @@
 @import './themesBase.css';
 
 @layer base {
-	:root {
-		/* dusk contrast theme */
-
-		/* --box-shadow-hover: 0px 14px 28px rgba(74, 77, 77, 0.1), 0px 10px 10px rgba(74, 77, 77, 0.1); */
-
-		/* dusk-contrast-theme-txt-clr: 255, 255, 255; */
-
-		/* dusk-contrast-theme-link-txt-clr: 112, 235, 222; */
-
-		/* --dusk-contrast-theme-inactive-txt-clr: 166, 166, 166; */
-
-		/* --dusk-contrast-theme-selected-bg-clr: 161, 191, 222; */
-		/* dusk-contrast-theme-selected-txt-clr: 33, 45, 59; */
-
-		/* --dusk-contrast-theme-button-bg-clr: 45, 50, 54; */
-		/* dusk-contrast-theme-button-txt-clr: 182, 246, 240; */
-	}
 	[data-themePalette='dusk'] {
 		--primary: 56, 235, 244;
 	}
@@ -32,61 +15,4 @@
 		--tertiary: 29, 158, 0;
 		--text-primary: var(--tertiary);
 	}
-
-	[color-scheme='light'] {
-		--dusk-contrast-theme-bg-clr: 190, 194, 194;
-	}
-
-	[color-scheme='dark'] {
-		--dusk-contrast-theme-bg-clr: 44, 50, 54;
-	}
-
-	[data-themePalette='dusk'] .logo .first-letter {
-		color: rgba(var(dusk-contrast-theme-link-txt-clr));
-		outline-color: rgba(var(dusk-contrast-theme-link-txt-clr)) !important;
-	}
-
-	[data-themePalette='dusk'] .menu__links a {
-		--nav-link-text-color: var(dusk-contrast-theme-link-txt-clr);
-	}
-
-	[data-themePalette='dusk'] .menu__links li a::before {
-		background-color: rgba(var(dusk-contrast-theme-link-txt-clr));
-	}
-
-	[data-themePalette='dusk'] .profile-card__image {
-		outline: 1px solid rgba(var(dusk-contrast-theme-button-txt-clr));
-		border-color: rgba(var(--dusk-contrast-theme-bg-clr)) !important;
-	}
-
-	[data-themePalette='dusk'] .hamburger {
-		color: rgba(var(dusk-contrast-theme-button-txt-clr));
-	}
-
-	[data-themePalette='dusk'] .profile-card .link:is(:hover, :focus),
-	[data-themePalette='dusk'] .profile-card .btn-filled-primary {
-		color: markText;
-	}
-	[data-themePalette='dusk'] .profile-card .link::before {
-		background-color: rgba(var(dusk-contrast-theme-link-txt-clr));
-	}
-
-	[data-themePalette='dusk'] .profile-card .btn-filled-primary {
-		background-color: rgba(var(dusk-contrast-theme-link-txt-clr));
-	}
-
-	[data-themePalette='dusk'] .profile-card .btn-outlined-primary {
-		color: rgba(var(dusk-contrast-theme-button-txt-clr));
-		outline-color: rgba(var(dusk-contrast-theme-button-txt-clr));
-	}
-
-	[data-themePalette='dusk'] .what-i-do {
-		text-decoration-color: rgba(var(dusk-contrast-theme-link-txt-clr));
-	}
-
-	[data-themePalette='dusk'] .skill-card {
-		outline: 1px solid rgba(var(dusk-contrast-theme-link-txt-clr));
-	}
-
-	/* #endregion dusk */
 }

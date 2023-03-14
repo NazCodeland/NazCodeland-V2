@@ -1,68 +1,16 @@
 @layer base {
 	:root {
+		--filled-bg: var(--primary);
+
+		--outline-color: var(--secondary);
+
+		--primary-color: var(--primary);
+		--secondary-color: var(--secondary);
+		--tertiary-color: var(--tertiary);
+
+		--text-primary-color: var(--text-primary);
 	}
-
-	/*  this setting is set in reset.css but in More Contrast in firefox this is needed again */
-	[data-themePalette='dusk'] .theme-switcher:is(:hover, :focus),
-	[data-themePalette='desert'] .theme-switcher:is(:hover, :focus),
-	[data-themePalette='nightSky'] .theme-switcher:is(:hover, :focus) {
-		outline: 0.1rem solid canvasText;
-	}
-
-	[data-themePalette='dusk'] .logo .first-letter:focus-visible,
-	[data-themePalette='desert'] .logo .first-letter:focus-visible,
-	[data-themePalette='nightSky'] .logo .first-letter:focus-visible {
-		outline-width: 2px;
-		outline-color: canvasText !important;
-		outline-style: dashed;
-	}
-
-	[data-themePalette='desert'] .hamburger:is(:hover),
-	[data-themePalette='dusk'] .hamburger:is(:hover),
-	[data-themePalette='nightSky'] .hamburger:is(:hover) {
-		/* this setting is set in reset.css but in More Contrast in firefox this is needed again */
-		outline-offset: 0;
-		outline-width: 0.1rem;
-		outline-style: solid;
-		outline-color: canvasText;
-
-		border-radius: var(--spacer-4);
-	}
-
-	[data-themePalette='desert'] .profile-card .btn-outlined-primary:is(:hover, :focus),
-	[data-themePalette='dusk'] .profile-card .btn-outlined-primary:is(:hover, :focus),
-	[data-themePalette='nightSky'] .profile-card .btn-outlined-primary:is(:hover, :focus),
-	[data-themePalette='desert'] .profile-card .btn-filled-primary:is(:hover, :focus),
-	[data-themePalette='dusk'] .profile-card .btn-filled-primary:is(:hover, :focus),
-	[data-themePalette='nightSky'] .profile-card .btn-filled-primary:is(:hover, :focus) {
-		outline-color: canvasText;
-		background-color: var(--site);
-	}
-
-	[data-themePalette='desert'] .skill-card:is(:hover, :focus),
-	[data-themePalette='dusk'] .skill-card:is(:hover, :focus),
-	[data-themePalette='nightSky'] .skill-card:is(:hover, :focus) {
-		outline: 2px solid canvasText;
-	}
-
-	[data-themePalette='desert'] .skill-card:focus-visible,
-	[data-themePalette='dusk'] .skill-card:focus-visible,
-	[data-themePalette='nightSky'] .skill-card:focus-visible {
-		outline-style: dashed;
-	}
-
-	[data-themePalette='desert'] .site-content,
-	[data-themePalette='desert'] .profile-card__subtitle,
-	[data-themePalette='desert'] .what-i-do,
-	[data-themePalette='dusk'] .site-content,
-	[data-themePalette='dusk'] .profile-card__subtitle,
-	[data-themePalette='dusk'] .what-i-do,
-	[data-themePalette='nightSky'] .site-content,
-	[data-themePalette='nightSky'] .profile-card__subtitle,
-	[data-themePalette='nightSky'] .what-i-do {
-		color: canvasText;
-	}
-
-	/* TODO: people who prefer less contrast, do they mind elevation/box shadow?  */
-	/* TODO: if not, remove 'desert' theme off this list and perhaps tweak the box-shadow color slightly */
 }
+
+/* TODO: people who prefer less contrast, do they mind elevation/box shadow?  */
+/* TODO: if not, remove 'desert' theme off this list and perhaps tweak the box-shadow color slightly */

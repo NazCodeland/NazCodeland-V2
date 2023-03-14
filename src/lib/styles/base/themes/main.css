@@ -1,52 +1,17 @@
 @import './themesBase.css';
 
 @layer base {
-	:root {
-		/* main contrast theme */
-		/* --light-main-contrast-theme-bg-clr: 197, 227, 247; */
-		/* --dark-main-contrast-theme-bg-clr: 18, 18, 18; */
-		/* --main-contrast-theme-txt-clr: 255, 255, 255; */
-
-		/* --main-contrast-theme-link-txt-clr: 128, 128, 255; */
-
-		/* --main-contrast-theme-inactive-txt-clr: 166, 166, 166; */
-
-		/* --main-contrast-theme-selected-bg-clr: 214, 180, 253; */
-		/* --main-contrast-theme-selected-txt-clr: 43, 43, 43; */
-
-		/* --main-contrast-theme-button-bg-clr: 0, 0, 0; */
-		/* --main-contrast-theme-button-txt-clr: 255, 0, 0; */
-
-		--filled-bg: var(--primary);
-
-		--outline-color: var(--secondary);
-
-		--primary-color: var(--primary);
-		--secondary-color: var(--secondary);
-		--tertiary-color: var(--tertiary);
-
-		--text-primary-color: var(--text-primary);
+	[data-themePalette='main'] {
+		--primary: 96, 149, 245;
+		--btn-bg: 251, 252, 253;
+		--tertiary: var(--primary);
 	}
-}
 
-[data-themePalette='main'] {
-	/* ------------------------------------------------ */
-	--primary: 96, 149, 245;
-	--btn-bg: 251, 252, 253;
-	--tertiary: var(--primary);
-}
+	[color-scheme='light'][data-themePalette='main'] {
+		--secondary: 251, 252, 253;
+	}
 
-[color-scheme='light'][data-themePalette='main'] {
-	/* css variable defintions for main theme */
-	--secondary: 251, 252, 253;
-
-	/* prettier-ignore */
-	/* --box-shadow-logo: 0.8px 0.8px 0.8px 0.8px rgba(188, 194, 193, 0.5), -0.8px -0.8px 0.8px 0.8px rgba(188, 194, 193, 0.4); */
-	/* css variable usage */
-}
-
-[color-scheme='dark'][data-themePalette='main'] {
-	/* css variable definitions for main theme */
-	--secondary: 18, 18, 18;
-	/* css variable usage */
+	[color-scheme='dark'][data-themePalette='main'] {
+		--secondary: 18, 18, 18;
+	}
 }
