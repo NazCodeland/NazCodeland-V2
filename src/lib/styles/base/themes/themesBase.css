@@ -8,9 +8,8 @@
 		--secondary-color: var(--secondary);
 		--tertiary-color: var(--tertiary);
 
-		--text-primary-color: var(--text-primary);
+		--text-primary: var(--tertiary);
 	}
 }
 
 /* TODO: people who prefer less contrast, do they mind elevation/box shadow?  */
-/* TODO: if not, remove 'desert' theme off this list and perhaps tweak the box-shadow color slightly */

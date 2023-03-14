@@ -42,6 +42,7 @@
 				class="btn btn-filled-primary flex-grow transition-[flex-grow,transform] delay-[0s] duration-[4s,0.15s] [@media(width>900px)]:flex-grow-0 "
 				href="/portfolio">View Portfolio</a>
 			<a class="btn btn-outlined-primary" href="/resume">View Resume</a>
+			<a href="/" class="btn">Base</a>
 		</footer>
 	</div>
 </article>

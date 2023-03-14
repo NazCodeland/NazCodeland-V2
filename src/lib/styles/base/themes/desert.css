@@ -13,6 +13,5 @@
 	[color-scheme='dark'][data-themePalette='desert'] {
 		--secondary: 95, 56, 31;
 		--tertiary: 255, 152, 0;
-		--text-primary: var(--tertiary);
 	}
 }
