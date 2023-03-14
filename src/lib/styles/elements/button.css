@@ -38,8 +38,8 @@
 
 	.btn-filled-primary {
 		--btn-bg-opacity: 0.9;
-		--btn-bg: var(--filled-bg);
-		--btn-text-color: var(--primary-color-text);
+		--btn-bg: var(--primary);
+		--btn-text-color: var(--text-primary);
 		--outline-color: var(--primary-color);
 	}
 
@@ -51,12 +51,12 @@
 	}
 
 	.btn-outlined-primary {
-		--btn-text-color: var(--text-primary);
+		--btn-text-color: var(--text-secondary);
 		--outline-color: var(--tertiary-color);
 	}
 
 	.btn-disabled {
-		background-color: rgba(var(--grey-200));
-		color: rgba(var(--grey-500));
+		background-color: var(--grey-200);
+		color: var(--grey-500);
 	}
 }

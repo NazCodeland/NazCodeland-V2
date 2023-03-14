@@ -1,4 +1,5 @@
 @layer base {
+	/* themeing interface  */
 	:root {
 		--filled-bg: var(--primary);
 
@@ -8,7 +9,8 @@
 		--secondary-color: var(--secondary);
 		--tertiary-color: var(--tertiary);
 
-		--text-primary: var(--tertiary);
+		--text-primary: var(--secondary);
+		--text-secondary: var(--tertiary);
 	}
 }
 
