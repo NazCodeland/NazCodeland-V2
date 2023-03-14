@@ -8,6 +8,8 @@
 
 	[color-scheme='light'][data-themePalette='main'] {
 		--secondary: 251, 252, 253;
+
+		--box-shadow-hover: 0px 14px 28px rgba(204, 219, 232, 1), 0px 10px 10px rgba(255, 255, 255, 1);
 	}
 
 	[color-scheme='dark'][data-themePalette='main'] {
