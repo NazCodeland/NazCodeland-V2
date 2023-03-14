@@ -1,4 +1,9 @@
 @layer base {
+	:root {
+		.myImg {
+			@apply dark:bg-green-900;
+		}
+	}
 	@media (prefers-color-scheme: dark) {
 		:root {
 			/* css theming variables can be placed here for a css fallback implementation for light/dark mode incase javascript fails */

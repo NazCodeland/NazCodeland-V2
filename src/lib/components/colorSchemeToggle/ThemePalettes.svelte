@@ -28,35 +28,42 @@
 				type="radio"
 				value={palette}
 				name={palette}
-				class="absolute h-5 w-5 appearance-none rounded-full outline outline-2 outline-slate-500
-				hover:outline-[canvasText] focus:outline-[canvasText] {palette} transition-[inset] delay-1000 duration-1000 " />
+				class="{palette} absolute h-5 w-5 appearance-none rounded-full outline outline-2 outline-slate-500
+				transition-[inset] delay-1000 duration-1000 hover:outline-[canvasText] focus:outline-[canvasText]" />
 		</label>
 	{/each}
 </form>
 
 <style lang="postcss">
 	.main {
-		@apply left-[clamp(0rem,_calc(0.04rem_+_0.09vw),_0.1rem)]
-		-top-[35px]
-		bg-[canvas];
+		@apply left-[clamp(0rem,_calc(0.04rem_+_0.09vw),_0.1rem)] -top-[35px] bg-[canvas];
 	}
 
 	.desert {
-		@apply -left-[31px]
-		-top-[18px]
-		bg-[rgba(var(--desert-theme-bg-clr))];
+		inset-inline-start: -31px;
+		inset-block-start: 18px;
+		background-color: rgb(255, 250, 235);
+	}
+	:global([color-scheme='dark']) .desert {
+		background-color: rgb(95, 56, 31);
 	}
 
 	.dusk {
-		@apply -left-[31px]
-		top-[18px]
-		bg-[rgba(var(--dusk-theme-bg-clr))];
+		inset-inline-start: -31px;
+		inset-block-start: 18px;
+		background-color: rgb(188, 194, 194);
+	}
+	:global([color-scheme='dark']) .dusk {
+		background-color: rgb(44, 50, 54);
 	}
 
 	.nightSky {
-		@apply left-[clamp(0.06rem,_calc(0.03rem_+_0.18vw),_0.17rem)]
-		top-[clamp(2.19rem,_calc(2.09rem_+_0.46vw),_2.5rem)]
-		bg-[rgba(var(--nightSky-theme-bg-clr))];
+		inset-inline-start: clamp(0.06rem, calc(0.03rem + 0.18vw), 0.17rem);
+		inset-block-start: clamp(2.19rem, calc(2.09rem + 0.46vw), 2.5rem);
+		background-color: rgb(188, 227, 250);
+	}
+	:global([color-scheme='dark']) .nightSky {
+		background-color: rgb(0, 60, 106);
 	}
 
 	/* mobile design */
@@ -65,25 +72,20 @@
 		.desert,
 		.dusk,
 		.nightSky {
-			@apply left-[1px]
-			top-[1px];
+			@apply left-[1px] top-[1px];
 		}
 
 		.showPalettes .main {
-			@apply left-0.5
-			-top-[35px];
+			@apply left-0.5 -top-[35px];
 		}
 		.showPalettes .desert {
-			@apply -left-[31px]
-			-top-[18px];
+			@apply -left-[31px] -top-[18px];
 		}
 		.showPalettes .dusk {
-			@apply -left-[31px]
-			top-5;
+			@apply -left-[31px] top-5;
 		}
 		.showPalettes .nightSky {
-			@apply left-[clamp(0.06rem,_calc(0.03rem_+_0.18vw),_0.17rem)]
-			top-[clamp(2.19rem,_calc(2.09rem_+_0.46vw),_2.5rem)];
+			@apply left-[clamp(0.06rem,_calc(0.03rem_+_0.18vw),_0.17rem)] top-[clamp(2.19rem,_calc(2.09rem_+_0.46vw),_2.5rem)];
 		}
 
 		.showPalettes .main,
