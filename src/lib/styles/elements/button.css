@@ -20,6 +20,13 @@
 		outline-color: rgba(var(--outline-color));
 	}
 
+	/* since it's usign opacity-6-dark which, is only defined
+	in dark mode, it resolves to invalid in ligth mode and thus,
+	has no impact */
+	.btn:not(.btn-filled-primary) {
+		@apply bg-slate-50/6;
+	}
+
 	.btn:is(:hover, :focus) {
 		--btn-bg-opacity: var(--opacity-20-dark);
 		box-shadow: var(--box-shadow-hover);

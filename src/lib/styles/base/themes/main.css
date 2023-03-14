@@ -3,7 +3,6 @@
 @layer base {
 	[data-themePalette='main'] {
 		--primary: 96, 149, 245;
-		--btn-bg: 251, 252, 253;
 		--tertiary: var(--primary);
 	}
 

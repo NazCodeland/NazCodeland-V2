@@ -3,6 +3,7 @@
 @layer base {
 	[data-themePalette='dusk'] {
 		--primary: 56, 235, 244;
+		--box-shadow-hover: 0px 14px 28px rgba(155, 167, 178, 0.3), 0px 10px 10px rgba(0, 140, 255, 0.1);
 	}
 
 	[color-scheme='light'][data-themePalette='dusk'] {

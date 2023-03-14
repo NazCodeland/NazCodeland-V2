@@ -1,13 +1,10 @@
 @import './themesBase.css';
 
 @layer base {
-	:root {
-		/* --box-shadow-hover: 0px 14px 28px rgba(204, 219, 232, 1), 0px 10px 10px rgba(255, 255, 255, 0.1); */
-	}
-
 	[data-themePalette='desert'] {
 		--primary: 4, 94, 129;
-		--btn-bg: 255, 250, 235;
+		/* --btn-bg: 255, 250, 235; */
+		--box-shadow-hover: 0px 14px 28px rgba(155, 167, 178, 0.3), 0px 10px 10px rgba(0, 140, 255, 0.1);
 	}
 
 	[color-scheme='light'][data-themePalette='desert'] {
@@ -19,5 +16,7 @@
 		--secondary: 95, 56, 31;
 		--tertiary: 255, 152, 0;
 		--text-primary: var(--tertiary);
+
+		--_btn-bg: 255, 250, 235;
 	}
 }
