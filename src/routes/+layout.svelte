@@ -37,7 +37,7 @@
 				<button
 					on:click={toggleMenu}	
 					type="button" tabindex="0" 
-					class="md:hidden hamburger" aria-label="menu">
+					class="md:hidden" aria-label="menu">
 					<svg class="fill-tertiaryColor group-data-[themepalette=main]:fill-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
 							fill-rule="evenodd"

@@ -77,8 +77,8 @@ module.exports = {
 				'4-48': 'var(--spacer-fluid-4-48)',
 				'8-16': 'var(--spacer-fluid-8-16)',
 				'16-32': 'var(--spacer-fluid-16-32)',
-				'16-40': 'var(--spacer-fluid-16-40)',
 				'16-32-24x': 'var(--spacer-fluid-16-32-2\\.4x)',
+				'16-40': 'var(--spacer-fluid-16-40)',
 				'88-132': 'var(--spacer-fluid-88-132)',
 				dynamic: 'var(--padding-top-html)'
 			},
@@ -88,6 +88,12 @@ module.exports = {
 				body: 'clamp(1.5rem, calc(1.36rem + 0.71vw), 2rem)'
 			},
 			letterSpacing: {},
+			minWidth: {
+				'30-40': 'var(--spacer-fluid-36-40)'
+			},
+			minHeight: {
+				'30-40': 'var(--spacer-fluid-36-40)'
+			},
 			width: {
 				image: 'clamp(9.375rem, calc(6.34rem + 15.18vw), 20rem)'
 			},
