@@ -37,30 +37,8 @@
 
 	/* -------------------------------------------- */
 
-	[data-themePalette='desert'] .profile-card__image {
-		outline: 1px solid rgba(var(--light-desert-contrast-theme-link-txt-clr));
-		border-color: rgba(var(--desert-contrast-theme-bg-clr)) !important;
-	}
-
 	[data-themePalette='desert'] .hamburger {
 		color: rgba(var(--light-desert-contrast-theme-button-txt-clr));
-	}
-
-	[data-themePalette='desert'] .profile-card .link:is(:hover, :focus) {
-		color: canvas;
-	}
-	[data-themePalette='desert'] .profile-card .link::before {
-		background-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
-	}
-
-	[data-themePalette='desert'] .profile-card .btn-filled-primary {
-		background-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
-		color: canvas;
-	}
-
-	[data-themePalette='desert'] .profile-card .btn-outlined-primary {
-		color: rgba(var(--light-desert-contrast-theme-button-txt-clr));
-		outline-color: rgba(var(--light-desert-contrast-theme-link-txt-clr));
 	}
 
 	[data-themePalette='desert'] .what-i-do {

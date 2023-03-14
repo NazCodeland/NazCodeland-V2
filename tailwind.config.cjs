@@ -40,6 +40,7 @@ module.exports = {
 			colors: {
 				primaryColor: 'rgba(var(--primary-color))',
 				secondaryColor: 'rgba(var(--secondary-color))',
+				tertiaryColor: 'rgba(var(--tertiary-color))',
 				logoFirstLClr: 'rgba(var(--primary-color))',
 				logoNotFirstLClr: 'rgba(var(--logoNotFirstL))',
 				colorSchemeToggle: 'rgba(var(--svg-background-color))',
