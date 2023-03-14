@@ -8,6 +8,8 @@
 	[color-scheme='light'][data-themePalette='desert'] {
 		--secondary: 255, 250, 235;
 		--tertiary: var(--primary);
+
+		/* --box-shadow-logo: desert theme uses the main theme box shadow */
 	}
 
 	[color-scheme='dark'][data-themePalette='desert'] {

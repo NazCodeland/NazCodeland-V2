@@ -10,7 +10,7 @@
 		{#if letter === 'N'}
 			<a
 				href="/"
-				class="relative mr-[1px] cursor-pointer rounded-sm font-logoFirstL text-logoFirstL font-bold leading-logoFirstL text-logoFirstLClr outline outline-primaryColor"
+				class="relative mr-[2px] cursor-pointer rounded-sm font-logoFirstL text-logoFirstL font-bold leading-logoFirstL text-logoFirstLClr outline outline-primaryColor"
 				id="logo"
 				aria-label="NazCodeland">
 				{letter}
