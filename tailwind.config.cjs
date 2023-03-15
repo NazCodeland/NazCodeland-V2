@@ -21,7 +21,11 @@ module.exports = {
 			09: 'var(--opacity-09-dark)',
 			20: 'var(--opacity-20-dark)',
 			25: 'var(--opacity-25-dark)',
-			30: 'var(--opacity-30-dark)'
+			30: 'var(--opacity-30-dark)',
+			38: 'var(--very-low-emphasis-text-dark)',
+			45: 'var(--low-emphasis-text-dark, )',
+			60: 'var(--medium-emphasis-text-dark, .60)',
+			87: 'var(--high-emphasis-text-dark)'
 		},
 
 		extend: {
@@ -44,8 +48,6 @@ module.exports = {
 				logoFirstLClr: 'rgba(var(--primary-color))',
 				logoNotFirstLClr: 'rgba(var(--logoNotFirstL))',
 				colorSchemeToggle: 'rgba(var(--svg-background-color))',
-				base: 'rgba(var(--text-color)',
-				muted: 'rgba(var(--text-color), var(--low-emphasis-text-dark, 0.6))',
 				grey: {
 					1: 'rgba(var(--grey-000), <alpha-value>)',
 					25: 'rgba(var(--grey-025), <alpha-value>)',
