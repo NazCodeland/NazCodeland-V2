@@ -4,7 +4,7 @@
 <article class="flex w-full flex-wrap items-center justify-center gap-16-40">
 	<img
 		class="h-[clamp(9.38rem,_calc(6.34rem_+_15.18vw),_20rem)] w-[clamp(9.375rem,_calc(6.34rem_+_15.18vw),_20rem)] rounded-full  border-[clamp(0.5rem,_calc(0.43rem_+_0.36vw),_0.75rem)] border-solid
-		border-transparent shadow-rest dark:border-slate-50/6"
+		border-transparent shadow-rest dark:border-slate-50/12"
 		src="/images/someImage.jpeg"
 		width="320"
 		height="320"
@@ -16,8 +16,7 @@
 			<br />
 			<!-- using 'display: block' on the below small elements class, 
             causes an undesirable pause in the NVDA screen reader. '<br> does not.'-->
-			<small class="text-fluid-4 font-normal text-[rgba(var(--text-color),.6)]"
-				>Frontend Developer</small>
+			<small class="text-fluid-4 font-normal opacity-[.6]">Frontend Developer</small>
 		</h2>
 
 		<p class="max-w-[60ch]">

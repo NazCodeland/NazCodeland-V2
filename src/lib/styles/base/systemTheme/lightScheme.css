@@ -1,3 +1,6 @@
+/* all viarables for light/dark mode and theming
+are set up assuming the visiting user has light OS on */
+
 @layer base {
 	@media (prefers-color-scheme: light) {
 		:root {
@@ -7,21 +10,13 @@
 	}
 
 	:root {
-		color-scheme: light;
-
-		--body-margin-top: clamp(0.25rem, calc(-0.39rem + 3.21vw), 2rem);
-
-		--logo-remaining-letters-color: var(--grey-900);
-		--nav-link-text-color: var(--grey-500);
-
 		--text-color: var(--grey-900);
+		--padding-top-html: var(--spacer-fluid-4-32);
 
 		/* light / dark mode icon variables */
-		/* making the assumption the user visits site using light mode */
 		--svg-background-color: 135, 206, 235;
 		--svg-angle-day: 0deg;
 		--svg-angle-night: 90deg;
-
 		animation: sunRise 2s;
 
 		/* offset-x | offset-y | blur-radius | spread-radius | color */
@@ -30,8 +25,5 @@
 		--box-shadow-rest: 1px 1px 3px rgba(0, 0, 0, 0.12), 1px 1px 2px rgba(0, 0, 0, 0.24);
 		--box-shadow-hover: 0px 14px 28px rgba(155, 167, 178, 0.3), 0px 10px 10px rgba(0, 140, 255, 0.1);
 		--box-shadow-active: 1px 1px 3px rgba(0, 0, 0, 0.12), 1px 1px 2px rgba(0, 0, 0, 0.24);
-
-		/* dont think these are being used */
-		/* --svg-inset-light: 90; */
 	}
 }

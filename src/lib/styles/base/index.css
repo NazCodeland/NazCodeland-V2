@@ -1,4 +1,5 @@
-@import 'props.css';
+@import './props.css';
+@import './normalize.css';
 @import './systemTheme/index.css';
 @import './systemContrastHandler/index.css';
 @import './themes/index.css';

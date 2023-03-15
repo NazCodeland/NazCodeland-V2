@@ -9,7 +9,8 @@
 		/* --btn-text-color is not defined so it will fallback to inheriting the color in this situation */
 		color: rgba(var(--btn-text-color));
 
-		--btn-bg-opacity: var(--opacity-06-dark, 1);
+		--btn-bg-opacity: theme(opacity.12);
+		--btn-bg: 255, 255, 255;
 		background-color: rgba(var(--btn-bg), var(--btn-bg-opacity));
 
 		box-shadow: var(--box-shadow-rest);
@@ -20,18 +21,14 @@
 		outline-color: rgba(var(--outline-color));
 	}
 
-	[color-scheme='dark'] .btn:not(.btn-filled-primary) {
-		@apply bg-slate-50/6;
-	}
-
 	.btn:is(:hover, :focus) {
-		--btn-bg-opacity: var(--opacity-20-dark);
+		--btn-bg-opacity: theme(opacity.20);
 		box-shadow: var(--box-shadow-hover);
 		transform: var(--scale-hover);
 	}
 
 	.btn:active {
-		--btn-bg-opacity: var(--opacity-06-dark);
+		--btn-bg-opacity: theme(opacity.12);
 		box-shadow: var(--box-shadow-active);
 		transform: var(--scale-active);
 	}
@@ -53,10 +50,5 @@
 	.btn-outlined-primary {
 		--btn-text-color: var(--text-secondary);
 		--outline-color: var(--tertiary-color);
-	}
-
-	.btn-disabled {
-		background-color: var(--grey-200);
-		color: var(--grey-500);
 	}
 }

@@ -16,8 +16,7 @@
 				{letter}
 			</a>
 		{:else}
-			<span
-				class="flex cursor-default font-logoNotFirstL text-logoNotFirstL leading-logoNotFistL text-logoNotFirstLClr">
+			<span class="flex cursor-default font-logoNotFirstL text-logoNotFirstL leading-logoNotFistL">
 				{letter}
 			</span>
 		{/if}
@@ -47,9 +46,9 @@
 		@apply ml-[0.1rem];
 	}
 
-	[color-scheme='dark'] .logo *:not([aria-hidden='true'], a) {
-		@apply outline
-		outline-[0.1px]
-		outline-slate-50/20;
+	.logo *:not([aria-hidden='true'], a) {
+		@apply dark:outline
+		dark:outline-[0.1px]
+		dark:outline-slate-50/20;
 	}
 </style>

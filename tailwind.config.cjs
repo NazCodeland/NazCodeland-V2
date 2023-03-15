@@ -9,23 +9,24 @@ module.exports = {
 			logoNotFirstL: "'Suez one', system-ui, Arial, sans-serif"
 		},
 		opacity: {
-			00: 'var(--opacity-00-dark)',
-			01: 'var(--opacity-01-dark)',
-			02: 'var(--opacity-02-dark)',
-			03: 'var(--opacity-03-dark)',
-			04: 'var(--opacity-04-dark)',
-			05: 'var(--opacity-05-dark)',
-			06: 'var(--opacity-06-dark)',
-			07: 'var(--opacity-07-dark)',
-			08: 'var(--opacity-08-dark)',
-			09: 'var(--opacity-09-dark)',
-			20: 'var(--opacity-20-dark)',
-			25: 'var(--opacity-25-dark)',
-			30: 'var(--opacity-30-dark)',
-			38: 'var(--very-low-emphasis-text-dark)',
-			45: 'var(--low-emphasis-text-dark, )',
-			60: 'var(--medium-emphasis-text-dark, .60)',
-			87: 'var(--high-emphasis-text-dark)'
+			00: '0%',
+			05: '5%',
+			07: '7%',
+			08: '8%',
+			09: '9%',
+			11: '11%',
+			12: '12%',
+			14: '14%',
+			15: '15%',
+			16: '16%',
+			20: '20%',
+			25: '25%',
+			30: '30%',
+			/* Light text opacity on dark backgrounds from material design guidelines */
+			38: '38%' /* 38%; very-low text emphasis */,
+			45: '45%' /* 45%; low text emphasis */,
+			60: '60%' /* 60%; medium text emphasis */,
+			87: '87%' /* 87%; high text emphasis  */
 		},
 
 		extend: {
@@ -46,23 +47,8 @@ module.exports = {
 				secondaryColor: 'rgba(var(--secondary-color))',
 				tertiaryColor: 'rgba(var(--tertiary-color))',
 				logoFirstLClr: 'rgba(var(--primary-color))',
-				logoNotFirstLClr: 'rgba(var(--logoNotFirstL))',
 				colorSchemeToggle: 'rgba(var(--svg-background-color))',
-				grey: {
-					1: 'rgba(var(--grey-000), <alpha-value>)',
-					25: 'rgba(var(--grey-025), <alpha-value>)',
-					50: 'rgba(var(--grey-050), <alpha-value>)',
-					100: 'rgba(var(--grey-100), <alpha-value>)',
-					200: 'rgba(var(--grey-200), <alpha-value>)',
-					300: 'rgba(var(--grey-300), <alpha-value>)',
-					400: 'rgba(var(--grey-400), <alpha-value>)',
-					500: 'rgba(var(--grey-500), <alpha-value>)',
-					600: 'rgba(var(--grey-600), <alpha-value>)',
-					700: 'rgba(var(--grey-700), <alpha-value>)',
-					800: 'rgba(var(--grey-800), <alpha-value>)',
-					900: 'rgba(var(--grey-900), <alpha-value>)',
-					1000: 'rgba(var(--grey-1000), <alpha-value>)'
-				}
+				bodyCopy: 'rgba(var(--text-color))'
 			},
 			borderRadius: {
 				'2sm': '4px'
@@ -82,7 +68,7 @@ module.exports = {
 				'16-32-24x': 'var(--spacer-fluid-16-32-2\\.4x)',
 				'16-40': 'var(--spacer-fluid-16-40)',
 				'88-132': 'var(--spacer-fluid-88-132)',
-				dynamic: 'var(--padding-top-html)'
+				'4/16-32/48': 'var(--padding-top-html)'
 			},
 			lineHeight: {
 				logoFirstL: 'clamp(48px, calc(31.36px + 5.22vw), 96px)',

@@ -1,0 +1,53 @@
+/* normalize */
+@layer base {
+	h1,
+	h2,
+	h3 {
+		color: rgba(var(--text-color));
+		opacity: theme(opacity.87);
+	}
+
+	h1 {
+		font-size: theme(fontSize.fluid-1);
+		font-weight: bold;
+	}
+
+	h2 {
+		font-size: theme(fontSize.fluid-2);
+		font-weight: bold;
+	}
+
+	h3 {
+		font-size: theme(fontSize.fluid-3);
+		font-weight: bold;
+	}
+
+	h4 {
+		font-size: theme(fontSize.fluid-4);
+	}
+
+	h5 {
+		font-size: theme(fontSize.fluid-5);
+	}
+
+	h6 {
+		font-size: theme(fontSize.fluid-6);
+	}
+
+	a {
+		@apply rounded-lg
+		no-underline
+		outline-[0.1rem]
+		outline-[transparent];
+	}
+
+	a:focus-visible,
+	button:focus-visible {
+		@apply outline-dashed;
+	}
+
+	a {
+		@apply outline-[0.1rem]  
+		outline-[canvasText];
+	}
+}

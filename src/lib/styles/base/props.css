@@ -40,9 +40,6 @@
 		/* do I need these still? */
 		/* --svg-transition-duration: 1.4s; */
 
-		--padding-top-html: var(--spacer-fluid-4-32);
-		--logoNotFirstL: var(--grey-900);
-
 		--scale-hover: scale(1.03);
 		--scale-active: scale(0.99);
 	}
