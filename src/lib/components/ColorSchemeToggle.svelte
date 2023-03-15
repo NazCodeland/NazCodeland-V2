@@ -15,7 +15,7 @@
 		on:click={toggleColorScheme}
 		type="button"
 		aria-label="site-wide theme switcher"
-		class="flex rounded-full bg-transparent outline-2 outline-[canvasText] hover:outline focus:outline focus-visible:outline-dashed">
+		class="flex rounded-full bg-transparent focus-visible:outline-dashed">
 		<div
 			class="relative flex min-h-30-40 min-w-30-40 items-center justify-center overflow-hidden rounded-full bg-colorSchemeToggle transition-[background-color] delay-[0s] duration-[2s]">
 			<div

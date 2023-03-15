@@ -36,8 +36,17 @@
 
 	a {
 		text-decoration-line: none;
+	}
+
+	a,
+	button {
 		outline-width: 0.1rem;
 		outline-color: canvasText;
+	}
+
+	button:hover {
+		outline: solid;
+		outline-width: 2px;
 	}
 
 	a:focus-visible,

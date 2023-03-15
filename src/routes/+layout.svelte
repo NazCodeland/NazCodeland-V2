@@ -30,14 +30,13 @@
 			<div class="flex">
 				<!-- TODO: the styles for this menu need to be adjusted -->
 				<!-- this needs to be done so that in mobile viewpoints, when the menu is minimized the navigation still shows up in landmarks -->
-				<Menu />
 
 				<!-- hamburger icon -->
 				<!-- prettier-ignore -->
 				<button
 					on:click={toggleMenu}	
 					type="button" tabindex="0" 
-					class="md:hidden" aria-label="menu">
+					class="md:hidden rounded-sm p-0.5" aria-label="menu">
 					<svg class="fill-tertiaryColor group-data-[themepalette=main]:fill-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
 							fill-rule="evenodd"
@@ -47,6 +46,8 @@
 					</svg>
 					
 				</button>
+
+				<Menu />
 			</div>
 		</header>
 
