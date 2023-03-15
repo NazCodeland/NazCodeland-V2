@@ -1,3 +1,5 @@
+/* TODO: people who prefer less contrast, do they mind elevation/box shadow?  */
+
 @layer base {
 	/* themeing interface  */
 	:root {
@@ -11,7 +13,33 @@
 
 		--text-primary: var(--secondary);
 		--text-secondary: var(--tertiary);
+
+		--scrollbar-color: var(--secondary);
 	}
 }
 
-/* TODO: people who prefer less contrast, do they mind elevation/box shadow?  */
+/* scrollbar */
+::-webkit-scrollbar {
+	inline-size: 18px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: rgba(90, 102, 110);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgba(var(--scrollbar-color, 90, 102, 110));
+	border-radius: 8px;
+	padding: 2px;
+	margin: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(var(--tertiary));
+	border: 2px;
+	border-style: solid;
+	border-color: canvas;
+}
