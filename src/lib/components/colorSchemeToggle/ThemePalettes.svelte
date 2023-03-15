@@ -15,6 +15,8 @@
 	bind:group={$themePaletteStore} is so that the correct 
 	input(the last selected one) will be selected after page refresh 
 -->
+
+<!-- TODO: form elements must have labels, check devTools for the a11y suggestion -->
 <form
 	action=""
 	class="palettes absolute top-2 left-2 -z-10 {$colorSchemeStore ? 'showPalettes' : ''}">
@@ -28,8 +30,8 @@
 				type="radio"
 				value={palette}
 				name={palette}
-				class="{palette} absolute h-5 w-5 appearance-none rounded-full outline outline-2 outline-slate-500
-				transition-[inset] delay-1000 duration-1000 hover:outline-[canvasText] focus:outline-[canvasText]" />
+				class="{palette} absolute h-5 w-5 appearance-none rounded-full outline outline-2 outline-slate-500 transition-[inset]
+				delay-1000 duration-1000 hover:outline-[canvasText] focus:outline-[canvasText] focus-visible:outline-dashed" />
 		</label>
 	{/each}
 </form>

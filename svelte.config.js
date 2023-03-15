@@ -8,7 +8,9 @@ const config = {
 	preprocess: vitePreprocess(),
 	vitePlugin: {
 		experimental: {
-			inspector: true
+			inspector: {
+				toggleKeyCombo: 'control-alt'
+			}
 		}
 	},
 

@@ -35,19 +35,13 @@
 	}
 
 	a {
-		@apply rounded-lg
-		no-underline
-		outline-[0.1rem]
-		outline-[transparent];
+		text-decoration-line: none;
+		outline-width: 0.1rem;
+		outline-color: canvasText;
 	}
 
 	a:focus-visible,
 	button:focus-visible {
-		@apply outline-dashed;
-	}
-
-	a {
-		@apply outline-[0.1rem]  
-		outline-[canvasText];
+		outline-style: dashed;
 	}
 }
