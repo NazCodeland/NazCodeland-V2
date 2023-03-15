@@ -17,15 +17,16 @@
 		box-shadow: var(--box-shadow-rest);
 		transition: ease-in-out transform 0.15s;
 
-		outline-width: 1px;
 		outline-style: solid;
 		outline-color: rgba(var(--outline-color));
 	}
 
+	/* TODO: does :focus do anything in this situation? */
 	.btn:is(:hover, :focus) {
 		--btn-bg-opacity: theme(opacity.20);
 		box-shadow: var(--box-shadow-hover);
 		transform: var(--scale-hover);
+		outline-color: canvasText;
 	}
 
 	.btn:active {

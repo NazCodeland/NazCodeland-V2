@@ -35,18 +35,21 @@
 	}
 
 	a {
-		text-decoration-line: none;
+		text-decoration: none;
 	}
 
 	a,
 	button {
 		outline-width: 0.1rem;
-		outline-color: canvasText;
 	}
 
 	button:hover {
-		outline: solid;
-		outline-width: 2px;
+		outline-color: canvasText;
+		outline-style: solid;
+	}
+
+	button:focus-visible {
+		outline-color: canvasText;
 	}
 
 	a:focus-visible,
