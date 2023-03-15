@@ -14,14 +14,17 @@
 
 	h1 {
 		@apply text-fluid-1;
+		font-weight: bold;
 	}
 
 	h2 {
 		@apply text-fluid-2;
+		font-weight: bold;
 	}
 
 	h3 {
 		@apply text-fluid-3;
+		font-weight: bold;
 	}
 
 	h4 {
