@@ -14,7 +14,7 @@
 		</h3>
 	</header>
 
-	<p class="skill-card__copy">
+	<p class="contrast-more:text-[mark]">
 		<slot />
 	</p>
 </a>

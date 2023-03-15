@@ -1,6 +1,5 @@
 /* all viarables for light/dark mode and theming
 are set up assuming the visiting user has light OS on */
-
 @layer base {
 	@media (prefers-color-scheme: light) {
 		:root {
