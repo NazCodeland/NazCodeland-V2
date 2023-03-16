@@ -26,14 +26,14 @@
 				href="/portfolio"
 				class="relative z-10 inline-block outline-0 delay-[0] before:absolute before:bottom-0 before:h-0.5 before:w-full 
 				before:bg-primaryColor before:transition-[h] before:duration-200 before:content-[''] hover:text-[markText] 
-				hover:before:-z-10 hover:before:h-full hover:before:bg-primaryColor focus-visible:text-[markText] focus-visible:before:-z-10 focus-visible:before:h-full focus-visible:before:bg-primaryColor contrast-more:before:bg-[activeText] contrast-more:hover:text-[canvasText] contrast-more:before:hover:bg-[activeText] contrast-more:focus-visible:text-[canvasText] contrast-more:before:focus-visible:bg-[activeText]"
+				hover:before:-z-10 hover:before:h-full hover:before:bg-primaryColor focus-visible:text-[markText] focus-visible:before:-z-10 focus-visible:before:h-full focus-visible:before:bg-primaryColor "
 				>Portfolio</a
 			>, to potential employers. It's also a place for me to
 			<a
 				href="/blog"
 				class="relative z-10 inline-block outline-0 delay-[0] before:absolute before:bottom-0 before:h-0.5 before:w-full 
 			before:bg-primaryColor before:transition-[h] before:duration-200 before:content-[''] hover:text-[markText] 
-			hover:before:-z-10 hover:before:h-full hover:before:bg-primaryColor focus-visible:text-[markText] focus-visible:before:-z-10 focus-visible:before:h-full focus-visible:before:bg-primaryColor contrast-more:before:bg-[activeText] contrast-more:hover:text-[canvasText] contrast-more:before:hover:bg-[activeText] contrast-more:focus-visible:text-[canvasText] contrast-more:before:focus-visible:bg-[activeText]"
+			hover:before:-z-10 hover:before:h-full hover:before:bg-primaryColor focus-visible:text-[markText] focus-visible:before:-z-10 focus-visible:before:h-full focus-visible:before:bg-primaryColor "
 				>Blog</a> about what I am learning and to reference it in the future.
 		</p>
 
