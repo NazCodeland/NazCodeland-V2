@@ -1,6 +1,6 @@
 -> convert svg components into svg files
 -> give the palettes a title
-
+-> when you scroll down, body content shows on the side of the header when it scrolls behind it
 
 - Perhaps colorSchemeAndThemePaletteStore can be broken up into two stores
 since the logic of these two components is not intertwined anymore

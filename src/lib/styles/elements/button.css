@@ -22,13 +22,13 @@
 	.btn:is(:hover, :focus) {
 		--btn-bg-opacity: theme(opacity.20);
 		box-shadow: var(--box-shadow-hover);
-		transform: theme(scale.hover);
+		transform: scale(theme(scale.hover));
 	}
 
 	.btn:active {
 		--btn-bg-opacity: theme(opacity.12);
 		box-shadow: var(--box-shadow-active);
-		transform: theme(scale.hover);
+		transform: scale(theme(scale.active));
 	}
 
 	.btn:focus-visible {

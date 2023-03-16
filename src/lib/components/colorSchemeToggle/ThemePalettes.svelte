@@ -38,7 +38,12 @@
 
 <style lang="postcss">
 	.main {
-		@apply left-[clamp(0rem,_calc(0.04rem_+_0.09vw),_0.1rem)] -top-[35px] bg-[canvas];
+		inset-inline-start: clamp(0rem, calc(0.04rem + 0.09vw), 0.1rem);
+		inset-block-start: 35px;
+		background-color: rgb(251, 252, 253);
+	}
+	:global([color-scheme='dark']) .main {
+		background-color: rgb(18, 18, 18);
 	}
 
 	.desert {

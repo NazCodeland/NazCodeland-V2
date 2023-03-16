@@ -18,27 +18,19 @@
 /* #region light and dark mode */
 /* light & dark contrast palette tweaks*/
 @media (forced-colors: active) {
-	.theme-switcher {
-		display: none !important;
+	.btn:hover {
+		outline-color: canvasText !important;
 	}
-
-	/* NOTE: if you add another 'light' contrast theme, then this will select both of those themes. */
-	[theme='null'] .btn-filled-primary {
-		color: canvas !important;
-	}
-
-	/* if user is using their own OS contrast theme, hide the sites contrast themes */
 	.palettes {
-		display: none !important;
+		forced-color-adjust: none;
 	}
-
+}
+/* 
 	.site-content-wrapper {
 		background-color: activeText !important;
 	}
 
-	.swatches {
-		forced-color-adjust: none;
-	}
+
 
 	.menu__links li a::before {
 		background-color: linkText !important;
@@ -59,22 +51,15 @@
 		forced-color-adjust: none;
 		background-color: activeText !important;
 		color: markText !important;
+		box-shadow: none !important;
 	}
 
 	.what-i-do {
 		text-decoration-color: activeText !important;
 	}
 
-	/* #endregion light and dark mode */
-
-	/* ---------------------------------------------------------- */
-
-	/* #region lightMode*/
-
-	/* light contrast palette */
 
 	.site-content,
-	.logo :not(.first-letter),
 	.menu__links a,
 	.profile-card__title,
 	.profile-card__subtitle,
@@ -87,17 +72,6 @@
 	.hamburger {
 		stroke: markText;
 	}
-
-	.btn-outlined-primary {
-		color: markText !important;
-		outline-color: linkText !important;
-	}
-	/* #endregion lightMode */
-
-	/* ---------------------------------------------------------- */
-
-	/* #region darkMode*/
-	/* dark contrast palette */
 
 	[color-scheme='dark'] .site-content {
 		margin-block-start: theme(spacing.4-32) !important;
@@ -116,10 +90,4 @@
 	[color-scheme='dark'] .skill-card__copy {
 		color: canvasText;
 	}
-
-	[color-scheme='dark'] .btn-outlined-primary:is(:hover, :focus) {
-		outline-color: canvasText;
-	}
-
-	/* #endregion darkMode */
-}
+}  */
