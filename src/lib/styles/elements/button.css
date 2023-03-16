@@ -16,8 +16,6 @@
 
 		box-shadow: var(--box-shadow-rest);
 		transition: ease-in-out transform 0.15s;
-		outline-style: solid;
-		outline-color: rgba(var(--outline-color));
 	}
 
 	/* TODO: does :focus do anything in this situation? */
@@ -25,18 +23,7 @@
 		--btn-bg-opacity: theme(opacity.20);
 		box-shadow: var(--box-shadow-hover);
 		transform: var(--scale-hover);
-		/* outline-color: rgba(var(--primary)); */
 	}
-
-	/* .btn-filled-primary,
-	.btn-outlined-primary {
-		outline-style: solid;
-		outline-color: rgba(var(--outline-color));
-	} */
-
-	/* .btn:not(.btn-filled-primary, .btn-outlined-primary):hover {
-		outline-color: initial;
-	} */
 
 	.btn:active {
 		--btn-bg-opacity: theme(opacity.12);
@@ -46,6 +33,22 @@
 
 	.btn:focus-visible {
 		outline-color: canvasText;
+	}
+
+	.btn-filled-primary,
+	.btn-outlined-primary {
+		outline-style: solid;
+		outline-color: rgba(var(--outline-color));
+	}
+
+	[color-scheme='dark'] .btn-filled-primary:hover,
+	[color-scheme='dark'] .btn-outlined-primary:hover {
+		outline-color: canvasText;
+	}
+
+	[data-themePalette='main'] .btn-filled-primary:hover,
+	[data-themePalette='main'] .btn-outlined-primary:hover {
+		outline-color: rgba(var(--primary));
 	}
 
 	.btn-filled-primary {
