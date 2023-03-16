@@ -29,7 +29,7 @@
 			color: canvas !important;
 		}
 
-		[color-scheme='dark'][data-themePalette='main'] .mainContrast {
+		[data-themePalette='main'] .mainContrast {
 			background-color: activeText;
 		}
 		[data-themePalette='desert'],
