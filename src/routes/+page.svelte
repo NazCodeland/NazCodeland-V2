@@ -13,7 +13,7 @@
 		What I Do
 	</h2>
 
-	<div class="flex flex-wrap gap-4">
+	<div class="flex flex-wrap gap-4 ">
 		<SkillCard title="Product Research">
 			<!-- prettier-ignore -->
 			<svg class="min-w-30-40 min-h-30-40" slot="icon" width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">

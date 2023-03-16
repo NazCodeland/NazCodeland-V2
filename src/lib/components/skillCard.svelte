@@ -21,15 +21,20 @@
 	">
 	<header data-theme="warning" class="mb-8-16 flex items-end gap-4">
 		<slot name="icon" />
-		<h3 class="mb-0 contrast-more:text-[canvasText]">
-			<span>{title}</span>
+		<h3 class="mb-0 contrast-more:!text-[canvasText]">
+			{title}
 		</h3>
 	</header>
 
-	<p class="contrast-more:text-[canvasText]">
+	<p class="contrast-more:!text-[canvasText]">
 		<slot />
 	</p>
 </a>
 
-<style>
+<style lang="postcss">
+	/* @media (forced-colors: active) {
+		.test {
+			color: canvasText;
+		}
+	} */
 </style>

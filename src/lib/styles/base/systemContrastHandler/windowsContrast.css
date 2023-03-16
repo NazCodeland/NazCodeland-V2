@@ -12,9 +12,6 @@
 	.forcedClrAdjust {
 		forced-color-adjust: none;
 	}
-	/* .contrastadjust :is(:hover, :focus-visible) {
-		outline-color: canvasText !important;
-	} */
 }
 
 @layer components {
@@ -38,16 +35,17 @@
 		[color-scheme='dark'][data-themePalette='main'] .mainContrast {
 			background-color: activeText;
 		}
+		[data-themePalette='desert'],
+		[data-themePalette='dusk'],
+		[data-themePalette='nightSky'] {
+			forced-color-adjust: none;
+		}
 
 		/* [color-scheme='light'][data-themePalette='main'] .mainContrast {
 			background-color: mark;
 		} 
 	
-		[data-themePalette='desert'],
-		[data-themePalette='dusk'],
-		[data-themePalette='nightSky'] {
-			forced-color-adjust: none !important;
-		} /* 
+	 /* 
 		[data-themePalette='desert'] .btn.btn,
 		[data-themePalette='dusk'] .btn.btn,
 		[data-themePalette='nightSky'] .btn.btn {
