@@ -37,35 +37,5 @@
 		[data-themePalette='nightSky'] {
 			forced-color-adjust: none;
 		}
-
-		/* [color-scheme='light'][data-themePalette='main'] .mainContrast {
-			background-color: mark;
-		} 
-	
-	 /* 
-		[data-themePalette='desert'] .btn.btn,
-		[data-themePalette='dusk'] .btn.btn,
-		[data-themePalette='nightSky'] .btn.btn {
-			forced-color-adjust: none !important;
-		} */
-		/* 
-		[color-scheme='light'][data-themePalette='dusk'] {
-			--secondary: 188, 194, 194;
-			--tertiary: var(--primary);
-
-			--box-shadow-logo: 0.8px 0.8px 0.8px 0.8px rgb(113, 131, 145, 0.4),
-				-0.8px -0.8px 0.8px 0.8px rgb(175, 201, 222, 0.4);
-		}
-
-		[color-scheme='dark'][data-themePalette='dusk'] {
-			--secondary: 44, 50, 54;
-			--tertiary: 29, 158, 0;
-		} */
-
-		/*
-
-		[color-scheme='dark'][data-themePalette='dusk'] {
-			--secondary: activeText;
-		} */
 	}
 }
