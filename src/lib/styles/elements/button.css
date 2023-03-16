@@ -16,7 +16,6 @@
 
 		box-shadow: var(--box-shadow-rest);
 		transition: ease-in-out transform 0.15s;
-
 		outline-style: solid;
 		outline-color: rgba(var(--outline-color));
 	}
@@ -26,13 +25,27 @@
 		--btn-bg-opacity: theme(opacity.20);
 		box-shadow: var(--box-shadow-hover);
 		transform: var(--scale-hover);
-		outline-color: canvasText;
+		/* outline-color: rgba(var(--primary)); */
 	}
+
+	/* .btn-filled-primary,
+	.btn-outlined-primary {
+		outline-style: solid;
+		outline-color: rgba(var(--outline-color));
+	} */
+
+	/* .btn:not(.btn-filled-primary, .btn-outlined-primary):hover {
+		outline-color: initial;
+	} */
 
 	.btn:active {
 		--btn-bg-opacity: theme(opacity.12);
 		box-shadow: var(--box-shadow-active);
 		transform: var(--scale-active);
+	}
+
+	.btn:focus-visible {
+		outline-color: canvasText;
 	}
 
 	.btn-filled-primary {
