@@ -3,7 +3,7 @@
 
 <article class="flex w-full flex-wrap items-center justify-center gap-16-40">
 	<img
-		class="h-[clamp(9.38rem,_calc(6.34rem_+_15.18vw),_20rem)] w-[clamp(9.375rem,_calc(6.34rem_+_15.18vw),_20rem)] rounded-full  border-[clamp(0.5rem,_calc(0.43rem_+_0.36vw),_0.75rem)] border-solid
+		class="forcedClrAdjust h-[clamp(9.38rem,_calc(6.34rem_+_15.18vw),_20rem)] w-[clamp(9.375rem,_calc(6.34rem_+_15.18vw),_20rem)] rounded-full  border-[clamp(0.5rem,_calc(0.43rem_+_0.36vw),_0.75rem)] border-solid
 		border-transparent shadow-rest dark:border-slate-50/12"
 		src="/images/someImage.jpeg"
 		width="320"

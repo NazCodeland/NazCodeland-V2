@@ -11,7 +11,7 @@
 	active:shadow-active 
 	group-data-[themePalette=main]:outline-none
 	group-data-[themePalette=main]:hover:outline-none
-	contrast-more:hover:!outline-[canvasText]
+	contrast-more:hover:outline-[canvasText]
 	dark:bg-slate-50/12 
 	dark:outline 
 	dark:outline-primaryColor

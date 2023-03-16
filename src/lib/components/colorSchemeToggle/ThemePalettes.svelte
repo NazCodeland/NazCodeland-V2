@@ -19,7 +19,7 @@
 <!-- TODO: form elements must have labels, check devTools for the a11y suggestion -->
 <form
 	action=""
-	class="palettes absolute top-2 left-2 -z-10 {$colorSchemeStore ? 'showPalettes' : ''}">
+	class="forcedClrAdjust absolute top-2 left-2 -z-10 {$colorSchemeStore ? 'showPalettes' : ''}">
 	{#each Object.keys(ThemePaletteEnum) as palette}
 		<label for={palette}>
 			<input

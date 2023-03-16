@@ -2,7 +2,7 @@
 </script>
 
 <svg
-	class="svg-size"
+	class=""
 	width="36"
 	height="36"
 	viewBox="0 0 50 50"

@@ -1,9 +1,3 @@
-/* ------------------------------------------------------------- */
-/* COMMON forced-colors: active and color-scheme = light
-/* ------------------------------------------------------------- */
-
-/* TODO: put all the selectors in one @media (forced-colors: active) */
-
 /* NOTE: use cases not covered.
           These two use cases are extremely rare so, I won't be implementing a solution.
           
@@ -12,82 +6,21 @@
       it will update the theme 
 
   2) if the user has the site open and then changes their OS contras themes, changes
-      the contrast theme on their OS, the site will have minor contrast issues
-*/
+      the contrast theme on their OS, the site will have minor contrast issues*/
 
-/* #region light and dark mode */
-/* light & dark contrast palette tweaks*/
-@media (forced-colors: active) {
-	.btn:hover {
-		outline-color: canvasText !important;
-	}
-	.palettes {
+@layer utilities {
+	.forcedClrAdjust {
 		forced-color-adjust: none;
 	}
 }
-/* 
-	.site-content-wrapper {
-		background-color: activeText !important;
+
+@layer components {
+	@media (forced-colors: active) {
+		.btn {
+			forced-color-adjust: none;
+		}
+		.btn-outlined-primary {
+			forced-color-adjust: auto;
+		}
 	}
-
-
-
-	.menu__links li a::before {
-		background-color: linkText !important;
-	}
-
-	.profile-card__image {
-		border-color: canvas !important;
-		outline-width: 1px;
-		outline-style: solid;
-		outline-color: activeText;
-	}
-
-	.link::before {
-		background-color: activeText !important;
-	}
-
-	.btn-filled-primary {
-		forced-color-adjust: none;
-		background-color: activeText !important;
-		color: markText !important;
-		box-shadow: none !important;
-	}
-
-	.what-i-do {
-		text-decoration-color: activeText !important;
-	}
-
-
-	.site-content,
-	.menu__links a,
-	.profile-card__title,
-	.profile-card__subtitle,
-	.what-i-do,
-	.skill-card__title,
-	.skill-card__copy {
-		color: markText;
-	}
-
-	.hamburger {
-		stroke: markText;
-	}
-
-	[color-scheme='dark'] .site-content {
-		margin-block-start: theme(spacing.4-32) !important;
-	}
-
-	[color-scheme='dark'] .logo :not(.first-letter) {
-		outline-width: 0.01rem;
-	}
-
-	[color-scheme='dark'] .menu {
-		border-color: activeText !important;
-	}
-
-	[color-scheme='dark'] .link,
-	[color-scheme='dark'] .skill-card__title,
-	[color-scheme='dark'] .skill-card__copy {
-		color: canvasText;
-	}
-}  */
+}

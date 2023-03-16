@@ -1,4 +1,4 @@
-@layer base {
+@layer components {
 	/* called within lightScheme.css */
 	@keyframes sunRise {
 		40% {
