@@ -28,9 +28,6 @@
 			background: activeText !important;
 			color: canvas !important;
 		}
-		.btn-outlined-primary {
-			forced-color-adjust: auto;
-		}
 
 		[color-scheme='dark'][data-themePalette='main'] .mainContrast {
 			background-color: activeText;

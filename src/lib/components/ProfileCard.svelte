@@ -11,7 +11,7 @@
 		alt="of Nazar" />
 
 	<div class="flex flex-col gap-y-4">
-		<h2 class="leading-7 selection:bg-green-700">
+		<h2 class="forcedClrAdjust leading-7 selection:bg-green-700">
 			Nazar K. I.
 			<br />
 			<!-- using 'display: block' on the below small elements class, 
