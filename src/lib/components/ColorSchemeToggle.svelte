@@ -1,9 +1,19 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { setColorScheme as showThemePalette } from './colorSchemeToggle/store/ColorSchemeStore';
 	import { toggleColorScheme } from '../stores/colorSchemeAndThemePaletteStore';
 	import Day from './colorSchemeToggle/Day.svelte';
 	import Night from './colorSchemeToggle/Night.svelte';
 	import ThemePalettes from './colorSchemeToggle/ThemePalettes.svelte';
+
+	function forcedColorsActive() {
+		if (browser) {
+			if (matchMedia('(forced-colors: active').matches) {
+				return true;
+			}
+		}
+		return false;
+	}
 </script>
 
 <div class="relative z-10">
@@ -12,10 +22,12 @@
 		on:mouseleave={() => showThemePalette(false)}
 		on:focus={() => showThemePalette(true)}
 		on:focusout={() => showThemePalette(false)}
-		on:click={toggleColorScheme}
+		on:click={() => (forcedColorsActive() ? '' : toggleColorScheme())}
 		type="button"
 		aria-label="site-wide theme switcher"
-		class="forcedClrAdjust forcedAdjust flex rounded-full bg-transparent">
+		class="{forcedColorsActive()
+			? 'cursor-default'
+			: ''} forcedClrAdjust forcedAdjust flex rounded-full bg-transparent">
 		<div
 			class="relative flex min-h-30-40 min-w-30-40 items-center justify-center overflow-hidden rounded-full bg-colorSchemeToggle transition-[background-color] delay-[0s] duration-[2s]">
 			<div

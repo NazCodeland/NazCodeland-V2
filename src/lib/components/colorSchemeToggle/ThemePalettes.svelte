@@ -30,7 +30,7 @@
 				type="radio"
 				value={palette}
 				name={palette}
-				class="{palette} absolute h-5 w-5 appearance-none rounded-full outline outline-2 outline-slate-500 transition-[inset]
+				class="{palette} absolute h-5 w-5 cursor-pointer appearance-none rounded-full outline outline-2 outline-slate-500 transition-[inset]
 				delay-1000 duration-1000 hover:outline-[canvasText] focus:outline-[canvasText] focus-visible:outline-dashed" />
 		</label>
 	{/each}

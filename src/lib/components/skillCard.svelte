@@ -34,9 +34,4 @@
 </a>
 
 <style lang="postcss">
-	/* @media (forced-colors: active) {
-		.test {
-			color: canvasText;
-		}
-	} */
 </style>
