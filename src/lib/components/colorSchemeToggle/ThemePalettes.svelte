@@ -39,7 +39,7 @@
 <style lang="postcss">
 	.main {
 		inset-inline-start: clamp(0rem, calc(0.04rem + 0.09vw), 0.1rem);
-		inset-block-start: 35px;
+		inset-block-start: -35px;
 		background-color: rgb(251, 252, 253);
 	}
 	:global([color-scheme='dark']) .main {
