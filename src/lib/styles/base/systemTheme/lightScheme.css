@@ -1,5 +1,5 @@
-/* all viarables for light/dark mode and theming
-are set up assuming the visiting user has light OS on */
+/* all viarables for light/dark mode and theming are*/
+/*  set up assuming the visiting user has light OS on  */
 @layer base {
 	@media (prefers-color-scheme: light) {
 		:root {
@@ -8,10 +8,10 @@ are set up assuming the visiting user has light OS on */
 		}
 	}
 
-	:root {
+	[color-scheme='light'] {
 		color-scheme: light;
-		--text-color: var(--grey-900);
-		--padding-top-html: var(--spacer-fluid-4-32);
+		--text-color: theme(colors.slate.900);
+		--padding-top-html: theme(spacing.4-32);
 
 		/* light / dark mode icon variables */
 		--svg-background-color: 135, 206, 235;

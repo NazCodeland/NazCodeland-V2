@@ -16,10 +16,10 @@
 			class="sticky top-0 z-20 mb-88-132 flex items-center justify-between gap-4 bg-secondaryColor pl-3 pt-6 pb-3 md:border-b md:border-solid md:border-primaryColor">
 			<a
 				href="#maincontent"
-				class="absolute -left-[1000px] -top-[13px] rounded bg-primaryColor px-4 text-slate-900 focus-visible:left-16">
+				class="absolute -left-[1000px] -top-[13px] rounded bg-primaryColor px-4 text-slate-900 outline-bodyCopy focus-visible:left-16">
 				Skip to main content</a>
 
-			<div class="flex items-center gap-16-32-24x">
+			<div class="flex items-center gap-16-32-2.4x">
 				<!-- TODO: navigation touches logo -->
 				<!-- TODO: add an icon for low/high contrast https://www.shutterstock.com/search/automatic-contrast-icon -->
 				<ColorSchemeToggle />

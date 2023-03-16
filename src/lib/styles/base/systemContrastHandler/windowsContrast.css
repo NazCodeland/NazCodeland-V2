@@ -100,7 +100,7 @@
 	/* dark contrast palette */
 
 	[color-scheme='dark'] .site-content {
-		margin-block-start: var(--spacer-fluid-4-32) !important;
+		margin-block-start: theme(spacing.4-32) !important;
 	}
 
 	[color-scheme='dark'] .logo :not(.first-letter) {

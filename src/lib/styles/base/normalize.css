@@ -3,7 +3,7 @@
 	h1,
 	h2,
 	h3 {
-		color: rgba(var(--text-color));
+		color: var(--text-color);
 		opacity: theme(opacity.87);
 	}
 

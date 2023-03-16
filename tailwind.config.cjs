@@ -48,26 +48,33 @@ module.exports = {
 				tertiaryColor: 'rgba(var(--tertiary-color))',
 				logoFirstLClr: 'rgba(var(--primary-color))',
 				colorSchemeToggle: 'rgba(var(--svg-background-color))',
-				bodyCopy: 'rgba(var(--text-color))'
+				bodyCopy: 'var(--text-color)'
 			},
 			borderRadius: {
 				'2sm': '4px'
 			},
 			scale: {
-				hover: 'var(--scale-hover)',
-				active: 'var(--scale-active)'
+				hover: 1.03,
+				active: 0.99
 			},
 			transitionDuration: {
 				1400: '1.4s'
 			},
 			spacing: {
-				'4-32': 'var(--spacer-fluid-4-32)',
-				'4-48': 'var(--spacer-fluid-4-48)',
-				'8-16': 'var(--spacer-fluid-8-16)',
-				'16-32': 'var(--spacer-fluid-16-32)',
-				'16-32-24x': 'var(--spacer-fluid-16-32-2\\.4x)',
-				'16-40': 'var(--spacer-fluid-16-40)',
-				'88-132': 'var(--spacer-fluid-88-132)',
+				'0-32': 'clamp(0rem, calc(-0.86rem + 4.29vw), 2rem)',
+				'4-32': 'clamp(0.25rem, calc(-0.25rem + 2.5vw), 2rem)',
+				'4-48': 'clamp(0.5rem, calc(-0.07rem + 2.86vw), 3rem)',
+				'8-16': 'clamp(0.5rem, calc(0.36rem + 0.71vw), 1rem)',
+				'16-32': 'clamp(1rem, calc(0.71rem + 1.43vw), 2rem)',
+				/* for this one, the space remaining will grow and shrink 2.4x the normal rate because it's preferred value is based on a viewport width of 1100-1440=340px  */
+				/* since its in px units it wont grow when the root font size is increased by the user, this behavior needed for where it's being used */
+				'16-32-2.4x': 'clamp(12px, calc(-103.52px + 9.41vw), 32px)',
+				'16-40': 'clamp(1rem, calc(0.57rem + 2.14vw), 2.5rem)',
+				'16-48': 'clamp(1rem, calc(0.43rem + 2.86vw), 3rem)',
+				/* svg size */
+				'36-40': 'clamp(2.25rem, calc(2.18rem + 0.36vw), 2.5rem)',
+				/* used for spacing between header, man, footer and different sectons beteen man */
+				'88-132': 'clamp(5.5rem, calc(4.64rem + 4.29vw), 8.25rem)',
 				'4/16-32/48': 'var(--padding-top-html)'
 			},
 			lineHeight: {
@@ -77,10 +84,10 @@ module.exports = {
 			},
 			letterSpacing: {},
 			minWidth: {
-				'30-40': 'var(--spacer-fluid-36-40)'
+				'30-40': 'theme(spacing.36-40)'
 			},
 			minHeight: {
-				'30-40': 'var(--spacer-fluid-36-40)'
+				'30-40': 'theme(spacing.36-40)'
 			},
 			width: {
 				image: 'clamp(9.375rem, calc(6.34rem + 15.18vw), 20rem)'

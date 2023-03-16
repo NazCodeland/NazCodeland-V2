@@ -1,4 +1,5 @@
-@import './props.css';
+@import 'https://fonts.googleapis.com/css?family=Suez+One';
+
 @import './normalize.css';
 @import './systemTheme/index.css';
 @import './systemContrastHandler/index.css';

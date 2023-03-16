@@ -4,7 +4,7 @@
 
 <!-- prettier-ignore -->
 <nav
-	class="absolute md:relative md:inset-x-0 inset-x-menuInline md:top-0 top-menuBlock md:z-0 -z-20 md:mt-0 mt-2 md:border-none border-b border-solid border-primaryColor bg-secondaryColor md:p-0 px-4 pt-10 pb-1 text-primaryColor group-data-[themePalette=main]:text-[rgba(var(--text-color))]">
+	class="absolute md:relative md:inset-x-0 inset-x-menuInline md:top-0 top-menuBlock md:z-0 -z-20 md:mt-0 mt-2 md:border-none border-b border-solid border-primaryColor bg-secondaryColor md:p-0 px-4 pt-10 pb-1 text-primaryColor group-data-[themePalette=main]:text-bodyCopy">
 	<ul
 		class="flex flex-wrap justify-center gap-16-32 
 		{$menuStore ? 'inline-block' : 'hidden'} md:flex">

@@ -1,3 +1,5 @@
+/*  */
+/*  */
 @layer base {
 	@media (prefers-color-scheme: dark) {
 		:root {
@@ -8,8 +10,8 @@
 
 	[color-scheme='dark'] {
 		color-scheme: dark;
-		--text-color: var(--grey-000);
-		--padding-top-html: var(--spacer-fluid-16-48);
+		--text-color: theme(colors.slate.50);
+		--padding-top-html: theme(spacing.16-48);
 
 		/* light / dark icon variables */
 		--svg-angle-day: -90deg;

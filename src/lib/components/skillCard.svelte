@@ -10,8 +10,6 @@
 	hover:shadow-hover
 	active:scale-active 
 	active:shadow-active
-	group-data-[themePalette=main]:outline-none
-	group-data-[themePalette=main]:hover:outline-none
 	dark:bg-slate-50/12
 	dark:outline
 	dark:outline-primaryColor 
