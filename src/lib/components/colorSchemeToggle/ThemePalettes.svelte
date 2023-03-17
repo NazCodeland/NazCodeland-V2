@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { colorSchemeStore } from './store/ColorSchemeStore';
+	import { setColorScheme as showThemePalette } from '../colorSchemeToggle/store/ColorSchemeStore';
+
 	import {
 		ThemePaletteEnum,
 		themePaletteStore,
@@ -23,6 +25,8 @@
 	{#each Object.keys(ThemePaletteEnum) as palette}
 		<label for={palette}>
 			<input
+				on:mouseenter={() => showThemePalette(true)}
+				on:mouseleave={() => showThemePalette(false)}
 				on:click={handleEvent}
 				on:keypress={handleEvent}
 				bind:group={$themePaletteStore}

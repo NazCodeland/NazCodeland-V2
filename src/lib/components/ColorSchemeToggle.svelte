@@ -29,7 +29,8 @@
 			? 'cursor-default'
 			: ''} forcedClrAdjust flex rounded-full bg-transparent">
 		<div
-			class="relative flex min-h-30-40 min-w-30-40 items-center justify-center overflow-hidden rounded-full bg-colorSchemeToggle transition-[background-color] delay-[0s] duration-[2s]">
+			class="relative flex min-h-30-40 min-w-30-40 items-center justify-center overflow-hidden 
+			rounded-full bg-colorSchemeToggle transition-[background-color] delay-[0s] duration-[2s]">
 			<div
 				class="svg-day absolute origin-[50%_100px] rotate-[var(--svg-angle-day)] duration-1400"
 				title="light mode">
