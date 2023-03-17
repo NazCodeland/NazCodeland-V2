@@ -29,9 +29,19 @@
 			color: canvas !important;
 		}
 
-		[data-themePalette='main'] .mainContrast {
+		[data-themePalette='main'] .siteWrapper {
 			background-color: activeText;
 		}
+		[data-themePalette='main'] .skillCard {
+			outline-color: activeText !important;
+			outline-width: 2px !important;
+		}
+
+		.skillCard:hover,
+		.skillCard:focus-visible {
+			outline-color: canvasText !important;
+		}
+
 		[data-themePalette='desert'],
 		[data-themePalette='dusk'],
 		[data-themePalette='nightSky'] {

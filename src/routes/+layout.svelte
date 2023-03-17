@@ -8,7 +8,7 @@
 </script>
 
 <div
-	class="mainContrast bg-primaryColor p-4-32 pt-4/16-32/48 transition-[padding-top] delay-[0] duration-1000"
+	class="siteWrapper bg-primaryColor p-4-32 pt-4/16-32/48 transition-[padding-top] delay-[0] duration-1000"
 	use:setAttributeOnDocumentAction>
 	<div class="flex-col rounded-2xl bg-secondaryColor p-16-40 font-body text-fluid-4 text-bodyCopy">
 		<!--  -->

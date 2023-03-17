@@ -4,15 +4,12 @@
 
 <a
 	href="/"
-	class="forcedClrAdjust flex-auto basis-[30ch] rounded-lg p-4 shadow-rest transition-transform  
+	class="skillCard forcedClrAdjust flex-auto basis-[30ch] rounded-lg p-4 shadow-rest transition-transform  
 	delay-[0s] duration-[0.15s] ease-in-out hover:scale-[1.01] hover:cursor-pointer
 	hover:shadow-hover active:scale-active 
 	active:shadow-active
-	group-data-[themePalette=main]:outline-2
-	group-data-[themePalette=main]:hover:outline-2
-	contrast-more:!outline-[activeText]
-	contrast-more:hover:!outline-[canvasText]
-	contrast-more:focus-visible:!outline-[canvasText]
+	group-data-[themePalette=main]:outline-0
+	group-data-[themePalette=main]:focus-visible:outline-2
 	dark:bg-slate-50/12 
 	dark:outline 
 	dark:outline-primaryColor
