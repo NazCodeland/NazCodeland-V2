@@ -20,7 +20,7 @@
 	<button
 		on:mouseenter={() => showThemePalette(true)}
 		on:mouseleave={() => showThemePalette(false)}
-		on:focus={() => showThemePalette(true)}
+		on:focusin={() => showThemePalette(true)}
 		on:focusout={() => showThemePalette(false)}
 		on:click={() => (forcedColorsActive() ? '' : toggleColorScheme())}
 		type="button"

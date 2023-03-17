@@ -27,6 +27,8 @@
 			<input
 				on:mouseenter={() => showThemePalette(true)}
 				on:mouseleave={() => showThemePalette(false)}
+				on:focusin={() => showThemePalette(true)}
+				on:focusout={() => showThemePalette(false)}
 				on:click={handleEvent}
 				on:keypress={handleEvent}
 				bind:group={$themePaletteStore}
