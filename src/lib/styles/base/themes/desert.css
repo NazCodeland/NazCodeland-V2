@@ -2,10 +2,10 @@
 
 @layer base {
 	[data-themePalette='desert'] {
-		--primary: 4, 94, 129;
 	}
 
 	[color-scheme='light'][data-themePalette='desert'] {
+		--primary: 4, 94, 129;
 		--secondary: 255, 250, 235;
 		--tertiary: var(--primary);
 
@@ -13,6 +13,7 @@
 	}
 
 	[color-scheme='dark'][data-themePalette='desert'] {
+		--primary: 145, 184, 205;
 		--secondary: 95, 56, 31;
 		--tertiary: 255, 152, 0;
 	}

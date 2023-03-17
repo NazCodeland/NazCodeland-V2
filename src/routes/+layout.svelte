@@ -16,7 +16,7 @@
 			class="sticky top-0 z-20 mb-88-132 flex items-center justify-between gap-4 bg-secondaryColor pl-3 pt-6 pb-3 md:border-b md:border-solid md:border-primaryColor">
 			<a
 				href="#maincontent"
-				class="absolute -left-[1000px] -top-[13px] rounded bg-primaryColor px-4 text-slate-900 outline-bodyCopy focus-visible:left-16">
+				class="absolute -left-[1000px] -top-[13px] rounded bg-secondaryColor px-4 text-bodyCopy outline-bodyCopy focus-visible:left-[clamp(4.00rem,_calc(3.61rem_+_1.96vw),_5.38rem)]">
 				Skip to main content</a>
 
 			<div class="flex items-center gap-16-32-2.4x">

@@ -1,11 +1,8 @@
 @import './themesBase.css';
 
 @layer base {
-	[data-themePalette='nightSky'] {
-		--primary: 153, 128, 253;
-	}
-
 	[color-scheme='light'][data-themePalette='nightSky'] {
+		--primary: 118, 80, 155;
 		--secondary: 188, 227, 250;
 		--tertiary: var(--primary);
 
@@ -14,6 +11,7 @@
 	}
 
 	[color-scheme='dark'][data-themePalette='nightSky'] {
+		--primary: 196, 143, 243;
 		--secondary: 0, 60, 106;
 		--tertiary: 255, 242, 0;
 	}
