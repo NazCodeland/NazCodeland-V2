@@ -20,7 +20,7 @@
 	">
 	<header data-theme="warning" class="mb-8-16 flex items-end gap-4">
 		<slot name="icon" />
-		<h3 class="forcedClrAdjust mb-0">
+		<h3 class="mb-0 contrast-more:!text-[canvasText]">
 			{title}
 		</h3>
 	</header>

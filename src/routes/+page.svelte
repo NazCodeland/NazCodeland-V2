@@ -9,7 +9,8 @@
 
 <section class="mb-32">
 	<h2
-		class="forcedClrAdjust mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] underline decoration-tertiaryColor decoration-double contrast-more:decoration-[activeText]">
+		class="forcedClrAdjust mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] underline decoration-tertiaryColor
+		decoration-double contrast-more:text-[canvasText] contrast-more:decoration-[activeText] ">
 		What I Do
 	</h2>
 

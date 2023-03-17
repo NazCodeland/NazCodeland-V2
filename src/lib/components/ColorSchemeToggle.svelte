@@ -16,7 +16,7 @@
 	}
 </script>
 
-<div class="relative z-10">
+<div class="colorSchemeToggle relative z-10 ">
 	<button
 		on:mouseenter={() => showThemePalette(true)}
 		on:mouseleave={() => showThemePalette(false)}
@@ -27,7 +27,7 @@
 		aria-label="site-wide theme switcher"
 		class="{forcedColorsActive()
 			? 'cursor-default'
-			: ''} forcedClrAdjust forcedAdjust flex rounded-full bg-transparent">
+			: ''} forcedClrAdjust flex rounded-full bg-transparent">
 		<div
 			class="relative flex min-h-30-40 min-w-30-40 items-center justify-center overflow-hidden rounded-full bg-colorSchemeToggle transition-[background-color] delay-[0s] duration-[2s]">
 			<div

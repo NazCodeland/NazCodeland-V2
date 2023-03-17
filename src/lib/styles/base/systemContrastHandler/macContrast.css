@@ -1,5 +1,7 @@
 /* 
-/* 
-/*  
-/* Mac OS : prefers-contrast: less and prefers-contrast: more 
-is handled in themeSwitcher.js */
+Mac OS users will get a light or dark theme of the website based on their
+OS light/dark mode options. Since the dark and light themes on the website are
+based on light/dark contrast themes, if a MAC OS user wishes less/more contrast
+they can choose from one of those themes. That is how 
+prefers-contrast: more and `prefers-contrast: less` is handled.
+*/

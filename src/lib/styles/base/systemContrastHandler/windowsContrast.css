@@ -1,12 +1,11 @@
 /* NOTE: use cases not covered.
-          These two use cases are extremely rare so, I won't be implementing a solution.
+          The following use case is rare so, I won't be implementing a solution.
           
   1) if the user changes their OS theme while the site is open,
-      it won't update the theme on the website. The next time they open the site, 
-      it will update the theme 
-
-  2) if the user has the site open and then changes their OS contras themes, changes
-      the contrast theme on their OS, the site will have minor contrast issues*/
+      it won't update the theme on the website. Because their preference on site visit
+			will be saved in localStorage and so, they will need to use the colorSchemeToggle to change 
+			to light/dark mode.
+*/
 
 @layer utilities {
 	.forcedClrAdjust {
@@ -32,6 +31,7 @@
 		[data-themePalette='main'] .siteWrapper {
 			background-color: activeText;
 		}
+
 		[data-themePalette='main'] .skillCard {
 			outline-color: activeText !important;
 			outline-width: 2px !important;
@@ -46,6 +46,18 @@
 		[data-themePalette='dusk'],
 		[data-themePalette='nightSky'] {
 			forced-color-adjust: none;
+		}
+
+		body:empty .siteWrapper {
+			background-color: mark !important;
+		}
+
+		/* https://modernizr.com/ */
+		/* https://www.paulirish.com/2009/browser-specific-css-hacks/ */
+		/* http://browserhacks.com/ */
+		_::-moz-progress-bar,
+		body:last-child .colorSchemeToggle {
+			display: none;
 		}
 	}
 }

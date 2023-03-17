@@ -24,17 +24,25 @@
 			set, through my
 			<a
 				href="/portfolio"
-				class="forcedClrAdjust relative z-10 inline-block outline-0 delay-[0] before:absolute before:bottom-0 before:h-0.5 before:w-full before:bg-primaryColor 
-				before:transition-[h] before:duration-200 before:content-[''] hover:text-[markText] hover:before:-z-10 
-				hover:before:h-full hover:before:bg-primaryColor focus-visible:text-[markText] focus-visible:before:-z-10 focus-visible:before:h-full focus-visible:before:bg-primaryColor group-data-[themePalette=main]:contrast-more:before:bg-[activeText] group-data-[themePalette=main]:contrast-more:before:hover:bg-[activeText] "
-				>Portfolio</a
+				class="relative z-10 inline-block outline-0 delay-[0] before:absolute before:bottom-0 before:h-0.5 
+				before:w-full before:bg-primaryColor before:transition-[h] before:duration-200 before:content-[''] 
+				hover:before:-z-10 hover:before:h-full hover:before:bg-primaryColor 
+				focus-visible:text-[markText] focus-visible:before:-z-10 focus-visible:before:h-full 
+				focus-visible:before:bg-primaryColor contrast-more:text-[canvasText] 
+				group-data-[themePalette=main]:contrast-more:before:bg-[activeText] 
+				group-data-[themePalette=main]:contrast-more:before:hover:bg-[activeText]">
+				Portfolio</a
 			>, to potential employers. It's also a place for me to
 			<a
 				href="/blog"
-				class="forcedClrAdjust relative z-10 inline-block outline-0 delay-[0] before:absolute before:bottom-0 before:h-0.5 before:w-full before:bg-primaryColor 
-				before:transition-[h] before:duration-200 before:content-[''] hover:text-[markText] hover:before:-z-10 
-				hover:before:h-full hover:before:bg-primaryColor focus-visible:text-[markText] focus-visible:before:-z-10 focus-visible:before:h-full focus-visible:before:bg-primaryColor group-data-[themePalette=main]:contrast-more:before:bg-[activeText] group-data-[themePalette=main]:contrast-more:before:hover:bg-[activeText] "
-				>Blog</a> about what I am learning and to reference it in the future.
+				class="relative z-10 inline-block outline-0 delay-[0] before:absolute before:bottom-0 before:h-0.5 
+				before:w-full before:bg-primaryColor before:transition-[h] before:duration-200 before:content-[''] 
+				hover:before:-z-10 hover:before:h-full hover:before:bg-primaryColor 
+				focus-visible:text-[markText] focus-visible:before:-z-10 focus-visible:before:h-full 
+				focus-visible:before:bg-primaryColor contrast-more:text-[canvasText] 
+				group-data-[themePalette=main]:contrast-more:before:bg-[activeText] 
+				group-data-[themePalette=main]:contrast-more:before:hover:bg-[activeText]">
+				Blog</a> about what I am learning and to reference it in the future.
 		</p>
 
 		<footer class="mt-2 flex flex-wrap gap-2 [@media(width>=328px)]:gap-4">
