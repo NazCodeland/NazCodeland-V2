@@ -60,4 +60,9 @@
 			display: none;
 		}
 	}
+
+	::-webkit-scrollbar-track,
+	::-webkit-scrollbar-thumb:hover {
+		forced-color-adjust: none;
+	}
 }
