@@ -1,5 +1,16 @@
 <script>
+	import Link from '../elements/Link.svelte';
 	import { menuStore } from '$lib/stores/menuStore';
+	const pages = [
+		'Home',
+		'About Me',
+		'Portfolio',
+		'UX/UI Design',
+		'Web Development',
+		'Resume',
+		'Contract',
+		'Blog'
+	];
 </script>
 
 <!-- prettier-ignore -->
@@ -10,52 +21,39 @@
 	<ul
 		class="flex flex-wrap justify-center gap-16-32 
 		{$menuStore ? 'inline-block' : 'hidden'} md:flex">
-		<li><a href="/" class="group-data-[themePalette=main]:contrast-more:before:bg-[activeText] 
-			outline-0 before:transition-[w, left] before:content-[''] relative before:absolute 
-			before:left-[50%] before:bottom-0 before:h-0.5 before:w-0 before:bg-primaryColor 
-			before:delay-[0s] before:duration-300 hover:before:left-0 hover:before:w-full 
-			focus:before:left-0 focus:before:w-full">
-			Home</a></li>
-		<li><a href="/about" class="group-data-[themePalette=main]:contrast-more:before:bg-[activeText] 
-			outline-0 before:transition-[w, left] before:content-[''] relative before:absolute before:left-[50%]
-			before:bottom-0 before:h-0.5 before:w-0 before:bg-primaryColor before:delay-[0s] before:duration-300
-			hover:before:left-0 hover:before:w-full focus:before:left-0 focus:before:w-full">
-			About Me</a></li>
-		<li><a href="/portfolio" class="group-data-[themePalette=main]:contrast-more:before:bg-[activeText] 
-			outline-0 before:transition-[w, left] before:content-[''] relative before:absolute before:left-[50%]
-			before:bottom-0 before:h-0.5 before:w-0 before:bg-primaryColor before:delay-[0s] before:duration-300
-			hover:before:left-0 hover:before:w-full focus:before:left-0 focus:before:w-full">
-			Portfolio</a></li>
-		<li><a href="/viewResume" class="group-data-[themePalette=main]:contrast-more:before:bg-[activeText] 
-			outline-0 before:transition-[w, left] before:content-[''] relative before:absolute before:left-[50%]
-			before:bottom-0 before:h-0.5 before:w-0 before:bg-primaryColor before:delay-[0s] before:duration-300
-			hover:before:left-0 hover:before:w-full focus:before:left-0 focus:before:w-full">
-			Resume</a></li>
-		<li class="hidden">
-			<ul>
-				<li>
-					<a href="/design" class="group-data-[themePalette=main]:contrast-more:before:bg-[activeText] 
-					outline-0 before:transition-[w, left] before:content-[''] relative before:absolute before:left-[50%]
-					before:bottom-0 before:h-0.5 before:w-0 before:bg-primaryColor before:delay-[0s] before:duration-300
-					hover:before:left-0 hover:before:w-full focus:before:left-0 focus:before:w-full">
-						UX/UI Design</a></li>
-				<li><a href="/development" class="group-data-[themePalette=main]:contrast-more:before:bg-[activeText] 
-					outline-0 before:transition-[w, left] before:content-[''] relative before:absolute before:left-[50%]
-					before:bottom-0 before:h-0.5 before:w-0 before:bg-primaryColor before:delay-[0s] before:duration-300
-					hover:before:left-0 hover:before:w-full focus:before:left-0 focus:before:w-full">
-					Web Development</a></li>
+
+		<Link href={'/'} page={'Home'}/>
+		<Link href={'/About Me'} page={'About Me'}/>
+		<Link href={'/Portfolio'} page={'Portfolio'}>
+			<ul class="hidden">
+				<Link href={'/UX/UI Design'} page={'UX/UI Design'}/>
+				<Link href={'/Web Development'} page={'Web Development'}/>
 			</ul>
-		</li>
-		<li><a href="/contact" class="group-data-[themePalette=main]:contrast-more:before:bg-[activeText] 
-			outline-0 before:transition-[w, left] before:content-[''] relative before:absolute before:left-[50%]
-			before:bottom-0 before:h-0.5 before:w-0 before:bg-primaryColor before:delay-[0s] before:duration-300
-			hover:before:left-0 hover:before:w-full focus:before:left-0 focus:before:w-full">
-			Contact</a></li>
-		<li> <a href="/blog" class="group-data-[themePalette=main]:contrast-more:before:bg-[activeText] 
-			outline-0 before:transition-[w, left] before:content-[''] relative before:absolute before:left-[50%]
-			before:bottom-0 before:h-0.5 before:w-0 before:bg-primaryColor before:delay-[0s] before:duration-300
-			hover:before:left-0 hover:before:w-full focus:before:left-0 focus:before:w-full">
-			Blog</a></li>
+		</Link>
+		<Link href={'/Resume'} page={'Resume'}/>
+		<Link href={'/Contract'} page={'Contract'}/>
+		<Link href={'/Blog'} page={'Blog'}/>
+
+		<!-- how to do this better? -->
+		<!-- {#each pages as page}
+			{#if page !== 'UX/UI Design' && page !== 'Web Development'}
+				<Link href={'/{pageName}'} {page}>
+					{#each pages as page}
+						{#if page === 'UX/UI Design'}
+							<ul class="hidden">
+								<Link href={'/{pageName}'} {page}/>
+								{#each pages as page}
+									{#if page === 'Web Development'}
+									<Link href={'/{pageName}'} {page}/>
+									{/if}
+								{/each}
+							</ul>
+						{/if}			
+					{/each}
+				</Link>
+			{/if}
+		{/each} -->
+		
 	</ul>
 </nav>
 
