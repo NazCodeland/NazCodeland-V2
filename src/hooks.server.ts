@@ -1,3 +1,4 @@
-import connectToDb from './database/mongo.';
+import { mongooseConnection } from './database/mongo.';
 
-connectToDb();
+mongooseConnection.connect();
+mongooseConnection.connect();
