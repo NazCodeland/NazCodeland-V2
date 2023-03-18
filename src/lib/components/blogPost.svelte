@@ -4,46 +4,19 @@
 	export let slug: string = '';
 	export let views: string | number;
 	export let tags: string[];
-
-	// let appElement = document.querySelector('.app');
-
-	// console.log(appElement);
-
-	// const user = {
-	// 	loggedIn: false
-	// };
-
-	// function toggle() {
-	// 	user.loggedIn = !user.loggedIn;
-	// 	updateUI();
-	// }
-
-	// function updateUI() {
-	// 	let html;
-
-	// 	if (user.loggedIn === false) {
-	// 		html = `<button>Log In</button>`;
-	// 	}
-	// 	if (user.loggedIn === true) {
-	// 		html = `<button>Log Out</button>`;
-	// 	}
-
-	// 	appElement.innerHTML = html;
-	// 	appElement.onclick = toggle;
-	// }
 </script>
 
 <article class="blogPost">
 	<div class="blogPost__header">
 		<a href="/blog/{slug}"><h3 class="text-3xl font-medium">{title}</h3></a>
-		<div class="flex gap-4 justify-between ">
+		<div class="flex justify-between gap-4 ">
 			<span>
 				<span class="blogPost__date"> {createdAt}</span>
 				<span class="blogPost__views"> {views}12 likes!</span>
 			</span>
 			<span class="blogPost__tags flex gap-4">
 				{#each tags as tag}
-					<a class="bg-slate-600 text-white px-4 py-2 rounded-md" href="/">{tag}</a>
+					<a class="rounded-md bg-slate-600 px-4 py-2 text-white" href="/">{tag}</a>
 				{/each}
 			</span>
 		</div>
