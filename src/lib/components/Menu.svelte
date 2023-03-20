@@ -1,7 +1,7 @@
 <script>
 	import Link from '../elements/Link.svelte';
 	import { menuStore } from '$lib/stores/menuStore';
-	// const pages = [
+	// const titles = [
 	// 	'Home',
 	// 	'About Me',
 	// 	'Portfolio',
@@ -22,17 +22,18 @@
 		class="flex flex-wrap justify-center gap-16-32 
 		{$menuStore ? 'inline-block' : 'hidden'} md:flex">
 
-		<Link href={'/'} page={'Home'}/>
-		<Link href={'/about'} page={'About Me'}/>
-		<Link href={'/portfolio'} page={'Portfolio'}>
+		<!-- how can I re-write this in a loop. When I tried, I ended up in a big nested loop -->
+		<Link href={'/'} title={'Home'}/>
+		<Link href={'/about'} title={'About Me'}/>
+		<Link href={'/portfolio'} title={'Portfolio'}>
 			<ul class="hidden">
-				<Link href={'/webDesign'} page={'UX/UI Design'}/>
-				<Link href={'/webDevelopment'} page={'Web Development'}/>
+				<Link href={'/webDesign'} title={'UX/UI Design'}/>
+				<Link href={'/webDevelopment'} title={'Web Development'}/>
 			</ul>
 		</Link>
-		<Link href={'/resume'} page={'Resume'}/>
-		<Link href={'/contact'} page={'Contact'}/>
-		<Link href={'/blog'} page={'Blog'}/>
+		<Link href={'/resume'} title={'Resume'}/>
+		<Link href={'/contact'} title={'Contact'}/>
+		<Link href={'/blog'} title={'Blog'}/>
 	</ul>
 </nav>
 

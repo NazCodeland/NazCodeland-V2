@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let href: string;
-	export let page: string;
+	export let title: string;
 </script>
 
 <li>
@@ -10,7 +10,7 @@
   before:h-0.5 before:w-0 before:bg-primaryColor before:delay-[0s] before:duration-300 
   before:content-[''] hover:before:left-0 hover:before:w-full focus:before:left-0 
   focus:before:w-full group-data-[themePalette=main]:contrast-more:before:bg-[activeText]">
-		{page}</a>
+		{title}</a>
 	<slot />
 </li>
 

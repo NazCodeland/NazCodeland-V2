@@ -1,33 +1,36 @@
 <script lang="ts">
+	export let image: string = 'https://picsum.photos/200/300';
 	export let title: string;
-	export let createdAt: Date;
-	export let slug: string = '';
+	export let createdAt: string;
+	export let timeToRead: string;
 	export let views: string | number;
+
+	export let description: string;
+	// export let slug: string = '';
 	export let tags: string[];
 </script>
 
-<article class="blogPost">
-	<div class="blogPost__header">
-		<a href="/blog/{slug}"><h3 class="text-3xl font-medium">{title}</h3></a>
-		<div class="flex justify-between gap-4 ">
-			<span>
-				<span class="blogPost__date"> {createdAt}</span>
-				<span class="blogPost__views"> {views}12 likes!</span>
-			</span>
-			<span class="blogPost__tags flex gap-4">
-				{#each tags as tag}
-					<a class="rounded-md bg-slate-600 px-4 py-2 text-white" href="/">{tag}</a>
-				{/each}
-			</span>
+<article>
+	<a href="/blog" class="flex flex-col gap-2">
+		<img class="img" src={image} alt="a cute dog" />
+		<h3 class="">{title}</h3>
+		<div>
+			<!-- date/minsToRead/views -->
+			<span class="">{createdAt}</span>
+			<span class="">{timeToRead}</span>
+			<span class="">{views}</span>
 		</div>
-	</div>
-
-	<div class="blogPost__content">
-		<slot>Hey</slot>
-	</div>
+		<p class="max-w-[80ch]">{description}</p>
+		<div class="flex gap-x-1 pt-2">
+			{#each tags as tag}
+				<a class="rounded-md bg-slate-600 px-4 py-2 text-white" href="/">{tag}</a>
+			{/each}
+		</div>
+	</a>
 </article>
 
-<div class="app">22</div>
-
 <style>
+	.img {
+		height: 100px;
+	}
 </style>
