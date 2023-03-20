@@ -1,60 +1,52 @@
 <script>
-	console.log('blog');
 	import BlogPost from '$lib/components/blogPost.svelte';
+	import Link from '$lib/elements/Link.svelte';
+	export let data;
 
-	const blogPosts = [
-		{
-			title: 'first blog post',
-			description: 'short desc.',
-			body: ' long body',
-			createdAt: new Date(),
-			slug: function () {
-				return this.title.toLowerCase().replaceAll(' ', '-');
-			},
-			tags: ['html', 'css', 'js'],
-			views: ''
-		},
-
-		{
-			title: 'second blog post',
-			description: 'short desc.',
-			body: ' long body',
-			createdAt: new Date(),
-			slug: function () {
-				return this.title.toLowerCase().replaceAll(' ', '-');
-			},
-			tags: ['html', 'css', 'js'],
-			views: ''
-		}
-	];
+	const firstTwoPosts = data.posts.slice(0, 2);
+	let adjustedBlogPosts = data.posts;
+	console.log(adjustedBlogPosts);
 </script>
 
 <svelte:head>
 	<title>NazCodeland |</title>
 </svelte:head>
 
-<section class="blogPosts-section">
-	<div class="blogPosts-wrapper">
-		<h2 class="text-6xl">Blog Posts</h2>
-		<div class="blogPosts">
-			{#each blogPosts as blogPost}
+<section class="">
+	<h3 class="mb-20 text-[56px] font-bold">Blog</h3>
+
+	<div class="flex flex-col gap-16">
+		<!-- not sure if this should be included in its current form -->
+		<!-- <ol class="titleLayout mb-20 list-decimal">
+			{#each data.posts as post}
+				<Link href="/" title={post.title} />
+			{/each}
+		</ol> -->
+
+		<div class="flex flex-wrap gap-16">
+			{#each firstTwoPosts as post}
 				<BlogPost
-					title={blogPost.title}
-					createdAt={blogPost.createdAt}
-					slug={blogPost.slug()}
-					views={blogPost.views}
-					tags={blogPost.tags}><p>Hey <span>hello</span></p></BlogPost
-				>
+					image={post.image}
+					title="{post.title},"
+					createdAt="{post.createdAt},"
+					views={post.views}
+					timeToRead="{post.timeToRead},"
+					description={post.description}
+					tags={post.tags} />
 			{/each}
 		</div>
+
+		{#each data.posts as post}
+			<BlogPost
+				title="{post.title},"
+				createdAt="{post.createdAt},"
+				views={post.views}
+				timeToRead="{post.timeToRead},"
+				description={post.description}
+				tags={post.tags} />
+		{/each}
 	</div>
 </section>
 
 <style>
-	p {
-		color: red;
-	}
-	span {
-		color: green;
-	}
 </style>

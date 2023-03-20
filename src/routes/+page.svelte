@@ -53,15 +53,35 @@
 		<SkillCard title="Web Development">
 			<!-- prettier-ignore -->
 			<!-- href="/images/icons/svelte.svg" -->
-			<svg class="min-w-30-40 min-h-30-40" slot="icon" width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path class="svelte-svg-all-fill" d="M0 11.2069C0 5.0175 4.65624 0 10.4 0H89.6C95.3438 0 100 5.0175 100 11.2069V60.3448C100 66.5342 95.3438 71.5517 89.6 71.5517H10.4C4.65624 71.5517 0 66.5342 0 60.3448V11.2069Z" fill="#145883"></path>
-				<path d="M10.4 11.2069H88.8V61.2069H10.4V11.2069Z" fill="white"></path>
-				<image class="language-icon" height="38" width="38" x="36" y="18"></image>
-				<path d="M11.1 39.3907V35.9424L23.9 29.8687V33.8362L15.1364 37.6274L15.2545 37.4216V37.9114L15.1364 37.7057L23.9 41.4969V45.4643L11.1 39.3907Z" fill="black"></path>
-				<path d="M35.8545 24.6865L29.8545 48.7069H26.5182L32.5182 24.6865H35.8545Z" fill="black"></path>
-				<path d="M86.825 39.3907L74.025 45.4643V41.4969L82.7886 37.7057L82.6705 37.9114V37.4216L82.7886 37.6274L74.025 33.8362V29.8687L86.825 35.9424V39.3907Z" fill="black"></path>
-				<path class="svelte-svg-all-fill" d="M42.4 71.5517H58.4V87.069H42.4V71.5517Z" fill="#D9D9D9"></path>
-				<path class="svelte-svg-all-fill" d="M28 93.5345C28 89.9637 30.6863 87.069 34 87.069H67.6C70.9137 87.069 73.6 89.9637 73.6 93.5345C73.6 97.1053 70.9137 100 67.6 100H34C30.6863 100 28 97.1053 28 93.5345Z" fill="#D9D9D9"></path>
+			<svg
+				class="min-h-30-40 min-w-30-40"
+				slot="icon"
+				width="30"
+				height="30"
+				viewBox="0 0 100 100"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg">
+				<path
+					class="svelte-svg-all-fill"
+					d="M0 11.2069C0 5.0175 4.65624 0 10.4 0H89.6C95.3438 0 100 5.0175 100 11.2069V60.3448C100 66.5342 95.3438 71.5517 89.6 71.5517H10.4C4.65624 71.5517 0 66.5342 0 60.3448V11.2069Z"
+					fill="#145883" />
+				<path d="M10.4 11.2069H88.8V61.2069H10.4V11.2069Z" fill="white" />
+				<image class="language-icon" height="38" width="38" x="36" y="18" />
+				<path
+					d="M11.1 39.3907V35.9424L23.9 29.8687V33.8362L15.1364 37.6274L15.2545 37.4216V37.9114L15.1364 37.7057L23.9 41.4969V45.4643L11.1 39.3907Z"
+					fill="black" />
+				<path d="M35.8545 24.6865L29.8545 48.7069H26.5182L32.5182 24.6865H35.8545Z" fill="black" />
+				<path
+					d="M86.825 39.3907L74.025 45.4643V41.4969L82.7886 37.7057L82.6705 37.9114V37.4216L82.7886 37.6274L74.025 33.8362V29.8687L86.825 35.9424V39.3907Z"
+					fill="black" />
+				<path
+					class="svelte-svg-all-fill"
+					d="M42.4 71.5517H58.4V87.069H42.4V71.5517Z"
+					fill="#D9D9D9" />
+				<path
+					class="svelte-svg-all-fill"
+					d="M28 93.5345C28 89.9637 30.6863 87.069 34 87.069H67.6C70.9137 87.069 73.6 89.9637 73.6 93.5345C73.6 97.1053 70.9137 100 67.6 100H34C30.6863 100 28 97.1053 28 93.5345Z"
+					fill="#D9D9D9" />
 			</svg>
 
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias odit nemo praesentium corporis
