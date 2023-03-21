@@ -10,7 +10,7 @@
 
 	[color-scheme='dark'] {
 		color-scheme: dark;
-		--text-color: theme(colors.slate.50);
+		--text-color: theme(colors.slate.1);
 		--padding-top-html: theme(spacing.16-48);
 
 		/* light / dark icon variables */

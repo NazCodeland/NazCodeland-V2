@@ -10,10 +10,11 @@
 <div
 	class="siteWrapper bg-primaryColor p-4-32 pt-4/16-32/48 transition-[padding-top] delay-[0] duration-1000"
 	use:setAttributeOnDocumentAction>
-	<div class="flex-col rounded-2xl bg-secondaryColor p-16-40 font-body text-fluid-4 text-bodyCopy">
+	<div
+		class="flex flex-col gap-88-132 rounded-2xl bg-secondaryColor p-16-40 font-body text-fluid-3 text-bodyCopy">
 		<!--  -->
 		<header
-			class="sticky top-0 z-20 mb-88-132 flex items-center justify-between gap-4 bg-secondaryColor pl-3 pt-6 pb-3 md:border-b md:border-solid md:border-primaryColor">
+			class="sticky top-0 z-20 flex items-center justify-between gap-4 bg-secondaryColor pl-3 pt-6 pb-3 md:border-b md:border-solid md:border-primaryColor">
 			<a
 				href="#maincontent"
 				class="absolute -left-[1000px] -top-[13px] rounded bg-secondaryColor px-4 text-bodyCopy outline-bodyCopy focus-visible:left-[clamp(4.00rem,_calc(3.61rem_+_1.96vw),_5.38rem)]">

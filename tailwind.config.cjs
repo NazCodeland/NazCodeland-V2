@@ -48,7 +48,10 @@ module.exports = {
 				tertiaryColor: 'rgba(var(--tertiary-color))',
 				logoFirstLClr: 'rgba(var(--primary-color))',
 				colorSchemeToggle: 'rgba(var(--svg-background-color))',
-				bodyCopy: 'var(--text-color)'
+				bodyCopy: 'var(--text-color)',
+				slate: {
+					1: '#ffffff'
+				}
 			},
 			borderRadius: {
 				'2sm': '4px'
@@ -73,7 +76,7 @@ module.exports = {
 				'16-48': 'clamp(1rem, calc(0.43rem + 2.86vw), 3rem)',
 				/* svg size */
 				'36-40': 'clamp(2.25rem, calc(2.18rem + 0.36vw), 2.5rem)',
-				/* used for spacing between header, man, footer and different sectons beteen man */
+				/* used for spacing between header, man, footer and different sections between main */
 				'88-132': 'clamp(5.5rem, calc(4.64rem + 4.29vw), 8.25rem)',
 				'4/16-32/48': 'var(--padding-top-html)'
 			},
