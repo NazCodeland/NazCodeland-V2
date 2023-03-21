@@ -30,7 +30,8 @@
 				hover:before:bg-primaryColor focus-visible:text-[markText] focus-visible:before:-z-10 
 				focus-visible:before:h-full focus-visible:before:bg-primaryColor 
 				contrast-more:text-[canvasText] 
-				group-data-[themePalette=main]:contrast-more:before:bg-[activeText] group-data-[themePalette=main]:contrast-more:before:hover:bg-[activeText]">
+				group-data-[themePalette=main]:contrast-more:before:bg-[activeText] 
+				group-data-[themePalette=main]:contrast-more:before:hover:bg-[activeText]">
 				Portfolio</a
 			>, to potential employers. It's also a place for me to
 			<a
