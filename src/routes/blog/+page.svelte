@@ -1,9 +1,6 @@
 <script>
 	import BlogPost from '$lib/components/blogPost.svelte';
-	import Link from '$lib/elements/Link.svelte';
 	export let data;
-
-	const firstTwoPosts = data.posts.slice(0, 2);
 </script>
 
 <svelte:head>
@@ -21,25 +18,14 @@
 			{/each}
 		</ol> -->
 
-	<!-- first two blogs -->
-	<div class="flex flex-wrap gap-8">
-		{#each firstTwoPosts as post}
+	<div class="gridLayout gap-8">
+		{#each data.posts as post, i}
 			<BlogPost
-				image={post.image}
-				title="{post.title},"
-				createdAt="{post.createdAt},"
+				href={post.title.toLowerCase().replaceAll(' ', '-')}
+				title={post.title}
+				createdAt={post.createdAt}
 				views={post.views}
-				timeToRead="{post.timeToRead},"
-				description={post.description}
-				tags={post.tags} />
-		{/each}
-
-		{#each data.posts as post}
-			<BlogPost
-				title="{post.title},"
-				createdAt="{post.createdAt},"
-				views={post.views}
-				timeToRead="{post.timeToRead},"
+				timeToRead={post.timeToRead}
 				description={post.description}
 				tags={post.tags} />
 		{/each}
@@ -48,4 +34,8 @@
 </section>
 
 <style>
+	.gridLayout {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+	}
 </style>

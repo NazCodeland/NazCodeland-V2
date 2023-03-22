@@ -15,7 +15,10 @@ const config = {
 	},
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		alias: {
+			$schemas: './src/schemas'
+		}
 		// files: {
 		// 	routes: 'src/routes/home'
 		// }

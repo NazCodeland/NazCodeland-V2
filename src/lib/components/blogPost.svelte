@@ -1,5 +1,6 @@
 <script lang="ts">
-	export let image: string = 'https://picsum.photos/200/300';
+	// export let image: string = 'https://picsum.photos/200/300';
+	export let href: string;
 	export let title: string;
 	export let createdAt: string;
 	export let timeToRead: string;
@@ -11,16 +12,17 @@
 </script>
 
 <a
-	href="/blog"
+	href="/blog/{href}"
 	class="
-	forcedClrAdjust testing flex flex-auto basis-[30ch] flex-col gap-4  
-	rounded-lg p-4
-	shadow-rest transition-transform 
-	delay-[0s] duration-[0.15s] ease-in-out
+	forcedClrAdjust flex flex-auto basis-[30ch] flex-col  
+	gap-4 rounded-lg
+	p-4 shadow-rest 
+	transition-transform delay-[0s] duration-[0.15s]
+	ease-in-out
 	hover:scale-[1.01]
-	hover:cursor-pointer
+	hover:cursor-pointer 
 	hover:shadow-hover 
-	active:scale-active 
+	active:scale-active
 	active:shadow-active
 	group-data-[themePalette=main]:outline-0
 	group-data-[themePalette=main]:focus-visible:outline-2

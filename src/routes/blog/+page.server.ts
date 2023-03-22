@@ -1,4 +1,4 @@
-import { BlogPostCollection } from '../../schemas/blogPostSchema';
+import { BlogPostCollection } from '$schemas/blogPostSchema';
 
 // I think these types are incorrect
 // function replacer(key: string, value: string) {
