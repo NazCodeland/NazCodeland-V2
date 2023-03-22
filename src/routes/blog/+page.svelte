@@ -7,8 +7,8 @@
 	<title>NazCodeland |</title>
 </svelte:head>
 
-<section class="flex flex-col gap-16">
-	<h1 class="font-bold">Blog</h1>
+<section>
+	<h1 class="mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] font-bold">Blog</h1>
 
 	<!-- <div class="flex flex-col gap-16"> -->
 	<!-- not sure if this should be included in its current form -->

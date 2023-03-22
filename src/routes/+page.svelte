@@ -3,11 +3,11 @@
 	import SkillCard from '$lib/components/skillCard.svelte';
 </script>
 
-<div class="introduction-section mb-32">
+<div class="introduction-section">
 	<ProfileCard />
 </div>
 
-<section class="mb-32">
+<section>
 	<h2
 		class="forcedClrAdjust mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] underline decoration-tertiaryColor
 		decoration-double contrast-more:text-[canvasText] contrast-more:decoration-[activeText] ">
