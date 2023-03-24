@@ -8,7 +8,7 @@ code[class*='language-css'] {
 /* from Prism */
 pre[class*='language-css'].line-numbers {
 	position: relative;
-	padding-left: 3.8em;
+	padding-inline-start: 3.8em;
 	counter-reset: linenumber;
 	white-space: pre-wrap;
 }
@@ -21,12 +21,12 @@ pre[class*='language-css'].line-numbers > code {
 .line-numbers .line-numbers-rows {
 	position: absolute;
 	pointer-events: none;
-	top: 0;
+	inset-block-start: 0;
 	font-size: 100%;
-	left: -3.8em;
-	width: 3em; /* works for line-numbers below 1000 lines */
+	inset-inline-start: -3.8em;
+	inline-size: 3em; /* works for line-numbers below 1000 lines */
 	letter-spacing: -1px;
-	border-right: 1px solid #999;
+	border-inline-end: 1px solid #999;
 
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -44,6 +44,6 @@ pre[class*='language-css'].line-numbers > code {
 	content: counter(linenumber);
 	color: #999;
 	display: block;
-	padding-right: 0.8em;
-	text-align: right;
+	padding-inline-end: 0.8em;
+	text-align: end;
 }
