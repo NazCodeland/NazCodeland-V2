@@ -1,3 +1,4 @@
 @import './base/index.css';
 @import './elements/index.css';
 @import './components/index.css';
+@import './syntaxHighlighting/index.css';

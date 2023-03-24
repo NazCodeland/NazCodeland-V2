@@ -1,7 +1,7 @@
 <script>
-	import BlogPost from '$lib/components/blogPost.svelte';
 	export let data;
 </script>
+
 
 <article class="m-auto w-[60ch]">
 	<h1>{data.post.title}</h1>

@@ -1,19 +1,9 @@
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/kit/vite';
+import { mdsvex } from 'mdsvex';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
-	// for more information about preprocessors
-	preprocess: vitePreprocess(),
-	vitePlugin: {
-		experimental: {
-			inspector: {
-				toggleKeyCombo: 'control-alt'
-			}
-		}
-	},
-
 	kit: {
 		adapter: adapter(),
 		alias: {
@@ -22,6 +12,28 @@ const config = {
 		// files: {
 		// 	routes: 'src/routes/home'
 		// }
+	},
+
+	extensions: ['.svelte', '.md'],
+
+	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
+	// for more information about preprocessors
+	preprocess: [
+		vitePreprocess(),
+		mdsvex({
+			extensions: ['.md'],
+			highlight: {
+				alias: { js: 'javascript' }
+			}
+		})
+	],
+
+	vitePlugin: {
+		experimental: {
+			inspector: {
+				toggleKeyCombo: 'control-alt'
+			}
+		}
 	}
 };
 

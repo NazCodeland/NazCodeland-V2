@@ -52,7 +52,7 @@
 			</div>
 		</header>
 
-		<main class="flex flex-col gap-88-132">
+		<main class="line-numbers flex flex-col gap-88-132">
 			<slot />
 		</main>
 
