@@ -1,30 +1,76 @@
 <script>
-
-
-
+	import ProfileCard from '$lib/components/ProfileCard.svelte';
+	import Count from './Count.svelte';
 </script>
+
+<Count/>
+## Svelte
 
 ```css
 body {
 	background-color: blue;
 }
+```
 
-.btn {
-	/* display: inline-block; is this needed?*/
-	min-inline-size: 110px;
-	white-space: nowrap;
-	padding: clamp(0.5rem, calc(0.66rem + -0.18vw), 0.63rem) 1rem;
-	text-align: center;
-	border-radius: theme(borderRadius.lg);
+```svelte {5-7,10-11}
+<script context="module" lang="ts">
+	export const prerender = true;
+</script>
 
-	/* --btn-text-color is not defined so it will fallback to inheriting the color in this situation */
-	color: rgba(var(--btn-text-color));
+<script lang="ts">
+	import Counter from '$lib/Counter.svelte';
+</script>
 
-	--btn-bg-opacity: theme(opacity.12);
-	--btn-bg: 255, 255, 255;
-	background-color: rgba(var(--btn-bg), var(--btn-bg-opacity));
+<svelte:head>
+	<title>Home</title>
+	<meta name="description" content="Svelte demo app" />
+</svelte:head>
 
-	box-shadow: var(--box-shadow-rest);
-	transition: ease-in-out transform 0.15s;
-}
+<section>
+	<h1>
+		<div class="welcome">
+			<picture>
+				<source srcset="svelte-welcome.webp" type="image/webp" />
+				<img src="svelte-welcome.png" alt="Welcome" />
+			</picture>
+		</div>
+
+		to your new<br />SvelteKit app
+	</h1>
+
+	<h2>
+		try editing <strong>src/routes/index.svelte</strong>
+	</h2>
+
+	<Counter />
+</section>
+
+<style>
+	section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		flex: 1;
+	}
+
+	h1 {
+		width: 100%;
+	}
+
+	.welcome {
+		position: relative;
+		width: 100%;
+		height: 0;
+		padding: 0 0 calc(100% * 495 / 2048) 0;
+	}
+
+	.welcome img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		display: block;
+	}
+</style>
 ```
