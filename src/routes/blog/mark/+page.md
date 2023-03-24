@@ -1,8 +1,23 @@
 <script>
-
-
-
+	import Logo from '$lib/components/Logo.svelte';
 </script>
+
+
+## Rust
+
+```rust
+println!("Made it here!");
+```
+
+## JavaScript
+
+```js
+console.log('Made it here!');
+```
+
+<br><testing123 style:margin='auto'><Logo /></testing123>
+
+## CSS
 
 ```css
 body {

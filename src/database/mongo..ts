@@ -12,22 +12,19 @@ interface Connection {
 export function createMongooseConnection(url: string = DB_HOST): Connection {
 	return {
 		connect: async () => {
-			try {
-				await mongoose.connect(url);
-				console.log('Connected to database successfully.');
-			} catch (error: any) {
-				console.log(error.message);
-			}
+			await mongoose.connect(url).catch((e) => {
+				console.error(e);
+			});
+			console.log('Database connected.');
 		},
 
 		disconnect: async () => {
-			try {
-				await mongoose.disconnect();
-				console.log('Disconnected from database.');
-			} catch (error: any) {
-				console.log(error.message);
-			}
+			await mongoose.disconnect().catch((e) => {
+				console.error(e);
+			});
+			console.log('Database disconnected.');
 		}
 	};
 }
+
 export const mongooseConnection = createMongooseConnection(DB_HOST);
