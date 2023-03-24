@@ -1,11 +1,23 @@
-!(function () {
-	console.log('funciton has run -==-=------------------');
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
+/**
+ *
+ * @param {import('prismjs')} Prism
+ */
+export const lineNumbers = (Prism) => {
 	if ('undefined' != typeof Prism && 'undefined' != typeof document) {
 		var e = 'line-numbers',
 			n = /\n(?!$)/g,
 			t = (Prism.plugins.lineNumbers = {
+				/**
+				 * 
+				 * @param {Element} n 
+				 * @param {*} t 
+				 * @returns 
+				 */
 				getLine: function (n, t) {
-					if ('PRE' === n.tagName && n.classList.contains(e)) {
+					if (['SECTION', 'PRE'].includes(n.tagName) && n.classList.contains(e)) {
 						var i = n.querySelector('.line-numbers-rows');
 						if (i) {
 							var r = parseInt(n.getAttribute('data-start'), 10) || 1,
@@ -118,4 +130,4 @@
 				});
 		}
 	}
-})();
+};
