@@ -23,15 +23,16 @@
 	<div class="gridLayout gap-8">
 		{#each data.posts as post, i}
 			<BlogPost
-				href={post.path.toLowerCase().replaceAll(' ', '-')}
+				href={post.path.replaceAll(' ', '-')}
 				title={post.metadata.title}
 				createdAt={post.metadata.date}
-				views={post.views}
-				timeToRead={post.timeToRead}
-				description={post.description}
-				tags={post.tags} />
+				views={post.metadata.views}
+				timeToRead={post.metadata.timeToRead}
+				description={post.metadata.description}
+				tags={post.metadata.tags} />
 		{/each}
 	</div>
+
 	<!-- </div> -->
 </section>
 

@@ -1,11 +1,14 @@
 ---
-title: Introduction to Svelte
-
+title: Building a CRUD Application with Django
 date: '2021-12-14'
+views: 5
+timeToRead: 5 minutes
+description: Create a simple CRUD application using the Django web framework. This is just extra text to make this sentence go into two paragraphs instead of one. Have a good day!
+tags: ['html', 'css', 'js']
 ---
 
-Introduction to Svelte
-`css body { background-color: blue; } ` Learn the basics of Svelte and how it differs from other frontend frameworks. This is just extra text to make this sentence go into two paragraphs instead of one. Have a good day!
+Creating a RESTful API with Node.js
+Build a RESTful API using Node.js, Express, and MongoDB. This is just extra text to make this sentence go into two paragraphs instead of one. Have a good day!
 
 One of the delights of working with Ruby and jQuery is the ability to chain methods, enabling you to conveniently invoke multiple methods on the same target. In jQuery, for example, most methods return a jQuery object, so you can build a chain of methods where every new method operates on the previous target. This enables you to update some styles, run an animation, and update an attribute, all without querying for that element over and over again:
 
@@ -73,7 +76,8 @@ Here’s the solution in full:
 
 I can’t confidently say that I recommend this approach—and I won’t be using it on this site anytime soon due to the just-too-low browser support, but I find it fascinating how bendable JavaScript is, and how with the Proxy API we can go even further.
 
-Svelte
-JavaScript
-Frontend
+Node.js
+Express
+MongoDB
+API
 Published in: css / javascript / tutorial 19/09/2019

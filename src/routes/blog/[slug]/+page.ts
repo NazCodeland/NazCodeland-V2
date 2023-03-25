@@ -9,17 +9,20 @@
 
 export async function load({ params }) {
 	try {
+		params.slug = params.slug.replaceAll('-', ' ');
 		const post = await import(`../posts/${params.slug}.md`);
-
-		const { title, date } = post.metadata;
+		const { title, date, views, timeToRead, description, tags } = post.metadata;
 		//default contains the content itself (everything but the frontmatter).
 		const content = post.default;
-		console.log(post);
 
 		return {
 			content,
 			title,
-			date
+			date,
+			views,
+			timeToRead,
+			description,
+			tags
 		};
 	} catch (error) {
 		console.log(error.message);

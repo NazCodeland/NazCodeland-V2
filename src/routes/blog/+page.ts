@@ -5,7 +5,10 @@ for (let path in blogPosts) {
 	body.push(
 		blogPosts[path]().then(({ metadata }) => {
 			path = path.replace('.md', '').replace('.svx', '').replace('./posts', '').replace('/', '');
-			return { path, metadata };
+			return {
+				path,
+				metadata
+			};
 		})
 	);
 }

@@ -1,10 +1,14 @@
 ---
-title: Getting Started with Angular
+title: Building a CRUD Application with Django
 date: '2021-12-14'
+views: 5
+timeToRead: 5 minutes
+description: Create a simple CRUD application using the Django web framework. This is just extra text to make this sentence go into two paragraphs instead of one. Have a good day!
+tags: ['html', 'css', 'js']
 ---
 
-Getting Started with Angular
-Learn the basics of Angular and create a simple app. This is just extra text to make this sentence go into two paragraphs instead of one. Have a good day!
+Introduction to Svelte
+`css body { background-color: blue; } ` Learn the basics of Svelte and how it differs from other frontend frameworks. This is just extra text to make this sentence go into two paragraphs instead of one. Have a good day!
 
 One of the delights of working with Ruby and jQuery is the ability to chain methods, enabling you to conveniently invoke multiple methods on the same target. In jQuery, for example, most methods return a jQuery object, so you can build a chain of methods where every new method operates on the previous target. This enables you to update some styles, run an animation, and update an attribute, all without querying for that element over and over again:
 
@@ -72,7 +76,7 @@ Here’s the solution in full:
 
 I can’t confidently say that I recommend this approach—and I won’t be using it on this site anytime soon due to the just-too-low browser support, but I find it fascinating how bendable JavaScript is, and how with the Proxy API we can go even further.
 
-Angular
+Svelte
 JavaScript
 Frontend
 Published in: css / javascript / tutorial 19/09/2019
