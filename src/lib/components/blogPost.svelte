@@ -2,11 +2,9 @@
 	// export let image: string = 'https://picsum.photos/200/300';
 	export let href: string;
 	export let title: string;
-	export let createdAt: string;
-	export let timeToRead: string;
-	export let views: string | number;
-
 	export let description: string;
+	export let published: string;
+	export let updated: string = '';
 	export let tags: string[];
 </script>
 
@@ -32,9 +30,8 @@
 	<div class="">
 		<h2 class="dark:opacity-[85%]">{title}</h2>
 		<div class="text-fluid-4 dark:opacity-45">
-			<span>{createdAt}</span>
-			<span>{timeToRead}</span>
-			<span>{views}</span>
+			<span>{published}</span>
+			<span>{updated}</span>
 		</div>
 	</div>
 

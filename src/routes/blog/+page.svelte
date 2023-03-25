@@ -25,9 +25,7 @@
 			<BlogPost
 				href={post.path.replaceAll(' ', '-')}
 				title={post.metadata.title}
-				createdAt={post.metadata.date}
-				views={post.metadata.views}
-				timeToRead={post.metadata.timeToRead}
+				published={post.metadata.published}
 				description={post.metadata.description}
 				tags={post.metadata.tags} />
 		{/each}

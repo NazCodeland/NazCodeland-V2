@@ -1,3 +1,8 @@
+-:> How to give each blog a "Views" and "TimeToRead" properties that update.
+		-> ideas, they need to be stored on a database
+		-> the views should be based on IP address
+		-> TimeToRead should be based on some text to speech at human readable speed
+
 -> nav is broken when you shrink screen
 -> convert svg components into svg files
 -> give the palettes a title

@@ -19,5 +19,3 @@ export async function load() {
 		posts
 	};
 }
-
-console.log(body);

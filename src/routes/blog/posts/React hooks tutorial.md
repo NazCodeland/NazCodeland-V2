@@ -1,13 +1,13 @@
 ---
-title: Building a CRUD Application with Django
-date: '2021-12-14'
-views: 5
-timeToRead: 5 minutes
+title: React Hooks Tutorial
+published: March 1st, 2023
+updated: March 3rd, 2023
 description: Create a simple CRUD application using the Django web framework. This is just extra text to make this sentence go into two paragraphs instead of one. Have a good day!
 tags: ['html', 'css', 'js']
 ---
 
 React Hooks Tutorial
+
 Learn about React Hooks and how they simplify state management in React. This is just extra text to make this sentence go into two paragraphs instead of one. Have a good day!
 
 One of the delights of working with Ruby and jQuery is the ability to chain methods, enabling you to conveniently invoke multiple methods on the same target. In jQuery, for example, most methods return a jQuery object, so you can build a chain of methods where every new method operates on the previous target. This enables you to update some styles, run an animation, and update an attribute, all without querying for that element over and over again:
