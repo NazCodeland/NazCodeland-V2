@@ -1,3 +1,8 @@
+---
+title: React Hooks Tutorial
+date: '2021-12-14'
+---
+
 React Hooks Tutorial
 Learn about React Hooks and how they simplify state management in React. This is just extra text to make this sentence go into two paragraphs instead of one. Have a good day!
 

@@ -1,3 +1,8 @@
+---
+title: Getting Started with Angular
+date: '2021-12-14'
+---
+
 Getting Started with Angular
 Learn the basics of Angular and create a simple app. This is just extra text to make this sentence go into two paragraphs instead of one. Have a good day!
 

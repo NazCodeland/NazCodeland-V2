@@ -1,3 +1,9 @@
+---
+title: Introduction to Svelte
+
+date: '2021-12-14'
+---
+
 Introduction to Svelte
 `css body { background-color: blue; } ` Learn the basics of Svelte and how it differs from other frontend frameworks. This is just extra text to make this sentence go into two paragraphs instead of one. Have a good day!
 

@@ -1,22 +1,18 @@
-// import { BlogPostCollection } from '$schemas/blogPostSchema';
+const blogPosts = import.meta.glob('./posts/*.md');
+const body = [];
 
-// I think these types are incorrect
-// function replacer(key: string, value: string) {
-// 	if (Array.isArray(value)) {
-// 		return value.map((posts) => ({
-// 			title: posts.title,
-// 			description: posts.description,
-// 			body: posts.body,
-// 			tags: posts.tags
-// 		}));
-// 	}
-// 	return value;
-// }
+for (let path in blogPosts) {
+	body.push(
+		blogPosts[path]().then(({ metadata }) => {
+			path = path.replace('.md', '').replace('.svx', '');
+			return { path, metadata };
+		})
+	);
+}
 
-// export async function load() {
-// 	const posts = await BlogPostCollection.find();
-// 	const plainPosts = JSON.parse(JSON.stringify(posts));
-// 	return {
-// 		posts: plainPosts
-// 	};
-// }
+export async function load() {
+	const posts = await Promise.all(body);
+	return {
+		posts
+	};
+}

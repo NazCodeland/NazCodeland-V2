@@ -1,3 +1,8 @@
+---
+title: Building a Realtime Chat App with Firebase
+date: '2021-12-14'
+---
+
 Building a Realtime Chat App with Firebase
 Create a chat application in real-time using Firebase. This is just extra text to make this sentence go into two paragraphs instead of one. Have a good day!
 

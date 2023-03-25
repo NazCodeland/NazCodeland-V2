@@ -1,5 +1,5 @@
 ---
-title: Post One
+title: Building a CRUD Application with Django
 date: '2021-12-14'
 ---
 
