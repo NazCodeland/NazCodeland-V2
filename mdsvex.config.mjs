@@ -5,10 +5,10 @@ const config = {
 	highlight: {
 		alias: { js: 'javascript' },
 		highlighter
-	},
-	layout: {
-		blog: './src/lib/components/MarkdownLayout.svelte'
 	}
+	// layout: {
+	// 	blog: './src/lib/components/MarkdownLayout.svelte'
+	// }
 };
 
 export default config;

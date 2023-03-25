@@ -29,21 +29,20 @@
 	dark:outline dark:outline-primaryColor dark:hover:bg-slate-50/20
 	dark:focus-visible:outline-dashed dark:active:bg-slate-50/12 dark:[&:is(:hover,:focus-visible)]:outline-[canvasText]">
 	<!-- <img class="img" src={image} alt="a cute dog" /> -->
-
 	<div class="">
 		<h2 class="dark:opacity-[85%]">{title}</h2>
 		<div class="text-fluid-4 dark:opacity-45">
 			<span>{createdAt}</span>
-			<span>{timeToRead}</span>
-			<span>{views}</span>
+			<!-- <span>{timeToRead}</span> -->
+			<!-- <span>{views}</span> -->
 		</div>
 	</div>
 
 	<p class="max-w-[80ch] dark:opacity-[70%]">{description}</p>
 
-	<div class="mt-auto flex gap-2 text-sm">
+	<!-- <div class="mt-auto flex gap-2 text-sm">
 		{#each tags as tag}
 			<a class="btn" href="/">{tag}</a>
 		{/each}
-	</div>
+	</div> -->
 </a>
