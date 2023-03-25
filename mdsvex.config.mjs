@@ -1,17 +1,14 @@
 import highlighter from './src/lib/utilities/codeHighlighter.js';
 
-import { fileURLToPath } from 'url';
-import { join, dirname } from 'path';
-
 const config = {
-	extensions: ['.svelte.md'],
+	extensions: ['.svelte', '.md'],
 	highlight: {
+		alias: { js: 'javascript' },
 		highlighter
 	},
-	layout: join(
-		dirname(fileURLToPath(import.meta.url)),
-		'./src/lib/components/MarkdownLayout.svelte'
-	)
+	layout: {
+		blog: './src/lib/components/MarkdownLayout.svelte'
+	}
 };
 
 export default config;

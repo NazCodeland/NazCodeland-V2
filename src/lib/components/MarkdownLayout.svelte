@@ -1,19 +1,9 @@
-<script lang="ts">
+<script context="module">
+	import h1 from '$lib/components/ProfileCard.svelte';
+	export { h1 };
 </script>
 
-<section class="line-numbers">
-	<slot />
-</section>
+<slot />
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-
-		inline-size: clamp(0vw, 100%, 900px);
-		margin: auto;
-
-		font-size: 1rem;
-	}
 </style>

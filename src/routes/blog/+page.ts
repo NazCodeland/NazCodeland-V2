@@ -1,4 +1,4 @@
-import { BlogPostCollection } from '$schemas/blogPostSchema';
+// import { BlogPostCollection } from '$schemas/blogPostSchema';
 
 // I think these types are incorrect
 // function replacer(key: string, value: string) {
@@ -13,10 +13,10 @@ import { BlogPostCollection } from '$schemas/blogPostSchema';
 // 	return value;
 // }
 
-export async function load() {
-	const posts = await BlogPostCollection.find();
-	const plainPosts = JSON.parse(JSON.stringify(posts));
-	return {
-		posts: plainPosts
-	};
-}
+// export async function load() {
+// 	const posts = await BlogPostCollection.find();
+// 	const plainPosts = JSON.parse(JSON.stringify(posts));
+// 	return {
+// 		posts: plainPosts
+// 	};
+// }

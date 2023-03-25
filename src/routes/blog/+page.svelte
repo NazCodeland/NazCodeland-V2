@@ -1,41 +1,36 @@
-<script>
-	import BlogPost from '$lib/components/blogPost.svelte';
-	export let data;
+<!-- Need to render all the blog posts in the folder here -->
+
+<!-- <script>
+	const blogPosts = import.meta.glob('./posts/*.md');
+
+	let body = [];
+
+	for (let path in blogPosts) {
+		body.push(
+			blogPosts[path]().then(({ metadata }) => {
+				path = path.replace('.md', '').replace('.svx', '');
+				return { path, metadata };
+			})
+		);
+	}
+
+	export async function load({ url, params, fetch }) {
+		const posts = await Promise.all(body);
+		return {
+			props: {
+				posts
+			}
+		};
+	}
+	export let posts;
 </script>
 
-<svelte:head>
-	<title>NazCodeland |</title>
-</svelte:head>
+<h1>Blog</h1>
 
-<section>
-	<h1 class="mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] font-bold">Blog</h1>
-
-	<!-- <div class="flex flex-col gap-16"> -->
-	<!-- not sure if this should be included in its current form -->
-	<!-- <ol class="titleLayout mb-20 list-decimal">
-			{#each data.posts as post}
-				<Link href="/" title={post.title} />
-			{/each}
-		</ol> -->
-
-	<div class="gridLayout gap-8">
-		{#each data.posts as post, i}
-			<BlogPost
-				href={post.title.toLowerCase().replaceAll(' ', '-')}
-				title={post.title}
-				createdAt={post.createdAt}
-				views={post.views}
-				timeToRead={post.timeToRead}
-				description={post.description}
-				tags={post.tags} />
-		{/each}
-	</div>
-	<!-- </div> -->
-</section>
-
-<style>
-	.gridLayout {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
-	}
-</style>
+<ul>
+	{#each posts.reverse() as { path, metadata: { title, date } }}
+		<li>
+			<a rel="prefetch" href="blog/{path}">{title}</a> - {date}
+		</li>
+	{/each}
+</ul> -->

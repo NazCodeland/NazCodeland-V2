@@ -36,13 +36,14 @@ code {
 	margin: var(--spacing-4) auto var(--spacing-18);
 	box-shadow: var(--shadow-elevation-medium);
 	overflow-x: auto;
-	max-inline-size: var(--max-width-full);
+	/* max-inline-size: var(--max-width-full); */
 }
 
 .highlight-line {
 	display: inline-block;
+
 	background-color: var(--colour-code-background-highlighted);
-	inline-size: calc(var(--max-width-full) + var(--spacing-4));
+	/* inline-size: calc(var(--max-width-full) + var(--spacing-4)); */
 	border-inline-start: var(--spacing-1) solid var(--colour-code-line-highlight);
 	margin-inline-start: calc(-1 * var(--spacing-1));
 }
