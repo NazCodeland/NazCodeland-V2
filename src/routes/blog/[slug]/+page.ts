@@ -1,12 +1,4 @@
-// import { BlogPostCollection } from '$schemas/blogPostSchema';
-
-// export async function load({ params }) {
-// 	const slug = params.slug;
-// 	const post = await BlogPostCollection.findOne({ slug });
-// 	const plainPost = JSON.parse(JSON.stringify(post));
-// 	return { post: plainPost };
-// }
-
+// CREDIT: https://joshcollinsworth.com/blog/build-static-sveltekit-markdown-blog
 export async function load({ params }) {
 	try {
 		params.slug = params.slug.replaceAll('-', ' ');

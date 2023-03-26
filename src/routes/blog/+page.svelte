@@ -3,6 +3,7 @@
 <script>
 	export let data;
 	import BlogPost from '$lib/components/blogPost.svelte';
+	import Link from '$lib/elements/Link.svelte';
 </script>
 
 <svelte:head>
@@ -12,15 +13,19 @@
 <section>
 	<h1 class="mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] font-bold">Blog</h1>
 
-	<!-- <div class="flex flex-col gap-16"> -->
-	<!-- not sure if this should be included in its current form -->
-	<!-- <ol class="titleLayout mb-20 list-decimal">
+	<!-- include a table of contents banner for the article like this website:
+		https://jeffpohlmeyer.com/building-a-blog-with-sveltekit-tailwindcss-and-mdsvex#heading-blog-detail-view
+	-->
+	<!-- <details class="flex flex-col gap-16">
+		<summary class="titleLayout mb-20">Blog Posts</summary>
+		<div class="list-decimal">
 			{#each data.posts as post}
-				<Link href="/" title={post.title} />
+				<Link href="/" title={post.metadata.title} />
 			{/each}
-		</ol> -->
+		</div>
+	</details> -->
 
-	<div class="gridLayout gap-8">
+	<div class="gridLayout gap-x-8 gap-y-20">
 		{#each data.posts as post}
 			<BlogPost
 				href={post.path.replaceAll(' ', '-')}
@@ -30,8 +35,6 @@
 				tags={post.metadata.tags} />
 		{/each}
 	</div>
-
-	<!-- </div> -->
 </section>
 
 <style>

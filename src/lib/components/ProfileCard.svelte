@@ -46,12 +46,15 @@
 				Blog</a> about what I am learning and to reference it in the future.
 		</p>
 
-		<footer class="mt-2 flex flex-wrap gap-2 [@media(width>=328px)]:gap-4">
-			<a
-				class="btn btn-filled-primary flex-grow transition-[flex-grow,transform] delay-[0s] duration-[4s,0.15s] [@media(width>900px)]:flex-grow-0"
-				href="/portfolio">View Portfolio</a>
-			<a class="btn btn-outlined-primary" href="/resume">View Resume</a>
-			<a href="/" class="btn">Base</a>
+		<footer class="mt-2">
+			<ul class="flex flex-wrap gap-2 [@media(width>=328px)]:gap-4">
+				<li
+					class="btn btn-filled-primary flex-grow transition-[flex-grow,transform] delay-[0s] duration-[4s,0.15s] [@media(width>900px)]:flex-grow-0">
+					<a href="/portfolio">View Portfolio</a>
+				</li>
+				<li class="btn btn-outlined-primary"><a href="/resume">View Resume</a></li>
+				<li class="btn"><a href="/">Base</a></li>
+			</ul>
 		</footer>
 	</div>
 </article>

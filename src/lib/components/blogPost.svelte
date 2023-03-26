@@ -6,6 +6,10 @@
 	export let published: string;
 	export let updated: string = '';
 	export let tags: string[];
+
+	function handleClick(event) {
+		event.stopPropagation();
+	}
 </script>
 
 <a
@@ -39,7 +43,10 @@
 
 	<div class="mt-auto flex gap-2 text-sm">
 		{#each tags as tag}
-			<a class="btn" href="/">{tag}</a>
+			<a on:click|stopPropagation class="btn" href="/">{tag}</a>
 		{/each}
 	</div>
 </a>
+
+<style lang="">
+</style>

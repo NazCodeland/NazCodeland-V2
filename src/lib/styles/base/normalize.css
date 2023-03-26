@@ -44,7 +44,8 @@
 	}
 
 	a,
-	button {
+	button,
+	li {
 		outline-width: 0.1rem;
 	}
 
