@@ -21,7 +21,7 @@
 		</ol> -->
 
 	<div class="gridLayout gap-8">
-		{#each data.posts as post, i}
+		{#each data.posts as post}
 			<BlogPost
 				href={post.path.replaceAll(' ', '-')}
 				title={post.metadata.title}

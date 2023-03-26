@@ -11,7 +11,7 @@
 @tailwind utilities;
 
 body {
-	font-family: Alkes, cursive;
+	/* font-family: Alkes, cursive; */
 }
 
 h1 {
@@ -42,7 +42,7 @@ code {
 	margin: var(--spacing-4) auto var(--spacing-18);
 	box-shadow: var(--shadow-elevation-medium);
 	overflow-x: auto;
-	/* max-inline-size: var(--max-width-full); */
+	max-inline-size: var(--max-width-full);
 }
 
 .highlight-line {

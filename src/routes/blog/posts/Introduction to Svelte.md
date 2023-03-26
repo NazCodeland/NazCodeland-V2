@@ -25,10 +25,70 @@ Short and sweet. If you’ve updated the styles of an object with vanilla JavaSc
 
 There are a few different ways of making this more convenient, but the other day I started thinking about if it would be possible to use a Proxy object (at the time of writing, global support is at 92.76%) to enable chaining of style changes. Turns out, it’s relatively easy. We’ll walk through how to create a light-weight Proxy handler that will enable us to shorten the code above to this:
 
-    style(".menu")
-    .color("#fff")
-    .backgroundColor("#000")
-    .opacity("1");
+## Svelte
+
+```svelte {5-7,10-11}
+<script context="module" lang="ts">
+	export const prerender = true;
+</script>
+
+<script lang="ts">
+	import Counter from '$lib/Counter.svelte';
+</script>
+
+<svelte:head>
+	<title>Home</title>
+	<meta name="description" content="Svelte demo app" />
+</svelte:head>
+
+<section>
+	<h1>
+		<div class="welcome">
+			<picture>
+				<source srcset="svelte-welcome.webp" type="image/webp" />
+				<img src="svelte-welcome.png" alt="Welcome" />
+			</picture>
+		</div>
+
+		to your new<br />SvelteKit app
+	</h1>
+
+	<h2>
+		try editing <strong>src/routes/index.svelte</strong>
+	</h2>
+
+	<Counter />
+</section>
+
+<style>
+	section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		flex: 1;
+	}
+
+	h1 {
+		width: 100%;
+	}
+
+	.welcome {
+		position: relative;
+		width: 100%;
+		height: 0;
+		padding: 0 0 calc(100% * 495 / 2048) 0;
+	}
+
+	.welcome img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		display: block;
+	}
+</style>
+```
 
 We’ll use roughly the same strategy as jQuery does: we’ll fetch the style object of an element and wrap it with a Proxy in order to intercept (trap) all get calls to that style object, take the accessed property and update its value if a value is passed, and then return the Proxy handler wrapping the style object again, enabling us to build an infinite chain of commands.
 
