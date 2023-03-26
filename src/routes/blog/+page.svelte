@@ -25,16 +25,18 @@
 		</div>
 	</details> -->
 
-	<div class="gridLayout gap-x-8 gap-y-20">
+	<ul class="gridLayout gap-x-8 gap-y-20">
 		{#each data.posts as post}
-			<BlogPost
-				href={post.path.replaceAll(' ', '-')}
-				title={post.metadata.title}
-				published={post.metadata.published}
-				description={post.metadata.description}
-				tags={post.metadata.tags} />
+			<li>
+				<BlogPost
+					href={post.path.replaceAll(' ', '-')}
+					title={post.metadata.title}
+					published={post.metadata.published}
+					description={post.metadata.description}
+					tags={post.metadata.tags} />
+			</li>
 		{/each}
-	</div>
+	</ul>
 </section>
 
 <style>

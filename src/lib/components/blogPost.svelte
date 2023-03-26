@@ -12,7 +12,7 @@
 	}
 </script>
 
-<a
+<article
 	href="/blog/{href}"
 	class="
 	forcedClrAdjust flex flex-auto basis-[30ch] flex-col
@@ -46,7 +46,7 @@
 			<a on:click|stopPropagation class="btn" href="/">{tag}</a>
 		{/each}
 	</div>
-</a>
+</article>
 
 <style lang="">
 </style>
