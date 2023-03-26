@@ -27,7 +27,10 @@ async function highlighter(code, lang, meta) {
 
 		html = shikiHighlighter.codeToHtml(code, {
 			lang,
-			lineOptions: highlightLines.map((element) => ({ line: element, classes: ['highlight-line'] }))
+			lineOptions: highlightLines.map((element) => ({
+				line: element,
+				classes: ['highlighted-lines']
+			}))
 		});
 	}
 	html = makeFocussable(html);

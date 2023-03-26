@@ -25,6 +25,8 @@ Short and sweet. If you’ve updated the styles of an object with vanilla JavaSc
 
 There are a few different ways of making this more convenient, but the other day I started thinking about if it would be possible to use a Proxy object (at the time of writing, global support is at 92.76%) to enable chaining of style changes. Turns out, it’s relatively easy. We’ll walk through how to create a light-weight Proxy handler that will enable us to shorten the code above to this:
 
+<span class="testing">Hello</span>
+
 ## Svelte
 
 ```svelte {5-7,10-11}
@@ -70,21 +72,21 @@ There are a few different ways of making this more convenient, but the other day
 	}
 
 	h1 {
-		width: 100%;
+		inline-size: 100%;
 	}
 
 	.welcome {
 		position: relative;
-		width: 100%;
-		height: 0;
+		inline-size: 100%;
+		block-size: 0;
 		padding: 0 0 calc(100% * 495 / 2048) 0;
 	}
 
 	.welcome img {
 		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
+		inline-size: 100%;
+		block-size: 100%;
+		inset-block-start: 0;
 		display: block;
 	}
 </style>
@@ -139,3 +141,12 @@ Svelte
 JavaScript
 Frontend
 Published in: css / javascript / tutorial 19/09/2019
+
+<style>
+	.testing {
+		display: flex;
+		background-color: orange;
+		inline-size: 100%;
+		max-inline-size: 60ch;
+	}
+</style>

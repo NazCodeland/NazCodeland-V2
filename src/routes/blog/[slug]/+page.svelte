@@ -3,7 +3,7 @@
 </script>
 
 <div class="m-auto flex w-full max-w-[60ch] gap-4">
-	<article class="w- flex flex-col">
+	<article class="flex w-full flex-col">
 		<h1>{data.title}</h1>
 		<p>Published: {data.published}</p>
 		<p>Published: {data.updated}</p>
@@ -15,12 +15,4 @@
 </div>
 
 <style>
-	.side {
-		position: sticky;
-		top: 200px;
-		width: 400px;
-		height: 400px;
-		color: #fff;
-		background: #30b298;
-	}
 </style>
