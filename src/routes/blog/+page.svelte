@@ -27,9 +27,9 @@
 	<h1 class="mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] font-bold">
 		Blog
 	</h1>
-	<div class="flex gap-16">
+	<div class="flex gap-10">
 		<aside
-			class="scrollbar sticky top-40 hidden h-[75vh] w-[30rem] overflow-y-auto overflow-x-hidden sm:block">
+			class="scrollbar sticky top-40 hidden h-[75vh] w-[18rem] flex-shrink-0 overflow-y-auto overflow-x-hidden p-2 sm:block">
 			<div>
 				<label for="search">Search post titles</label>
 				<input
@@ -48,7 +48,7 @@
 					<li>
 						<a
 							href="/blog/{post.path.replaceAll(' ', '-')}"
-							class="underline decoration-primaryColor opacity-[70%] hover:opacity-[1]">
+							class="underline decoration-primaryColor opacity-70 hover:opacity-1">
 							{post.metadata.title}
 						</a>
 					</li>
@@ -66,7 +66,7 @@
 				{/each}
 			</ul>
 		</aside>
-		<main class="">
+		<main class="max-w-[1350px]">
 			<!-- include a table of contents banner for the article like this website:
 				https://jeffpohlmeyer.com/building-a-blog-with-sveltekit-tailwindcss-and-mdsvex#heading-blog-detail-view
 			-->
@@ -79,7 +79,7 @@
 				</div>
 			</details> -->
 			<!-- blog posts -->
-			<ul class="grid gap-14 sm:grid-cols-[repeat(auto-fit,minmax(400px,1fr))]">
+			<ul class="grid gap-14 sm:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] md:gap-20">
 				{#each data.posts as post}
 					<li class="flex">
 						<BlogPost

@@ -16,7 +16,7 @@
 			<br />
 			<!-- using 'display: block' on the below small elements class, 
             causes an undesirable pause in the NVDA screen reader. '<br> does not.'-->
-			<small class="text-fluid-4 font-normal opacity-[70%]">Frontend Developer</small>
+			<small class="text-fluid-4 font-normal opacity-70">Frontend Developer</small>
 		</h2>
 
 		<p class="max-w-[60ch]">

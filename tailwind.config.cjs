@@ -9,11 +9,11 @@ module.exports = {
 			logoNotFirstL: "'Suez one', system-ui, Arial, sans-serif"
 		},
 		opacity: {
-			00: '0%',
-			05: '5%',
-			07: '7%',
-			08: '8%',
-			09: '9%',
+			0: '0%',
+			5: '5%',
+			7: '7%',
+			8: '8%',
+			9: '9%',
 			11: '11%',
 			12: '12%',
 			14: '14%',
@@ -25,8 +25,9 @@ module.exports = {
 			/* Light text opacity on dark backgrounds from material design guidelines */
 			38: '38%' /* 38%; very-low text emphasis */,
 			45: '45%' /* 45%; low text emphasis */,
-			60: '60%' /* 60%; medium text emphasis */,
-			87: '87%' /* 87%; high text emphasis  */
+			70: '70%' /* medium text emphasis, 60% on google material design, changed it to 70%  */,
+			85: '85%' /* high text emphasis, 87% on google material design, changed it to 85% */,
+			1: '100%'
 		},
 
 		extend: {

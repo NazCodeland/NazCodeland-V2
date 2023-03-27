@@ -24,4 +24,11 @@
 		--box-shadow-hover: none;
 		--box-shadow-active: none;
 	}
+
+	[color-scheme='dark'] h1,
+	[color-scheme='dark'] h2,
+	[color-scheme='dark'] h3,
+	[color-scheme='dark'] p {
+		opacity: theme(opacity.85);
+	}
 }

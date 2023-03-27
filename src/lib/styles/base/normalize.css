@@ -1,9 +1,5 @@
 /* normalize */
 @layer base {
-	[color-scheme='dark'] p {
-		opacity: 0.7;
-	}
-
 	h1,
 	h2,
 	h3 {
