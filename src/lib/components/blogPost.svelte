@@ -22,7 +22,7 @@
 		</div>
 	</div>
 
-	<p class="max-w-[60ch] dark:opacity-[70%]">{description}</p>
+	<p class=" dark:opacity-[70%]">{description}</p>
 
 	<div class="mt-auto flex gap-1">
 		{#each tags as tag}

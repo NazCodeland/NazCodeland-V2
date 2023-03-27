@@ -106,6 +106,7 @@ module.exports = {
 				active: 'var(--box-shadow-active)'
 			},
 			screens: {
+				sm: '820px',
 				md: '1025px'
 			}
 		}
