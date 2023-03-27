@@ -28,7 +28,8 @@
 		Blog
 	</h1>
 	<div class="flex gap-16">
-		<aside class="sticky top-40 hidden h-[50%] basis-40 sm:block">
+		<aside
+			class="scrollbar sticky top-40 hidden h-[75vh] w-[30rem] overflow-y-auto overflow-x-hidden sm:block">
 			<div>
 				<label for="search">Search post titles</label>
 				<input
@@ -55,7 +56,7 @@
 			</ul>
 
 			<!-- prettier-ignore -->
-			<h3 class="mt-8 mb-2 ">
+			<h3 class="mt-8 mb-2">
 				Categories</h3>
 			<ul class="flex flex-wrap gap-1">
 				{#each categories as category}
@@ -94,5 +95,20 @@
 	</div>
 </div>
 
-<style>
+<style style="postcss">
+	/* scrollbar */
+	::-webkit-scrollbar {
+		inline-size: 4px;
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: rgba(var(--primary, 90, 102, 110));
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: rgba(var(--tertiary));
+		border: none;
+	}
 </style>
