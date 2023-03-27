@@ -3,7 +3,7 @@ title: Learning Git
 published: March 1st, 2023
 updated: March 3rd, 2023
 description: Create a simple CRUD application using the Django web framework. This is just extra text to make this sentence go into two paragraphs instead of one. Have a good day!
-tags: ['html', 'css', 'js']
+tags: ['html', 'css', 'javascript']
 ---
 
 ## Svelte
@@ -19,21 +19,15 @@ tags: ['html', 'css', 'js']
 
 <svelte:head>
 	<title>Home</title>
-	<meta 
-		name="description" 
-		content="Svelte demo app" />
+	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
 <section>
 	<h1>
 		<div class="welcome">
 			<picture>
-				<source 
-					srcset="svelte-welcome.webp" 
-					type="image/webp" />
-				<img 
-					src="svelte-welcome.png" 
-					alt="Welcome" />
+				<source srcset="svelte-welcome.webp" type="image/webp" />
+				<img src="svelte-welcome.png" alt="Welcome" />
 			</picture>
 		</div>
 
@@ -41,7 +35,7 @@ tags: ['html', 'css', 'js']
 	</h1>
 
 	<h2>
-		try editing 
+		try editing
 		<strong>src/routes/index.svelte</strong>
 	</h2>
 

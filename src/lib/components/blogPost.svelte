@@ -8,21 +8,21 @@
 	export let tags: string[];
 </script>
 
-<article class="flex flex-col gap-4">
+<article class="flex flex-col gap-3">
 	<!-- <img class="img" src="https://picsum.photos/800/100" width="500" height="100" alt="a cute dog" /> -->
 	<div class="">
-		<h2 class="leading-8 dark:opacity-[85%]">
+		<h2 class="dark:opacity-[85%]">
 			<a class="decoration-primaryColor hover:underline" href="/blog/{href}">
 				{title}
 			</a>
 		</h2>
-		<div class="text-fluid-4 dark:opacity-45">
+		<div class="text-fluid-4 opacity-60">
 			<span>{published}</span>
 			<span>{updated}</span>
 		</div>
 	</div>
 
-	<p class=" dark:opacity-[70%]">{description}</p>
+	<p class="mb-1">{description}</p>
 
 	<div class="mt-auto flex gap-1">
 		{#each tags as tag}

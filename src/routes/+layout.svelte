@@ -11,7 +11,7 @@
 	class="siteWrapper bg-primaryColor p-4-32 pt-4/16-32/48 transition-[padding-top] delay-[0] duration-1000"
 	use:setAttributeOnDocumentAction>
 	<div
-		class="flex flex-col gap-88-132 rounded-2xl bg-secondaryColor p-16-40 font-body text-fluid-3 text-bodyCopy">
+		class="flex flex-col gap-88-132 rounded-2xl bg-secondaryColor p-16-40 font-body text-fluid-3 leading-7 text-bodyCopy md:leading-8">
 		<!--  -->
 		<header
 			class="sticky top-0 z-20 flex items-center justify-between gap-4 bg-secondaryColor pl-3 pt-6 pb-3 md:border-b md:border-solid md:border-primaryColor">

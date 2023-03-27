@@ -35,12 +35,12 @@ module.exports = {
 				logoNotFirstL: 'clamp(1.375rem, calc(0.75rem + 1.94vw), 2.25rem)',
 
 				/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1440,20,1.618,3,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-				'fluid-1': 'clamp(1.73rem, calc(1.38rem + 1.76vw), 2.96rem);',
-				'fluid-2': 'clamp(1.44rem, calc(1.22rem + 1.12vw), 2.22rem);',
-				'fluid-3': 'clamp(1.2rem, calc(1.07rem + 0.67vw), 1.67rem);',
-				'fluid-4': 'clamp(1rem, calc(0.93rem + 0.36vw), 1.25rem);',
-				'fluid-5': 'clamp(0.83rem, calc(0.8rem + 0.15vw), 0.94rem);',
-				'fluid-6': 'clamp(0.69rem, calc(0.69rem + 0.01vw), 0.7rem);'
+				'fluid-1': 'clamp(1.73rem, calc(1.02rem + 3.56vw), 4.22rem)',
+				'fluid-2': 'clamp(1.27rem, calc(0.82rem + 2.21vw), 2rem)',
+				'fluid-3': 'clamp(1rem, calc(0.91rem + 1.07vw), 1.5rem)',
+				'fluid-4': 'clamp(1rem, calc(0.93rem + 0.36vw), 1.25rem)',
+				'fluid-5': 'clamp(0.83rem, calc(0.8rem + 0.15vw), 0.94rem)',
+				'fluid-6': 'clamp(0.69rem, calc(0.69rem + 0.01vw), 0.7rem)'
 			},
 			colors: {
 				primaryColor: 'rgba(var(--primary-color))',

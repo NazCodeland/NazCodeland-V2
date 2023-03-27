@@ -1,7 +1,6 @@
 .tag {
-	font-size: 0.9rem;
+	font-size: 12.8px;
 	color: theme(colors.secondaryColor);
 	background-color: theme(colors.primaryColor);
-	padding-inline: 1rem;
-	padding-block: 0.25rem;
+	padding-inline: 1em;
 }
