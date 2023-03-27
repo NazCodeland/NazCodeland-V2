@@ -52,9 +52,7 @@
 			</div>
 		</header>
 
-		<main class="flex flex-col gap-88-132">
-			<slot />
-		</main>
+		<slot />
 
 		<footer
 			class="site-wide-footer flex justify-end border-b border-solid

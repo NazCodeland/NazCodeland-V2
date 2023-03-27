@@ -1,4 +1,4 @@
-
+-:> generate the blog article images using AI, midJourney
 
 -:> Make sure typescript code contains typechecking
 

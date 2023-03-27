@@ -6,44 +6,27 @@
 	export let published: string;
 	export let updated: string = '';
 	export let tags: string[];
-
-	function handleClick(event) {
-		event.stopPropagation();
-	}
 </script>
 
-<article
-	href="/blog/{href}"
-	class="
-	forcedClrAdjust flex flex-auto basis-[30ch] flex-col
-	gap-4 rounded-lg
-	p-4 shadow-rest
-	transition-transform delay-[0s] duration-[0.15s]
-	ease-in-out
-	hover:scale-[1.01]
-	hover:cursor-pointer
-	hover:shadow-hover
-	active:scale-active
-	active:shadow-active
-	group-data-[themePalette=main]:outline-0
-	group-data-[themePalette=main]:focus-visible:outline-2
-	dark:bg-slate-1/12
-	dark:outline dark:outline-primaryColor dark:hover:bg-slate-50/20
-	dark:focus-visible:outline-dashed dark:active:bg-slate-50/12 dark:[&:is(:hover,:focus-visible)]:outline-[canvasText]">
-	<!-- <img class="img" src={image} alt="a cute dog" /> -->
+<article class="flex flex-col gap-4">
+	<!-- <img class="img" src="https://picsum.photos/800/100" width="500" height="100" alt="a cute dog" /> -->
 	<div class="">
-		<h2 class="dark:opacity-[85%]">{title}</h2>
+		<h2 class="leading-8 dark:opacity-[85%]">
+			<a class="decoration-primaryColor hover:underline" href="/blog/{href}">
+				{title}
+			</a>
+		</h2>
 		<div class="text-fluid-4 dark:opacity-45">
 			<span>{published}</span>
 			<span>{updated}</span>
 		</div>
 	</div>
 
-	<p class="max-w-[80ch] dark:opacity-[70%]">{description}</p>
+	<p class="max-w-[60ch] dark:opacity-[70%]">{description}</p>
 
-	<div class="mt-auto flex gap-2 text-sm">
+	<div class="mt-auto flex gap-1">
 		{#each tags as tag}
-			<a on:click|stopPropagation class="btn" href="/">{tag}</a>
+			<a class="tag" href="/">{tag.toUpperCase()}</a>
 		{/each}
 	</div>
 </article>
