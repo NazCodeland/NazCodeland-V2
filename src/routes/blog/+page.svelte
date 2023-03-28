@@ -52,19 +52,23 @@
 				<label for="search">Search post titles</label>
 				<input
 					bind:value={search}
-					class="w-full p-2 py-1 outline outline-1 outline-current"
+					class="w-[100.2%] p-2 py-1 outline outline-1 outline-current"
 					name="search"
 					type="search"
 					placeholder="Search post titles" />
 
-				<ul class="flex flex-col gap-2 text-[1.25rem] leading-6">
+				<ul
+					class="{search.length
+						? 'bg-[Field] outline outline-[0.1px]'
+						: ''} mx-[1px] flex flex-col gap-2 text-[1.25rem] leading-6">
 					{#if search.length}
 						{#each [...results] as result}
 							<li class="underline decoration-primaryColor opacity-70 hover:opacity-1">
 								<a
 									class="underline decoration-primaryColor"
 									href="/blog/{result.replaceAll(' ', '-')}">
-									{result}</a>
+									{result}
+								</a>
 							</li>
 						{/each}
 					{/if}
