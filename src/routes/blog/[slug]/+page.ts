@@ -15,7 +15,7 @@ export async function load({ params }) {
 			updated,
 			tags
 		};
-	} catch (error) {
+	} catch (error: any) {
 		console.log(error.message);
 	}
 }

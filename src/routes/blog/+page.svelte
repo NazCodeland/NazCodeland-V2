@@ -1,8 +1,24 @@
 <!-- Need to render all the blog posts in the folder here -->
 
-<script>
+<script lang="ts">
 	export let data;
 	import BlogPost from '$lib/components/blogPost.svelte';
+
+	let search: any = '';
+
+	let results = new Set([]);
+
+	$: if (search) {
+		data.posts.forEach((post) => {
+			const title: string = post.path;
+			if (title.toLowerCase().includes(search.toLowerCase())) {
+				results.add(title);
+			} else {
+				results.delete(title);
+			}
+			results = results;
+		});
+	}
 
 	const categories = [
 		'JavaScript',
@@ -29,14 +45,30 @@
 	</h1>
 	<div class="flex gap-10">
 		<aside
-			class="scrollbar sticky top-40 hidden h-[75vh] w-[18rem] flex-shrink-0 overflow-y-auto overflow-x-hidden p-2 sm:block">
+			class="scrollbar sticky top-40 hidden h-[75vh]
+			w-[18rem] flex-shrink-0 overflow-y-auto
+			overflow-x-hidden p-2 sm:block">
 			<div>
 				<label for="search">Search post titles</label>
 				<input
+					bind:value={search}
+					class="w-full p-2 py-1 outline outline-1 outline-current"
 					name="search"
 					type="search"
-					placeholder="Search post titles"
-					title="Search post titles" />
+					placeholder="Search post titles" />
+
+				<ul class="flex flex-col gap-2 text-[1.25rem] leading-6">
+					{#if search.length}
+						{#each [...results] as result}
+							<li class="underline decoration-primaryColor opacity-70 hover:opacity-1">
+								<a
+									class="underline decoration-primaryColor"
+									href="/blog/{result.replaceAll(' ', '-')}">
+									{result}</a>
+							</li>
+						{/each}
+					{/if}
+				</ul>
 			</div>
 
 			<!-- prettier-ignore -->
