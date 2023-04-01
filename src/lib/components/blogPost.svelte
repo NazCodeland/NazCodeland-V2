@@ -6,20 +6,30 @@
 	export let published: string;
 	export let updated: string = '';
 	export let tags: string[];
-	import Giscus from 'C:/Users/o0/source/projects/mine/myApp/node_modules/@giscus/svelte/package/Giscus.svelte';
 </script>
 
-<Giscus
-	id="comments"
-	repo="NazCodeland/NazCodeland-V2"
-	repoId="R_kgDOJDWq2A"
-	category="Announcements"
-	categoryId="DIC_kwDOJDWq2M4CVdOM"
-	mapping="pathname"
-	strict="1"
-	reactionsEnabled="1"
-	emitMetadata="0"
-	inputPosition="bottom"
-	theme="dark_dimmed"
-	lang="en"
-	loading="lazy" />
+<article class="flex flex-col gap-3">
+	<!-- <img class="img" src="https://picsum.photos/800/100" width="500" height="100" alt="a cute dog" /> -->
+	<div class="">
+		<h2>
+			<a class="decoration-primaryColor hover:underline" href="/blog/{href}">
+				{title}
+			</a>
+		</h2>
+		<div class="text-fluid-4 opacity-70">
+			<span>{published}</span>
+			<span>{updated}</span>
+		</div>
+	</div>
+
+	<p class="mb-1">{description}</p>
+
+	<div class="mt-auto flex gap-1">
+		{#each tags as tag}
+			<a class="tag" href="/">{tag.toUpperCase()}</a>
+		{/each}
+	</div>
+</article>
+
+<style lang="">
+</style>

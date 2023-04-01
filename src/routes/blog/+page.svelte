@@ -39,11 +39,28 @@
 		'Python',
 		'A11Y'
 	];
+
+	import Giscus from 'C:/Users/o0/source/projects/mine/myApp/node_modules/@giscus/svelte/package/Giscus.svelte';
 </script>
 
 <svelte:head>
 	<title>NazCodeland |</title>
 </svelte:head>
+
+<Giscus
+	id="comments"
+	repo="NazCodeland/NazCodeland-V2"
+	repoId="R_kgDOJDWq2A"
+	category="Announcements"
+	categoryId="DIC_kwDOJDWq2M4CVdOM"
+	mapping="pathname"
+	strict="1"
+	reactionsEnabled="1"
+	emitMetadata="0"
+	inputPosition="bottom"
+	theme="dark_dimmed"
+	lang="en"
+	loading="lazy" />
 
 <div class="m-auto flex flex-col gap-10">
 	<!-- prettier-ignore -->
