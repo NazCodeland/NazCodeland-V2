@@ -43,6 +43,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"fuse.js": "^6.6.2",
 		"mongodb": "^5.1.0",
 		"mongoose": "^7.0.3",
 		"shiki": "^0.14.1",

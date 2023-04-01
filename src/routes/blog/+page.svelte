@@ -1,25 +1,32 @@
 <!-- Need to render all the blog posts in the folder here -->
 
 <script lang="ts">
+	import Fuse from 'fuse.js';
 	export let data;
 	import BlogPost from '$lib/components/blogPost.svelte';
 
+	const titles = [
+		'Build a RESTful API using Node.js Express, and MongoDB',
+		'Building a CRUD Application with Django',
+		'Building a Realtime Chat App with Firebase',
+		'Creating a Responsive Layout with CSS Grid',
+		'Getting started with Angular',
+		'Introduction to Svelte',
+		'Learning Git',
+		'React Hooks Tutorial',
+		'Vue.js Tutorial'
+	];
+
 	let search: any = '';
+	let results: unknown; // how can I give it the type of object returned by fuse.search()
 
-	let results = new Set([]);
-
+	const options = { threshold: 0.4 };
+	const fuse = new Fuse(titles, options);
 	$: if (search) {
-		data.posts.forEach((post) => {
-			const title: string = post.path;
-			if (title.toLowerCase().includes(search.toLowerCase())) {
-				results.add(title);
-			} else {
-				results.delete(title);
-			}
-			results = results;
-		});
+		results = fuse.search(search);
 	}
 
+	$: console.log(results);
 	const categories = [
 		'JavaScript',
 		'Design',
@@ -62,12 +69,10 @@
 						? 'bg-[Field] outline outline-[0.1px]'
 						: ''} mx-[1px] flex flex-col gap-2 text-[1.25rem] leading-6">
 					{#if search.length}
-						{#each [...results] as result}
+						{#each results as result}
 							<li class="underline decoration-primaryColor opacity-70 hover:opacity-1">
-								<a
-									class="underline decoration-primaryColor"
-									href="/blog/{result.replaceAll(' ', '-')}">
-									{result}
+								<a class="underline decoration-primaryColor" href="/blog/{result}">
+									{result.item}
 								</a>
 							</li>
 						{/each}
