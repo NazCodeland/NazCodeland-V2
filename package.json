@@ -30,7 +30,7 @@
 		"mdsvex": "^0.10.6",
 		"node-html-parser": "^6.1.5",
 		"postcss": "^8.4.21",
-		"prettier": "^2.8.6",
+		"prettier": "^2.8.7",
 		"prettier-plugin-svelte": "^2.10.0",
 		"prettier-plugin-tailwindcss": "^0.2.5",
 		"sass": "^1.60.0",
@@ -43,6 +43,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@giscus/svelte": "^2.2.8",
 		"fuse.js": "^6.6.2",
 		"mongodb": "^5.1.0",
 		"mongoose": "^7.0.3",

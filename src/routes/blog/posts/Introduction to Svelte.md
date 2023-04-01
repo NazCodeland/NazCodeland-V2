@@ -6,6 +6,15 @@ description: Create a simple CRUD application using the Django web framework. Th
 tags: ['html', 'css', 'javascript']
 ---
 
+<!-- <script src="https://utteranc.es/client.js"
+        repo="https://github.com/NazCodeland/NazCodeland-V2"
+        issue-term="title"
+        label="Comment 💬"
+        theme="icy-dark"
+        crossorigin="anonymous"
+        async>
+</script> -->
+
 Introduction to Svelte
 `css body { background-color: blue; } ` Learn the basics of Svelte and how it differs from other frontend frameworks. This is just extra text to make this sentence go into two paragraphs instead of one. Have a good day!
 
