@@ -8,8 +8,8 @@
 	export let tags: string[];
 </script>
 
-<article class="flex flex-col gap-3">
-	<!-- <img class="img" src="https://picsum.photos/800/100" width="500" height="100" alt="a cute dog" /> -->
+<article class="flex w-full flex-col gap-3">
+	<img class="img" src="https://picsum.photos/800/200" alt="a cute dog" />
 	<div class="">
 		<h2>
 			<a class="decoration-primaryColor hover:underline" href="/blog/{href}">

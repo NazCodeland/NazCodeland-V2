@@ -26,7 +26,6 @@
 		results = fuse.search(search);
 	}
 
-	$: console.log(results);
 	const categories = [
 		'JavaScript',
 		'Design',
@@ -39,39 +38,22 @@
 		'Python',
 		'A11Y'
 	];
-
-	import Giscus from 'C:/Users/o0/source/projects/mine/myApp/node_modules/@giscus/svelte/package/Giscus.svelte';
 </script>
 
 <svelte:head>
 	<title>NazCodeland |</title>
 </svelte:head>
 
-<Giscus
-	id="comments"
-	repo="NazCodeland/NazCodeland-V2"
-	repoId="R_kgDOJDWq2A"
-	category="Announcements"
-	categoryId="DIC_kwDOJDWq2M4CVdOM"
-	mapping="pathname"
-	strict="1"
-	reactionsEnabled="1"
-	emitMetadata="0"
-	inputPosition="bottom"
-	theme="dark_dimmed"
-	lang="en"
-	loading="lazy" />
-
 <div class="m-auto flex flex-col gap-10">
 	<!-- prettier-ignore -->
 	<h1 class="mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] font-bold">
 		Blog
 	</h1>
-	<div class="flex gap-10">
+	<div class="flex gap-x-16-48">
 		<aside
-			class="scrollbar sticky top-40 hidden h-[75vh]
-			w-[18rem] flex-shrink-0 overflow-y-auto
-			overflow-x-hidden p-2 sm:block">
+			class="sticky top-40 hidden h-[75vh]
+			max-w-[22rem] flex-shrink-0 overflow-y-auto
+			overflow-x-hidden p-8-16 md:block">
 			<div>
 				<label for="search">Search post titles</label>
 				<input
@@ -124,7 +106,7 @@
 				{/each}
 			</ul>
 		</aside>
-		<main class="max-w-[1350px]">
+		<main class="max-w-[800px]">
 			<!-- include a table of contents banner for the article like this website:
 				https://jeffpohlmeyer.com/building-a-blog-with-sveltekit-tailwindcss-and-mdsvex#heading-blog-detail-view
 			-->
@@ -137,7 +119,7 @@
 				</div>
 			</details> -->
 			<!-- blog posts -->
-			<ul class="grid gap-14 sm:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] md:gap-20">
+			<ul class="negate:sm:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] grid gap-14 md:gap-20">
 				{#each data.posts as post}
 					<li class="flex">
 						<BlogPost

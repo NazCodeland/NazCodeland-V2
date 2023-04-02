@@ -1,4 +1,5 @@
 // CREDIT: https://cloudcannon.com/tutorials/sveltekit-beginner-tutorial/blogging-in-sveltekit/
+export const prerender = true;
 
 const blogPosts = import.meta.glob('./posts/*.md');
 const body = [];
