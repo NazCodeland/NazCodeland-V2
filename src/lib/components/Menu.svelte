@@ -1,16 +1,7 @@
 <script>
 	import Link from '../elements/Link.svelte';
 	import { menuStore } from '$lib/stores/menuStore';
-	// const titles = [
-	// 	'Home',
-	// 	'About Me',
-	// 	'Portfolio',
-	// 	'UX/UI Design',
-	// 	'Web Development',
-	// 	'Resume',
-	// 	'Contract',
-	// 	'Blog'
-	// ];
+	const titles = ['Home', 'About Me', 'Portfolio', 'Resume', 'Contact', 'Blog'];
 </script>
 
 <!-- prettier-ignore -->
@@ -22,19 +13,13 @@
 		class="flex flex-wrap justify-center gap-16-32 
 		{$menuStore ? 'inline-block' : 'hidden'} md:flex">
 
-		<!-- how can I re-write this in a loop. When I tried, I ended up in a big nested loop -->
-		<Link href={'/'} title={'Home'}/>
-		<Link href={'/about'} title={'About Me'}/>
-		<Link href={'/portfolio'} title={'Portfolio'}>
-			<ul class="hidden">
-				<Link href={'/webDesign'} title={'UX/UI Design'}/>
-				<Link href={'/webDevelopment'} title={'Web Development'}/>
-			</ul>
-		</Link>
-		<Link href={'/resume'} title={'Resume'}/>
-		<Link href={'/contact'} title={'Contact'}/>
-		<Link href={'/blog'} title={'Blog'}/>
-	</ul>
+		<!-- prettier-ignore -->
+		{#each titles as title}
+			<Link 
+				href={`/${title.replace('Home', '').replace(' ', '').toLowerCase()}`}
+				title={title}/>
+		{/each}
+
 </nav>
 
 <style>

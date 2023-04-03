@@ -18,7 +18,7 @@
 				since .md files are configured to be treated as Svelte components,-->
 		<svelte:component this={data.content} />
 	</article>
-	<hr class="my-1 h-[1px] border-none bg-primaryColor bg-gradient-to-r" />
+	<hr class="mx-60 h-[1px] border-none bg-primaryColor bg-gradient-to-r" />
 	<section class="m-auto w-full max-w-[70ch]">
 		<h2 class="mb-10">Comments</h2>
 		<Giscus

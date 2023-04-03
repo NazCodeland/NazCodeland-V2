@@ -51,11 +51,11 @@
 	</h1>
 	<div class="flex gap-x-16-48">
 		<aside
-			class="sticky top-40 hidden h-[75vh]
+			class="sticky top-36 hidden h-[78vh]
 			max-w-[22rem] flex-shrink-0 overflow-y-auto
 			overflow-x-hidden p-8-16 md:block">
 			<div>
-				<label for="search">Search post titles</label>
+				<label for="search"> Search post titles </label>
 				<input
 					bind:value={search}
 					class="w-[100.2%] p-2 py-1 outline outline-1 outline-current"
@@ -69,8 +69,8 @@
 						: ''} mx-[1px] flex flex-col gap-2 text-[1.25rem] leading-6">
 					{#if search.length}
 						{#each results as result}
-							<li class="underline decoration-primaryColor opacity-70 hover:opacity-1">
-								<a class="underline decoration-primaryColor" href="/blog/{result}">
+							<li class="opacity-70 hover:opacity-1">
+								<a href="/blog/{result}">
 									{result.item}
 								</a>
 							</li>
@@ -80,9 +80,9 @@
 			</div>
 
 			<!-- prettier-ignore -->
-			<h3 class="mt-8 mb-2 ">
+			<div class="mt-8 mb-2 ">
 				Popular posts
-			</h3>
+			</div>
 			<ul class="flex flex-col gap-2 text-[1.25rem] leading-6">
 				{#each data.posts as post}
 					<li>
@@ -96,8 +96,9 @@
 			</ul>
 
 			<!-- prettier-ignore -->
-			<h3 class="mt-8 mb-2">
-				Categories</h3>
+			<div class="mt-8 mb-2">
+				Categories
+			</div>
 			<ul class="flex flex-wrap gap-1">
 				{#each categories as category}
 					<li class="tag">
