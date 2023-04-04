@@ -1,5 +1,35 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import Project from '$lib/components/Project.svelte';
+</script>
 
-<a href="/blog">Blog</a>
-<a href="/test">test</a>
+<div class="m-auto grid max-w-[1232px] gap-8 md:grid-cols-2">
+	<Project
+		imageName={'some.jpg'}
+		project={'NazCodeland'}
+		roles={'User Interface/Frontend'}
+		tools={'Pen & Paper / Miro / Figma'}
+		duration={'4 Months'} />
+
+	<Project
+		project={'PawFood'}
+		roles={'User Interface/Frontend'}
+		tools={'Pen & Paper / Miro / Figma'}
+		duration={'4 Months'} />
+
+	<Project
+		imageName={'NazCodeland.png'}
+		project={'NazCodeland'}
+		roles={'User Interface/Frontend'}
+		tools={'Pen & Paper / Miro / Figma'}
+		duration={'4 Months'}
+		objectFit={'fill'} />
+
+	<Project
+		project={'NazCodeland'}
+		roles={'User Interface/Frontend'}
+		tools={'Pen & Paper / Miro / Figma'}
+		duration={'4 Months'} />
+</div>
+
+<style>
+</style>
