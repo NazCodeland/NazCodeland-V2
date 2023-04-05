@@ -1,6 +1,6 @@
 export function load(event) {
 	const projectImages = {
-		NazCodeland: '/images/NazCodeland.png'
+		clothing: '/images/clothing.png'
 	};
 	console.log(event);
 	const project = event.params.slug;
