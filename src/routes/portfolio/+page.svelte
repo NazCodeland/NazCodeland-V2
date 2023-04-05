@@ -11,6 +11,7 @@
 		duration={'4 Months'} />
 
 	<Project
+		imageName="PawFood.jpg"
 		project={'PawFood'}
 		roles={'User Interface/Frontend'}
 		tools={'Pen & Paper / Miro / Figma'}

@@ -10,7 +10,7 @@
 </script>
 
 <figure
-	class="relative overflow-hidden rounded-2xl border border-slate-300 p-1 dark:border-slate-600">
+	class="group/project relative overflow-hidden rounded-2xl border border-slate-300 p-1 dark:border-slate-600">
 	<a href="/">
 		<img
 			style="inline-size: {inlineSize}; block-size:{blockSize}; object-fit:{objectFit}"
@@ -23,15 +23,24 @@
 			<i>Project:</i>
 			{project}
 		</span>
-		<span class="absolute bottom-[68px] rounded-md bg-secondaryColor/85 py-0.5 px-2 text-bodyCopy">
+		<span
+			class="absolute bottom-[68px] rounded-md bg-secondaryColor/85 py-0.5 px-2 text-bodyCopy
+			[@media(hover:hover)]:-left-[100%] [@media(hover:hover)]:transition-[left] [@media(hover:hover)]:delay-[0s]
+			[@media(hover:hover)]:duration-300 [@media(hover:hover)]:group-hover/project:left-2">
 			<i>Roles:</i>
 			{roles}
 		</span>
-		<span class="absolute bottom-10 rounded-md bg-secondaryColor/85 py-0.5 px-2 text-bodyCopy">
+		<span
+			class="absolute bottom-10 rounded-md bg-secondaryColor/85 py-0.5 px-2 text-bodyCopy
+			[@media(hover:hover)]:-left-[100%] [@media(hover:hover)]:transition-[left] [@media(hover:hover)]:delay-200
+			[@media(hover:hover)]:duration-300 [@media(hover:hover)]:group-hover/project:left-2">
 			<i>Tools:</i>
 			{tools}
 		</span>
-		<span class="absolute bottom-3 rounded-md bg-secondaryColor/85 py-0.5 px-2 text-bodyCopy">
+		<span
+			class="absolute bottom-3 rounded-md bg-secondaryColor/85 py-0.5 px-2 text-bodyCopy
+			[@media(hover:hover)]:-left-[100%] [@media(hover:hover)]:transition-[left] [@media(hover:hover)]:delay-300
+			[@media(hover:hover)]:duration-300 [@media(hover:hover)]:group-hover/project:left-2">
 			<i>Duration:</i>
 			{duration}
 		</span>
@@ -39,4 +48,16 @@
 </figure>
 
 <style>
+	@media not (hover: hover) {
+		/* span {
+			background-color: blue !important;
+			position: absolute;
+			inset-inline-start: -100%;
+			transition: inset-inline-start 100ms ease-in;
+		}
+
+		figure:hover span {
+			inset-inline-start: 0;
+		} */
+	}
 </style>
