@@ -1,22 +1,19 @@
 <script lang="ts">
 	import '$src/app.css';
-	import SiteWrapper from '$lib/components/SiteWrapper.svelte';
 	import SiteContent from '$lib/components/SiteContent.svelte';
 	import Header from '$src/lib/components/Header.svelte';
 	import Footer from '$src/lib/components/Footer.svelte';
 </script>
 
-<SiteWrapper>
-	<SiteContent>
-		<slot name="header">
-			<Header position="sticky" />
-		</slot>
+<SiteContent>
+	<slot name="header">
+		<Header position="absolute" />
+	</slot>
 
-		<slot />
+	<slot />
 
-		<Footer />
-	</SiteContent>
-</SiteWrapper>
+	<Footer />
+</SiteContent>
 
 <style>
 </style>

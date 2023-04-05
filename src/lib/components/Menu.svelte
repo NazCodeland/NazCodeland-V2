@@ -1,5 +1,5 @@
 <script>
-	import Link from '../elements/Link.svelte';
+	import Link from '$lib/elements/Link.svelte';
 	import { menuStore } from '$lib/stores/menuStore';
 	const titles = ['Home', 'About Me', 'Portfolio', 'Resume', 'Contact', 'Blog'];
 </script>
