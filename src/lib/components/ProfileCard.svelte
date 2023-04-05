@@ -53,7 +53,6 @@
 					<a href="/portfolio">View Portfolio</a>
 				</li>
 				<li class="btn btn-outlined-primary"><a href="/resume">View Resume</a></li>
-				<li class="btn"><a href="/">Base</a></li>
 			</ul>
 		</footer>
 	</div>

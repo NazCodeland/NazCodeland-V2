@@ -3,7 +3,7 @@
 	import Giscus from 'C:/Users/o0/source/projects/mine/NazCodeLandSvelteKit/node_modules/@giscus/svelte/package/Giscus.svelte';
 </script>
 
-<main class="flex flex-col gap-88-132">
+<main class="flex flex-col gap-96-132">
 	<article class="m-auto flex w-full max-w-[60ch] flex-col gap-4">
 		<header class="">
 			<h1 class="mb-4 text-center md:-mx-20">{data.title}</h1>
