@@ -18,7 +18,7 @@
 	];
 
 	let search: any = '';
-	let results: unknown; // how can I give it the type of object returned by fuse.search()
+	let results: ArrayLike<unknown>; // how can I give it the type of object returned by fuse.search()
 
 	const options = { threshold: 0.4 };
 	const fuse = new Fuse(titles, options);

@@ -7,7 +7,6 @@
           text-fluid-3 leading-7 text-bodyCopy md:leading-8"
 	use:setAttributeOnDocumentAction>
 	<!--  -->
-	<slot name="header" />
 
 	<slot />
 </div>
