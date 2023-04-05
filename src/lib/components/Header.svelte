@@ -4,15 +4,20 @@
 	import Menu from '$lib/components/Menu.svelte';
 	import { toggleMenu } from '$lib/stores/menuStore';
 	export let position: string;
+	export let paddingLeft: string = '10px';
+	export let paddingRight: string;
 </script>
 
 <header
-	class="{position} left-0 right-0 top-0 z-20 flex items-center justify-between gap-4 bg-secondaryColor pt-6 pb-3 sm:pt-3 md:border-b md:border-solid md:border-primaryColor md:pt-1">
+	style="padding-inline-start: {paddingLeft};padding-inline-end: {paddingRight};"
+	class="{position} left-0 right-0 top-0 z-20 flex items-center justify-between gap-4
+					bg-secondaryColor pt-6 pb-3 sm:pt-3 md:border-b
+					md:border-solid md:border-primaryColor md:pt-1">
 	<a
 		href="#maincontent"
 		class="absolute -left-[1000px] -top-[13px] rounded bg-secondaryColor px-4 text-bodyCopy outline-bodyCopy focus-visible:left-[clamp(4.00rem,_calc(3.61rem_+_1.96vw),_5.38rem)]">
 		Skip to main content</a>
-
+	<!--  -->
 	<div class="flex items-center gap-16-32-2.4x">
 		<!-- TODO: navigation touches logo -->
 		<!-- TODO: add an icon for low/high contrast https://www.shutterstock.com/search/automatic-contrast-icon -->
@@ -20,7 +25,7 @@
 
 		<Logo />
 	</div>
-
+	<!--  -->
 	<div class="flex">
 		<!-- TODO: the styles for this menu need to be adjusted -->
 		<!-- this needs to be done so that in mobile viewpoints, when the menu is minimized the navigation still shows up in landmarks -->

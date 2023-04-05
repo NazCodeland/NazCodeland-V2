@@ -9,7 +9,7 @@
 <SiteWrapper>
 	<SiteContent>
 		<slot name="header">
-			<Header position="sticky" />
+			<Header position="sticky" paddingLeft="10px" paddingRight="0" />
 		</slot>
 
 		<slot />

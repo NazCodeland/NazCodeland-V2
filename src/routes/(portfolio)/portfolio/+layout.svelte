@@ -7,7 +7,7 @@
 
 <SiteContent>
 	<slot name="header">
-		<Header position="absolute" />
+		<Header position="absolute" paddingLeft="26px" paddingRight="1rem" />
 	</slot>
 
 	<slot />
