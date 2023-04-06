@@ -10,8 +10,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* TODO move these styles somewhere else */
 html {
 	font-family: IBM Plex Mono;
+	scroll-behavior: smooth;
 }
 
 code {

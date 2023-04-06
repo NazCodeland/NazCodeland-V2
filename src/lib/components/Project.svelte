@@ -20,7 +20,7 @@
 	</a>
 	<figcaption class="text-sm">
 		<span
-			class="absolute top-3 rounded-md bg-secondaryColor/85 py-0.5 px-2 text-bodyCopy outline outline-1 outline-current">
+			class="absolute top-3 ml-2 mr-3 rounded-md bg-secondaryColor/85 py-0.5 px-2 text-bodyCopy outline outline-1 outline-current">
 			<i>Project:</i>
 			{project}
 		</span>

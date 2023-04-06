@@ -1,13 +1,15 @@
 <script>
 	export let data;
+	import MoveToTop from '$lib/components/MoveToTop.svelte';
 </script>
 
 <img
+	id="mainContent"
 	class="absolute top-0 left-0 right-0 h-[100vh] w-full object-cover"
 	src={data.projectImages.clothing}
 	alt="" />
 
-<div class="mt-[100vh] px-16">
+<div class="project mt-[100vh] px-16">
 	# Project: {data.project}
 
 	Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab dolores excepturi iusto, cum
@@ -49,4 +51,9 @@
 		rem tempora saepe perferendis. Soluta quidem incidunt suscipit deserunt dolor, veritatis
 		cupiditate corporis, ex nulla, repellat ab!
 	</p>
+
+	<MoveToTop />
 </div>
+
+<style>
+</style>
