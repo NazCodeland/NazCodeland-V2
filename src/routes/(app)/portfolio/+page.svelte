@@ -1,6 +1,6 @@
 <script>
 	import Project from '$lib/components/Project.svelte';
-	import Link from '$src/lib/elements/Link.svelte';
+	import Link from '$src/lib/elements/InlineLink.svelte';
 </script>
 
 <!-- TODO: add a sorting navigation to sort by project roles-->
@@ -12,7 +12,7 @@
 			When Researching, Designing and Developing, I try my best to make decisions based off insights
 			from a human-centered process. I strive to make solutions that address user pain-points, are
 			delightful to use and effective. Take a look around, and don't hesitate to
-			<Link href="/contact" title={'get in touch'} />
+			<Link href="/#contact" title={'get in touch'} />
 			if you think my skillset can be beneficial to your team.
 		</p>
 	</div>

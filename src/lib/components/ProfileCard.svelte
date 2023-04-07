@@ -1,5 +1,5 @@
 <script>
-	import Link from '../elements/Link.svelte';
+	import Link from '../elements/InlineLink.svelte';
 </script>
 
 <article class="flex w-full flex-wrap items-center justify-center gap-16-40">
