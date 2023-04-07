@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let imageName: string = '1.jpg';
+	export let imageName: string = 'one.jpg';
 	export let project: string;
 	export let roles: string;
 	export let tools: string;

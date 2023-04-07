@@ -1,5 +1,5 @@
 <script lang="ts">
-	// export let image: string = 'https://picsum.photos/200/300';
+	export let src: string = 'https://picsum.photos/800/200';
 	export let href: string;
 	export let title: string;
 	export let description: string;
@@ -9,13 +9,15 @@
 </script>
 
 <article class="flex w-full flex-col gap-3">
-	<img class="img" src="https://picsum.photos/800/200" alt="a cute dog" />
+	<img class="img" {src} alt="a cute dog" />
+
 	<div class="">
 		<h2>
 			<a class="decoration-primaryColor hover:underline" href="/blog/{href}">
 				{title}
 			</a>
 		</h2>
+
 		<div class="text-fluid-4 opacity-70">
 			<span>{published}</span>
 			<span>{updated}</span>
@@ -31,5 +33,5 @@
 	</div>
 </article>
 
-<style lang="">
+<style>
 </style>

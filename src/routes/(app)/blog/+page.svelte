@@ -3,7 +3,7 @@
 <script lang="ts">
 	import Fuse from 'fuse.js';
 	export let data;
-	import BlogPost from '$lib/components/blogPost.svelte';
+	import BlogPost from '$lib/components/BlogPost.svelte';
 
 	const titles = [
 		'Build a RESTful API using Node.js Express, and MongoDB',
@@ -46,9 +46,8 @@
 
 <div class="m-auto flex flex-col gap-10">
 	<!-- prettier-ignore -->
-	<h1 class="mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] font-bold">
-		Blog
-	</h1>
+	<h1 class="mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] font-bold">Blog</h1>
+
 	<div class="flex gap-x-16-48">
 		<aside
 			class="sticky top-36 hidden h-[78vh]
@@ -107,6 +106,7 @@
 				{/each}
 			</ul>
 		</aside>
+
 		<main class="max-w-[800px]">
 			<!-- include a table of contents banner for the article like this website:
 				https://jeffpohlmeyer.com/building-a-blog-with-sveltekit-tailwindcss-and-mdsvex#heading-blog-detail-view

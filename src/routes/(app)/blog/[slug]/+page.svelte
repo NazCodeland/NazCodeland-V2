@@ -1,10 +1,12 @@
 <script>
 	export let data;
+
 	import Giscus from 'C:/Users/o0/source/projects/mine/NazCodeLandSvelteKit/node_modules/@giscus/svelte/package/Giscus.svelte';
+	import Icon from '$lib/components/Icon.svelte';
 </script>
 
 <main class="flex flex-col gap-96-132">
-	<article class="m-auto flex w-full max-w-[60ch] flex-col gap-4">
+	<article class="relative m-auto flex w-full max-w-[60ch] flex-col gap-4">
 		<header class="">
 			<h1 class="mb-4 text-center md:-mx-20">{data.title}</h1>
 			<p class="text-center text-fluid-2 text-slate-400 md:-mx-8">{data.description}</p>
@@ -13,14 +15,19 @@
 				<p>Updated: {data.updated}</p>
 			</div>
 		</header>
+
 		<!-- dynamic component; it renders an arbitrary Svelte component
 				(provided as the this prop value) when the exact component isn't known beforehand.
 				since .md files are configured to be treated as Svelte components,-->
-		<svelte:component this={data.content} />
+		<svelte:component this={data.content} />"
+		<Icon iconName="MoveToTop" />
 	</article>
+
 	<hr class="mx-60 h-[1px] border-none bg-primaryColor bg-gradient-to-r" />
+
 	<section class="m-auto w-full max-w-[70ch]">
 		<h2 class="mb-10">Comments</h2>
+
 		<Giscus
 			id="comments"
 			repo="NazCodeland/NazCodeland-V2"
