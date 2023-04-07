@@ -6,7 +6,7 @@
 </script>
 
 <main class="flex flex-col gap-96-132">
-	<article class="relative m-auto flex w-full flex-col gap-4 md:max-w-[70ch]">
+	<article id="top" class="relative m-auto flex w-full flex-col gap-4 md:max-w-[70ch]">
 		<header class="">
 			<h1 class="mb-4 text-center md:-mx-20">{data.title}</h1>
 			<p class="text-center text-fluid-2 text-slate-400 md:-mx-8">{data.description}</p>

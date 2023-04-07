@@ -108,7 +108,7 @@ module.exports = {
 			},
 			screens: {
 				sm: '820px',
-				md: '1025px'
+				md: '1044px'
 			}
 		}
 	},
