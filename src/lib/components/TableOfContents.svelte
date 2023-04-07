@@ -12,7 +12,9 @@
 	<div class="m-auto flex w-fit items-center gap-4">
 		<p class="py-3 text-fluid-2">Table of Contents</p>
 		<button on:click={showTableOfContents} class="rounded-md">
-			<Icon iconName="arrowDown" classes="{open ? 'rotate-180' : ''} transition-all duration-200" />
+			<Icon
+				iconName="arrowDown"
+				classes="{open ? 'rotate-180' : ''} transition-all duration-200 fill-primaryColor" />
 		</button>
 	</div>
 

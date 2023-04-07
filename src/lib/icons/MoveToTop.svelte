@@ -9,7 +9,7 @@
 		tabindex="0"
 		class="grid h-[40px] w-[40px] place-items-center rounded-full text-3xl text-primaryColor dark:bg-slate-1/12 dark:hover:bg-slate-50/20 dark:active:bg-slate-1/12"
 		href="#mainContent">
-		<Icon iconName="ChevronLineUp" />
+		<Icon iconName="chevronLineUp" classes="fill-primaryColor" />
 	</a>
 </div>
 
