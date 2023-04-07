@@ -1,6 +1,7 @@
 <script>
 	import ProfileCard from '$lib/components/ProfileCard.svelte';
 	import SkillCard from '$lib/components/skillCard.svelte';
+	import Contact from '$src/lib/components/Contact.svelte';
 </script>
 
 <main class="flex flex-col gap-96-132">
@@ -92,6 +93,15 @@
 				corporis blanditiis minima? Quibusdam delectus fugit sit? Hic.
 			</SkillCard>
 		</div>
+	</section>
+
+	<section id="aboutme">
+		<h2>About Me</h2>
+	</section>
+
+	<section id="contact">
+		<h2>Contact Information</h2>
+		<Contact />
 	</section>
 </main>
 

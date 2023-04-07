@@ -48,7 +48,7 @@
 	<!-- prettier-ignore -->
 	<h1 class="mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] font-bold">Blog</h1>
 
-	<div class="flex gap-x-16-48">
+	<div class="flex gap-x-96-132">
 		<aside
 			class="sticky top-36 hidden h-[78vh]
 			max-w-[22rem] flex-shrink-0 overflow-y-auto
