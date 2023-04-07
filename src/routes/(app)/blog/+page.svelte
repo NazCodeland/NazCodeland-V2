@@ -3,7 +3,7 @@
 <script lang="ts">
 	import Fuse from 'fuse.js';
 	export let data;
-	import BlogPost from '$lib/components/BlogPost.svelte';
+	import BlogPost from '$src/lib/components/BlogPost.svelte';
 
 	const titles = [
 		'Build a RESTful API using Node.js Express, and MongoDB',
@@ -82,17 +82,19 @@
 			<div class="mt-8 mb-2 ">
 				Popular posts
 			</div>
-			<ul class="flex flex-col gap-2 text-[1.25rem] leading-6">
-				{#each data.posts as post}
-					<li>
-						<a
-							href="/blog/{post.path.replaceAll(' ', '-')}"
-							class="underline decoration-primaryColor opacity-70 hover:opacity-1">
-							{post.metadata.title}
-						</a>
-					</li>
-				{/each}
-			</ul>
+			<nav>
+				<ul class="flex flex-col gap-2 text-[1.25rem] leading-6">
+					{#each data.posts as post}
+						<li>
+							<a
+								href="/blog/{post.path.replaceAll(' ', '-')}"
+								class="underline decoration-primaryColor opacity-70 hover:opacity-1">
+								{post.metadata.title}
+							</a>
+						</li>
+					{/each}
+				</ul>
+			</nav>
 
 			<!-- prettier-ignore -->
 			<div class="mt-8 mb-2">
@@ -115,7 +117,7 @@
 				<summary class="titleLayout mb-20">Blog Posts</summary>
 				<div class="list-decimal">
 					{#each data.posts as post}
-						<Link href="/" title={post.metadata.title} />
+						<a href="/" title={post.metadata.title} />
 					{/each}
 				</div>
 			</details> -->
