@@ -16,9 +16,11 @@
 
 		<!-- prettier-ignore -->
 		{#each titles as title}
+		<li>
 			<Link 
-				href={`/${title.replace('Home', '').replace(' ', '').toLowerCase()}`}
-				title={title}/>
+			href={`/${title.replace('Home', '').replace(' ', '').toLowerCase()}`}
+			title={title}/>
+		</li>
 		{/each}
 
 </nav>
