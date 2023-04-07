@@ -1,12 +1,23 @@
 // CREDIT: https://joshcollinsworth.com/blog/build-static-sveltekit-markdown-blog
+
+interface Post {
+	metadata: {
+		title: string;
+		description: string;
+		published: string;
+		updated: string;
+		tags: string[];
+	};
+	default: string;
+}
+
 export async function load({ params }) {
 	try {
 		params.slug = params.slug.replaceAll('-', ' ');
-		const post = await import(`../posts/${params.slug}.md`);
+		const posts = import.meta.glob('../posts/*.md');
+		const post = (await posts[`../posts/${params.slug}.md`]()) as Post;
+
 		const { title, description, published, updated, tags } = post.metadata;
-		console.log('-----------------------------------');
-		console.log(post.metadata);
-		console.log('-----------------------------------');
 
 		//default contains the content itself (everything but the frontmatter).
 		const content = post.default;

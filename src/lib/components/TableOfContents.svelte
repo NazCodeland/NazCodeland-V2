@@ -14,7 +14,7 @@
 		<button on:click={showTableOfContents} class="rounded-md">
 			<Icon
 				iconName="arrowDown"
-				classes="{open ? 'rotate-180' : ''} transition-all duration-200 fill-primaryColor" />
+				classes="{open ? 'rotate-180' : ''} transition-all duration-200 fill-tertiaryColor" />
 		</button>
 	</div>
 
