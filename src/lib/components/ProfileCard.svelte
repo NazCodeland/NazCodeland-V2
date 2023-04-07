@@ -1,5 +1,6 @@
 <script>
-	import Link from '../elements/InlineLink.svelte';
+	import Link from '$lib/elements/InlineLink.svelte';
+	import ContactLinks from '$lib/components/ContactLinks.svelte';
 </script>
 
 <article class="flex w-full flex-wrap items-center justify-center gap-16-40">
@@ -11,7 +12,7 @@
 		height="320"
 		alt="of Nazar" />
 
-	<div class="flex flex-col gap-y-4">
+	<div class="relative flex flex-col gap-y-4">
 		<h2 class="forcedClrAdjust leading-7 selection:bg-green-700">
 			Nazar K. I.
 			<br />
@@ -19,6 +20,9 @@
             causes an undesirable pause in the NVDA screen reader. '<br> does not.'-->
 			<small class="text-fluid-4 font-normal opacity-70">Frontend Developer</small>
 		</h2>
+		<div class="absolute top-0 right-0">
+			<ContactLinks />
+		</div>
 
 		<p class="max-w-[60ch]">
 			Hey👋 <br />welcome to my little spot on the web. I made this website to showcase my skill
