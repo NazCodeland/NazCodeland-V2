@@ -17,7 +17,11 @@
 		<!-- prettier-ignore -->
 		{#each titles as title}
 		<li>
-			<a href={`/${title.replace('Home', '').replace(' ', '').toLowerCase()}`} 
+			<a href={title === 'Contact' 
+				? 'mailto:Nazcodeland@gmail.com' 
+				: `/${title.replace('Home', '').replace(' ', '').toLowerCase()}`} 
+				target="{title === 'Contact' ? "_blank" : '' }"
+				rel="{title === 'Contact' ? "noopener " : '' }"
 			class="relative outline-0 before:absolute before:left-[50%] before:bottom-0
 				before:h-0.5 before:w-0 before:bg-primaryColor before:delay-[0s] before:duration-300
 				before:content-[''] hover:before:left-0 hover:before:w-full focus:before:left-0
