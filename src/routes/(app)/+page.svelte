@@ -1,7 +1,7 @@
 <script>
 	import ProfileCard from '$lib/components/ProfileCard.svelte';
 	import SkillCard from '$lib/components/skillCard.svelte';
-	import Contact from '$src/lib/components/Contact.svelte';
+	import ContactLinks from '$lib/components/ContactLinks.svelte';
 </script>
 
 <main class="flex flex-col gap-96-132">
@@ -95,13 +95,13 @@
 		</div>
 	</section>
 
-	<section id="aboutme">
+	<section id="aboutMe">
 		<h2>About Me</h2>
 	</section>
 
 	<section id="contact">
 		<h2>Contact Information</h2>
-		<Contact />
+		<ContactLinks />
 	</section>
 </main>
 
