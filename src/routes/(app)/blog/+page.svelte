@@ -44,7 +44,7 @@
 	<title>NazCodeland |</title>
 </svelte:head>
 
-<div class="m-auto flex flex-col gap-10">
+<div class="m-auto flex flex-col gap-10" id="mainContent">
 	<!-- prettier-ignore -->
 	<h1 class="mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] font-bold">Blog</h1>
 
@@ -101,11 +101,11 @@
 				Categories
 			</div>
 			<ul class="flex flex-wrap gap-1">
-				{#each categories as category}
+				<!-- {#each categories as category}
 					<li class="tag">
 						<a href="/blog/category/javascript">{category.toUpperCase()}</a>
 					</li>
-				{/each}
+				{/each} -->
 			</ul>
 		</aside>
 

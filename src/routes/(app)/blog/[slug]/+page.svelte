@@ -5,7 +5,7 @@
 	import Icon from '$lib/components/Icon.svelte';
 </script>
 
-<main class="flex flex-col gap-96-132">
+<main class="flex flex-col gap-96-132" id="maincontent">
 	<article id="top" class="relative m-auto flex w-full flex-col gap-4 md:max-w-[70ch]">
 		<header class="">
 			<h1 class="mb-4 text-center md:-mx-20">{data.title}</h1>

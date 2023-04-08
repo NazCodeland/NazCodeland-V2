@@ -14,7 +14,7 @@
 					bg-secondaryColor pt-6 pb-3 sm:pt-3 md:border-b
 					md:border-solid md:border-primaryColor md:pt-1">
 	<a
-		href="#maincontent"
+		href="#mainContent"
 		class="absolute -left-[1000px] -top-[13px] rounded bg-secondaryColor px-4 text-bodyCopy outline-bodyCopy focus-visible:left-[clamp(4.00rem,_calc(3.61rem_+_1.96vw),_5.38rem)]">
 		Skip to main content</a>
 	<!--  -->

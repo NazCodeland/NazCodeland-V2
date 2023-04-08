@@ -1,37 +1,16 @@
 <script>
 	import ProfileCard from '$lib/components/ProfileCard.svelte';
 	import SkillCard from '$lib/components/skillCard.svelte';
+	import Icon from '$src/lib/components/Icon.svelte';
 </script>
 
-<main class="flex flex-col gap-96-132">
+<main class="flex flex-col gap-96-132" id="mainContent">
+	<!--  -->
 	<div class="introduction-section">
 		<ProfileCard />
 	</div>
 
-	<section id="aboutMe">
-		<h2
-			class="forcedClrAdjust mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] underline decoration-tertiaryColor
-		decoration-double contrast-more:text-[canvasText] contrast-more:decoration-[activeText]">
-			About Me
-		</h2>
-		<p>
-			I am a self-taught UX researcher, UI designer, and frontend developer, I have a strong
-			interest in creating user-centered solutions. I have gained knowledge and skills through
-			self-directed learning and hands-on experience, which have allowed me to understand user
-			behavior and create interfaces that are both functional and aesthetically pleasing. I am
-			always looking for new challenges and opportunities to continue growing my skills and
-			expertise.
-		</p>
-		<p class="mt-8 ml-8 text-2xl">My Skillset:</p>
-		<ul>
-			<li>HTML 5</li>
-			<li />
-			<li />
-			<li />
-			<li />
-		</ul>
-	</section>
-
+	<!-- skillCards -->
 	<section>
 		<h2
 			class="forcedClrAdjust mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] underline decoration-tertiaryColor
@@ -117,7 +96,36 @@
 			</SkillCard>
 		</div>
 	</section>
+
+	<section id="aboutMe" class="flex flex-col">
+		<h2
+			class="forcedClrAdjust mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] underline decoration-tertiaryColor
+							decoration-double contrast-more:text-[canvasText] contrast-more:decoration-[activeText]">
+			About Me
+		</h2>
+
+		<div class="">
+			<figure class="image float-right w-[300px]">
+				<Icon iconName="techStack" />
+				<figcaption>
+					<!-- <p class="m-auto mt-3 w-fit">Tech Stack and Tools that I use</p> -->
+				</figcaption>
+			</figure>
+			<p>
+				I am a self-taught UX researcher, UI designer, and frontend developer, I have a strong
+				interest in creating user-centered solutions. I have gained knowledge and skills through
+				self-directed learning and hands-on experience, which have allowed me to understand user
+				behavior and create interfaces that are both functional and aesthetically pleasing. I am
+				always looking for new challenges and opportunities to continue growing my skills and
+				expertise.
+			</p>
+		</div>
+	</section>
+	<!--  -->
 </main>
 
 <style>
+	.image {
+		shape-outside: url('/src/lib/icons/techStack.svg');
+	}
 </style>
