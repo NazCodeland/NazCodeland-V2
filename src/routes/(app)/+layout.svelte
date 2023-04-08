@@ -12,7 +12,9 @@
 			<Header position="sticky" paddingLeft="10px" paddingRight="0" />
 		</slot>
 
-		<slot />
+		<div class="m-auto max-w-[80ch]">
+			<slot />
+		</div>
 
 		<Footer />
 	</Site>
