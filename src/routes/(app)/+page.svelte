@@ -1,13 +1,36 @@
 <script>
 	import ProfileCard from '$lib/components/ProfileCard.svelte';
 	import SkillCard from '$lib/components/skillCard.svelte';
-	import ContactLinks from '$lib/components/ContactLinks.svelte';
 </script>
 
 <main class="flex flex-col gap-96-132">
 	<div class="introduction-section">
 		<ProfileCard />
 	</div>
+
+	<section id="aboutMe">
+		<h2
+			class="forcedClrAdjust mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] underline decoration-tertiaryColor
+		decoration-double contrast-more:text-[canvasText] contrast-more:decoration-[activeText]">
+			About Me
+		</h2>
+		<p>
+			I am a self-taught UX researcher, UI designer, and frontend developer, I have a strong
+			interest in creating user-centered solutions. I have gained knowledge and skills through
+			self-directed learning and hands-on experience, which have allowed me to understand user
+			behavior and create interfaces that are both functional and aesthetically pleasing. I am
+			always looking for new challenges and opportunities to continue growing my skills and
+			expertise.
+		</p>
+		<p class="mt-8 ml-8 text-2xl">My Skillset:</p>
+		<ul>
+			<li>HTML 5</li>
+			<li />
+			<li />
+			<li />
+			<li />
+		</ul>
+	</section>
 
 	<section>
 		<h2
@@ -93,15 +116,6 @@
 				corporis blanditiis minima? Quibusdam delectus fugit sit? Hic.
 			</SkillCard>
 		</div>
-	</section>
-
-	<section id="aboutMe">
-		<h2>About Me</h2>
-	</section>
-
-	<section id="contact">
-		<h2>Contact Information</h2>
-		<ContactLinks />
 	</section>
 </main>
 
