@@ -104,7 +104,7 @@
 				<Icon iconName="techStack" />
 				<figcaption class="max-w-[400px]">
 					<svg
-						class="innerSvg absolute -top-20 left-0 h-[300px] w-full text-fluid-1"
+						class="innerSvg absolute -top-20 left-0 h-[300px] w-full fill-bodyCopy text-fluid-1"
 						xmlns="http://www.w3.org/2000/svg"
 						xml:lang="en"
 						xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -113,12 +113,12 @@
 						<defs>
 							<path id="textcircle" d="M225,140 a0,0 0 0, 0 0, 0 a190,150 0 0,1 0,570Z" />
 						</defs>
-						<g class="textcircle">
+						<g class="">
 							<text>
 								<textPath
 									textLength="15em"
 									xlink:href="#textcircle"
-									aria-label="CSS & SVG are awesome">
+									aria-label="Tech Stack and Tools that I use">
 									Tech Stack and Tools that I use
 								</textPath>
 							</text>
