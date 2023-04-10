@@ -12,7 +12,7 @@
 			<Header position="sticky" paddingLeft="10px" paddingRight="0" />
 		</slot>
 
-		<div class="m-auto max-w-[80ch]">
+		<div class="m-auto max-w-[90ch]">
 			<slot />
 		</div>
 

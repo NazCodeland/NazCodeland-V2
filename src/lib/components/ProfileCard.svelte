@@ -12,6 +12,7 @@
 		height="320"
 		alt="of Nazar" />
 
+	<!--  -->
 	<div class="relative flex flex-col gap-y-4">
 		<h2 class="forcedClrAdjust leading-7 selection:bg-green-700">
 			Nazar K. I.
@@ -20,6 +21,7 @@
             causes an undesirable pause in the NVDA screen reader. '<br> does not.'-->
 			<small class="text-fluid-4 font-normal opacity-70">Frontend Developer</small>
 		</h2>
+
 		<div class="absolute top-0 right-0">
 			<ContactLinks />
 		</div>
