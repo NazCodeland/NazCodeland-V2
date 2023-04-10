@@ -10,7 +10,7 @@ export function showContactLinks() {
 			contactLinksStore.update((value) => {
 				return (value = !value);
 			});
-		}, 800);
+		}, 2500);
 
 		return value;
 	});

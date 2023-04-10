@@ -60,9 +60,6 @@ devDependencies:
   node-html-parser:
     specifier: ^6.1.5
     version: 6.1.5
-  postcss:
-    specifier: ^8.4.21
-    version: 8.4.21
   prettier:
     specifier: ^2.8.7
     version: 2.8.7

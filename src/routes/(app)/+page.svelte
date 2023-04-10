@@ -176,7 +176,7 @@
 	</section>
 
 	<!-- aboutMe -->
-	<section id="aboutMe" class="flex flex-col">
+	<section id="aboutMe" class="scrollMarginTop flex flex-col [--scrollMarginTop:230px]">
 		<div>
 			<figure class="image relative float-right w-full max-w-[600px] pl-32">
 				<Icon iconName="techStack" />
@@ -207,7 +207,7 @@
 			</figure>
 
 			<h2
-				class="forcedClrAdjust -mt-10 mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] underline decoration-tertiaryColor decoration-double
+				class="forcedClrAdjust mt-10 mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] underline decoration-tertiaryColor decoration-double
 							contrast-more:text-[canvasText] contrast-more:decoration-[activeText] sm:mt-20">
 				About Me
 			</h2>

@@ -50,7 +50,9 @@
 	<button class="m-auto mt-auto w-fit">
 		<Icon
 			iconName="arrowDown"
-			classes="{open ? 'rotate-180' : ''} transition-all duration-200 fill-tertiaryColor" />
+			classes="{open
+				? 'rotate-180'
+				: ''} animate-bounce  transition-all duration-200 fill-tertiaryColor" />
 	</button>
 </article>
 

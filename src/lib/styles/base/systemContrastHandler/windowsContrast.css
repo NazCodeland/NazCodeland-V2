@@ -7,12 +7,6 @@
 			to light/dark mode.
 */
 
-@layer utilities {
-	.forcedClrAdjust {
-		forced-color-adjust: none;
-	}
-}
-
 @layer components {
 	@media (forced-colors: active) {
 		.btn {

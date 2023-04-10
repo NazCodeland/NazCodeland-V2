@@ -22,7 +22,7 @@
 			<small class="text-fluid-4 font-normal opacity-70">Frontend Developer</small>
 		</h2>
 
-		<div class="absolute top-0 right-0">
+		<div class="absolute right-0 se:top-[5%] tablet:top-[6%]">
 			<ContactLinks />
 		</div>
 

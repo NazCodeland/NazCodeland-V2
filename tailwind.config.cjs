@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts,svg}'],
 	darkMode: ['class', '[color-scheme="dark"]'],
@@ -112,7 +114,35 @@ module.exports = {
 				sm: '820px',
 				md: '1044px'
 			}
+			// keyframes: {
+			// 	outlineBlink: {
+			// 		'0%': {
+			// 			'outline-offset': '0'
+			// 		},
+
+			// 		'100%': {
+			// 			'outline-offset': '1em'
+			// 		}
+			// 	}
+			// },
+			// animation: { outlineBlink: 'outlineBlink 0.2s linear var(--animationDelay) 4 alternate' }
 		}
 	},
-	plugins: []
+	// CREDIT: https://github.com/tailwindlabs/tailwindcss/discussions/3378#discussioncomment-4177286
+	plugins: [
+		plugin(({ matchUtilities, theme }) => {
+			matchUtilities(
+				{
+					'animation-delay': (value) => {
+						return {
+							'animation-delay': value
+						};
+					}
+				},
+				{
+					values: theme('transitionDelay')
+				}
+			);
+		})
+	]
 };

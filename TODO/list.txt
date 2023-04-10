@@ -1,5 +1,6 @@
 -:> generate the blog article images using AI, midJourney
-
+-:> Check for accessibility issues once the site is done,
+-:> check for prefers-less-motion
 -:> Make sure typescript code contains typechecking
 
 -:> How to give each blog a "Views" and "TimeToRead" properties that update.

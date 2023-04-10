@@ -10,7 +10,7 @@
 
 <header
 	style="padding-inline-start: {paddingLeft};padding-inline-end: {paddingRight};"
-	class=" {position} left-0 right-0 top-0 z-20 m-auto flex w-full max-w-[1130px] items-center justify-between
+	class="{position} left-0 right-0 top-0 z-20 m-auto flex w-full max-w-[1130px] items-center justify-between
 					gap-4 bg-secondaryColor pt-6 pb-3 sm:pt-3
 					md:border-b md:border-solid md:border-primaryColor md:pt-1">
 	<a
@@ -50,4 +50,5 @@
 	</div>
 </header>
 
-<style></style>
+<style>
+</style>

@@ -1,0 +1,17 @@
+@layer base {
+	:root {
+		--scrollMarginTop: 0;
+	}
+}
+
+@layer utilities {
+	.forcedClrAdjust {
+		forced-color-adjust: none;
+	}
+
+	/* CREDIT: https://css-tricks.com/hash-tag-links-padding/ */
+	.scrollMarginTop {
+		scroll-margin-top: var(--scrollMarginTop);
+		scroll-snap-margin-top: var(--scrollMarginTop); /* iOS 11 and older */
+	}
+}
