@@ -30,7 +30,7 @@
 	<p class="contrast-more:!text-[canvasText]">
 		<slot />
 	</p>
-	<button on:click={expandCard} class="m-auto mt-auto w-fit bg-red-900">
+	<button on:click={expandCard} class="m-auto mt-auto w-fit">
 		<Icon
 			iconName="arrowDown"
 			classes="{open ? 'rotate-180' : ''} transition:all duration-200 fill-tertiaryColor" />
