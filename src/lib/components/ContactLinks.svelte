@@ -8,7 +8,7 @@
 	id="contact">
 	<li
 		class="{$contactLinksStore
-			? 'contactLinksAnimation'
+			? 'contactLinksAnimation [--animationDelay:1ms]'
 			: ''} mail grid h-8 w-8 place-items-center rounded-lg bg-primaryColor/38 outline outline-transparent
 		transition-all duration-500 hover:scale-[2] hover:duration-150 [&:not(:hover)]:group-hover/contact:scale-50">
 		<a href="mailto:nazcodeland@gmail.com" rel="noopener">
@@ -17,7 +17,7 @@
 	</li>
 	<li
 		class="{$contactLinksStore
-			? 'contactLinksAnimation'
+			? 'contactLinksAnimation [--animationDelay:300ms]'
 			: ''} discord grid h-8 w-8 place-items-center rounded-lg bg-primaryColor/38 outline outline-transparent
 		transition-all duration-500 hover:scale-[2] hover:duration-150 [&:not(:hover)]:group-hover/contact:scale-50">
 		<a href="https://discordapp.com/users/804118317299400734">
@@ -26,7 +26,7 @@
 	</li>
 	<li
 		class="{$contactLinksStore
-			? 'contactLinksAnimation'
+			? 'contactLinksAnimation [--animationDelay:600ms]'
 			: ''} grid h-8 w-8 place-items-center rounded-lg bg-primaryColor/38 outline outline-transparent transition-all duration-500
 		hover:scale-[2] hover:duration-150 [&:not(:hover)]:group-hover/contact:scale-50">
 		<a href="https://github.com/NazCodeland?tab=repositories" target="_blank">
@@ -40,14 +40,9 @@
 
 	.contactLinksAnimation {
 		outline-color: theme(colors.primaryColor);
-
-		/* name|duration|easing-function|delay|iteration-count|direction|fill-mode|play-state|*/
-		animation-name: contactLinksBlink;
-		animation-duration: 0.2s;
-		animation-iteration-count: 6;
-		animation-direction:alternate;
-		animation-timing-function: linear ease-in-out;
-
+		animation: 
+		contactLinksScale 200ms linear var(--animationDelay) 2 alternate,
+		contactLinksBlink 200ms linear 1000ms 2 alternate;
 	}
 
 	@keyframes contactLinksBlink {
@@ -57,6 +52,14 @@
 
 		100% {
 			outline-offset: 1em;
+		}
+	}
+	@keyframes contactLinksScale {
+		0% {
+			scale: 1;
+		}
+		100% {
+			scale: 2;
 		}
 	}
 </style>
