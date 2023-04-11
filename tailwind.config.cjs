@@ -114,18 +114,6 @@ module.exports = {
 				sm: '820px',
 				md: '1044px'
 			}
-			// keyframes: {
-			// 	outlineBlink: {
-			// 		'0%': {
-			// 			'outline-offset': '0'
-			// 		},
-
-			// 		'100%': {
-			// 			'outline-offset': '1em'
-			// 		}
-			// 	}
-			// },
-			// animation: { outlineBlink: 'outlineBlink 0.2s linear var(--animationDelay) 4 alternate' }
 		}
 	},
 	// CREDIT: https://github.com/tailwindlabs/tailwindcss/discussions/3378#discussioncomment-4177286
