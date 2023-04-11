@@ -41,9 +41,7 @@
 	.contactLinksAnimation {
 		outline-color: theme(colors.primaryColor);
 		animation: 
-		contactLinksScale 200ms linear var(--animationDelay) 2 alternate,
-		contactLinksBlink 200ms linear 1000ms 2 alternate;
-	}
+		contactLinksScale 200ms linear var(--animationDelay) 2 alternate;	}
 
 	@keyframes contactLinksBlink {
 		0% {
