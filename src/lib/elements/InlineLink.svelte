@@ -13,8 +13,8 @@
 	contrast-more:text-[canvasText]
 	group-data-[themePalette=main]:contrast-more:before:bg-[activeText]
 	group-data-[themePalette=main]:contrast-more:before:hover:bg-[activeText]">
-	{title}</a>
-<slot />
+	{title}
+</a>
 
 <style>
 </style>
