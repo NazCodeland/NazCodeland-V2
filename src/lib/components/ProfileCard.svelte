@@ -27,12 +27,11 @@
 		</div>
 
 		<p class="max-w-[60ch]">
-			Hey👋 <br />welcome to my little spot on the web. I made this website to showcase my skill
-			set, through my
-			<Link href="/portfolio" title="Portfolio" />, to potential employers. It's also a place for me
-			to
+			Hey👋 <br />Welcome to my personal corner on the web. I've created this website with the aim
+			of presenting my skill set to potential employers, which is showcased through my
+			<Link href="/portfolio" title="Portfolio" />. It also serves as a platform for me to share my
+			ongoing learning experiences through my
 			<Link href="/blog" title="Blog" />
-			about what I am learning and to reference it in the future.
 		</p>
 
 		<footer class="mt-2">
