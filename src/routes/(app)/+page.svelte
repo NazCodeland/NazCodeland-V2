@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import ProfileCard from '$lib/components/ProfileCard.svelte';
 	import SkillCard from '$lib/components/skillCard.svelte';
 	import Icon from '$src/lib/components/Icon.svelte';
@@ -55,14 +55,47 @@
 						d="M28 93.5345C28 89.9637 30.6863 87.069 34 87.069H67.6C70.9137 87.069 73.6 89.9637 73.6 93.5345C73.6 97.1053 70.9137 100 67.6 100H34C30.6863 100 28 97.1053 28 93.5345Z"
 						fill="#D9D9D9" />
 				</svg>
-				As a web developer, I have a passion for building websites that are both visually stunning and
-				technically sound. I have experience with a range of programming languages and frameworks, including
-				HTML, CSS, JavaScript, and React. My development approach is focused on creating clean, efficient,
-				and scalable code that is optimized for performance and accessibility. I also place a high priority
-				on user experience, ensuring that websites are easy to navigate and understand. Whether it's
-				building a custom web application, a content management system, or an e-commerce platform, I
-				take a meticulous approach to web development to create websites that are reliable, secure, and
-				optimized for search engines.
+				<p>
+					As a web developer, I have a passion for building websites that are both visually stunning
+					and technically sound. I have experience with a range of programming languages and
+					frameworks, including HTML, CSS, JavaScript, and React. My development approach is focused
+					on creating clean, efficient, and scalable code that is optimized for performance and
+					accessibility. I also place a high priority on user experience, ensuring that websites are
+					easy to navigate and understand. Whether it's building a custom web application, a content
+					management system, or an e-commerce platform, I take a meticulous approach to web
+					development to create websites that are reliable, secure, and optimized for search
+					engines.
+				</p>
+			</SkillCard>
+
+			<SkillCard title="Product Research">
+				<!-- prettier-ignore -->
+				<svg class="min-w-30-40 min-h-30-40" slot="icon" width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8.15498 58.5936C3.96035 53.5176 1.35002 47.9117 0.409579 41.6851C-0.62434 34.8396 0.280338 28.2129 3.33858 21.8723C6.99903 14.2831 12.8568 8.47555 20.7975 4.45316C25.3569 2.14363 30.2591 0.728444 35.4736 0.236664C42.512 -0.427136 49.364 0.258001 55.8402 2.89589C69.046 8.27489 77.1693 17.5023 79.6565 30.461C81.7207 41.2163 78.7137 50.9909 71.2637 59.5843C70.4679 60.5022 69.5759 61.351 68.6769 62.2856C69.4307 63.128 70.1503 63.9304 70.8674 64.7347C71.1933 65.1001 71.4984 65.0327 71.9171 64.8057C73.911 63.7243 75.7009 63.9953 77.1392 65.5643C84.3342 73.4134 91.5275 81.2637 98.7192 89.1153C100.569 91.1349 100.425 92.9154 98.2229 94.6262C96.2565 96.154 94.2716 97.6636 92.253 99.1335C90.4487 100.447 88.3366 100.255 86.8476 98.6374C79.5403 90.6977 72.2453 82.7485 64.9638 74.7891C63.5072 73.1968 63.5533 71.6158 65.0223 70.0602C65.3153 69.7499 65.5543 69.4871 65.1895 69.1107C64.414 68.3105 63.7716 67.4013 62.8856 66.7018C42.9802 78.8137 19.2414 72.2796 8.15498 58.5936ZM61.9797 14.1437C54.5164 8.3262 45.9068 5.8372 36.1301 6.83486C28.6204 7.6012 22.115 10.458 16.8984 15.3656C8.3129 23.4427 5.36498 33.1222 8.34267 44.0531C12.4905 59.2793 29.245 68.8417 46.3203 65.8771C63.36 62.9187 75.0102 48.4039 72.7018 32.4772C71.6538 25.2465 68.0078 19.1727 61.9797 14.1437ZM80.0465 75.6108C78.0378 73.4268 76.0292 71.2429 73.9494 68.9817C72.7041 69.9235 71.5531 70.8046 70.3892 71.6712C69.172 72.5776 69.182 72.5599 70.2195 73.689C75.3607 79.284 80.4909 84.8873 85.6299 90.4839C87.0442 92.0241 88.4758 93.551 89.9568 95.1459C91.2944 94.1391 92.5124 93.1667 93.7986 92.2757C94.5516 91.7541 94.5207 91.349 93.943 90.7243C89.3292 85.7347 84.7428 80.7242 80.0465 75.6108Z" fill="#145883"></path>
+					<path d="M13.8519 47.5638C13.8519 47.1178 14.249 46.7563 14.7388 46.7563H65.5141C66.0039 46.7563 66.401 47.1178 66.401 47.5638V49.9864C66.401 50.4323 66.0039 50.7939 65.5141 50.7939H14.7388C14.249 50.7939 13.8519 50.4323 13.8519 49.9864V47.5638Z" fill="#C7CACD"></path>
+					<path d="M16.7343 37.9745C16.7343 36.6923 17.8759 35.6529 19.2842 35.6529C20.6924 35.6529 21.834 36.6923 21.834 37.9745V46.7563H16.7343V37.9745Z" fill="#DA5242"></path>
+					<path d="M27.1555 33.5332C27.1555 32.251 28.2971 31.2116 29.7053 31.2116C31.1136 31.2116 32.2552 32.251 32.2552 33.5332V46.7563H27.1555V33.5332Z" fill="#F2BE43"></path>
+					<path d="M37.5766 30.7069C37.5766 29.4247 38.7182 28.3853 40.1264 28.3853C41.5347 28.3853 42.6763 29.4247 42.6763 30.7069V46.7563H37.5766V30.7069Z" fill="#57A65D"></path>
+					<path d="M47.9977 25.0543C47.9977 23.7721 49.1393 22.7326 50.5476 22.7326C51.9558 22.7326 53.0974 23.7721 53.0974 25.0543V46.7563H47.9977V25.0543Z" fill="#353535"></path>
+					<path d="M58.4188 19.8054C58.4188 18.5232 59.5604 17.4838 60.9687 17.4838C62.3769 17.4838 63.5185 18.5232 63.5185 19.8054V46.7563H58.4188V19.8054Z" fill="#5387EC"></path>
+				</svg>
+
+				<p>
+					I recognize the importance of creating products that satisfy the needs and expectations of
+					customers. To achieve this goal, valuable insights need to be gathered from both
+					qualitative and quantitative research, identifying the needs, expectations and behavior of
+					the target audience, conducting market research of similar products, performing
+					comprehensive competitive analysis and testing minimum viable products (MVPs). By
+					utilizing these and other market research techniques, we can achieve a seamless user
+					experience and discover worthwhile product features that provide value to customers.
+				</p>
+				<p>
+					Continuously refining the product ensures it remains competitive in the market. By
+					analyzing user feedback and trends, we can update and improve the product's features and
+					user experience to remain relevant and meet changing customer needs. This iterative
+					process allows us to stay ahead of the competition and build products that exceed user
+					expectations.
+				</p>
 			</SkillCard>
 
 			<SkillCard title="Web Design">
@@ -78,45 +111,23 @@
 					<path d="M44.5678 50.4418C44.7936 50.1973 44.9789 49.9997 45.116 49.8546L59.1232 58.3394C59.0031 58.48 58.8555 58.6515 58.6826 58.8505C58.1562 59.4562 57.3947 60.316 56.4561 61.3303C54.578 63.36 51.9956 66.0034 49.172 68.4673C46.3427 70.9362 43.2972 73.2017 40.492 74.4988C37.6628 75.8071 35.2428 76.0594 33.5047 74.8051C31.7907 73.5681 31.5005 71.5115 32.2188 68.8836C32.9355 66.2617 34.6212 63.2455 36.5819 60.3648C38.5368 57.4927 40.7391 54.7925 42.4554 52.8079C43.3129 51.8162 44.0478 51.0048 44.5678 50.4418ZM60.0507 57.2719C59.9484 57.3878 59.8598 57.4879 59.7857 57.5716L45.7898 49.0936C45.8273 49.0492 45.8674 49.0017 45.9102 48.951C46.2345 48.5669 46.7115 48.0038 47.3222 47.2883C48.5436 45.8572 50.2995 43.8164 52.4369 41.3787C56.7122 36.5027 62.5118 30.0406 68.6119 23.6925C74.7148 17.3415 81.1069 11.1167 86.5692 6.70806C89.3022 4.50222 91.7845 2.76576 93.8695 1.69398C94.9119 1.15814 95.8384 0.797167 96.6353 0.622072C97.4348 0.446423 98.0675 0.465651 98.5502 0.645548C99.0022 0.814063 99.2698 1.11348 99.4028 1.56432C99.5446 2.04523 99.5365 2.71923 99.3441 3.59906C98.9599 5.35545 97.89 7.72331 96.3011 10.5193C93.1317 16.0965 87.9928 23.2152 82.5357 30.2412C77.0824 37.2625 71.3258 44.173 66.9315 49.3293C64.7346 51.9072 62.8787 54.0459 61.5723 55.54C60.919 56.2871 60.4032 56.8729 60.0507 57.2719ZM16.2251 92.668C16.0764 92.6747 15.9417 92.6786 15.8212 92.6801C16.0575 92.2637 16.2585 91.7649 16.4388 91.223C16.7488 90.2907 17.0222 89.1487 17.2934 87.898C17.4237 87.2975 17.5537 86.6708 17.6875 86.0263C18.1148 83.9671 18.5798 81.7263 19.2093 79.576C20.0369 76.7491 21.1274 74.1618 22.7223 72.4212C24.2241 70.7823 26.1841 69.8783 28.8921 70.2726C29.3157 72.7097 30.0807 74.4464 31.0522 75.6663C32.0754 76.9514 33.3042 77.6334 34.5285 77.965C35.7436 78.2941 36.9442 78.2758 37.9227 78.1824C38.3902 78.1377 38.814 78.0751 39.1632 78.0235L39.2125 78.0162C39.3948 77.9893 39.5472 77.9674 39.6734 77.952C40.2485 79.3576 40.3504 80.616 40.1094 81.7474C39.8493 82.9686 39.1804 84.0859 38.1908 85.1074C36.1996 87.1629 32.9745 88.7638 29.4981 89.9558C26.035 91.1432 22.3838 91.9044 19.5983 92.3127C18.2054 92.5168 17.0377 92.6315 16.2251 92.668Z" stroke="#145883"></path>
 				</svg>
 
-				Similar to product research, I approach each project with a user-centric mindset. I begin by
-				taking into account applicable insights gathered during the product research phase, such as
-				user needs, preferences, and pain points. Additionally, I gain an understanding of the
-				product's features and the problem it aims to solve. Using this information, through various
-				iterations, I explore possible solutions by creating multiple sketches and wireframes. These
-				visualizations are used to determine the layout structure, content hierarchy, navigation,
-				and user flows of the website, which, in turn, help in identifying usability issues early in
-				the design process.
+				<p>
+					Similar to product research, I approach each project with a user-centric mindset. I begin
+					by taking into account applicable insights gathered during the product research phase,
+					such as user needs, preferences, and pain points. Additionally, I gain an understanding of
+					the product's features and the problem it aims to solve. Using this information, through
+					various iterations, I explore possible solutions by creating multiple sketches and
+					wireframes. These visualizations are used to determine the layout structure, content
+					hierarchy, navigation, and user flows of the website, which, in turn, help in identifying
+					usability issues early in the design process.
+				</p>
 				<br />
-				After sketching and wireframes, I carefully choose typography, brand colors, imagery, and create
-				icons, elements, and components for the website. These are used to produce responsive, high-fidelity,
-				interactive prototypes that are put through usability testing and questionnaires to identify
-				usability and accessibility issues.
-			</SkillCard>
-
-			<SkillCard title="Product Research">
-				<!-- prettier-ignore -->
-				<svg class="min-w-30-40 min-h-30-40" slot="icon" width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M8.15498 58.5936C3.96035 53.5176 1.35002 47.9117 0.409579 41.6851C-0.62434 34.8396 0.280338 28.2129 3.33858 21.8723C6.99903 14.2831 12.8568 8.47555 20.7975 4.45316C25.3569 2.14363 30.2591 0.728444 35.4736 0.236664C42.512 -0.427136 49.364 0.258001 55.8402 2.89589C69.046 8.27489 77.1693 17.5023 79.6565 30.461C81.7207 41.2163 78.7137 50.9909 71.2637 59.5843C70.4679 60.5022 69.5759 61.351 68.6769 62.2856C69.4307 63.128 70.1503 63.9304 70.8674 64.7347C71.1933 65.1001 71.4984 65.0327 71.9171 64.8057C73.911 63.7243 75.7009 63.9953 77.1392 65.5643C84.3342 73.4134 91.5275 81.2637 98.7192 89.1153C100.569 91.1349 100.425 92.9154 98.2229 94.6262C96.2565 96.154 94.2716 97.6636 92.253 99.1335C90.4487 100.447 88.3366 100.255 86.8476 98.6374C79.5403 90.6977 72.2453 82.7485 64.9638 74.7891C63.5072 73.1968 63.5533 71.6158 65.0223 70.0602C65.3153 69.7499 65.5543 69.4871 65.1895 69.1107C64.414 68.3105 63.7716 67.4013 62.8856 66.7018C42.9802 78.8137 19.2414 72.2796 8.15498 58.5936ZM61.9797 14.1437C54.5164 8.3262 45.9068 5.8372 36.1301 6.83486C28.6204 7.6012 22.115 10.458 16.8984 15.3656C8.3129 23.4427 5.36498 33.1222 8.34267 44.0531C12.4905 59.2793 29.245 68.8417 46.3203 65.8771C63.36 62.9187 75.0102 48.4039 72.7018 32.4772C71.6538 25.2465 68.0078 19.1727 61.9797 14.1437ZM80.0465 75.6108C78.0378 73.4268 76.0292 71.2429 73.9494 68.9817C72.7041 69.9235 71.5531 70.8046 70.3892 71.6712C69.172 72.5776 69.182 72.5599 70.2195 73.689C75.3607 79.284 80.4909 84.8873 85.6299 90.4839C87.0442 92.0241 88.4758 93.551 89.9568 95.1459C91.2944 94.1391 92.5124 93.1667 93.7986 92.2757C94.5516 91.7541 94.5207 91.349 93.943 90.7243C89.3292 85.7347 84.7428 80.7242 80.0465 75.6108Z" fill="#145883"></path>
-					<path d="M13.8519 47.5638C13.8519 47.1178 14.249 46.7563 14.7388 46.7563H65.5141C66.0039 46.7563 66.401 47.1178 66.401 47.5638V49.9864C66.401 50.4323 66.0039 50.7939 65.5141 50.7939H14.7388C14.249 50.7939 13.8519 50.4323 13.8519 49.9864V47.5638Z" fill="#C7CACD"></path>
-					<path d="M16.7343 37.9745C16.7343 36.6923 17.8759 35.6529 19.2842 35.6529C20.6924 35.6529 21.834 36.6923 21.834 37.9745V46.7563H16.7343V37.9745Z" fill="#DA5242"></path>
-					<path d="M27.1555 33.5332C27.1555 32.251 28.2971 31.2116 29.7053 31.2116C31.1136 31.2116 32.2552 32.251 32.2552 33.5332V46.7563H27.1555V33.5332Z" fill="#F2BE43"></path>
-					<path d="M37.5766 30.7069C37.5766 29.4247 38.7182 28.3853 40.1264 28.3853C41.5347 28.3853 42.6763 29.4247 42.6763 30.7069V46.7563H37.5766V30.7069Z" fill="#57A65D"></path>
-					<path d="M47.9977 25.0543C47.9977 23.7721 49.1393 22.7326 50.5476 22.7326C51.9558 22.7326 53.0974 23.7721 53.0974 25.0543V46.7563H47.9977V25.0543Z" fill="#353535"></path>
-					<path d="M58.4188 19.8054C58.4188 18.5232 59.5604 17.4838 60.9687 17.4838C62.3769 17.4838 63.5185 18.5232 63.5185 19.8054V46.7563H58.4188V19.8054Z" fill="#5387EC"></path>
-				</svg>
-
-				I recognize the importance of creating products that satisfy the needs and expectations of
-				customers. To achieve this goal, valuable insights need to be gathered from both qualitative
-				and quantitative research, identifying the needs, expectations and behavior of the target
-				audience, conducting market research of similar products, performing comprehensive
-				competitive analysis and testing minimum viable products (MVPs). By utilizing these and
-				other market research techniques, we can achieve a seamless user experience and discover
-				worthwhile product features that provide value to customers.
-				<br />
-				Continuously refining the product ensures it remains competitive in the market. By analyzing
-				user feedback and trends, we can update and improve the product's features and user experience
-				to remain relevant and meet changing customer needs. This iterative process allows us to stay
-				ahead of the competition and build products that exceed user expectations.
+				<p>
+					After sketching and wireframes, I carefully choose typography, brand colors, imagery, and
+					create icons, elements, and components for the website. These are used to produce
+					responsive, high-fidelity, interactive prototypes that are put through usability testing
+					and questionnaires to identify usability and accessibility issues.
+				</p>
 			</SkillCard>
 		</div>
 	</section>

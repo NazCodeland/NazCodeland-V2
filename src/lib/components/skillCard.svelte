@@ -1,17 +1,26 @@
 <script lang="ts">
 	import Icon from '$lib/components/Icon.svelte';
+
 	export let title: string;
+
+	let inlineSize: number;
+	let blockSize: number;
 
 	let open: Boolean = false;
 	function expandCard() {
 		open = !open;
 	}
-	$: console.log(open);
 </script>
 
+<svelte:window bind:innerWidth={inlineSize} />
+
 <article
-	class="skillCard forcedClrAdjust flex h-[300px] flex-auto basis-[30ch] flex-col overflow-hidden rounded-lg p-4
-		transition-transform delay-[0s] duration-[0.15s] ease-in-out
+	style="	{open ? `block-size: ${blockSize + 150}px` : ''}"
+	class="		
+		skillCard forcedClrAdjust
+		relative flex
+		h-[300px] flex-auto basis-[30ch] flex-col rounded-lg p-4 transition-all delay-[0s] duration-1000
+		[container-type:inline-size]
 		group-data-[themePalette=main]:outline-0
 		group-data-[themePalette=main]:focus-visible:outline-2
 		dark:bg-slate-1/12
@@ -27,13 +36,18 @@
 		</h3>
 	</header>
 
-	<p class="contrast-more:!text-[canvasText]">
+	<div
+		class="mb-[50px] overflow-hidden contrast-more:!text-[canvasText]"
+		bind:clientHeight={blockSize}>
 		<slot />
-	</p>
-	<button on:click={expandCard} class="m-auto mt-auto w-fit">
+	</div>
+
+	<button on:click={expandCard} class="absolute left-[50cqw] bottom-5">
 		<Icon
 			iconName="arrowDown"
-			classes="{open ? 'rotate-180' : ''} transition:all duration-200 fill-tertiaryColor" />
+			classes="{open
+				? 'rotate-180'
+				: 'animate-bounce'} transition-all duration-400 fill-tertiaryColor" />
 	</button>
 </article>
 
