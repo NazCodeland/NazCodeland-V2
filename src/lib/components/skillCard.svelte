@@ -5,6 +5,7 @@
 
 	let inlineSize: number;
 	let blockSize: number;
+	$: console.log(blockSize + 140);
 
 	let open: Boolean = false;
 	function expandCard() {
@@ -15,7 +16,7 @@
 <svelte:window bind:innerWidth={inlineSize} />
 
 <article
-	style="	{open ? `block-size: ${blockSize + 150}px` : ''}"
+	style="	{open ? `block-size: ${blockSize + 120}px` : ''}"
 	class="		
 		skillCard forcedClrAdjust
 		relative flex
@@ -36,18 +37,18 @@
 		</h3>
 	</header>
 
-	<div
-		class="mb-[50px] overflow-hidden contrast-more:!text-[canvasText]"
-		bind:clientHeight={blockSize}>
-		<slot />
+	<div class="mb-6 overflow-hidden">
+		<div class="mb-[50px] contrast-more:!text-[canvasText]" bind:offsetHeight={blockSize}>
+			<slot />
+		</div>
 	</div>
 
-	<button on:click={expandCard} class="absolute left-[50cqw] bottom-5">
+	<button on:click={expandCard} class=" outline-0">
 		<Icon
 			iconName="arrowDown"
 			classes="{open
-				? 'rotate-180'
-				: 'animate-bounce'} transition-all duration-400 fill-tertiaryColor" />
+				? 'rotate-180 bottom-4'
+				: 'animate-bounce'} absolute left-[50cqw] bottom-1 transition-all duration-400 fill-tertiaryColor" />
 	</button>
 </article>
 
