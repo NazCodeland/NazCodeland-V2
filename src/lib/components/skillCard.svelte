@@ -3,17 +3,24 @@
 
 	export let title: string;
 
-	let inlineSize: number;
 	let blockSize: number;
-	$: console.log(blockSize + 140);
-
 	let open: Boolean = false;
+
 	function expandCard() {
 		open = !open;
 	}
-</script>
+	function scrollIntoView({ target }) {
+		if (open) return;
 
-<svelte:window bind:innerWidth={inlineSize} />
+		let selectedArticle = target.closest('article');
+		selectedArticle.scrollIntoView({ behavior: 'smooth' });
+	}
+
+	function handleClick(event) {
+		expandCard();
+		scrollIntoView(event);
+	}
+</script>
 
 <article
 	style="	{open ? `block-size: ${blockSize + 120}px` : ''}"
@@ -28,7 +35,8 @@
 		dark:outline
 		dark:outline-primaryColor
 		dark:focus-visible:outline-dashed
-		dark:[&:is(:hover,:focus-visible)]:outline-[canvasText]">
+		dark:[&:is(:hover,:focus-visible)]:outline-[canvasText]
+		">
 	<!--  -->
 	<header data-theme="warning" class="mb-8-16 flex items-end gap-4">
 		<slot name="icon" />
@@ -43,7 +51,7 @@
 		</div>
 	</div>
 
-	<button on:click={expandCard} class=" outline-0">
+	<button on:click={handleClick} class=" outline-0">
 		<Icon
 			iconName="arrowDown"
 			classes="{open
