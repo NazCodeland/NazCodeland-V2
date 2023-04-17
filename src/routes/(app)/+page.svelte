@@ -4,6 +4,7 @@
 	import Icon from '$lib/components/Icon.svelte';
 	import InlineLink from '$lib/elements/InlineLink.svelte';
 	import viewport from '$lib/actions/lazyLoadingAction';
+	import TechStack from '../../lib/icons/techStack.svelte';
 
 	let inViewport: Boolean;
 	function handleEnter() {
@@ -12,9 +13,6 @@
 	function handleExit() {
 		inViewport = false;
 	}
-	// function handleViewport() {
-	// 	inViewport = !inViewport;
-	// }
 </script>
 
 <main class="flex flex-col gap-96-132" id="mainContent">
@@ -150,7 +148,7 @@
 			<figure class="image relative float-right w-full max-w-[600px] pl-32">
 				<i use:viewport={{ handleEnter, handleExit }}>
 					{#if inViewport}
-						<Icon iconName="techStack" />
+						<TechStack />
 					{/if}
 				</i>
 				<figcaption class="max-w-[400px]">

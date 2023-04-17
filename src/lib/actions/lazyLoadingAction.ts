@@ -11,8 +11,6 @@ function handleObservation(entries, callbacks) {
 		} else {
 			handleExit();
 		}
-
-		entry.target.dispatchEvent(new CustomEvent(eventName));
 	});
 }
 

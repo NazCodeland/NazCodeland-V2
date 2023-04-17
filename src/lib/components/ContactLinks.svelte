@@ -1,6 +1,5 @@
 <script>
 	import { contactLinksStore } from '$lib/stores/contactLinksStore';
-	import Icon from './Icon.svelte';
 </script>
 
 <ul
@@ -12,7 +11,7 @@
 			: ''} mail grid h-8 w-8 place-items-center rounded-lg bg-primaryColor/38 outline outline-transparent
 		transition-all duration-500 hover:scale-[2] hover:duration-150 [&:not(:hover)]:group-hover/contact:scale-50">
 		<a href="mailto:nazcodeland@gmail.com" rel="noopener">
-			<Icon iconName="mail" />
+			<img src="$lib/icons/mail.svg" alt="email icon" />
 		</a>
 	</li>
 	<li
@@ -21,7 +20,7 @@
 			: ''} discord grid h-8 w-8 place-items-center rounded-lg bg-primaryColor/38 outline outline-transparent
 		transition-all duration-500 hover:scale-[2] hover:duration-150 [&:not(:hover)]:group-hover/contact:scale-50">
 		<a href="https://discordapp.com/users/804118317299400734">
-			<Icon iconName="discord" />
+			<img src="$lib/icons/discord.svg" alt="discord icon" />
 		</a>
 	</li>
 	<li
@@ -30,7 +29,7 @@
 			: ''} grid h-8 w-8 place-items-center rounded-lg bg-primaryColor/38 outline outline-transparent transition-all duration-500
 		hover:scale-[2] hover:duration-150 [&:not(:hover)]:group-hover/contact:scale-50">
 		<a href="https://github.com/NazCodeland?tab=repositories" target="_blank">
-			<Icon iconName="github" />
+			<img src="$lib/icons/github.svg" alt="github icon" />
 		</a>
 	</li>
 </ul>
