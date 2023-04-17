@@ -9,7 +9,7 @@
 <SiteWrapper>
 	<Site>
 		<slot name="header">
-			<Header position="sticky" paddingLeft="10px" paddingRight="0" />
+			<Header position="sticky" paddingInlineStart="10px" paddingInlineEnd="0" />
 		</slot>
 
 		<div class="m-auto max-w-[90ch]">

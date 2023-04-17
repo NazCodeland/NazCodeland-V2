@@ -1,5 +1,5 @@
 <script lang="ts">
-	import arrowDown from '$lib/icons/arrowDown.svg';
+	import arrowDown from '$lib/icons/themeBased/arrowDown/arrowDownMain.svg';
 
 	export let contents: string[] = [];
 

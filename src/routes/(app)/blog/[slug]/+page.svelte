@@ -2,7 +2,7 @@
 	export let data;
 
 	import Giscus from 'C:/Users/o0/source/projects/mine/NazCodeLandSvelteKit/node_modules/@giscus/svelte/package/Giscus.svelte';
-	import moveToTop from '$lib/icons/moveToTop.svg';
+	import moveToTop from '$lib/icons/themeBased/moveToTop/moveToTopMain.svg';
 </script>
 
 <main class="flex flex-col gap-96-132" id="maincontent">

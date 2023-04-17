@@ -2,15 +2,51 @@
 	import ColorSchemeToggle from '$lib/components/ColorSchemeToggle.svelte';
 	import Logo from '$lib/components/Logo.svelte';
 	import Menu from '$lib/components/Menu.svelte';
-	import hamburger from '$lib/icons/hamburger.svg';
 	import { toggleMenu } from '$lib/stores/menuStore';
+	import { colorSchemeStore, themePaletteStore } from '$lib/stores/colorSchemeAndThemePaletteStore';
+
 	export let position: string;
-	export let paddingLeft: string = '10px';
-	export let paddingRight: string;
+	export let paddingInlineStart: string = '10px';
+	export let paddingInlineEnd: string;
+
+	interface paramsType {
+		iconName: string;
+		colorScheme: string;
+		themePalette: string;
+	}
+
+	$: colorScheme = $colorSchemeStore[0].toUpperCase() + $colorSchemeStore.slice(1);
+	$: themePalette = $themePaletteStore[0].toUpperCase() + $themePaletteStore.slice(1);
+
+	function loadIcon(element: HTMLElement, params: paramsType) {
+		let { iconName, colorScheme, themePalette } = params;
+
+		async function importAndSetThemedIcon(colorScheme: string, themePalette: string) {
+			let icon;
+			let iconPath: string;
+
+			themePalette === 'Main'
+				? (iconPath = `/src/lib/icons/themeBased/${iconName}/${iconName}${themePalette}.svg`)
+				: (iconPath = `/src/lib/icons/themeBased/${iconName}/${iconName}${themePalette}${colorScheme}.svg`);
+
+			let moduleObj = import.meta.glob('/src/lib/icons/themeBased/**/*.svg');
+			let module = await moduleObj[iconPath]();
+			icon = module.default;
+			element.setAttribute('src', icon);
+		}
+
+		importAndSetThemedIcon(colorScheme, themePalette);
+		return {
+			update(params: paramsType) {
+				let { colorScheme: newColorScheme, themePalette: newThemePalette } = params;
+				importAndSetThemedIcon(newColorScheme, newThemePalette);
+			}
+		};
+	}
 </script>
 
 <header
-	style="padding-inline-start: {paddingLeft};padding-inline-end: {paddingRight};"
+	style="padding-inline-start: {paddingInlineStart};padding-inline-end: {paddingInlineEnd};"
 	class="{position} left-0 right-0 top-0 z-20 m-auto flex w-full max-w-[1130px] items-center justify-between
 					gap-4 bg-secondaryColor pt-6 pb-3 sm:pt-3
 					md:border-b md:border-solid md:border-primaryColor md:pt-1">
@@ -37,7 +73,7 @@
 			on:click={toggleMenu}	
 			type="button" tabindex="0" 
 			class="md:hidden rounded-sm p-0.5" aria-label="menu">
-			<img src={hamburger} alt="menu">
+			<img use:loadIcon={{iconName: 'hamburger', colorScheme, themePalette}} alt="menu">
 						
 		</button>
 

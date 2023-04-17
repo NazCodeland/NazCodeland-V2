@@ -1,5 +1,5 @@
 <script lang="ts">
-	import arrowDown from '$lib/icons/arrowDown.svg';
+	import arrowDown from '$lib/icons/themeBased/arrowDown/arrowDownMain.svg';
 
 	export let title: string;
 
@@ -27,7 +27,7 @@
 	class="		
 		skillCard forcedClrAdjust
 		relative flex
-		h-[300px] flex-auto basis-[30ch] flex-col rounded-lg p-4 transition-all delay-[0s] duration-1000
+		h-[300px] flex-auto basis-[30ch] flex-col rounded-lg p-4 transition-[height] delay-[0s] duration-1000
 		[container-type:inline-size]
 		group-data-[themePalette=main]:outline-0
 		group-data-[themePalette=main]:focus-visible:outline-2
