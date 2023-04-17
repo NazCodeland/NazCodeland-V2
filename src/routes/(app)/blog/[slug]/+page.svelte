@@ -2,7 +2,7 @@
 	export let data;
 
 	import Giscus from 'C:/Users/o0/source/projects/mine/NazCodeLandSvelteKit/node_modules/@giscus/svelte/package/Giscus.svelte';
-	import Icon from '$lib/components/Icon.svelte';
+	import moveToTop from '$lib/icons/moveToTop.svg';
 </script>
 
 <main class="flex flex-col gap-96-132" id="maincontent">
@@ -20,7 +20,7 @@
 				(provided as the this prop value) when the exact component isn't known beforehand.
 				since .md files are configured to be treated as Svelte components,-->
 		<svelte:component this={data.content} />"
-		<Icon iconName="MoveToTop" />
+		<img src={moveToTop} alt="" />
 	</article>
 
 	<hr class="mx-60 h-[1px] border-none bg-primaryColor bg-gradient-to-r" />

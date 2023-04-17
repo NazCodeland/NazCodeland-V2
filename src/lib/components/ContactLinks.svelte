@@ -1,5 +1,8 @@
 <script>
 	import { contactLinksStore } from '$lib/stores/contactLinksStore';
+	import email from '$lib/icons/email.svg';
+	import discord from '$lib/icons/discord.svg';
+	import github from '$lib/icons/github.svg';
 </script>
 
 <ul
@@ -11,7 +14,7 @@
 			: ''} mail grid h-8 w-8 place-items-center rounded-lg bg-primaryColor/38 outline outline-transparent
 		transition-all duration-500 hover:scale-[2] hover:duration-150 [&:not(:hover)]:group-hover/contact:scale-50">
 		<a href="mailto:nazcodeland@gmail.com" rel="noopener">
-			<img src="$lib/icons/mail.svg" alt="email icon" />
+			<img src={email} alt="email icon" />
 		</a>
 	</li>
 	<li
@@ -20,7 +23,7 @@
 			: ''} discord grid h-8 w-8 place-items-center rounded-lg bg-primaryColor/38 outline outline-transparent
 		transition-all duration-500 hover:scale-[2] hover:duration-150 [&:not(:hover)]:group-hover/contact:scale-50">
 		<a href="https://discordapp.com/users/804118317299400734">
-			<img src="$lib/icons/discord.svg" alt="discord icon" />
+			<img src={discord} alt="discord icon" />
 		</a>
 	</li>
 	<li
@@ -29,7 +32,7 @@
 			: ''} grid h-8 w-8 place-items-center rounded-lg bg-primaryColor/38 outline outline-transparent transition-all duration-500
 		hover:scale-[2] hover:duration-150 [&:not(:hover)]:group-hover/contact:scale-50">
 		<a href="https://github.com/NazCodeland?tab=repositories" target="_blank">
-			<img src="$lib/icons/github.svg" alt="github icon" />
+			<img src={github} alt="github icon" />
 		</a>
 	</li>
 </ul>

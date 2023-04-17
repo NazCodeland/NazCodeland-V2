@@ -1,7 +1,8 @@
 <script>
 	export let data;
 	import TableOfContents from '$lib/components/TableOfContents.svelte';
-	import Icon from '$lib/components/Icon.svelte';
+	import MoveToTop from '$src/lib/icons/MoveToTop.svelte';
+	import moveToTop from '$lib/icons/MoveToTop.svg';
 </script>
 
 <main class="m-auto w-full max-w-[60ch]">
@@ -72,9 +73,9 @@
 			distinctio iure rem tempora saepe perferendis. Soluta quidem incidunt suscipit deserunt dolor,
 			veritatis cupiditate corporis, ex nulla, ab!
 		</p>
-
-		<Icon iconName="MoveToTop" />
 	</article>
+	<MoveToTop />
+	<img src={moveToTop} alt="move to top" />
 </main>
 
 <style>

@@ -1,5 +1,6 @@
 <script lang="ts">
-	import Icon from '$lib/components/Icon.svelte';
+	import arrowDown from '$lib/icons/arrowDown.svg';
+
 	export let contents: string[] = [];
 
 	let open: Boolean = false;
@@ -12,9 +13,10 @@
 	<div class="m-auto flex w-fit items-center gap-4">
 		<p class="py-3 text-fluid-2">Table of Contents</p>
 		<button on:click={showTableOfContents} class="rounded-md">
-			<Icon
-				iconName="arrowDown"
-				classes="{open ? 'rotate-180' : ''} transition-all duration-200 fill-tertiaryColor" />
+			<img
+				src={arrowDown}
+				alt=""
+				class="{open ? 'rotate-180' : ''} fill-tertiaryColor transition-all duration-200" />
 		</button>
 	</div>
 

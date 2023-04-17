@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon from '$lib/components/Icon.svelte';
+	import arrowDown from '$lib/icons/arrowDown.svg';
 
 	export let title: string;
 
@@ -52,11 +52,12 @@
 	</div>
 
 	<button on:click={handleClick} class=" outline-0">
-		<Icon
-			iconName="arrowDown"
-			classes="{open
-				? 'rotate-180 bottom-4'
-				: 'animate-bounce'} absolute left-[50cqw] bottom-1 transition-all duration-400 fill-tertiaryColor" />
+		<img
+			src={arrowDown}
+			alt=""
+			class="{open
+				? 'bottom-4 rotate-180'
+				: 'animate-bounce'} duration-400 absolute left-[50cqw] bottom-1 transition-all" />
 	</button>
 </article>
 
