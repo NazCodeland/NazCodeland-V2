@@ -1,5 +1,5 @@
 <script>
-	import { contactLinksStore } from '../stores/contactLinksStore';
+	import { contactLinksStore } from '$lib/stores/contactLinksStore';
 	import Icon from './Icon.svelte';
 </script>
 

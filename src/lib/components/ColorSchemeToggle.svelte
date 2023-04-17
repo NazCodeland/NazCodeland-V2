@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { setColorScheme as showThemePalette } from './colorSchemeToggle/store/ColorSchemeStore';
-	import { toggleColorScheme } from '../stores/colorSchemeAndThemePaletteStore';
-	import Day from './colorSchemeToggle/Day.svelte';
-	import Night from './colorSchemeToggle/Night.svelte';
-	import ThemePalettes from './colorSchemeToggle/ThemePalettes.svelte';
+	import { setColorScheme as showThemePalette } from '$lib/components/colorSchemeToggle/store/ColorSchemeStore';
+	import { toggleColorScheme } from '$lib/stores/colorSchemeAndThemePaletteStore';
+	import Day from '$lib/components/colorSchemeToggle/Day.svelte';
+	import Night from '$lib/components/colorSchemeToggle/Night.svelte';
+	import ThemePalettes from '$lib/components/colorSchemeToggle/ThemePalettes.svelte';
 
 	function forcedColorsActive() {
 		if (browser) {

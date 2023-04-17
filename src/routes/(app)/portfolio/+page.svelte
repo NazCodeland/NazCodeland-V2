@@ -1,6 +1,6 @@
 <script>
 	import Project from '$lib/components/Project.svelte';
-	import Link from '$src/lib/elements/InlineLink.svelte';
+	import Link from '$lib/elements/InlineLink.svelte';
 </script>
 
 <!-- TODO: add a sorting navigation to sort by project roles-->

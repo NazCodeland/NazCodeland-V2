@@ -10,7 +10,7 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			$src: './src',
-			$schemas: './src/schemas'
+			$route: './src/route'
 		}
 	},
 

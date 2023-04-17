@@ -2,8 +2,8 @@
 	import '$src/app.css';
 	import SiteWrapper from '$lib/components/SiteWrapper.svelte';
 	import Site from '$lib/components/Site.svelte';
-	import Header from '$src/lib/components/Header.svelte';
-	import Footer from '$src/lib/components/Footer.svelte';
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <SiteWrapper>

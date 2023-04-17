@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { colorSchemeStore } from './store/ColorSchemeStore';
-	import { setColorScheme as showThemePalette } from '../colorSchemeToggle/store/ColorSchemeStore';
-
+	import { setColorScheme as showThemePalette } from '$lib/components/colorSchemeToggle/store/ColorSchemeStore';
 	import {
 		ThemePaletteEnum,
 		themePaletteStore,
