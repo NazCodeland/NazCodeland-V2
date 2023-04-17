@@ -3,10 +3,18 @@
 	import SkillCard from '$lib/components/skillCard.svelte';
 	import Icon from '$lib/components/Icon.svelte';
 	import InlineLink from '$lib/elements/InlineLink.svelte';
-	import viewport from '$src/lib/actions/lazyLoadingAction';
+	import viewport from '$lib/actions/lazyLoadingAction';
 
 	let inViewport: Boolean;
-	$: console.log(inViewport);
+	function handleEnter() {
+		inViewport = true;
+	}
+	function handleExit() {
+		inViewport = false;
+	}
+	// function handleViewport() {
+	// 	inViewport = !inViewport;
+	// }
 </script>
 
 <main class="flex flex-col gap-96-132" id="mainContent">
@@ -140,10 +148,7 @@
 	<section id="aboutMe" class="scrollMarginTop flex flex-col [--scrollMarginTop:230px]">
 		<div>
 			<figure class="image relative float-right w-full max-w-[600px] pl-32">
-				<i
-					use:viewport
-					on:enteringViewport={() => (inViewport = true)}
-					on:exitingViewport={() => (inViewport = false)}>
+				<i use:viewport={{ handleEnter, handleExit }}>
 					{#if inViewport}
 						<Icon iconName="techStack" />
 					{/if}
