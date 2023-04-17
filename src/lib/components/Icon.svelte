@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { SvelteComponent } from 'svelte';
+	import viewport from '$src/lib/actions/lazyLoadingAction';
 
-	export let iconName: string;
+	export let iconName: string = '';
 	export let classes: string = '';
 
 	let icon: typeof SvelteComponent;

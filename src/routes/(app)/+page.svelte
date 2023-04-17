@@ -1,8 +1,12 @@
 <script lang="ts">
 	import ProfileCard from '$lib/components/ProfileCard.svelte';
 	import SkillCard from '$lib/components/skillCard.svelte';
-	import Icon from '$src/lib/components/Icon.svelte';
-	import InlineLink from '$src/lib/elements/InlineLink.svelte';
+	import Icon from '$lib/components/Icon.svelte';
+	import InlineLink from '$lib/elements/InlineLink.svelte';
+	import viewport from '$src/lib/actions/lazyLoadingAction';
+
+	let inViewport: Boolean;
+	$: console.log(inViewport);
 </script>
 
 <main class="flex flex-col gap-96-132" id="mainContent">
@@ -136,7 +140,14 @@
 	<section id="aboutMe" class="scrollMarginTop flex flex-col [--scrollMarginTop:230px]">
 		<div>
 			<figure class="image relative float-right w-full max-w-[600px] pl-32">
-				<Icon iconName="techStack" />
+				<i
+					use:viewport
+					on:enteringViewport={() => (inViewport = true)}
+					on:exitingViewport={() => (inViewport = false)}>
+					{#if inViewport}
+						<Icon iconName="techStack" />
+					{/if}
+				</i>
 				<figcaption class="max-w-[400px]">
 					<svg
 						class="innerSvg absolute -top-20 left-0 h-[300px] w-full fill-bodyCopy text-fluid-1"
