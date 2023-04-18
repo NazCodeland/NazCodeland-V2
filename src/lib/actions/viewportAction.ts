@@ -1,7 +1,16 @@
+interface IntersectionEntryType {
+	boundingClientRect: DOMRectReadOnly;
+	intersectionRatio: number;
+	intersectionRect: DOMRectReadOnly;
+	isIntersecting: boolean;
+	target: Element;
+	time: number;
+}
+
 let intersectionObserver: IntersectionObserver;
 
 export default function viewport(element: HTMLElement) {
-	function handleObserver(entries) {
+	function handleObserver(entries: IntersectionEntryType[]) {
 		entries.forEach((entry) => {
 			const eventName = entry.isIntersecting ? 'enteringViewport' : 'exitingViewport';
 			element.dispatchEvent(new CustomEvent(eventName));
