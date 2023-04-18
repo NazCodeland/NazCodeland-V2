@@ -36,7 +36,7 @@
 			<SkillCard title="Web Development">
 				<!-- prettier-ignore -->
 				<!-- href="/images/icons/svelte.svg" -->
-				<img src={webDevelopment} alt="" />
+				<img src={webDevelopment} alt="" loading="lazy" />
 				<p>
 					As a web developer, I have a passion for building websites that are both visually stunning
 					and technically sound. I have experience with a range of programming languages and
@@ -52,7 +52,7 @@
 
 			<SkillCard title="Product Research">
 				<!-- prettier-ignore -->
-				<img src="{productResearch}" alt="">
+				<img src="{productResearch}" alt="" loading="lazy">
 
 				<p>
 					I recognize the importance of creating products that satisfy the needs and expectations of
@@ -74,7 +74,7 @@
 
 			<SkillCard title="Web Design">
 				<!-- prettier-ignore -->
-				<img src="{webDesign}" alt="">
+				<img src="{webDesign}" alt="" loading="lazy">
 				<p>
 					Similar to product research, I approach each project with a user-centric mindset. I begin
 					by taking into account applicable insights gathered during the product research phase,

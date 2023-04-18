@@ -39,7 +39,7 @@
 			on:click={toggleMenu}	
 			type="button" tabindex="0" 
 			class="md:hidden rounded-sm p-0.5" aria-label="menu">
-			<img src={hamburger} use:loadThemeBasedIcon={'hamburger'} alt="menu">
+			<img src={hamburger} use:loadThemeBasedIcon={'hamburger'} alt="menu" loading="lazy">
 						
 		</button>
 

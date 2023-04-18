@@ -3,7 +3,7 @@
 </script>
 
 <figure class="image relative float-right w-full max-w-[600px] pl-32">
-	<img src={techStack} alt="" />
+	<img src={techStack} alt="" loading="lazy" />
 	<figcaption class="max-w-[400px]">
 		<!-- techStack title svg -->
 		<svg

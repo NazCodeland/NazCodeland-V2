@@ -55,7 +55,7 @@ There are a few different ways of making this more convenient, but the other day
 		<div class="welcome">
 			<picture>
 				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
+				<img src="svelte-welcome.png" alt="Welcome" loading="lazy" />
 			</picture>
 		</div>
 

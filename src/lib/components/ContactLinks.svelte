@@ -14,7 +14,7 @@
 			: ''} mail grid h-8 w-8 place-items-center rounded-lg bg-primaryColor/38 outline outline-transparent
 		transition-all duration-500 hover:scale-[2] hover:duration-150 [&:not(:hover)]:group-hover/contact:scale-50">
 		<a href="mailto:nazcodeland@gmail.com" rel="noopener">
-			<img src={email} alt="email icon" />
+			<img src={email} alt="email icon" loading="lazy" />
 		</a>
 	</li>
 	<li
@@ -23,7 +23,7 @@
 			: ''} discord grid h-8 w-8 place-items-center rounded-lg bg-primaryColor/38 outline outline-transparent
 		transition-all duration-500 hover:scale-[2] hover:duration-150 [&:not(:hover)]:group-hover/contact:scale-50">
 		<a href="https://discordapp.com/users/804118317299400734">
-			<img src={discord} alt="discord icon" />
+			<img src={discord} alt="discord icon" loading="lazy" />
 		</a>
 	</li>
 	<li
@@ -32,7 +32,7 @@
 			: ''} grid h-8 w-8 place-items-center rounded-lg bg-primaryColor/38 outline outline-transparent transition-all duration-500
 		hover:scale-[2] hover:duration-150 [&:not(:hover)]:group-hover/contact:scale-50">
 		<a href="https://github.com/NazCodeland?tab=repositories" target="_blank">
-			<img src={github} alt="github icon" />
+			<img src={github} alt="github icon" loading="lazy" />
 		</a>
 	</li>
 </ul>

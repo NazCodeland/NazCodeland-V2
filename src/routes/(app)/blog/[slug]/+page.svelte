@@ -20,7 +20,7 @@
 				(provided as the this prop value) when the exact component isn't known beforehand.
 				since .md files are configured to be treated as Svelte components,-->
 		<svelte:component this={data.content} />"
-		<img src={moveToTop} alt="" />
+		<img src={moveToTop} alt="" loading="lazy" />
 	</article>
 
 	<hr class="mx-60 h-[1px] border-none bg-primaryColor bg-gradient-to-r" />

@@ -9,7 +9,7 @@
 </script>
 
 <article class="flex w-full flex-col gap-3">
-	<img class="img aspect-[800/200]" {src} alt="a cute dog" />
+	<img class="img aspect-[800/200]" {src} alt="a cute dog" loading="lazy" />
 
 	<div class="">
 		<h2>
