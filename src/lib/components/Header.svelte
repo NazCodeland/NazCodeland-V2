@@ -3,46 +3,12 @@
 	import Logo from '$lib/components/Logo.svelte';
 	import Menu from '$lib/components/Menu.svelte';
 	import { toggleMenu } from '$lib/stores/menuStore';
-	import { colorSchemeStore, themePaletteStore } from '$lib/stores/colorSchemeAndThemePaletteStore';
+	import hamburger from '$lib/icons/themeBased/hamburger/hamburgerMain.svg';
+	import loadThemeBasedIcon from '$lib/actions/loadThemeBasedIcon';
 
 	export let position: string;
 	export let paddingInlineStart: string = '10px';
 	export let paddingInlineEnd: string;
-
-	interface paramsType {
-		iconName: string;
-		colorScheme: string;
-		themePalette: string;
-	}
-
-	$: colorScheme = $colorSchemeStore[0].toUpperCase() + $colorSchemeStore.slice(1);
-	$: themePalette = $themePaletteStore[0].toUpperCase() + $themePaletteStore.slice(1);
-
-	function loadIcon(element: HTMLElement, params: paramsType) {
-		let { iconName, colorScheme, themePalette } = params;
-
-		async function importAndSetThemedIcon(colorScheme: string, themePalette: string) {
-			let icon;
-			let iconPath: string;
-
-			themePalette === 'Main'
-				? (iconPath = `/src/lib/icons/themeBased/${iconName}/${iconName}${themePalette}.svg`)
-				: (iconPath = `/src/lib/icons/themeBased/${iconName}/${iconName}${themePalette}${colorScheme}.svg`);
-
-			let moduleObj = import.meta.glob('/src/lib/icons/themeBased/**/*.svg');
-			let module = await moduleObj[iconPath]();
-			icon = module.default;
-			element.setAttribute('src', icon);
-		}
-
-		importAndSetThemedIcon(colorScheme, themePalette);
-		return {
-			update(params: paramsType) {
-				let { colorScheme: newColorScheme, themePalette: newThemePalette } = params;
-				importAndSetThemedIcon(newColorScheme, newThemePalette);
-			}
-		};
-	}
 </script>
 
 <header
@@ -73,7 +39,7 @@
 			on:click={toggleMenu}	
 			type="button" tabindex="0" 
 			class="md:hidden rounded-sm p-0.5" aria-label="menu">
-			<img use:loadIcon={{iconName: 'hamburger', colorScheme, themePalette}} alt="menu">
+			<img src={hamburger} use:loadThemeBasedIcon={'hamburger'} alt="menu">
 						
 		</button>
 
