@@ -8,6 +8,7 @@
 	import productResearch from '$lib/icons/productResearch.svg';
 	import webDesign from '$lib/icons/webDesign.svg';
 	import TechStack from '$lib/icons/techStack.svelte';
+	import viewportAction from '$src/lib/actions/viewportAction';
 
 	let inViewport: Boolean;
 	function handleEnter() {
@@ -32,7 +33,11 @@
 			What I Do
 		</h2>
 
-		<div class="relative flex flex-wrap gap-4">
+		<div
+			use:viewportAction
+			on:enteringViewport={() => console.log('Welcome')}
+			on:exitingViewport={() => console.log('Bye')}
+			class="relative flex flex-wrap gap-4">
 			<SkillCard title="Web Development">
 				<!-- prettier-ignore -->
 				<!-- href="/images/icons/svelte.svg" -->
