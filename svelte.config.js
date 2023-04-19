@@ -11,6 +11,9 @@ const config = {
 		alias: {
 			$src: './src',
 			$route: './src/route'
+		},
+		optimizeDeps: {
+			include: ['@giscus/svelte']
 		}
 	},
 
