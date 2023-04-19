@@ -5,8 +5,6 @@
 	import webDevelopment from '$lib/icons/webDevelopment.svg';
 	import productResearch from '$lib/icons/productResearch.svg';
 	import webDesign from '$lib/icons/webDesign.svg';
-	import TechStack from '$lib/icons/techStack.svelte';
-	import viewportAction from '$lib/actions/viewportAction';
 	import LazyLoad from '$lib/components/LazyLoad.svelte';
 </script>
 
