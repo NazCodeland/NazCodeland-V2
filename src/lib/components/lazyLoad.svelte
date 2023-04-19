@@ -6,17 +6,26 @@
 
 	export let component: Function;
 	let componentPromise: Promise<any>;
-	let isComponentFunctionCalled = false;
+	let inViewport = false;
+	let checkViewport = true;
 </script>
 
-{#if !isComponentFunctionCalled}
+<!-- for some reason, `on:enteringViewport` doesn't activat eafter the first time.
+		For example, if you load the site, then go to another page,
+		and go back to the home page, and scroll down to the "about me" section,
+		that contains the <LazyLoad /> component, `on:enteringViewport` doesn't activate
+-->
+{#if checkViewport}
 	<div
 		use:viewport
 		on:enteringViewport={() => {
 			componentPromise = component();
-			isComponentFunctionCalled = true;
+			inViewport = true;
+			checkViewport = false;
 		}} />
-{:else}
+{/if}
+
+{#if inViewport}
 	{#await componentPromise then { default: Component }}
 		<slot {Component} />
 	{/await}

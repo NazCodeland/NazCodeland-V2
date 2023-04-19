@@ -111,8 +111,8 @@
 			<br />
 			<p>
 				If my skillset aligns with your needs and you believe I can help in envisioning your project
-				or add value to your team, feel free <span class="whitespace-nowrap"
-					><InlineLink href="/contact" title="contact me" />.</span> I am always looking for new opportunities.
+				or add value to your team, feel free <span class="whitespace-nowrap">
+					<InlineLink href="/contact" title="contact me" />.</span> I am always looking for new opportunities.
 			</p>
 		</div>
 	</section>

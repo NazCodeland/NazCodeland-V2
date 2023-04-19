@@ -19,7 +19,7 @@ export default function viewport(element: HTMLElement) {
 
 	// one intersectionObserver instance can observe multiple elements at the same time
 	function initializeIntersectionObserver() {
-		if (intersectionObserver) return;
+		// if (intersectionObserver) return;
 
 		intersectionObserver = new IntersectionObserver(handleObserver, {
 			// element gets observed 300px before it's into the viewport
@@ -27,8 +27,8 @@ export default function viewport(element: HTMLElement) {
 			rootMargin: '0px 0px 300px'
 		});
 	}
-	initializeIntersectionObserver();
 
+	initializeIntersectionObserver();
 	intersectionObserver.observe(element);
 
 	return {

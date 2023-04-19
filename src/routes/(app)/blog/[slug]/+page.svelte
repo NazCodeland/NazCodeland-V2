@@ -1,7 +1,7 @@
 <script>
 	export let data;
 
-	import Giscus from 'C:/Users/o0/source/projects/mine/NazCodeLandSvelteKit/node_modules/@giscus/svelte/package/Giscus.svelte';
+	import Giscus from '@giscus/svelte';
 	import moveToTop from '$lib/icons/themeBased/moveToTop/moveToTopMain.svg';
 </script>
 

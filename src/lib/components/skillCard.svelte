@@ -45,7 +45,7 @@
 		</h3>
 	</header>
 
-	<div class="mb-6 overflow-hidden">
+	<div class="mb-7 overflow-hidden">
 		<div class="mb-[50px] contrast-more:!text-[canvasText]" bind:offsetHeight={blockSize}>
 			<slot />
 		</div>
