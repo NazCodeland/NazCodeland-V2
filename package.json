@@ -43,6 +43,7 @@
 	"type": "module",
 	"dependencies": {
 		"@giscus/svelte": "^2.2.8",
+		"@vercel/analytics": "^1.0.0",
 		"fuse.js": "^6.6.2",
 		"mongodb": "^5.1.0",
 		"mongoose": "^7.0.3",

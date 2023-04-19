@@ -16,7 +16,7 @@ const config = {
 
 	extensions: ['.svelte', '.md'],
 
-	// https://kit.svelte.dev/docs/integrations#preprocessors
+	// https://kit.svelte.d/docs/integrations#preprocessors
 	preprocess: [vitePreprocess(), mdsvex(mdsvexConfig)],
 
 	vitePlugin: {
@@ -28,8 +28,12 @@ const config = {
 	},
 
 	// this build option is so vercel can locate the Giscus component
-	rollupOptions: {
-		external: ['C:/Users/o0/source/projects/mine/NazCodeLandSvelteKit/node_modules/@giscus/svelte']
+	build: {
+		rollupOptions: {
+			external: [
+				'C:/Users/o0/source/projects/mine/NazCodeLandSvelteKit/node_modules/@giscus/svelte/package/Giscus.svelte'
+			]
+		}
 	}
 };
 
