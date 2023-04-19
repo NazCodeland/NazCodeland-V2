@@ -5,8 +5,6 @@
 	import webDevelopment from '$lib/icons/webDevelopment.svg';
 	import productResearch from '$lib/icons/productResearch.svg';
 	import webDesign from '$lib/icons/webDesign.svg';
-	import TechStack from '$lib/icons/TechStack.svelte';
-	import viewportAction from '$lib/actions/viewportAction';
 	import LazyLoad from '$lib/components/LazyLoad.svelte';
 </script>
 
@@ -91,7 +89,7 @@
 	<!-- aboutMe -->
 	<section id="aboutMe" class="scrollMarginTop flex flex-col [--scrollMarginTop:230px]">
 		<div>
-			<LazyLoad component={() => import('$src/lib/icons/TechStack.svelte')} let:Component>
+			<LazyLoad component={() => import('$lib/icons/TechStack.svelte')} let:Component>
 				<Component />
 			</LazyLoad>
 
