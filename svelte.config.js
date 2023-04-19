@@ -12,8 +12,11 @@ const config = {
 			$src: './src',
 			$route: './src/route'
 		},
-		optimizeDeps: {
-			include: ['@giscus/svelte']
+		// this build option is so vercel can locate the Giscus component
+		build: {
+			rollupOptions: {
+				external: ['@giscus/svelte']
+			}
 		}
 	},
 
