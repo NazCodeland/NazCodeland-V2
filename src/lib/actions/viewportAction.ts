@@ -33,7 +33,6 @@ export default function viewport(element: HTMLElement) {
 
 	return {
 		destroy() {
-			console.log('unobserving');
 			intersectionObserver.unobserve(element);
 		}
 	};

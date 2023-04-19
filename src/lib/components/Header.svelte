@@ -4,7 +4,7 @@
 	import Menu from '$lib/components/Menu.svelte';
 	import { toggleMenu } from '$lib/stores/menuStore';
 	import hamburger from '$lib/icons/themeBased/hamburger/hamburgerMain.svg';
-	import loadThemeBasedIcon from '$lib/actions/loadThemeBasedIcon';
+	import loadThemeBasedIcon from '$lib/actions/loadThemeBasedIconAction';
 
 	export let position: string;
 	export let paddingInlineStart: string = '10px';

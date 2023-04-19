@@ -1,22 +1,13 @@
 <script lang="ts">
 	import ProfileCard from '$lib/components/ProfileCard.svelte';
-	import SkillCard from '$lib/components/skillCard.svelte';
+	import SkillCard from '$lib/components/SkillCard.svelte';
 	import InlineLink from '$lib/elements/InlineLink.svelte';
-	import viewport from '$lib/actions/lazyLoadingAction';
-
 	import webDevelopment from '$lib/icons/webDevelopment.svg';
 	import productResearch from '$lib/icons/productResearch.svg';
 	import webDesign from '$lib/icons/webDesign.svg';
 	import TechStack from '$lib/icons/techStack.svelte';
-	import viewportAction from '$src/lib/actions/viewportAction';
-
-	let inViewport: Boolean;
-	function handleEnter() {
-		inViewport = true;
-	}
-	function handleExit() {
-		inViewport = false;
-	}
+	import viewportAction from '$lib/actions/viewportAction';
+	import LazyLoad from '$lib/components/LazyLoad.svelte';
 </script>
 
 <main class="flex flex-col gap-96-132" id="mainContent">
@@ -33,15 +24,11 @@
 			What I Do
 		</h2>
 
-		<div
-			use:viewportAction
-			on:enteringViewport={() => console.log('Welcome')}
-			on:exitingViewport={() => console.log('Bye')}
-			class="relative flex flex-wrap gap-4">
+		<div class="relative flex flex-wrap gap-4">
 			<SkillCard title="Web Development">
 				<!-- prettier-ignore -->
 				<!-- href="/images/icons/svelte.svg" -->
-				<img src={webDevelopment} alt="" loading="lazy" />
+				<img slot="icon" src={webDevelopment} alt="" loading="lazy" />
 				<p>
 					As a web developer, I have a passion for building websites that are both visually stunning
 					and technically sound. I have experience with a range of programming languages and
@@ -57,7 +44,7 @@
 
 			<SkillCard title="Product Research">
 				<!-- prettier-ignore -->
-				<img src="{productResearch}" alt="" loading="lazy">
+				<img slot="icon" src="{productResearch}" alt="" loading="lazy">
 
 				<p>
 					I recognize the importance of creating products that satisfy the needs and expectations of
@@ -79,7 +66,7 @@
 
 			<SkillCard title="Web Design">
 				<!-- prettier-ignore -->
-				<img src="{webDesign}" alt="" loading="lazy">
+				<img slot="icon" src="{webDesign}" alt="" loading="lazy">
 				<p>
 					Similar to product research, I approach each project with a user-centric mindset. I begin
 					by taking into account applicable insights gathered during the product research phase,
@@ -104,7 +91,9 @@
 	<!-- aboutMe -->
 	<section id="aboutMe" class="scrollMarginTop flex flex-col [--scrollMarginTop:230px]">
 		<div>
-			<TechStack />
+			<LazyLoad component={() => import('$lib/icons/TechStack.svelte')} let:Component>
+				<Component />
+			</LazyLoad>
 
 			<h2
 				class="forcedClrAdjust mt-10 mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] underline decoration-tertiaryColor decoration-double
@@ -127,6 +116,7 @@
 			</p>
 		</div>
 	</section>
+
 	<!--  -->
 </main>
 
