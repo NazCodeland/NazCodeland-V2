@@ -5,14 +5,15 @@ export default defineConfig({
 	plugins: [sveltekit()],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
-	},
-	resolve: {
-		alias: [
-			{
-				find: '@giscus/svelte',
-				replacement:
-					'C:/Users/o0/source/projects/mine/NazCodeLandSvelteKit/node_modules/@giscus/svelte/package/Giscus.svelte'
-			}
-		]
 	}
+	// option for vercel deployment
+	// resolve: {
+	// 	alias: [
+	// 		{
+	// 			find: '@giscus/svelte',
+	// 			replacement:
+	// 				'C:/Users/o0/source/projects/mine/NazCodeLandSvelteKit/node_modules/@giscus/svelte/package/Giscus.svelte'
+	// 		}
+	// 	]
+	// }
 });
