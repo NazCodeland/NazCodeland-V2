@@ -31,6 +31,13 @@ const config = {
 				toggleKeyCombo: 'control-alt'
 			}
 		}
+	},
+
+	// this build option is so vercel can locate the Giscus component
+	rollupOptions: {
+		external: [
+			'C:/Users/o0/source/projects/mine/NazCodeLandSvelteKit/node_modules/@giscus/svelte/package/Giscus.svelte'
+		]
 	}
 };
 
