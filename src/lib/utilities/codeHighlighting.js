@@ -1,3 +1,5 @@
+// CREDIT: https://rodneylab.com/sveltekit-shiki-syntax-highlighting/
+
 import { parse } from 'node-html-parser';
 
 /**

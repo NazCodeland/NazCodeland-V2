@@ -5,9 +5,9 @@
 
 <article class="flex w-full flex-wrap items-center justify-center gap-16-40">
 	<img
-		class="forcedClrAdjust h-[clamp(9.38rem,_calc(6.34rem_+_15.18vw),_20rem)] w-[clamp(9.375rem,_calc(6.34rem_+_15.18vw),_20rem)] rounded-full border-[clamp(0.5rem,_calc(0.43rem_+_0.36vw),_0.75rem)] border-solid
-		border-transparent shadow-rest dark:border-slate-50/12"
-		src="/images/someImage.jpeg"
+		class="forcedClrAdjust filter-[grayscale(100%)] h-[clamp(9.38rem,_calc(6.34rem_+_15.18vw),_20rem)] w-[clamp(9.375rem,_calc(6.34rem_+_15.18vw),_20rem)] rounded-full border-2 border-solid border-transparent
+		object-cover object-top shadow-rest dark:border-slate-50/12"
+		src="/images/self.jpg"
 		width="320"
 		height="320"
 		alt="of Nazar" />
