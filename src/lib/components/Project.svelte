@@ -13,6 +13,7 @@
 	class="group/project relative overflow-hidden rounded-2xl border border-slate-300 p-1 dark:border-slate-600">
 	<a href="/portfolio/{project}">
 		<img
+			loading="lazy"
 			style="inline-size: {inlineSize}; block-size:{blockSize}; object-fit:{objectFit}"
 			class="rounded-xl transition-[transform] delay-[0s] duration-200 hover:scale-[1.15]"
 			src="/images/{imageName}"

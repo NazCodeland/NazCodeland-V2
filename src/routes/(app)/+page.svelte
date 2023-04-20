@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ProfileCard from '$lib/components/ProfileCard.svelte';
-	import SkillCard from '$src/lib/components/SkillCard.svelte';
+	import SkillCard from '$lib/components/SkillCard.svelte';
 	import InlineLink from '$lib/elements/InlineLink.svelte';
 	import webDevelopment from '$lib/icons/webDevelopment.svg';
 	import productResearch from '$lib/icons/productResearch.svg';
@@ -17,7 +17,7 @@
 	<!-- aboutMe -->
 	<section id="aboutMe" class="scrollMarginTop flex flex-col [--scrollMarginTop:230px]">
 		<div>
-			<LazyLoad component={() => import('$src/lib/icons/TechStack.svelte')} let:Component>
+			<LazyLoad component={() => import('$lib/icons/TechStack.svelte')} let:Component>
 				<Component />
 			</LazyLoad>
 
