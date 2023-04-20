@@ -1,3 +1,5 @@
+// CREDIT: https://rodneylab.com/sveltekit-shiki-syntax-highlighting/
+
 import { getHighlighter } from 'shiki';
 import { escapeHtml, makeFocussable, rangeParser } from './codeHighlighting.js';
 
