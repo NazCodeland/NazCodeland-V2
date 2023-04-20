@@ -59,8 +59,8 @@
 			alt="arrow down"
 			use:loadThemeBasedIcon={'arrowDown'}
 			class="{open
-				? 'bottom-4 rotate-180'
-				: 'animate-bounce'} duration-400 absolute left-[50cqw] bottom-1 transition-all" />
+				? 'bottom-4 rotate-180 animate-rotate'
+				: 'animate-bounce'}  absolute left-[50cqw] bottom-1" />
 	</button>
 </article>
 
