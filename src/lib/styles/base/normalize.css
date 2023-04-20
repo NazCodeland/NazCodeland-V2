@@ -1,10 +1,9 @@
-/* normalize */
 @layer base {
 	h1,
 	h2,
 	h3 {
 		color: var(--text-color);
-		opacity: theme(opacity.87);
+		opacity: theme(opacity.85);
 	}
 
 	h1,
