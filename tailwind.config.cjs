@@ -113,6 +113,15 @@ module.exports = {
 				tablet: '600px',
 				sm: '820px',
 				md: '1044px'
+			},
+			animation: {
+				rotate: 'rotate 1s linear 1'
+			},
+			keyframes: {
+				rotate: {
+					from: { transform: 'rotate(0deg)' },
+					to: { transform: 'rotate(180deg)' }
+				}
 			}
 		}
 	},
