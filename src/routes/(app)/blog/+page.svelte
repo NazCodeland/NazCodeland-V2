@@ -3,7 +3,7 @@
 <script lang="ts">
 	import Fuse from 'fuse.js';
 	export let data;
-	import BlogPost from '$src/lib/components/BlogPost.svelte';
+	import BlogPost from '$lib/components/BlogPost.svelte';
 
 	const titles = [
 		'Build a RESTful API using Node.js Express, and MongoDB',

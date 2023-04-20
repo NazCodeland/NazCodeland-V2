@@ -6,6 +6,7 @@
 
 <main class="m-auto w-full max-w-[60ch]">
 	<img
+		loading="lazy"
 		id="mainContent"
 		class="absolute left-0 right-0 top-0 h-[100vh] w-full object-cover"
 		src={data.projectImages.clothing}
@@ -75,6 +76,7 @@
 	</article>
 	<a href="#mainContent">
 		<img
+			loading="lazy"
 			src={moveToTop}
 			alt="move to top"
 			class="fixed left-[45vw] bottom-[6vh] z-10 rounded-full border border-primaryColor bg-secondaryColor shadow-rest hover:shadow-hover active:shadow-active sm:left-[48vw]" />

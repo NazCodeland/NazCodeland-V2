@@ -14,6 +14,7 @@
 		<p class="py-3 text-fluid-2">Table of Contents</p>
 		<button on:click={showTableOfContents} class="rounded-md">
 			<img
+				loading="lazy"
 				src={arrowDown}
 				alt=""
 				class="{open ? 'rotate-180' : ''} fill-tertiaryColor transition-all duration-200" />
