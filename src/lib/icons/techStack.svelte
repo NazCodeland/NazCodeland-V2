@@ -2,7 +2,7 @@
 	import techStack from '$lib/icons/techStack.svg';
 </script>
 
-<figure class="image relative float-right w-full max-w-[600px] pl-32">
+<figure class="image relative float-right mt-9 w-full max-w-[600px] pl-32">
 	<img src={techStack} alt="" loading="lazy" />
 	<figcaption class="max-w-[400px]">
 		<!-- techStack title svg -->
