@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ProfileCard from '$lib/components/ProfileCard.svelte';
-	import SkillCard from '$lib/components/SkillCard.svelte';
+	import SkillCard from '$src/lib/components/SkillCard.svelte';
 	import InlineLink from '$lib/elements/InlineLink.svelte';
 	import webDevelopment from '$lib/icons/webDevelopment.svg';
 	import productResearch from '$lib/icons/productResearch.svg';
@@ -13,6 +13,35 @@
 	<div class="introduction-section">
 		<ProfileCard />
 	</div>
+
+	<!-- aboutMe -->
+	<section id="aboutMe" class="scrollMarginTop flex flex-col [--scrollMarginTop:230px]">
+		<div>
+			<LazyLoad component={() => import('$src/lib/icons/TechStack.svelte')} let:Component>
+				<Component />
+			</LazyLoad>
+
+			<h2
+				class="forcedClrAdjust mt-10 mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] underline decoration-tertiaryColor decoration-double
+								contrast-more:text-[canvasText] contrast-more:decoration-[activeText] sm:mt-20">
+				About Me
+			</h2>
+			<p>
+				I'm a frontend developer who's self-taught and finds pleasure in building visually pleasing
+				user-centric applications. My enthusiasm for this field has led me to gain some experience
+				in UX research and UI design. The intersection of these fields has allowed me to develop an
+				understanding of various aspects, such as writing clean and maintainable code, performing
+				software testing, validating assumptions, understanding user behavior, ensuring site-wide
+				accessibility and principles of visual design.
+			</p>
+			<br />
+			<p>
+				If my skillset aligns with your needs and you believe I can help in envisioning your project
+				or add value to your team, feel free <span class="whitespace-nowrap">
+					<InlineLink href="/contact" title="contact me" />.</span> I am always looking for new opportunities.
+			</p>
+		</div>
+	</section>
 
 	<!-- skillCards -->
 	<section>
@@ -83,35 +112,6 @@
 					and questionnaires to identify usability and accessibility issues.
 				</p>
 			</SkillCard>
-		</div>
-	</section>
-
-	<!-- aboutMe -->
-	<section id="aboutMe" class="scrollMarginTop flex flex-col [--scrollMarginTop:230px]">
-		<div>
-			<LazyLoad component={() => import('$lib/icons/TechStack.svelte')} let:Component>
-				<Component />
-			</LazyLoad>
-
-			<h2
-				class="forcedClrAdjust mt-10 mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] underline decoration-tertiaryColor decoration-double
-							contrast-more:text-[canvasText] contrast-more:decoration-[activeText] sm:mt-20">
-				About Me
-			</h2>
-			<p>
-				I'm a frontend developer who's self-taught and finds pleasure in building visually pleasing
-				user-centric applications. My enthusiasm for this field has led me to gain some experience
-				in UX research and UI design. The intersection of these fields has allowed me to develop an
-				understanding of various aspects, such as writing clean and maintainable code, performing
-				software testing, validating assumptions, understanding user behavior, ensuring site-wide
-				accessibility and principles of visual design.
-			</p>
-			<br />
-			<p>
-				If my skillset aligns with your needs and you believe I can help in envisioning your project
-				or add value to your team, feel free <span class="whitespace-nowrap">
-					<InlineLink href="/contact" title="contact me" />.</span> I am always looking for new opportunities.
-			</p>
 		</div>
 	</section>
 

@@ -79,7 +79,7 @@ module.exports = {
 				'16-48': 'clamp(1rem, calc(0.43rem + 2.86vw), 3rem)',
 				/* svg size */
 				'36-40': 'clamp(2.25rem, calc(2.18rem + 0.36vw), 2.5rem)',
-				/* used for spacing between header, man, footer and different sections between main */
+				/* used for spacing between header, main, footer and different sections between main */
 				'96-132': 'clamp(6rem, calc(4.64rem + 4.29vw), 8.25rem)',
 				'4/16-32/48': 'var(--padding-top-html)'
 			},
