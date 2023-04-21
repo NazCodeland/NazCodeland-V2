@@ -37,8 +37,8 @@
 			<br />
 			<p>
 				If my skillset aligns with your needs and you believe I can help in envisioning your project
-				or add value to your team, feel free <span class="whitespace-nowrap">
-					<InlineLink href="/contact" title="contact me" />.</span> I am always looking for new opportunities.
+				or add value to your team, feel free to <span class="whitespace-nowrap">
+					<InlineLink href="/contact" title="contact me" />.</span> I am looking for new opportunities.
 			</p>
 		</div>
 	</section>
@@ -59,8 +59,8 @@
 				<p>
 					As a front-end developer, I have a strong foundation in HTML, CSS, JavaScript, and
 					frameworks such as Svelte and SvelteKit. Whether I'm working with handed-off UI designs or
-					starting from scratch, I have a passion for developing websites that are user-centric,
-					visually appealing, accessible, and robust.
+					starting from scratch, I strive to developing websites that are user-centric, visually
+					appealing, accessible, and robust.
 				</p>
 				<br />
 				<p>
@@ -83,16 +83,15 @@
 					comprehensive competitive analysis and testing <abbr
 						class=" decoration-primaryColor"
 						title="Minimum Viable Products">MVPs</abbr
-					>. By utilizing these and other market research techniques, we can achieve a seamless user
-					experience and discover worthwhile product features that provide value to customers.
+					>. By utilizing these and other market research techniques, a seamless user experience can
+					be achieved and worthwhile product features discovered, that provide value to customers.
 				</p>
 				<br />
 				<p>
-					Continuously refining the product ensures it remains competitive in the market. By
-					analyzing user feedback and trends, we can update and improve the product's features and
-					user experience to remain relevant and meet changing customer needs. This iterative
-					process allows us to stay ahead of the competition and build products that exceed user
-					expectations.
+					To ensure a product remains competitive in the market and meets the expectations of its
+					user, the product research process needs to be iterated over periodically with new inputs,
+					such as user feedback and current market trends. This iterative process is required to
+					build products that meet user expectations.
 				</p>
 			</SkillCard>
 
@@ -111,7 +110,7 @@
 				</p>
 				<br />
 				<p>
-					After sketching and wireframes, I carefully choose typography, brand colors, imagery, and
+					After sketching and wireframing, I carefully choose typography, brand colors, imagery, and
 					create icons, elements, and components for the website. These are used to produce
 					responsive, high-fidelity, interactive prototypes that are put through usability testing
 					and questionnaires to identify usability and accessibility issues.
