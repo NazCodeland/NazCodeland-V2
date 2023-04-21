@@ -28,10 +28,10 @@
 		</div>
 
 		<p class="max-w-[60ch]">
-			Hey👋 <br />Welcome to my personal corner on the web. I've created this website with the aim
+			Hey👋 <br />Welcome to my personal corner of the web. I've created this website with the aim
 			of presenting my skill set to potential employers, which is showcased through my
 			<Link href="/portfolio" title="Portfolio" />. It also serves as a place for me to share my
-			ongoing learning experiences through my
+			ongoing learning through my
 			<Link href="/blog" title="Blog" />
 		</p>
 
