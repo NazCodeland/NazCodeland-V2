@@ -16,7 +16,7 @@ tags: ['html', 'css', 'javascript']
 </script> -->
 
 Introduction to Svelte
-`css body { background-color: blue; } ` Learn the basics of Svelte and how it differs from other frontend frameworks. This is just extra text to make this sentence go into two paragraphs instead of one. Have a good day!
+`css body { background-color: blue; } ` Learn the basics of Svelte and how it differs from other front-end frameworks. This is just extra text to make this sentence go into two paragraphs instead of one. Have a good day!
 
 One of the delights of working with Ruby and jQuery is the ability to chain methods, enabling you to conveniently invoke multiple methods on the same target. In jQuery, for example, most methods return a jQuery object, so you can build a chain of methods where every new method operates on the previous target. This enables you to update some styles, run an animation, and update an attribute, all without querying for that element over and over again:
 
@@ -146,5 +146,5 @@ I can’t confidently say that I recommend this approach—and I won’t be usin
 
 Svelte
 JavaScript
-Frontend
+Front-end
 Published in: css / javascript / tutorial 19/09/2019

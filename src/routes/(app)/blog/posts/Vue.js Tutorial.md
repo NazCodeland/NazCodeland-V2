@@ -78,5 +78,5 @@ I can’t confidently say that I recommend this approach—and I won’t be usin
 
 Vue.js
 JavaScript
-Frontend
+Front-end
 Published in: css / javascript / tutorial 19/09/2019
