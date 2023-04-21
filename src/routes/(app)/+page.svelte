@@ -27,11 +27,11 @@
 				About Me
 			</h2>
 			<p>
-				I'm a frontend developer who's self-taught and finds pleasure in building visually pleasing
-				user-centric applications. My enthusiasm for this field has led me to gain some experience
-				in UX research and UI design. The intersection of these fields has allowed me to develop an
+				I'm a front-end developer who's self-taught and finds pleasure in building visually pleasing
+				user-centric applications. My enthusiasm for this field has led me to gain experience in UX
+				research and UI design. The intersection of these fields has allowed me to develop an
 				understanding of various aspects, such as writing clean and maintainable code, performing
-				software testing, validating assumptions, understanding user behavior, ensuring site-wide
+				software testing, understanding user behavior, validating assumptions, ensuring site-wide
 				accessibility and principles of visual design.
 			</p>
 			<br />
@@ -57,15 +57,17 @@
 				<!-- href="/images/icons/svelte.svg" -->
 				<img slot="icon" src={webDevelopment} alt="" loading="lazy" />
 				<p>
-					As a web developer, I have a passion for building websites that are both visually stunning
-					and technically sound. I have experience with a range of programming languages and
-					frameworks, including HTML, CSS, JavaScript, and React. My development approach is focused
-					on creating clean, efficient, and scalable code that is optimized for performance and
-					accessibility. I also place a high priority on user experience, ensuring that websites are
-					easy to navigate and understand. Whether it's building a custom web application, a content
-					management system, or an e-commerce platform, I take a meticulous approach to web
-					development to create websites that are reliable, secure, and optimized for search
-					engines.
+					As a front-end developer, I have a strong foundation in HTML, CSS, JavaScript, and
+					frameworks such as Svelte and SvelteKit. Whether I'm working with handed-off UI designs or
+					starting from scratch, I have a passion for developing websites that are user-centric,
+					visually appealing, accessible, and robust.
+				</p>
+				<br />
+				<p>
+					However, I understand the importance of time constraints in real world projects, and
+					therefore, I approach development with a progressive enhancement mindset. This allows me
+					to quickly produce minimum viable products (MVPs) or early functioning versions of
+					websites.
 				</p>
 			</SkillCard>
 
@@ -76,12 +78,15 @@
 				<p>
 					I recognize the importance of creating products that satisfy the needs and expectations of
 					customers. To achieve this goal, valuable insights need to be gathered from both
-					qualitative and quantitative research, identifying the needs, expectations and behavior of
-					the target audience, conducting market research of similar products, performing
-					comprehensive competitive analysis and testing minimum viable products (MVPs). By
-					utilizing these and other market research techniques, we can achieve a seamless user
+					qualitative and quantitative research, identifying the needs, expectations and behaviors
+					of the target audience, conducting market research of similar products, performing
+					comprehensive competitive analysis and testing <abbr
+						class=" decoration-primaryColor"
+						title="Minimum Viable Products">MVPs</abbr
+					>. By utilizing these and other market research techniques, we can achieve a seamless user
 					experience and discover worthwhile product features that provide value to customers.
 				</p>
+				<br />
 				<p>
 					Continuously refining the product ensures it remains competitive in the market. By
 					analyzing user feedback and trends, we can update and improve the product's features and
