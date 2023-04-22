@@ -7,7 +7,7 @@
 	<figcaption class="max-w-[400px]">
 		<!-- techStack title svg -->
 		<svg
-			class="innerSvg absolute -top-20 left-0 h-[300px] w-full fill-bodyCopy text-fluid-1"
+			class="innerSvg absolute -top-[76px] left-0 h-[300px] w-full fill-bodyCopy text-fluid-1"
 			xmlns="http://www.w3.org/2000/svg"
 			xml:lang="en"
 			xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -33,6 +33,7 @@
 <style>
 	.image {
 		shape-outside: url('/src/lib/icons/techStack.svg');
+		shape-margin: 1rem;
 	}
 
 	@media (min-width: 370px) {

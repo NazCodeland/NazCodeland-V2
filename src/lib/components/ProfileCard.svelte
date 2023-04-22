@@ -3,19 +3,18 @@
 	import ContactLinks from '$lib/components/ContactLinks.svelte';
 </script>
 
-<article class="flex w-full flex-wrap items-center justify-center gap-16-40">
+<article class=" flex w-full flex-wrap items-center justify-center gap-16-40">
 	<img
-		loading="lazy"
-		class="forcedClrAdjust filter-[grayscale(100%)] h-[clamp(9.38rem,_calc(6.34rem_+_15.18vw),_20rem)] w-[clamp(9.375rem,_calc(6.34rem_+_15.18vw),_20rem)] rounded-full border-2 border-solid border-transparent
+		class=" forcedClrAdjust filter-[grayscale(100%)] h-[clamp(9.38rem,_calc(6.34rem_+_15.18vw),_20rem)] w-[clamp(9.375rem,_calc(6.34rem_+_15.18vw),_20rem)] rounded-full border-2 border-solid border-transparent
 		object-cover object-top shadow-rest dark:border-slate-50/12"
 		src="/images/self.jpg"
 		width="320"
 		height="320"
-		alt="of Nazar" />
+		alt="of Nazar"
+		loading="lazy" />
 
-	<!--  -->
-	<div class="relative flex flex-col gap-y-4">
-		<h2 class="forcedClrAdjust leading-7 selection:bg-green-700">
+	<div class="relative flex flex-grow flex-col gap-y-4 sm:w-[40ch]">
+		<h2 class="forcedClrAdjust leading-5 selection:bg-green-700 tablet:leading-6 sm:leading-7">
 			Nazar K. I.
 			<br />
 			<!-- using 'display: block' on the below small elements class, 

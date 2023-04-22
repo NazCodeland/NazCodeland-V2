@@ -4,6 +4,7 @@
 </script>
 
 <a
+	on:click
 	{href}
 	class="relative z-10 inline-block outline-0 delay-[0] before:absolute before:bottom-0 before:h-0.5
 	before:w-full before:bg-primaryColor before:transition-[h] before:duration-200 before:content-['']

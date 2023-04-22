@@ -1,3 +1,6 @@
+-:> tabbing index isn't working as expected, check it out once site is done
+-:> add border around what-i-do cards
+
 -:> generate the blog article images using AI, midJourney
 -:> Check for accessibility issues once the site is done,
 -:> check for prefers-less-motion

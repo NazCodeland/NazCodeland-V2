@@ -44,13 +44,12 @@
 	<title>NazCodeland |</title>
 </svelte:head>
 
-<div class="m-auto flex flex-col gap-10" id="mainContent">
-	<!-- prettier-ignore -->
-	<h1 class="mb-[clamp(1.5rem,_calc(0.93rem_+_2.86vw),_2.5rem)] font-bold">Blog</h1>
+<div class="flex flex-col gap-56-72">
+	<h1 class="font-bold">Blog</h1>
 
 	<div class="flex gap-x-96-132">
 		<aside
-			class="sticky top-36 hidden h-[78vh]
+			class="sticky top-36 hidden h-[76vh]
 			max-w-[22rem] flex-shrink-0 overflow-y-auto
 			overflow-x-hidden p-8-16 md:block">
 			<div>
@@ -100,13 +99,13 @@
 			<div class="mt-8 mb-2">
 				Categories
 			</div>
-			<ul class="flex flex-wrap gap-1">
-				<!-- {#each categories as category}
+			<!-- <ul class="flex flex-wrap gap-1">
+				{#each categories as category}
 					<li class="tag">
 						<a href="/blog/category/javascript">{category.toUpperCase()}</a>
 					</li>
-				{/each} -->
-			</ul>
+				{/each}
+			</ul> -->
 		</aside>
 
 		<main class="max-w-[800px]">
@@ -122,7 +121,8 @@
 				</div>
 			</details> -->
 			<!-- blog posts -->
-			<ul class="negate:sm:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] grid gap-14 md:gap-20">
+			<!-- sm:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] -->
+			<ul class="grid gap-48-64">
 				{#each data.posts as post}
 					<li class="flex">
 						<BlogPost

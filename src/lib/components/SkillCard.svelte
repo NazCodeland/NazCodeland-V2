@@ -26,9 +26,9 @@
 <article
 	style="	{open ? `block-size: ${blockSize + 120}px` : ''}"
 	class="		
-		skillCard forcedClrAdjust
-		relative flex
-		h-[300px] flex-auto basis-[30ch] flex-col rounded-lg p-4 transition-[height] delay-[0s] duration-1000
+		skillCard forcedClrAdjust relative
+		flex h-[300px]
+		flex-auto basis-[30ch] flex-col rounded-lg p-4 transition-[height] delay-[0s] duration-1000
 		[container-type:inline-size]
 		group-data-[themePalette=main]:outline-0
 		group-data-[themePalette=main]:focus-visible:outline-2
@@ -46,7 +46,7 @@
 		</h3>
 	</header>
 
-	<div class="mb-7 overflow-hidden">
+	<div class="mb-9 overflow-hidden">
 		<div class="mb-[50px] contrast-more:!text-[canvasText]" bind:offsetHeight={blockSize}>
 			<slot />
 		</div>
@@ -60,7 +60,7 @@
 			use:loadThemeBasedIcon={'arrowDown'}
 			class="{open
 				? 'bottom-4 rotate-180 animate-rotate'
-				: 'animate-bounce'}  absolute left-[50cqw] bottom-1" />
+				: 'animate-bounce'}  absolute left-[50cqw] bottom-0" />
 	</button>
 </article>
 

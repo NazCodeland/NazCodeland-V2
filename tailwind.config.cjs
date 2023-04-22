@@ -77,8 +77,15 @@ module.exports = {
 				'16-32-2.4x': 'clamp(12px, calc(-103.52px + 9.41vw), 32px)',
 				'16-40': 'clamp(1rem, calc(0.57rem + 2.14vw), 2.5rem)',
 				'16-48': 'clamp(1rem, calc(0.43rem + 2.86vw), 3rem)',
+				'24-40': 'clamp(1.50rem, calc(1.07rem + 2.14vw), 3.00rem)',
 				/* svg size */
 				'36-40': 'clamp(2.25rem, calc(2.18rem + 0.36vw), 2.5rem)',
+				/* used for spacing main title of page from content*/
+				'56-72': 'clamp(3.50rem, calc(3.21rem + 1.43vw), 4.50rem)',
+				/* used for spacing between main sections*/
+				'88-124': 'clamp(5.50rem, calc(4.86rem + 3.21vw), 7.75rem)',
+				// used for spacing items within a section
+				'48-64': 'clamp(3.00rem, calc(2.71rem + 1.43vw), 4.00rem)',
 				/* used for spacing between header, main, footer and different sections between main */
 				'96-132': 'clamp(6rem, calc(4.64rem + 4.29vw), 8.25rem)',
 				'4/16-32/48': 'var(--padding-top-html)'

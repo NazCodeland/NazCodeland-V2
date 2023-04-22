@@ -15,9 +15,9 @@
 			<Header position="sticky" paddingInlineStart="10px" paddingInlineEnd="0" />
 		</slot>
 
-		<div class="m-auto max-w-[90ch]">
+		<main class="m-auto flex max-w-[94ch] flex-col gap-88-124" id="mainContent">
 			<slot />
-		</div>
+		</main>
 
 		<Footer />
 	</Site>
