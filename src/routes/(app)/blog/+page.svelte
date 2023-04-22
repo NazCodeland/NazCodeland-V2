@@ -1,5 +1,3 @@
-<!-- Need to render all the blog posts in the folder here -->
-
 <script lang="ts">
 	import Fuse from 'fuse.js';
 	export let data;
@@ -44,7 +42,7 @@
 	<title>NazCodeland |</title>
 </svelte:head>
 
-<div class="flex flex-col gap-56-72">
+<main class="m-auto flex max-w-[94ch] flex-col gap-56-72">
 	<h1 class="font-bold">Blog</h1>
 
 	<div class="flex gap-x-96-132">
@@ -136,7 +134,7 @@
 			</ul>
 		</main>
 	</div>
-</div>
+</main>
 
 <style style="postcss">
 	/* scrollbar */

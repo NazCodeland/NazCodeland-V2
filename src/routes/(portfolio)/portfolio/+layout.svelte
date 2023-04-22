@@ -7,7 +7,11 @@
 
 <Site>
 	<slot name="header">
-		<Header position="absolute" paddingInlineStart="26px" paddingInlineEnd="1rem" />
+		<Header
+			inlineSize="1470"
+			position="absolute"
+			paddingInlineStart="26px"
+			paddingInlineEnd="1rem" />
 	</slot>
 
 	<slot />

@@ -12,12 +12,10 @@
 <SiteWrapper>
 	<Site>
 		<slot name="header">
-			<Header position="sticky" paddingInlineStart="10px" paddingInlineEnd="0" />
+			<Header inlineSize="1130" position="sticky" paddingInlineStart="10px" paddingInlineEnd="0" />
 		</slot>
 
-		<main class="m-auto flex max-w-[94ch] flex-col gap-88-124" id="mainContent">
-			<slot />
-		</main>
+		<slot />
 
 		<Footer />
 	</Site>
