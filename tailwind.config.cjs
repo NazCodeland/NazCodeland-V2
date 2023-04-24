@@ -87,7 +87,7 @@ module.exports = {
 				// used for spacing items within a section
 				'48-64': 'clamp(3.00rem, calc(2.71rem + 1.43vw), 4.00rem)',
 				/* used for spacing between header, main, footer and different sections between main */
-				'96-132': 'clamp(6rem, calc(4.64rem + 4.29vw), 8.25rem)',
+				'80-104': 'clamp(4.00rem, calc(3.29rem + 3.57vw), 6.50rem)',
 				'4/16-32/48': 'var(--padding-top-html)'
 			},
 			lineHeight: {

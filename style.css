@@ -1,0 +1,62 @@
+body {
+	background-color: #111;
+	overflow: hidden;
+}
+
+.scene {
+	perspective: 800px;
+	display: grid;
+	place-items: center;
+	min-height: 100vh;
+	height: 100%;
+}
+
+.box {
+	transform-style: preserve-3d;
+	position: relative;
+	width: 200px;
+	height: 200px;
+	animation: rotate 10s infinite linear;
+}
+
+@keyframes rotate {
+	to {
+		transform: rotateY(360deg);
+	}
+}
+
+.side {
+	position: absolute;
+	inset: 0;
+	background-color: #fff;
+	opacity: 0.5;
+	font-size: 50px;
+	display: grid;
+	place-items: center;
+	box-shadow: 0 0 40px #000 inset;
+}
+
+.box :nth-child(1) {
+	background-color: blue;
+	transform: translateZ(100px);
+}
+.box :nth-child(2) {
+	background-color: green;
+	transform: translateZ(-100px) rotateY(180deg);
+}
+.box :nth-child(3) {
+	background-color: green;
+	transform: translateY(-100px) rotateX(90deg);
+}
+.box :nth-child(4) {
+	background-color: green;
+	transform: translateY(100px) rotateX(90deg);
+}
+.box :nth-child(5) {
+	background-color: green;
+	transform: translateX(100px) rotateY(90deg);
+}
+.box :nth-child(6) {
+	background-color: green;
+	transform: translateX(-100px) rotateY(-90deg);
+}

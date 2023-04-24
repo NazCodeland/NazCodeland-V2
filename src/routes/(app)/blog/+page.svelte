@@ -45,11 +45,11 @@
 <main class="m-auto flex max-w-[94ch] flex-col gap-56-72">
 	<h1 class="font-bold">Blog</h1>
 
-	<div class="flex gap-x-96-132">
+	<div class="flex gap-x-80-104">
 		<aside
 			class="sticky top-36 hidden h-[76vh]
 			max-w-[22rem] flex-shrink-0 overflow-y-auto
-			overflow-x-hidden p-8-16 md:block">
+			overflow-x-hidden py-8-16 pr-8-16 md:block">
 			<div>
 				<label for="search"> Search post titles </label>
 				<input

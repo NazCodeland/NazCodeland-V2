@@ -23,7 +23,7 @@
 
 		<h2
 			class="forcedClrAdjust mb-24-40 mt-10 underline decoration-tertiaryColor decoration-double
-						 contrast-more:text-[canvasText] contrast-more:decoration-[activeText] sm:mt-20">
+						contrast-more:text-[canvasText] contrast-more:decoration-[activeText] sm:mt-20">
 			About Me
 		</h2>
 
