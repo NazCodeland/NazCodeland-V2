@@ -96,7 +96,9 @@
 					alt="a cute dog" />
 			</a>
 			<span
-				class="{inset} project-info pointer-events-none absolute top-6 ml-4 mr-4 rounded-md bg-secondaryColor py-0.5 px-2 text-sm text-bodyCopy outline outline-1 outline-current">
+				class="{inset} project-info pointer-events-none absolute ml-4 mr-11 {showDesktop
+					? 'top-8'
+					: 'top-6'} rounded-md bg-secondaryColor py-0.5 px-2 text-sm text-bodyCopy outline outline-1 outline-current">
 				Project:
 				{project}
 			</span>
@@ -107,21 +109,21 @@
 				? '[--rotateY:180deg] [--translateZ:-60px] [--scrollbarSize:0]'
 				: ''} three-d-item-two pointer-events-none text-sm transition-all duration-1400">
 			<span
-				class="{inset} project-info absolute bottom-[78px] mr-6 ml-4 rounded-md bg-secondaryColor py-0.5 px-2
+				class="{inset} project-info absolute bottom-[78px] mr-10 ml-4 rounded-md bg-secondaryColor py-0.5 px-2
 			text-bodyCopy outline outline-1
 			outline-current [@media(hover:hover)]:-left-[150%] [@media(hover:hover)]:ml-0 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:transition-[left] [@media(hover:hover)]:delay-[0s] [@media(hover:hover)]:group-hover/project:left-2 [@media(hover:hover)]:group-hover/project:opacity-1">
 				Roles:
 				{roles}
 			</span>
 			<span
-				class="{inset}  project-info absolute bottom-[50px] mr-6 ml-4 rounded-md bg-secondaryColor py-0.5 px-2 text-bodyCopy
+				class="{inset}  project-info absolute bottom-[50px] mr-10 ml-4 rounded-md bg-secondaryColor py-0.5 px-2 text-bodyCopy
 			outline outline-1 outline-current
 			[@media(hover:hover)]:-left-[150%] [@media(hover:hover)]:ml-0 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:transition-[left] [@media(hover:hover)]:delay-200 [@media(hover:hover)]:group-hover/project:left-2 [@media(hover:hover)]:group-hover/project:opacity-1">
 				Tools:
 				{tools}
 			</span>
 			<span
-				class="{inset} project-info absolute bottom-[22px] mr-6 ml-4 rounded-md bg-secondaryColor py-0.5 px-2 text-bodyCopy
+				class="{inset} project-info absolute bottom-[22px] mr-10 ml-4 rounded-md bg-secondaryColor py-0.5 px-2 text-bodyCopy
 			outline outline-1 outline-current
 			[@media(hover:hover)]:-left-[150%] [@media(hover:hover)]:ml-0 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:transition-[left] [@media(hover:hover)]:delay-300 [@media(hover:hover)]:group-hover/project:left-2 [@media(hover:hover)]:group-hover/project:opacity-1">
 				Duration:

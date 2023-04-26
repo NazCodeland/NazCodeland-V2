@@ -7,7 +7,7 @@
 <div class="flexstuff">
 	<Project
 		imageName="nazCodelandMobile"
-		project="PawFood"
+		project="NazCodeland"
 		roles="User Research / User Interface / Front-end / Back-end"
 		tools="Pen & Paper / Miro / Figma"
 		duration="4 Months" />
