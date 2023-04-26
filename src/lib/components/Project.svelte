@@ -75,12 +75,12 @@
 </script>
 
 <div
-	class="flex flex-col gap-4 overflow-hidden {desktopWidth} scrollMarginTop max-w-[620px] transition-all [--scrollMarginTop:160px]">
+	class="flex flex-col gap-4 {desktopWidth} scrollMarginTop max-w-[620px] transition-all [--scrollMarginTop:160px]">
 	<figure
 		style="min-inline-size: {showDesktop ? inlineSize : inlineSize}px; block-size: {showDesktop
 			? Number(blockSize) - 60
 			: blockSize}px;"
-		class="three-d-container group/project relative transition-all duration-200">
+		class="three-d-container group/project relative overflow-hidden transition-all duration-200">
 		<div
 			class="{showDesktop
 				? '[--rotateY:180deg] [--translateZ:-60px] [--scrollbarSize:0]'
