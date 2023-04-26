@@ -1,85 +1,147 @@
 <script lang="ts">
-	export let imageName: string = 'nazCodeland.png';
+	export let imageName: string;
 	export let project: string;
 	export let roles: string;
 	export let tools: string;
 	export let duration: string;
-	export let inlineSize: string = '270';
-	export let blockSize: string = '520';
+	export let inlineSize: string = '280';
+	export let blockSize: string = '500';
 	export let objectFit: string = 'cover';
-	export let objectPosition: string = 'top';
+	export let objectPosition: string = 'top left';
+
+	let originX: number = 1;
+	let originY: number = 50;
+
+	// $: console.log('x', originX);
+	// $: console.log('y', originY);
 
 	let showDesktop: boolean;
+	let inset: string;
+	let desktopWidth: string;
+	let flexOrder: string;
 
 	function switchImage() {
+		setTimeout(
+			() => {
+				if (showDesktop) {
+					imageName = `${imageName.replace('Mobile', '')}`;
+				} else {
+					imageName = `${imageName}Mobile`;
+				}
+			},
+			showDesktop ? 415 : 450
+		);
+	}
+	function switchInset() {
 		setTimeout(() => {
 			if (showDesktop) {
-				imageName = 'nazCodeland.png';
+				inset = 'right-0';
 			} else {
-				imageName = 'nazCodelandMobile.png';
+				inset = 'left-0';
 			}
-		}, 450);
+		}, 500);
+	}
+	function setDesktopWidth() {
+		setTimeout(
+			() => {
+				if (showDesktop) {
+					desktopWidth = 'w-full';
+				} else {
+					desktopWidth = '';
+				}
+			},
+			showDesktop ? 427 : 460
+		);
+	}
+	function changeFlexOrder() {
+		setTimeout(
+			() => {
+				if (showDesktop) {
+					flexOrder = 'tablet:-order-1';
+				}
+			},
+			showDesktop ? 415 : 450
+		);
 	}
 
-	function handleClick() {
+	function scrollIntoView({ target }) {
+		// const figure = target.previousElementSibling;
+		// const anchor = figure.querySelector('a');
+		// setTimeout(() => {
+		// 	anchor.scrollIntoView({ behavior: 'smooth', block: 'end' });
+		// }, 400);
+	}
+
+	function handleClick(event) {
+		scrollIntoView(event);
 		showDesktop = !showDesktop;
 		switchImage();
+		switchInset();
+		setDesktopWidth();
+	}
+
+	function handleMousemove(event: MouseEvent) {
+		console.log(event.offsetX);
+		console.log(event.offsetY);
 	}
 </script>
 
-<figure
-	style="max-inline-size: {inlineSize}px; block-size: {blockSize}px;"
-	class="three-d-container group/project relative overflow-hidden rounded-2xl border border-slate-600 p-1 transition-all duration-200">
-	<a
-		href="/portfolio/{project}"
-		class="three-d-item {showDesktop
-			? '[--rotateY:180deg] [--translateX:-74px] [--translateZ:-60px]'
-			: ''} transition-all duration-1400">
-		<img
-			loading="lazy"
-			style="inline-size: {inlineSize}px; block-size: {blockSize}px; object-fit:{objectFit}; object-position:{objectPosition};"
-			class="rounded-xl transition-[transform] delay-[0s] duration-200 hover:scale-[1.15]"
-			src="/images/{imageName}"
-			alt="a cute dog" />
-		<span
+<div class="flex flex-col gap-4 {desktopWidth} max-w-[620px] transition-all">
+	<figure
+		style="min-inline-size: {showDesktop ? inlineSize : inlineSize}px; block-size: {showDesktop
+			? Number(blockSize) - 60
+			: blockSize}px;"
+		class="three-d-container group/project relative transition-all duration-200">
+		<div
 			class="{showDesktop
-				? 'rotate-180'
-				: ''} projectT-title absolute top-7 ml-4 mr-3 transform rounded-md bg-secondaryColor/85 py-0.5 px-2 text-bodyCopy outline outline-1 outline-current">
-			<i>Project:</i>
-			{project}
-		</span>
-	</a>
-	<figcaption class="text-sm">
-		<!-- <span
-			class="absolute top-3 ml-2 mr-3 rounded-md bg-secondaryColor/85 py-0.5 px-2 text-bodyCopy outline outline-1 outline-current">
-			<i>Project:</i>
-			{project}
-		</span> -->
-		<span
-			class="absolute bottom-[68px] mr-3 rounded-md bg-secondaryColor/85 py-0.5 px-2 text-bodyCopy
+				? '[--rotateY:180deg] [--translateZ:-60px] [--scrollbarSize:0]'
+				: ''} three-d-item h-full w-full transition-all duration-1400">
+			<a href="/portfolio/{project}">
+				<img
+					on:mousemove={handleMousemove}
+					loading="lazy"
+					style="transform-origin: {originX}% {originY}%;  object-fit:{objectFit}; object-position:{objectPosition};"
+					class="{showDesktop ? 'hover:scale-[1.15]' : ''} 
+								rounded-lg pr-1 transition-all"
+					src="/images/{imageName}.png"
+					alt="a cute dog" />
+			</a>
+			<span
+				class="{inset} project-info pointer-events-none absolute top-6 ml-4 mr-4 rounded-md bg-secondaryColor py-0.5 px-2 text-sm text-bodyCopy outline outline-1 outline-current">
+				Project:
+				{project}
+			</span>
+		</div>
+
+		<figcaption
+			class="{showDesktop
+				? '[--rotateY:180deg] [--translateZ:-60px] [--scrollbarSize:0]'
+				: ''} three-d-item-two pointer-events-none text-sm transition-all duration-1400">
+			<span
+				class="{inset} project-info absolute bottom-[78px] mr-6 ml-4 rounded-md bg-secondaryColor py-0.5 px-2
+			text-bodyCopy outline outline-1
+			outline-current [@media(hover:hover)]:-left-[150%] [@media(hover:hover)]:ml-0 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:transition-[left] [@media(hover:hover)]:delay-[0s] [@media(hover:hover)]:group-hover/project:left-2 [@media(hover:hover)]:group-hover/project:opacity-1">
+				Roles:
+				{roles}
+			</span>
+			<span
+				class="{inset}  project-info absolute bottom-[50px] mr-6 ml-4 rounded-md bg-secondaryColor py-0.5 px-2 text-bodyCopy
 			outline outline-1 outline-current
-			[@media(hover:hover)]:-left-[150%] [@media(hover:hover)]:transition-[left] [@media(hover:hover)]:delay-[0s] [@media(hover:hover)]:duration-300 [@media(hover:hover)]:group-hover/project:left-2">
-			<i>Roles:</i>
-			{roles}
-		</span>
-		<span
-			class="absolute bottom-10 mr-3 rounded-md bg-secondaryColor/85 py-0.5 px-2 text-bodyCopy
+			[@media(hover:hover)]:-left-[150%] [@media(hover:hover)]:ml-0 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:transition-[left] [@media(hover:hover)]:delay-200 [@media(hover:hover)]:group-hover/project:left-2 [@media(hover:hover)]:group-hover/project:opacity-1">
+				Tools:
+				{tools}
+			</span>
+			<span
+				class="{inset} project-info absolute bottom-[22px] mr-6 ml-4 rounded-md bg-secondaryColor py-0.5 px-2 text-bodyCopy
 			outline outline-1 outline-current
-			[@media(hover:hover)]:-left-[150%] [@media(hover:hover)]:transition-[left] [@media(hover:hover)]:delay-200 [@media(hover:hover)]:duration-300 [@media(hover:hover)]:group-hover/project:left-2">
-			<i>Tools:</i>
-			{tools}
-		</span>
-		<span
-			class="absolute bottom-3 mr-3 rounded-md bg-secondaryColor/85 py-0.5 px-2 text-bodyCopy
-			outline outline-1 outline-current
-			[@media(hover:hover)]:-left-[150%] [@media(hover:hover)]:transition-[left] [@media(hover:hover)]:delay-300 [@media(hover:hover)]:duration-300 [@media(hover:hover)]:group-hover/project:left-2">
-			<i>Duration:</i>
-			{duration}
-		</span>
-	</figcaption>
-</figure>
-<div>
-	<button on:click={handleClick} class="rounded-md border px-4 py-1">
+			[@media(hover:hover)]:-left-[150%] [@media(hover:hover)]:ml-0 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:transition-[left] [@media(hover:hover)]:delay-300 [@media(hover:hover)]:group-hover/project:left-2 [@media(hover:hover)]:group-hover/project:opacity-1">
+				Duration:
+				{duration}
+			</span>
+		</figcaption>
+	</figure>
+
+	<button on:click={handleClick} class=" m-auto rounded-md border px-4 py-1">
 		View {showDesktop ? 'mobile' : 'desktop'} version</button>
 </div>
 
@@ -87,13 +149,11 @@
 	:root {
 		--rotateY: 0deg;
 		--translateZ: 60px;
-		--translateX: 0px;
+		--scrollbarSize: 4px;
 	}
 
 	.three-d-container {
-		display: grid;
 		perspective: 800px;
-		transform-style: preserve-3d;
 	}
 
 	.three-d-item {
@@ -101,8 +161,42 @@
 		transform-style: preserve-3d;
 	}
 
-	.projectT-title {
+	.three-d-item :nth-child(1) {
+		position: absolute;
+		inset: 0;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
+
+	.three-d-item-two {
+		transform: rotateY(var(--rotateY));
+		transform-style: preserve-3d;
+	}
+
+	.three-d-item-two * {
+		position: absolute;
+	}
+
+	.project-info {
 		transition-delay: 0.45s;
-		transform: translateZ(var(--translateZ)) rotateY(var(--rotateY)) translateX(var(--translateX));
+		transform: translateZ(var(--translateZ)) rotateY(var(--rotateY));
+	}
+
+	/* scrollbar */
+	::-webkit-scrollbar {
+		position: absolute;
+
+		inline-size: var(--scrollbarSize);
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: rgba(var(--primary, 90, 102, 110));
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: rgba(var(--tertiary));
+		border: none;
 	}
 </style>
