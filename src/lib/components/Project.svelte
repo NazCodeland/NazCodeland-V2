@@ -18,7 +18,6 @@
 	let showDesktop: boolean;
 	let inset: string;
 	let desktopWidth: string;
-	let flexOrder: string;
 
 	function switchImage() {
 		setTimeout(
@@ -53,23 +52,11 @@
 			showDesktop ? 427 : 460
 		);
 	}
-	// function changeFlexOrder() {
-	// 	setTimeout(
-	// 		() => {
-	// 			if (showDesktop) {
-	// 				flexOrder = 'tablet:-order-1';
-	// 			}
-	// 		},
-	// 		showDesktop ? 415 : 450
-	// 	);
-	// }
 
 	function scrollIntoView({ target }) {
-		const figure = target.parentNode;
-		// const div = figure.querySelector('div');
-		// console.log(div);
+		const figureParent = target.parentNode;
 		setTimeout(() => {
-			figure.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			figureParent.scrollIntoView({ behavior: 'smooth', block: 'start' });
 		}, 500);
 	}
 
