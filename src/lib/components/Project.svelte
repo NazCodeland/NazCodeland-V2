@@ -75,7 +75,7 @@
 </script>
 
 <div
-	class="flex flex-col gap-4 {desktopWidth} scrollMarginTop max-w-[620px] transition-all [--scrollMarginTop:160px]">
+	class="flex flex-col gap-4 overflow-hidden {desktopWidth} scrollMarginTop max-w-[620px] transition-all [--scrollMarginTop:160px]">
 	<figure
 		style="min-inline-size: {showDesktop ? inlineSize : inlineSize}px; block-size: {showDesktop
 			? Number(blockSize) - 60
@@ -111,21 +111,21 @@
 			<span
 				class="{inset} project-info absolute bottom-[78px] mr-10 ml-4 rounded-md bg-secondaryColor py-0.5 px-2
 			text-bodyCopy outline outline-1
-			outline-current [@media(hover:hover)]:-left-[150%] [@media(hover:hover)]:ml-0 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:transition-[left] [@media(hover:hover)]:delay-[0s] [@media(hover:hover)]:group-hover/project:left-2 [@media(hover:hover)]:group-hover/project:opacity-1">
+			outline-current [--insetDelay:0s] [@media(hover:hover)]:-left-[150%] [@media(hover:hover)]:group-hover/project:left-2">
 				Roles:
 				{roles}
 			</span>
 			<span
-				class="{inset}  project-info absolute bottom-[50px] mr-10 ml-4 rounded-md bg-secondaryColor py-0.5 px-2 text-bodyCopy
+				class="{inset} project-info absolute bottom-[50px] mr-10 ml-4 rounded-md bg-secondaryColor py-0.5 px-2 text-bodyCopy
 			outline outline-1 outline-current
-			[@media(hover:hover)]:-left-[150%] [@media(hover:hover)]:ml-0 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:transition-[left] [@media(hover:hover)]:delay-200 [@media(hover:hover)]:group-hover/project:left-2 [@media(hover:hover)]:group-hover/project:opacity-1">
+			[--insetDelay:0.2s] [@media(hover:hover)]:-left-[150%] [@media(hover:hover)]:group-hover/project:left-2">
 				Tools:
 				{tools}
 			</span>
 			<span
 				class="{inset} project-info absolute bottom-[22px] mr-10 ml-4 rounded-md bg-secondaryColor py-0.5 px-2 text-bodyCopy
 			outline outline-1 outline-current
-			[@media(hover:hover)]:-left-[150%] [@media(hover:hover)]:ml-0 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:transition-[left] [@media(hover:hover)]:delay-300 [@media(hover:hover)]:group-hover/project:left-2 [@media(hover:hover)]:group-hover/project:opacity-1">
+			[--insetDelay:0.3s] [@media(hover:hover)]:-left-[150%] [@media(hover:hover)]:group-hover/project:left-2">
 				Duration:
 				{duration}
 			</span>
@@ -133,7 +133,7 @@
 	</figure>
 
 	<button on:click={handleClick} class=" m-auto rounded-md border px-4 py-1">
-		View {showDesktop ? 'mobile' : 'desktop'} version</button>
+		View {showDesktop ? 'mobile' : 'desktop'} design</button>
 </div>
 
 <style>
@@ -141,6 +141,7 @@
 		--rotateY: 0deg;
 		--translateZ: 60px;
 		--scrollbarSize: 4px;
+		--insetDelay: ;
 	}
 
 	.three-d-container {
@@ -169,7 +170,7 @@
 	}
 
 	.project-info {
-		transition-delay: 0.45s;
+		transition: transform 0s 0.45s, inset 0.2s var(--insetDelay);
 		transform: translateZ(var(--translateZ)) rotateY(var(--rotateY));
 	}
 
