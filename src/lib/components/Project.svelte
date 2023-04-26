@@ -53,23 +53,24 @@
 			showDesktop ? 427 : 460
 		);
 	}
-	function changeFlexOrder() {
-		setTimeout(
-			() => {
-				if (showDesktop) {
-					flexOrder = 'tablet:-order-1';
-				}
-			},
-			showDesktop ? 415 : 450
-		);
-	}
+	// function changeFlexOrder() {
+	// 	setTimeout(
+	// 		() => {
+	// 			if (showDesktop) {
+	// 				flexOrder = 'tablet:-order-1';
+	// 			}
+	// 		},
+	// 		showDesktop ? 415 : 450
+	// 	);
+	// }
 
 	function scrollIntoView({ target }) {
-		// const figure = target.previousElementSibling;
-		// const anchor = figure.querySelector('a');
-		// setTimeout(() => {
-		// 	anchor.scrollIntoView({ behavior: 'smooth', block: 'end' });
-		// }, 400);
+		const figure = target.parentNode;
+		// const div = figure.querySelector('div');
+		// console.log(div);
+		setTimeout(() => {
+			figure.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		}, 500);
 	}
 
 	function handleClick(event) {
@@ -86,7 +87,8 @@
 	}
 </script>
 
-<div class="flex flex-col gap-4 {desktopWidth} max-w-[620px] transition-all">
+<div
+	class="flex flex-col gap-4 {desktopWidth} scrollMarginTop max-w-[620px] transition-all [--scrollMarginTop:160px]">
 	<figure
 		style="min-inline-size: {showDesktop ? inlineSize : inlineSize}px; block-size: {showDesktop
 			? Number(blockSize) - 60
@@ -95,8 +97,8 @@
 		<div
 			class="{showDesktop
 				? '[--rotateY:180deg] [--translateZ:-60px] [--scrollbarSize:0]'
-				: ''} three-d-item h-full w-full transition-all duration-1400">
-			<a href="/portfolio/{project}">
+				: ''} three-d-item anchor h-full w-full transition-all duration-1400">
+			<a href="/portfolio/{project}" class="">
 				<img
 					on:mousemove={handleMousemove}
 					loading="lazy"
