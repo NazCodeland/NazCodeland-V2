@@ -75,15 +75,15 @@
 </script>
 
 <div
-	class="flex flex-col gap-4 {desktopWidth} scrollMarginTop max-w-[620px] transition-all [--scrollMarginTop:160px]">
+	class="flex flex-col gap-4 border {desktopWidth} scrollMarginTop max-w-[620px] transition-all [--scrollMarginTop:160px]">
 	<figure
 		style="min-inline-size: {showDesktop ? inlineSize : inlineSize}px; block-size: {showDesktop
 			? Number(blockSize) - 60
 			: blockSize}px;"
-		class="three-d-container group/project relative overflow-hidden transition-all duration-200">
+		class="three-d-container group/project relative transition-all duration-200">
 		<div
 			class="{showDesktop
-				? '[--rotateY:180deg] [--translateZ:-60px] [--scrollbarSize:0]'
+				? '[--rotateY:180deg] [--translateZ:-60px] [direction:rtl]'
 				: ''} three-d-item anchor h-full w-full transition-all duration-1400">
 			<a href="/portfolio/{project}" class="">
 				<img
@@ -91,7 +91,7 @@
 					loading="lazy"
 					style="transform-origin: {originX}% {originY}%;  object-fit:{objectFit}; object-position:{objectPosition};"
 					class="{showDesktop ? 'hover:scale-[1.15]' : ''} 
-								rounded-lg pr-1 transition-all"
+								rounded-lg transition-all [padding-inline-end:4px]"
 					src="/images/{imageName}.png"
 					alt="a cute dog" />
 			</a>
@@ -140,7 +140,6 @@
 	:root {
 		--rotateY: 0deg;
 		--translateZ: 60px;
-		--scrollbarSize: 4px;
 		--insetDelay: ;
 	}
 
@@ -176,9 +175,7 @@
 
 	/* scrollbar */
 	::-webkit-scrollbar {
-		position: absolute;
-
-		inline-size: var(--scrollbarSize);
+		inline-size: 4px;
 	}
 
 	/* Handle */
