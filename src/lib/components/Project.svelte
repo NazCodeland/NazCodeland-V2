@@ -80,13 +80,13 @@
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <!-- svelte-ignore a11y-mouse-events-have-key-events -->
 <div
-	class="flex flex-col gap-4 {desktopWidth} scrollMarginTop
-					max-w-[620px] transition-all [--scrollMarginTop:160px]">
+	class="flex flex-col gap-4 border {desktopWidth} scrollMarginTop
+					max-w-[620px] border-primaryColor p-1 transition-all [--scrollMarginTop:160px]">
 	<figure
 		tabindex="0"
 		on:mouseover={changeOpacity}
 		on:mouseleave={changeOpacity}
-		style="min-inline-size: {showDesktop ? inlineSize : inlineSize}px; block-size: 
+		style="min-inline-size: {inlineSize}px; block-size: 
 		{showDesktop ? Number(blockSize) - 60 : blockSize}px;"
 		class="group/project three-d-container transition-all duration-1000">
 		<div
