@@ -37,16 +37,16 @@
 		gap: 3rem;
 		justify-content: center;
 	}
-	.projects {
-		/* border: 2px solid blue; */
-		/* display: flex; */
-		/* flex-direction: column; */
-		/* gap: 32px;
+	/* .projects {
+		border: 2px solid blue;
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
 		align-items: center;
 		flex-grow: 1;
 		place-items: center;
 		gap: 32px;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); */
-	}
+		grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+	} */
 </style>
