@@ -14,8 +14,9 @@ interface Post {
 export async function load({ params }) {
 	try {
 		params.slug = params.slug.replaceAll('-', ' ');
-		const posts = import.meta.glob('$route/posts/*.md');
-		const post = (await posts[`$route/posts/${params.slug}.md`]()) as Post;
+		// these paths have to remain relative using "../"
+		const posts = import.meta.glob('../posts/*.md');
+		const post = (await posts[`../posts/${params.slug}.md`]()) as Post;
 
 		const { title, description, published, updated, tags } = post.metadata;
 

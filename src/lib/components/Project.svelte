@@ -85,7 +85,7 @@
 		class="group/project three-d-container {pointerEvents} transition-all duration-1000">
 		<div
 			class="{showDesktop
-				? '[--rotateY:180deg] [--translateZ:-60px] [--scrollBarSize:0px]'
+				? '[--rotateY:180deg] [--scrollBarSize:0px] [--translateZ:-60px]'
 				: ''}  three-d-item-one h-full w-full transition-all duration-1400">
 			<a href="/portfolio/{project}" class="rounded-lg">
 				<img
