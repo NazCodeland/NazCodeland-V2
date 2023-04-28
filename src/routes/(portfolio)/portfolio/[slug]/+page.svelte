@@ -83,7 +83,7 @@
 				loading="lazy"
 				src={moveToTop}
 				alt="move to top"
-				class="fixed left-[45vw] bottom-[6vh] z-10 rounded-full border border-primaryColor bg-secondaryColor shadow-rest hover:shadow-hover active:shadow-active sm:left-[48vw]" />
+				class="fixed bottom-[6vh] left-[45vw] z-10 rounded-full border border-primaryColor bg-secondaryColor shadow-rest hover:shadow-hover active:shadow-active sm:left-[48vw]" />
 		</a>
 	</article>
 </main>

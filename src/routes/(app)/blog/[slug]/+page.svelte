@@ -5,10 +5,10 @@
 	import moveToTop from '$lib/icons/themeBased/moveToTop/moveToTopMain.svg';
 </script>
 
-<main class="flex flex-col gap-80-104" id="maincontent">
+<main class="flex flex-col gap-80-104">
 	<article id="top" class="relative m-auto flex w-full flex-col gap-4 md:max-w-[70ch]">
 		<header class="">
-			<h1 class="mb-4 text-center md:-mx-20">{data.title}</h1>
+			<h1 id="mainContent" class="mb-4 text-center md:-mx-20">{data.title}</h1>
 			<p class="text-center text-fluid-2 text-slate-400 md:-mx-8">{data.description}</p>
 			<div class="mb-20 mt-8 flex flex-col text-fluid-4">
 				<p>Published: {data.published}</p>
@@ -20,7 +20,9 @@
 				(provided as the this prop value) when the exact component isn't known beforehand.
 				since .md files are configured to be treated as Svelte components,-->
 		<svelte:component this={data.content} />"
-		<img src={moveToTop} alt="" loading="lazy" />
+		<a href="#mainContent">
+			<img src={moveToTop} alt="" loading="lazy" />
+		</a>
 	</article>
 
 	<hr class="mx-60 h-[1px] border-none bg-primaryColor bg-gradient-to-r" />
