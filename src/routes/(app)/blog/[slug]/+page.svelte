@@ -1,7 +1,7 @@
 <script>
 	export let data;
 
-	// import Giscus from '@giscus/svelte';
+	import Giscus from '@giscus/svelte';
 	import moveToTop from '$lib/icons/themeBased/moveToTop/moveToTopMain.svg';
 </script>
 
@@ -10,7 +10,7 @@
 		<header class="">
 			<h1 class="mb-4 text-center md:-mx-20">{data.title}</h1>
 			<p class="text-center text-fluid-2 text-slate-400 md:-mx-8">{data.description}</p>
-			<div class="mt-8 mb-20 flex flex-col text-fluid-4">
+			<div class="mb-20 mt-8 flex flex-col text-fluid-4">
 				<p>Published: {data.published}</p>
 				<p>Updated: {data.updated}</p>
 			</div>
@@ -28,7 +28,7 @@
 	<section class="m-auto w-full max-w-[70ch]">
 		<h2 class="mb-10">Comments</h2>
 
-		<!-- <Giscus
+		<Giscus
 			id="comments"
 			repo="NazCodeland/NazCodeland-V2"
 			repoId="R_kgDOJDWq2A"
@@ -41,7 +41,7 @@
 			inputPosition="bottom"
 			theme="dark_dimmed"
 			lang="en"
-			loading="lazy" /> -->
+			loading="lazy" />
 	</section>
 </main>
 
