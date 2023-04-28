@@ -7,6 +7,9 @@ import mdsvexConfig from './mdsvex.config.mjs';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
+		prerender: {
+			handleMissingId: 'warn'
+		},
 		adapter: adapter(),
 		alias: {
 			$src: './src'
