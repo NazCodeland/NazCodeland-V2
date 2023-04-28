@@ -16,14 +16,17 @@
 	let inset: string = 'left-0';
 	let opacity: boolean = false;
 
+	const imageNameMobile = imageName;
+	const imageNameDesktop = imageName.replace('Mobile', '');
+
 	function switchImage() {
 		showDesktop = !showDesktop;
 		setTimeout(
 			() => {
 				if (showDesktop) {
-					imageName = `${imageName.replace('Mobile', '')}`;
+					imageName = imageNameDesktop;
 				} else {
-					imageName = `${imageName}Mobile`;
+					imageName = imageNameMobile;
 				}
 			},
 			showDesktop ? 415 : 450
@@ -106,7 +109,7 @@
 			<span
 				class="{inset} project-info pointer-events-none absolute ml-5 mr-11
 								{showDesktop ? 'top-8' : 'top-6'} rounded-md bg-secondaryColor
-								py-0.5 px-2 text-sm text-bodyCopy outline outline-1 outline-current">
+								px-2 py-0.5 text-sm text-bodyCopy outline outline-1 outline-current">
 				Project:
 				{project}
 			</span>
@@ -119,7 +122,7 @@
 				class="{inset}  {opacity
 					? '[@media(hover:hover)]:group-hover/project:opacity-1'
 					: '[@media(hover:hover)]:opacity-0 '}  project-info pointer-events-none absolute bottom-[78px]
-							mr-10 ml-5 rounded-md bg-secondaryColor py-0.5 px-2 text-bodyCopy outline outline-1 outline-current
+							ml-5 mr-10 rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1 outline-current
 							[--transitionDelay:0s] [@media(hover:hover)]:-left-[20%]
 							[@media(hover:hover)]:group-hover/project:left-2 [@media(hover:hover)]:group-focus-visible/project:left-2
 							[@media(hover:hover)]:group-focus-visible/project:opacity-1">
@@ -129,8 +132,8 @@
 			<span
 				class="{inset} {opacity
 					? '[@media(hover:hover)]:group-hover/project:opacity-1'
-					: '[@media(hover:hover)]:opacity-0 '}  project-info pointer-events-none absolute bottom-[50px] mr-10 ml-5
-							rounded-md bg-secondaryColor py-0.5 px-2 text-bodyCopy outline outline-1 outline-current
+					: '[@media(hover:hover)]:opacity-0 '}  project-info pointer-events-none absolute bottom-[50px] ml-5 mr-10
+							rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1 outline-current
 							[--transitionDelay:0.2s] [@media(hover:hover)]:-left-[20%]
 							[@media(hover:hover)]:group-hover/project:left-2 [@media(hover:hover)]:group-focus-visible/project:left-2
 							[@media(hover:hover)]:group-focus-visible/project:opacity-1">
@@ -141,7 +144,7 @@
 				class="{inset} {opacity
 					? '[@media(hover:hover)]:group-hover/project:opacity-1'
 					: '[@media(hover:hover)]:opacity-0 '}  project-info pointer-events-none absolute bottom-[22px]
-							mr-10 ml-5 rounded-md bg-secondaryColor py-0.5 px-2 text-bodyCopy outline outline-1
+							ml-5 mr-10 rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
 							outline-current [--transitionDelay:0.3s] [@media(hover:hover)]:-left-[20%]
 							[@media(hover:hover)]:group-hover/project:left-2 [@media(hover:hover)]:group-focus-visible/project:left-2
 							[@media(hover:hover)]:group-focus-visible/project:opacity-1">
@@ -175,7 +178,7 @@
 	.three-d-item-one :nth-child(1) {
 		position: absolute;
 		inset: 0;
-		overflow-y: scroll;
+		overflow-y: auto;
 		overflow-x: hidden;
 	}
 
@@ -183,10 +186,5 @@
 		transition: transform 0s 0.45s, inset 0.2s var(--transitionDelay),
 			opacity 0s var(--transitionDelay, 0.5s);
 		transform: translateZ(var(--translateZ)) rotateY(var(--rotateY));
-	}
-
-	/* scrollbar */
-	::-webkit-scrollbar {
-		inline-size: 0px;
 	}
 </style>

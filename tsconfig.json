@@ -3,6 +3,7 @@
 // includes/excludes from the referenced tsconfig.json - TypeScript does not merge them in
 
 {
+	"extends": "./.svelte-kit/tsconfig.json",
 	"compilerOptions": {
 		"allowJs": true,
 		"checkJs": true,

@@ -1,7 +1,4 @@
 <script lang="ts">
-	import { inject } from '@vercel/analytics';
-	inject();
-
 	import '$src/app.css';
 	import SiteWrapper from '$lib/components/SiteWrapper.svelte';
 	import Site from '$lib/components/Site.svelte';
