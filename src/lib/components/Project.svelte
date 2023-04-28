@@ -9,16 +9,21 @@
 	export let objectFit: string = 'cover';
 	export let objectPosition: string = 'top left';
 
-	let originX: number = 1;
-	let originY: number = 50;
 	let showDesktop: boolean;
 	let desktopWidth: string;
 	let inset: string = 'left-0';
 	let opacity: boolean = false;
+	let pointerEvents: string = 'pointer-events-auto';
 
 	const imageNameMobile = imageName;
 	const imageNameDesktop = imageName.replace('Mobile', '');
 
+	function togglePointerEvents() {
+		pointerEvents = 'pointer-events-none';
+		setTimeout(() => {
+			pointerEvents = 'pointer-events-auto';
+		}, 1000);
+	}
 	function switchImage() {
 		showDesktop = !showDesktop;
 		setTimeout(
@@ -32,7 +37,6 @@
 			showDesktop ? 415 : 450
 		);
 	}
-
 	function switchInset() {
 		setTimeout(() => {
 			if (showDesktop) {
@@ -62,6 +66,7 @@
 	}
 
 	function handleClick(event) {
+		togglePointerEvents();
 		switchImage();
 		setDesktopWidth();
 		switchInset();
@@ -73,41 +78,36 @@
 			opacity = !opacity;
 		}, 50);
 	}
-
-	function handleMousemove(event: MouseEvent) {
-		// console.log(event.offsetX);
-		// console.log(event.offsetY);
-	}
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <!-- svelte-ignore a11y-mouse-events-have-key-events -->
 <div
-	class="flex flex-col gap-4 border {desktopWidth} scrollMarginTop
+	class="flex flex-col gap-4 rounded-xl border {desktopWidth} scrollMarginTop
 					max-w-[620px] border-primaryColor p-1 transition-all [--scrollMarginTop:160px]">
 	<figure
 		tabindex="0"
 		on:mouseover={changeOpacity}
-		on:mouseleave={changeOpacity}
+		on:mouseleave={() => {
+			if (opacity) changeOpacity();
+		}}
 		style="min-inline-size: {inlineSize}px; block-size: 
-		{showDesktop ? Number(blockSize) - 60 : blockSize}px;"
-		class="group/project three-d-container transition-all duration-1000">
+		{showDesktop ? Number(blockSize) : blockSize}px;"
+		class="group/project three-d-container {pointerEvents} transition-all duration-1000">
 		<div
 			class="{showDesktop
-				? '[--rotateY:180deg] [--translateZ:-60px] [direction:rtl]'
+				? '[--rotateY:180deg] [--translateZ:-60px] [direction:rtl]  [--scrollBarSize:0px]'
 				: ''}  three-d-item-one h-full w-full transition-all duration-1400">
-			<a href="/portfolio/{project}">
+			<a href="/portfolio/{project}" class="rounded-lg">
 				<img
-					on:mousemove={handleMousemove}
 					loading="lazy"
-					style="transform-origin: {originX}% {originY}%;  object-fit:{objectFit}; object-position:{objectPosition};"
-					class="{showDesktop ? 'hover:scale-[1.15]' : ''} 
-								rounded-lg transition-all [padding-inline-end:0px]"
+					style="object-fit:{objectFit}; object-position:{objectPosition};"
+					class="min-h-full w-full transition-all [padding-inline-end:0px]"
 					src="/images/{imageName}.png"
 					alt="a cute dog" />
 			</a>
 			<span
-				class="{inset} project-info pointer-events-none absolute ml-5 mr-11
+				class="{inset} project-info pointer-events-none absolute ml-[18px] mr-10
 								{showDesktop ? 'top-8' : 'top-6'} rounded-md bg-secondaryColor
 								px-2 py-0.5 text-sm text-bodyCopy outline outline-1 outline-current">
 				Project:
@@ -116,37 +116,37 @@
 		</div>
 
 		<figcaption
-			class=" {showDesktop ? '[--rotateY:180deg] [--translateZ:-60px]' : ''} 
-				three-d-item-two text-sm transition-[transform] duration-1400">
+			class="{showDesktop ? 'me-10 ms-10 [--rotateY:180deg] [--translateZ:-60px] ' : 'me-5 ms-4'} 
+				three-d-item-two text-sm transition-[transform,margin] duration-1400">
 			<span
-				class="{inset}  {opacity
+				class="{inset} {showDesktop ? '[direction:rtl]' : ''} {opacity
 					? '[@media(hover:hover)]:group-hover/project:opacity-1'
 					: '[@media(hover:hover)]:opacity-0 '}  project-info pointer-events-none absolute bottom-[78px]
-							ml-5 mr-10 rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1 outline-current
-							[--transitionDelay:0s] [@media(hover:hover)]:-left-[20%]
-							[@media(hover:hover)]:group-hover/project:left-2 [@media(hover:hover)]:group-focus-visible/project:left-2
+							rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1 outline-current
+							[--transitionDelay:0s] [@media(hover:hover)]:-start-[20%]
+							[@media(hover:hover)]:group-hover/project:start-0 [@media(hover:hover)]:group-focus-visible/project:start-0
 							[@media(hover:hover)]:group-focus-visible/project:opacity-1">
 				Roles:
 				{roles}
 			</span>
 			<span
-				class="{inset} {opacity
+				class="{inset} {showDesktop ? '[direction:rtl]' : ''} {opacity
 					? '[@media(hover:hover)]:group-hover/project:opacity-1'
-					: '[@media(hover:hover)]:opacity-0 '}  project-info pointer-events-none absolute bottom-[50px] ml-5 mr-10
-							rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1 outline-current
-							[--transitionDelay:0.2s] [@media(hover:hover)]:-left-[20%]
-							[@media(hover:hover)]:group-hover/project:left-2 [@media(hover:hover)]:group-focus-visible/project:left-2
-							[@media(hover:hover)]:group-focus-visible/project:opacity-1">
+					: '[@media(hover:hover)]:opacity-0 '}  project-info pointer-events-none absolute bottom-[50px]
+							rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
+							outline-current [--transitionDelay:0.2s]
+							[@media(hover:hover)]:-start-[20%] [@media(hover:hover)]:group-hover/project:start-0
+							[@media(hover:hover)]:group-focus-visible/project:start-0 [@media(hover:hover)]:group-focus-visible/project:opacity-1">
 				Tools:
 				{tools}
 			</span>
 			<span
-				class="{inset} {opacity
+				class="{inset} {showDesktop ? '[direction:rtl]' : ''} {opacity
 					? '[@media(hover:hover)]:group-hover/project:opacity-1'
 					: '[@media(hover:hover)]:opacity-0 '}  project-info pointer-events-none absolute bottom-[22px]
-							ml-5 mr-10 rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
-							outline-current [--transitionDelay:0.3s] [@media(hover:hover)]:-left-[20%]
-							[@media(hover:hover)]:group-hover/project:left-2 [@media(hover:hover)]:group-focus-visible/project:left-2
+							rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
+							outline-current [--transitionDelay:0.3s] [@media(hover:hover)]:-start-[20%]
+							[@media(hover:hover)]:group-hover/project:start-0 [@media(hover:hover)]:group-focus-visible/project:start-0
 							[@media(hover:hover)]:group-focus-visible/project:opacity-1">
 				Duration:
 				{duration}
@@ -163,6 +163,7 @@
 		--rotateY: 0deg;
 		--translateZ: 60px;
 		--transitionDelay: ;
+		--scrollBarSize: 4px;
 	}
 
 	.three-d-container {
@@ -186,5 +187,20 @@
 		transition: transform 0s 0.45s, inset 0.2s var(--transitionDelay),
 			opacity 0s var(--transitionDelay, 0.5s);
 		transform: translateZ(var(--translateZ)) rotateY(var(--rotateY));
+	}
+
+	::-webkit-scrollbar {
+		inline-size: 0;
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: rgba(var(--primary, 90, 102, 110));
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: rgba(var(--tertiary));
+		border: none;
 	}
 </style>

@@ -17,7 +17,7 @@
 	<Project imageName="pawFood" project="THE FUTURE" roles="--" tools="--" duration="--" />
 	<Project imageName="pawFood" project="THE FUTURE" roles="--" tools="--" duration="--" />
 	<Project
-		imageName="nazCodelandMobile"
+		imageName="pawFoodMobile"
 		project="PawFood"
 		roles="User Research / User Interface / Front-end / Back-end"
 		tools="Pen & Paper / Miro / Figma"
