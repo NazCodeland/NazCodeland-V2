@@ -4,10 +4,10 @@
 	export let roles: string;
 	export let tools: string;
 	export let duration: string;
-	export let inlineSize: string = '280';
+	export let inlineSize: string = '270';
 	export let blockSize: string = '500';
 	export let objectFit: string = 'cover';
-	export let objectPosition: string = 'top left';
+	export let objectPosition: string = 'top center';
 
 	let showDesktop: boolean;
 	let desktopWidth: string;
@@ -16,7 +16,6 @@
 
 	const imageNameMobile = imageName;
 	const imageNameDesktop = imageName.replace('Mobile', '');
-	$: console.log(imageNameDesktop);
 
 	function togglePointerEvents() {
 		pointerEvents = 'pointer-events-none';
@@ -29,10 +28,8 @@
 		setTimeout(
 			() => {
 				if (showDesktop) {
-					console.log(imageName);
 					imageName = imageNameDesktop;
 				} else {
-					console.log(imageName);
 					imageName = imageNameMobile;
 				}
 			},
@@ -100,7 +97,9 @@
 			</a>
 			<span
 				class="{inset} project-info pointer-events-none absolute ml-[18px] mr-10
-								{showDesktop ? 'top-8' : 'top-6'} rounded-md bg-secondaryColor
+								{showDesktop
+					? 'me-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] ms-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)]'
+					: ''} top-0 rounded-md bg-secondaryColor
 								px-2 py-0.5 text-sm text-bodyCopy outline outline-1 outline-current">
 				Project:
 				{project}
@@ -108,21 +107,19 @@
 		</div>
 
 		<figcaption
-			class="{showDesktop ? 'me-10 ms-10 [--rotateY:180deg] [--translateZ:-60px] ' : 'me-5 ms-4'} 
+			class="{showDesktop
+				? 'me-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] ms-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] [--rotateY:180deg] [--translateZ:-60px]'
+				: 'me-4 ms-4'} 
 				three-d-item-two text-sm transition-[transform,margin] duration-1400">
 			<span
-				class="{inset} {showDesktop
-					? '[direction:rtl]'
-					: ''} project-info [--transitionDelay:0s pointer-events-none absolute
-							bottom-[78px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
+				class="{inset} project-info [--transitionDelay:0s pointer-events-none absolute
+							bottom-[80px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
 							outline-current [@media(hover:hover)]:group-focus-visible/project:opacity-1">
 				Roles:
 				{roles}
 			</span>
 			<span
-				class="{inset} {showDesktop
-					? '[direction:rtl]'
-					: ''} project-info pointer-events-none absolute bottom-[50px]
+				class="{inset} project-info pointer-events-none absolute bottom-[52px]
 							rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
 							outline-current [--transitionDelay:0.2s]
 							[@media(hover:hover)]:group-focus-visible/project:opacity-1">
@@ -130,10 +127,8 @@
 				{tools}
 			</span>
 			<span
-				class="{inset} {showDesktop
-					? '[direction:rtl]'
-					: ''} project-info [--transitionDelay:0.3s pointer-events-none absolute
-							bottom-[22px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline
+				class="{inset} project-info [--transitionDelay:0.3s pointer-events-none absolute
+							bottom-[24px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline
 							outline-1 outline-current [@media(hover:hover)]:group-focus-visible/project:opacity-1">
 				Duration:
 				{duration}
