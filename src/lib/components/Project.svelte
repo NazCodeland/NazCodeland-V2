@@ -12,11 +12,11 @@
 	let showDesktop: boolean;
 	let desktopWidth: string;
 	let inset: string = 'left-0';
-	let opacity: boolean = false;
 	let pointerEvents: string = 'pointer-events-auto';
 
 	const imageNameMobile = imageName;
 	const imageNameDesktop = imageName.replace('Mobile', '');
+	$: console.log(imageNameDesktop);
 
 	function togglePointerEvents() {
 		pointerEvents = 'pointer-events-none';
@@ -29,8 +29,10 @@
 		setTimeout(
 			() => {
 				if (showDesktop) {
+					console.log(imageName);
 					imageName = imageNameDesktop;
 				} else {
+					console.log(imageName);
 					imageName = imageNameMobile;
 				}
 			},
@@ -72,12 +74,6 @@
 		switchInset();
 		scrollIntoView(event);
 	}
-
-	function changeOpacity() {
-		setTimeout(() => {
-			opacity = !opacity;
-		}, 50);
-	}
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
@@ -87,16 +83,12 @@
 					max-w-[620px] border-primaryColor p-1 transition-all [--scrollMarginTop:160px]">
 	<figure
 		tabindex="0"
-		on:mouseover={changeOpacity}
-		on:mouseleave={() => {
-			if (opacity) changeOpacity();
-		}}
 		style="min-inline-size: {inlineSize}px; block-size: 
 		{showDesktop ? Number(blockSize) : blockSize}px;"
 		class="group/project three-d-container {pointerEvents} transition-all duration-1000">
 		<div
 			class="{showDesktop
-				? '[--rotateY:180deg] [--translateZ:-60px] [direction:rtl]  [--scrollBarSize:0px]'
+				? '[--rotateY:180deg] [--translateZ:-60px] [--scrollBarSize:0px]'
 				: ''}  three-d-item-one h-full w-full transition-all duration-1400">
 			<a href="/portfolio/{project}" class="rounded-lg">
 				<img
@@ -119,35 +111,30 @@
 			class="{showDesktop ? 'me-10 ms-10 [--rotateY:180deg] [--translateZ:-60px] ' : 'me-5 ms-4'} 
 				three-d-item-two text-sm transition-[transform,margin] duration-1400">
 			<span
-				class="{inset} {showDesktop ? '[direction:rtl]' : ''} {opacity
-					? '[@media(hover:hover)]:group-hover/project:opacity-1'
-					: '[@media(hover:hover)]:opacity-0 '}  project-info pointer-events-none absolute bottom-[78px]
-							rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1 outline-current
-							[--transitionDelay:0s] [@media(hover:hover)]:-start-[20%]
-							[@media(hover:hover)]:group-hover/project:start-0 [@media(hover:hover)]:group-focus-visible/project:start-0
-							[@media(hover:hover)]:group-focus-visible/project:opacity-1">
+				class="{inset} {showDesktop
+					? '[direction:rtl]'
+					: ''} project-info [--transitionDelay:0s pointer-events-none absolute
+							bottom-[78px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
+							outline-current [@media(hover:hover)]:group-focus-visible/project:opacity-1">
 				Roles:
 				{roles}
 			</span>
 			<span
-				class="{inset} {showDesktop ? '[direction:rtl]' : ''} {opacity
-					? '[@media(hover:hover)]:group-hover/project:opacity-1'
-					: '[@media(hover:hover)]:opacity-0 '}  project-info pointer-events-none absolute bottom-[50px]
+				class="{inset} {showDesktop
+					? '[direction:rtl]'
+					: ''} project-info pointer-events-none absolute bottom-[50px]
 							rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
 							outline-current [--transitionDelay:0.2s]
-							[@media(hover:hover)]:-start-[20%] [@media(hover:hover)]:group-hover/project:start-0
-							[@media(hover:hover)]:group-focus-visible/project:start-0 [@media(hover:hover)]:group-focus-visible/project:opacity-1">
+							[@media(hover:hover)]:group-focus-visible/project:opacity-1">
 				Tools:
 				{tools}
 			</span>
 			<span
-				class="{inset} {showDesktop ? '[direction:rtl]' : ''} {opacity
-					? '[@media(hover:hover)]:group-hover/project:opacity-1'
-					: '[@media(hover:hover)]:opacity-0 '}  project-info pointer-events-none absolute bottom-[22px]
-							rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
-							outline-current [--transitionDelay:0.3s] [@media(hover:hover)]:-start-[20%]
-							[@media(hover:hover)]:group-hover/project:start-0 [@media(hover:hover)]:group-focus-visible/project:start-0
-							[@media(hover:hover)]:group-focus-visible/project:opacity-1">
+				class="{inset} {showDesktop
+					? '[direction:rtl]'
+					: ''} project-info [--transitionDelay:0.3s pointer-events-none absolute
+							bottom-[22px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline
+							outline-1 outline-current [@media(hover:hover)]:group-focus-visible/project:opacity-1">
 				Duration:
 				{duration}
 			</span>

@@ -13,17 +13,8 @@
 		duration="4 Months" />
 
 	<Project imageName="pawFood" project="THE FUTURE" roles="--" tools="--" duration="--" />
-	<Project imageName="pawFood" project="THE FUTURE" roles="--" tools="--" duration="--" />
-	<Project imageName="pawFood" project="THE FUTURE" roles="--" tools="--" duration="--" />
-	<Project imageName="pawFood" project="THE FUTURE" roles="--" tools="--" duration="--" />
 	<Project
 		imageName="pawFoodMobile"
-		project="PawFood"
-		roles="User Research / User Interface / Front-end / Back-end"
-		tools="Pen & Paper / Miro / Figma"
-		duration="4 Months" />
-	<Project
-		imageName="nazCodelandMobile"
 		project="PawFood"
 		roles="User Research / User Interface / Front-end / Back-end"
 		tools="Pen & Paper / Miro / Figma"
