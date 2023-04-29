@@ -54,7 +54,7 @@
 					desktopWidth = '';
 				}
 			},
-			460
+			showDesktop ? 460 : 480;
 		);
 	}
 	function scrollIntoView({ target }) {
