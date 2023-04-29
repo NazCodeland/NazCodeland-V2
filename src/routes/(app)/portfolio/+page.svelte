@@ -4,7 +4,7 @@
 </script>
 
 <!-- TODO: add a sorting navigation to sort by project roles-->
-<div class="flexstuff">
+<div class="flexstuff" id="mainContent">
 	<Project
 		imageName="nazCodelandMobile"
 		project="NazCodeland"
@@ -21,12 +21,14 @@
 	<Project imageName="pawFood" project="THE FUTURE" roles="--" tools="--" duration="--" />
 </div>
 
-<style>
+<style lang="css">
 	.flexstuff {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 3rem;
 		justify-content: center;
+		transition: all;
+		transition-duration: 4000;
 	}
 	/* .projects {
 		border: 2px solid blue;

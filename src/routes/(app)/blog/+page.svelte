@@ -42,7 +42,7 @@
 	<title>NazCodeland |</title>
 </svelte:head>
 
-<main class="m-auto flex max-w-[94ch] flex-col gap-56-72">
+<main class="m-auto flex max-w-[94ch] flex-col gap-56-72" id="mainContent">
 	<h1 class="font-bold">Blog</h1>
 
 	<div class="flex gap-x-80-104">
