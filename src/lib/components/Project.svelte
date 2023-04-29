@@ -107,10 +107,10 @@
 		</div>
 
 		<figcaption
-			class="{showDesktop
-				? 'me-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)] ms-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)] [--rotateY:180deg] [--translateZ:-60px]'
-				: 'me-4 ms-4'} 
-				three-d-item-two text-sm transition-[transform,margin] duration-1400">
+		class="{showDesktop
+			? 'me-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] ms-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] [--rotateY:180deg] [--translateZ:-60px]'
+			: 'me-4 ms-4'} 
+			three-d-item-two text-sm transition-[transform,margin] duration-1400">
 			<span
 				class="{inset} project-info [--transitionDelay:0s pointer-events-none absolute
 							bottom-[80px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
