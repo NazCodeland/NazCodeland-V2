@@ -54,7 +54,7 @@
 					desktopWidth = '';
 				}
 			},
-			showDesktop ? 427 : 460
+			460
 		);
 	}
 	function scrollIntoView({ target }) {
@@ -85,7 +85,7 @@
 		class="group/project three-d-container {pointerEvents} transition-all duration-1000">
 		<div
 			class="{showDesktop
-				? '[--rotateY:180deg] [--scrollBarSize:0px] [--translateZ:-60px]'
+				? '[--rotateY:180deg] [--translateZ:-60px] [--scrollBarSize:0px]'
 				: ''}  three-d-item-one h-full w-full transition-all duration-1400">
 			<a href="/portfolio/{project}" class="rounded-lg">
 				<img
@@ -98,8 +98,8 @@
 			<span
 				class="{inset} project-info pointer-events-none absolute ml-[18px] mr-10
 								{showDesktop
-					? 'me-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] ms-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)]'
-					: ''} top-0 rounded-md bg-secondaryColor
+					? 'top-9 me-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)] ms-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)]'
+					: 'top-[26px]'} rounded-md bg-secondaryColor
 								px-2 py-0.5 text-sm text-bodyCopy outline outline-1 outline-current">
 				Project:
 				{project}
@@ -108,7 +108,7 @@
 
 		<figcaption
 			class="{showDesktop
-				? 'me-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] ms-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] [--rotateY:180deg] [--translateZ:-60px]'
+				? 'me-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)] ms-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)] [--rotateY:180deg] [--translateZ:-60px]'
 				: 'me-4 ms-4'} 
 				three-d-item-two text-sm transition-[transform,margin] duration-1400">
 			<span
