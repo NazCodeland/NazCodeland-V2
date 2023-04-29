@@ -98,8 +98,8 @@
 			<span
 				class="{inset} project-info pointer-events-none absolute ml-[18px] mr-10
 								{showDesktop
-					? 'top-9 me-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)] ms-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)]'
-					: 'top-[26px]'} rounded-md bg-secondaryColor
+					? 'me-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)] ms-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)]'
+					: ''} rounded-md bg-secondaryColor
 								px-2 py-0.5 text-sm text-bodyCopy outline outline-1 outline-current">
 				Project:
 				{project}
