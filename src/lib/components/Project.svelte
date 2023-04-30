@@ -51,7 +51,7 @@
 			const rotateY = Math.round(Math.asin(matrixValues[8]) * (180 / Math.PI));
 			console.log(rotateY);
 
-			if (rotateY >= 50) {
+			if (rotateY >= 30) {
 				changeImage = !changeImage;
 				checkForDesktop = false;
 				clearInterval(intervalId);
