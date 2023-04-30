@@ -59,7 +59,7 @@
 					desktopWidth = !desktopWidth;
 				}, 2000);
 			}
-		}, 0);
+		}, 10);
 	}
 </script>
 
