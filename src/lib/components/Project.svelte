@@ -11,13 +11,10 @@
 	export let objectFit: string = 'cover';
 	export let objectPosition: string = 'top center';
 
-	let showDesktop: boolean;
+	let showDesktop: boolean = false;
 	let desktopWidth: boolean;
-	let changeImage: boolean;
+	let inset: string = 'left-0';
 	let pointerEvents: string = 'pointer-events-auto';
-
-	const mobileImage = `/images/${imageName}.png`;
-	const desktopImage = `/images/${imageName.replace('Mobile', '')}.png`;
 
 	function togglePointerEvents() {
 		pointerEvents = 'pointer-events-none';
@@ -25,6 +22,40 @@
 			pointerEvents = 'pointer-events-auto';
 		}, 1000);
 	}
+	// function switchImage() {
+	// 	showDesktop = !showDesktop;
+	// 	setTimeout(
+	// 		() => {
+	// 			if (showDesktop) {
+	// 				imageName = imageNameDesktop;
+	// 			} else {
+	// 				imageName = imageNameMobile;
+	// 			}
+	// 		},
+	// 		showDesktop ? 415 : 450
+	// 	);
+	// }
+	function switchInset() {
+		setTimeout(() => {
+			if (showDesktop) {
+				inset = 'right-0';
+			} else {
+				inset = 'left-0';
+			}
+		}, 500);
+	}
+	// function setDesktopWidth() {
+	// 	setTimeout(
+	// 		() => {
+	// 			if (showDesktop) {
+	// 				desktopWidth = 'w-full';
+	// 			} else {
+	// 				desktopWidth = '';
+	// 			}
+	// 		},
+	// 		showDesktop ? 460 : 480
+	// 	);
+	// }
 
 	function scrollIntoView({ target }) {
 		const figureParent = target.parentNode;
@@ -36,7 +67,12 @@
 
 	function handleClick(event) {
 		checkForDesktop = true;
-		// togglePointerEvents();
+		togglePointerEvents();
+
+		// showDesktop = !showDesktop;
+
+		// switchImage();
+		switchInset();
 		// scrollIntoView(event);
 	}
 
@@ -49,17 +85,15 @@
 			const transformValue = computedStyle.getPropertyValue('transform');
 			const matrixValues = transformValue.split('(')[1].split(')')[0].split(',');
 			const rotateY = Math.round(Math.asin(matrixValues[8]) * (180 / Math.PI));
-			console.log(rotateY);
 
-			if (rotateY >= 65) {
-				clearInterval(intervalId);
-				changeImage = !changeImage;
+			console.log('rotateY:', rotateY);
+
+			if (rotateY >= 85) {
+				desktopWidth = !desktopWidth;
 				checkForDesktop = false;
-				setTimeout(() => {
-					desktopWidth = !desktopWidth;
-				}, 2000);
+				clearInterval(intervalId);
 			}
-		}, 10);
+		}, 0);
 	}
 </script>
 
@@ -70,7 +104,8 @@
 					max-w-[620px] border-primaryColor p-1 transition-all [--scrollMarginTop:160px]">
 	<figure
 		tabindex="0"
-		style="min-inline-size: {inlineSize}px; block-size: {blockSize}px;"
+		style="min-inline-size: {inlineSize}px; block-size: 
+		{showDesktop ? Number(blockSize) : blockSize}px;"
 		class="group/project three-d-container {pointerEvents} transition-all duration-1000">
 		<div
 			bind:this={box}
@@ -82,13 +117,19 @@
 					loading="lazy"
 					style="object-fit:{objectFit}; object-position:{objectPosition};"
 					class="min-h-full w-full transition-all [padding-inline-end:0px]"
-					src={changeImage ? desktopImage : mobileImage}
+					src={`/images/${imageName}.png`}
+					alt="a cute dog" />
+			</a>
+			<a href="/portfolio/{project}" class="rounded-lg">
+				<img
+					loading="lazy"
+					style="object-fit:{objectFit}; object-position:{objectPosition};"
+					class="min-h-full w-full transition-all [padding-inline-end:0px]"
+					src={`/images/${imageName.replace('Mobile', '')}.png`}
 					alt="a cute dog" />
 			</a>
 			<span
-				class="{desktopWidth
-					? 'right-0'
-					: 'left-0'} project-info pointer-events-none absolute ml-[18px] mr-10
+				class="{inset} project-info pointer-events-none absolute ml-[18px] mr-10
 								{showDesktop
 					? 'me-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)] ms-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)]'
 					: ''} rounded-md bg-secondaryColor
@@ -104,18 +145,14 @@
 				: 'me-4 ms-4'} 
 			three-d-item-two text-sm transition-[transform,margin] duration-1400">
 			<span
-				class="{desktopWidth
-					? 'right-0'
-					: 'left-0'} project-info [--transitionDelay:0s pointer-events-none absolute
+				class="{inset} project-info [--transitionDelay:0s pointer-events-none absolute
 							bottom-[80px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
 							outline-current [@media(hover:hover)]:group-focus-visible/project:opacity-1">
 				Roles:
 				{roles}
 			</span>
 			<span
-				class="{desktopWidth
-					? 'right-0'
-					: 'left-0'} project-info pointer-events-none absolute bottom-[52px]
+				class="{inset} project-info pointer-events-none absolute bottom-[52px]
 							rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
 							outline-current [--transitionDelay:0.2s]
 							[@media(hover:hover)]:group-focus-visible/project:opacity-1">
@@ -123,9 +160,7 @@
 				{tools}
 			</span>
 			<span
-				class="{desktopWidth
-					? 'right-0'
-					: 'left-0'} project-info [--transitionDelay:0.3s pointer-events-none absolute
+				class="{inset} project-info [--transitionDelay:0.3s pointer-events-none absolute
 							bottom-[24px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline
 							outline-1 outline-current [@media(hover:hover)]:group-focus-visible/project:opacity-1">
 				Duration:
@@ -154,9 +189,21 @@
 	.three-d-item-two {
 		transform: rotateY(var(--rotateY));
 		transform-style: preserve-3d;
+		/* animation: rotate 10s infinite linear; */
 	}
 
 	.three-d-item-one :nth-child(1) {
+		position: absolute;
+		inset: 0;
+		overflow-y: auto;
+		overflow-x: hidden;
+		backface-visibility: hidden;
+	}
+
+	.three-d-item-one :nth-child(2) {
+		transform: translateZ(-0px) rotateY(180deg);
+		backface-visibility: hidden;
+		/* transform: translateZ(-100px); */
 		position: absolute;
 		inset: 0;
 		overflow-y: auto;
@@ -182,5 +229,11 @@
 	::-webkit-scrollbar-thumb:hover {
 		background: rgba(var(--tertiary));
 		border: none;
+	}
+
+	@keyframes rotate {
+		to {
+			transform: rotateY(360deg);
+		}
 	}
 </style>
