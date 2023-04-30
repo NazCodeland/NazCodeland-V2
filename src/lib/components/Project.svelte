@@ -57,7 +57,7 @@
 				checkForDesktop = false;
 				setTimeout(() => {
 					desktopWidth = !desktopWidth;
-				}, 50);
+				}, 2000);
 			}
 		}, 0);
 	}
