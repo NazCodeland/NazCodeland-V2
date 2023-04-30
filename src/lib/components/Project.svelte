@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	export let imageName: string;
 	export let project: string;
 	export let roles: string;
@@ -9,13 +11,12 @@
 	export let objectFit: string = 'cover';
 	export let objectPosition: string = 'top center';
 
-	let showDesktop: boolean;
-	let desktopWidth: string;
-	let inset: string = 'left-0';
+	let showDesktop: boolean = false;
+	let desktopWidth: boolean;
 	let pointerEvents: string = 'pointer-events-auto';
 
-	const imageNameMobile = imageName;
-	const imageNameDesktop = imageName.replace('Mobile', '');
+	const mobileImage = `/images/${imageName}.png`;
+	const desktopImage = `/images/${imageName.replace('Mobile', '')}.png`;
 
 	function togglePointerEvents() {
 		pointerEvents = 'pointer-events-none';
@@ -23,60 +24,49 @@
 			pointerEvents = 'pointer-events-auto';
 		}, 1000);
 	}
-	function switchImage() {
-		showDesktop = !showDesktop;
-		setTimeout(
-			() => {
-				if (showDesktop) {
-					imageName = imageNameDesktop;
-				} else {
-					imageName = imageNameMobile;
-				}
-			},
-			showDesktop ? 415 : 450
-		);
-	}
-	function switchInset() {
-		setTimeout(() => {
-			if (showDesktop) {
-				inset = 'right-0';
-			} else {
-				inset = 'left-0';
-			}
-		}, 500);
-	}
-	function setDesktopWidth() {
-		setTimeout(
-			() => {
-				if (showDesktop) {
-					desktopWidth = 'w-full';
-				} else {
-					desktopWidth = '';
-				}
-			},
-			showDesktop ? 460 : 480
-		);
-	}
+
 	function scrollIntoView({ target }) {
 		const figureParent = target.parentNode;
 		setTimeout(() => {
 			figureParent.scrollIntoView({ behavior: 'smooth', block: 'start' });
 		}, 500);
 	}
+	let checkForDesktop = false;
 
 	function handleClick(event) {
+		checkForDesktop = true;
 		togglePointerEvents();
-		switchImage();
-		setDesktopWidth();
-		switchInset();
+
 		scrollIntoView(event);
+	}
+
+	let box: HTMLElement;
+
+	$: if (checkForDesktop) {
+		showDesktop = !showDesktop;
+		const intervalId = setInterval(() => {
+			const computedStyle = window.getComputedStyle(box);
+			const transformValue = computedStyle.getPropertyValue('transform');
+			const matrixValues = transformValue.split('(')[1].split(')')[0].split(',');
+			const rotateY = Math.round(Math.asin(matrixValues[8]) * (180 / Math.PI));
+			const sign = Math.sign(parseFloat(matrixValues[8]));
+			const finalRotateY = rotateY * sign;
+
+			console.log('finalRotateY:', sign);
+
+			if (rotateY >= 85) {
+				desktopWidth = !desktopWidth;
+				checkForDesktop = false;
+				clearInterval(intervalId);
+			}
+		}, 0);
 	}
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <!-- svelte-ignore a11y-mouse-events-have-key-events -->
 <div
-	class="flex flex-col gap-4 rounded-xl border {desktopWidth} scrollMarginTop
+	class="flex flex-col gap-4 rounded-xl border {desktopWidth ? 'w-full' : ''} scrollMarginTop
 					max-w-[620px] border-primaryColor p-1 transition-all [--scrollMarginTop:160px]">
 	<figure
 		tabindex="0"
@@ -84,19 +74,22 @@
 		{showDesktop ? Number(blockSize) : blockSize}px;"
 		class="group/project three-d-container {pointerEvents} transition-all duration-1000">
 		<div
+			bind:this={box}
 			class="{showDesktop
-				? '[--rotateY:180deg] [--translateZ:-60px] [--scrollBarSize:0px]'
+				? '[--rotateY:180deg] [--scrollBarSize:0px] [--translateZ:-60px]'
 				: ''}  three-d-item-one h-full w-full transition-all duration-1400">
 			<a href="/portfolio/{project}" class="rounded-lg">
 				<img
 					loading="lazy"
 					style="object-fit:{objectFit}; object-position:{objectPosition};"
 					class="min-h-full w-full transition-all [padding-inline-end:0px]"
-					src="/images/{imageName}.png"
+					src={desktopWidth ? desktopImage : mobileImage}
 					alt="a cute dog" />
 			</a>
 			<span
-				class="{inset} project-info pointer-events-none absolute ml-[18px] mr-10
+				class="{desktopWidth
+					? 'right-0'
+					: 'left-0'} project-info pointer-events-none absolute ml-[18px] mr-10
 								{showDesktop
 					? 'me-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)] ms-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)]'
 					: ''} rounded-md bg-secondaryColor
@@ -107,19 +100,23 @@
 		</div>
 
 		<figcaption
-		class="{showDesktop
-			? 'me-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] ms-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] [--rotateY:180deg] [--translateZ:-60px]'
-			: 'me-4 ms-4'} 
+			class="{showDesktop
+				? 'me-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] ms-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] [--rotateY:180deg] [--translateZ:-60px]'
+				: 'me-4 ms-4'} 
 			three-d-item-two text-sm transition-[transform,margin] duration-1400">
 			<span
-				class="{inset} project-info [--transitionDelay:0s pointer-events-none absolute
+				class="{desktopWidth
+					? 'right-0'
+					: 'left-0'} project-info [--transitionDelay:0s pointer-events-none absolute
 							bottom-[80px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
 							outline-current [@media(hover:hover)]:group-focus-visible/project:opacity-1">
 				Roles:
 				{roles}
 			</span>
 			<span
-				class="{inset} project-info pointer-events-none absolute bottom-[52px]
+				class="{desktopWidth
+					? 'right-0'
+					: 'left-0'} project-info pointer-events-none absolute bottom-[52px]
 							rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
 							outline-current [--transitionDelay:0.2s]
 							[@media(hover:hover)]:group-focus-visible/project:opacity-1">
@@ -127,7 +124,9 @@
 				{tools}
 			</span>
 			<span
-				class="{inset} project-info [--transitionDelay:0.3s pointer-events-none absolute
+				class="{desktopWidth
+					? 'right-0'
+					: 'left-0'} project-info [--transitionDelay:0.3s pointer-events-none absolute
 							bottom-[24px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline
 							outline-1 outline-current [@media(hover:hover)]:group-focus-visible/project:opacity-1">
 				Duration:
