@@ -51,13 +51,13 @@
 			const rotateY = Math.round(Math.asin(matrixValues[8]) * (180 / Math.PI));
 			console.log(rotateY);
 
-			if (rotateY >= 30) {
+			if (rotateY >= 75) {
+				clearInterval(intervalId);
 				changeImage = !changeImage;
 				checkForDesktop = false;
-				clearInterval(intervalId);
 				setTimeout(() => {
 					desktopWidth = !desktopWidth;
-				}, 1000);
+				}, 25);
 			}
 		}, 0);
 	}
