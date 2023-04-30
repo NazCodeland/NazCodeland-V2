@@ -22,40 +22,6 @@
 			pointerEvents = 'pointer-events-auto';
 		}, 1000);
 	}
-	// function switchImage() {
-	// 	showDesktop = !showDesktop;
-	// 	setTimeout(
-	// 		() => {
-	// 			if (showDesktop) {
-	// 				imageName = imageNameDesktop;
-	// 			} else {
-	// 				imageName = imageNameMobile;
-	// 			}
-	// 		},
-	// 		showDesktop ? 415 : 450
-	// 	);
-	// }
-	function switchInset() {
-		setTimeout(() => {
-			if (showDesktop) {
-				inset = 'right-0';
-			} else {
-				inset = 'left-0';
-			}
-		}, 500);
-	}
-	// function setDesktopWidth() {
-	// 	setTimeout(
-	// 		() => {
-	// 			if (showDesktop) {
-	// 				desktopWidth = 'w-full';
-	// 			} else {
-	// 				desktopWidth = '';
-	// 			}
-	// 		},
-	// 		showDesktop ? 460 : 480
-	// 	);
-	// }
 
 	function scrollIntoView({ target }) {
 		const figureParent = target.parentNode;
@@ -68,12 +34,7 @@
 	function handleClick(event) {
 		checkForDesktop = true;
 		togglePointerEvents();
-
-		// showDesktop = !showDesktop;
-
-		// switchImage();
-		switchInset();
-		// scrollIntoView(event);
+		scrollIntoView(event);
 	}
 
 	let box: HTMLElement;
@@ -88,12 +49,12 @@
 
 			console.log('rotateY:', rotateY);
 
-			if (rotateY >= 85) {
-				desktopWidth = !desktopWidth;
-				checkForDesktop = false;
+			if (rotateY >= 88) {
 				clearInterval(intervalId);
+				checkForDesktop = false;
+				desktopWidth = !desktopWidth;
 			}
-		}, 0);
+		}, 10);
 	}
 </script>
 
@@ -128,45 +89,7 @@
 					src={`/images/${imageName.replace('Mobile', '')}.png`}
 					alt="a cute dog" />
 			</a>
-			<span
-				class="{inset} project-info pointer-events-none absolute ml-[18px] mr-10
-								{showDesktop
-					? 'me-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)] ms-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)]'
-					: ''} rounded-md bg-secondaryColor
-								px-2 py-0.5 text-sm text-bodyCopy outline outline-1 outline-current">
-				Project:
-				{project}
-			</span>
 		</div>
-
-		<figcaption
-			class="{showDesktop
-				? 'me-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] ms-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] [--rotateY:180deg] [--translateZ:-60px]'
-				: 'me-4 ms-4'} 
-			three-d-item-two text-sm transition-[transform,margin] duration-1400">
-			<span
-				class="{inset} project-info [--transitionDelay:0s pointer-events-none absolute
-							bottom-[80px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
-							outline-current [@media(hover:hover)]:group-focus-visible/project:opacity-1">
-				Roles:
-				{roles}
-			</span>
-			<span
-				class="{inset} project-info pointer-events-none absolute bottom-[52px]
-							rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
-							outline-current [--transitionDelay:0.2s]
-							[@media(hover:hover)]:group-focus-visible/project:opacity-1">
-				Tools:
-				{tools}
-			</span>
-			<span
-				class="{inset} project-info [--transitionDelay:0.3s pointer-events-none absolute
-							bottom-[24px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline
-							outline-1 outline-current [@media(hover:hover)]:group-focus-visible/project:opacity-1">
-				Duration:
-				{duration}
-			</span>
-		</figcaption>
 	</figure>
 
 	<button on:click={handleClick} class=" m-auto rounded-md border px-4 py-1">
@@ -177,7 +100,6 @@
 	:root {
 		--rotateY: 0deg;
 		--translateZ: 60px;
-		--transitionDelay: ;
 		--scrollBarSize: 4px;
 	}
 
@@ -197,13 +119,10 @@
 		inset: 0;
 		overflow-y: auto;
 		overflow-x: hidden;
-		backface-visibility: hidden;
 	}
 
 	.three-d-item-one :nth-child(2) {
-		transform: translateZ(-0px) rotateY(180deg);
-		backface-visibility: hidden;
-		/* transform: translateZ(-100px); */
+		transform: translateZ(-1px) rotateY(180deg);
 		position: absolute;
 		inset: 0;
 		overflow-y: auto;
@@ -211,8 +130,7 @@
 	}
 
 	.project-info {
-		transition: transform 0s 0.45s, inset 0.2s var(--transitionDelay),
-			opacity 0s var(--transitionDelay, 0.5s);
+		transition: transform 0s 0.45s;
 		transform: translateZ(var(--translateZ)) rotateY(var(--rotateY));
 	}
 
