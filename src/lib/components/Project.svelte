@@ -57,7 +57,7 @@
 				clearInterval(intervalId);
 				setTimeout(() => {
 					desktopWidth = !desktopWidth;
-				}, 35);
+				}, 50);
 			}
 		}, 0);
 	}
