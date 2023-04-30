@@ -11,8 +11,9 @@
 	export let objectFit: string = 'cover';
 	export let objectPosition: string = 'top center';
 
-	let showDesktop: boolean = false;
+	let showDesktop: boolean;
 	let desktopWidth: boolean;
+	let changeImage: boolean;
 	let pointerEvents: string = 'pointer-events-auto';
 
 	const mobileImage = `/images/${imageName}.png`;
@@ -35,9 +36,8 @@
 
 	function handleClick(event) {
 		checkForDesktop = true;
-		togglePointerEvents();
-
-		scrollIntoView(event);
+		// togglePointerEvents();
+		// scrollIntoView(event);
 	}
 
 	let box: HTMLElement;
@@ -49,15 +49,15 @@
 			const transformValue = computedStyle.getPropertyValue('transform');
 			const matrixValues = transformValue.split('(')[1].split(')')[0].split(',');
 			const rotateY = Math.round(Math.asin(matrixValues[8]) * (180 / Math.PI));
-			const sign = Math.sign(parseFloat(matrixValues[8]));
-			const finalRotateY = rotateY * sign;
+			console.log(rotateY);
 
-			console.log('finalRotateY:', sign);
-
-			if (rotateY >= 85) {
-				desktopWidth = !desktopWidth;
+			if (rotateY >= 72) {
+				changeImage = !changeImage;
 				checkForDesktop = false;
 				clearInterval(intervalId);
+				setTimeout(() => {
+					desktopWidth = !desktopWidth;
+				}, 25);
 			}
 		}, 0);
 	}
@@ -70,8 +70,7 @@
 					max-w-[620px] border-primaryColor p-1 transition-all [--scrollMarginTop:160px]">
 	<figure
 		tabindex="0"
-		style="min-inline-size: {inlineSize}px; block-size: 
-		{showDesktop ? Number(blockSize) : blockSize}px;"
+		style="min-inline-size: {inlineSize}px; block-size: {blockSize}px;"
 		class="group/project three-d-container {pointerEvents} transition-all duration-1000">
 		<div
 			bind:this={box}
@@ -83,7 +82,7 @@
 					loading="lazy"
 					style="object-fit:{objectFit}; object-position:{objectPosition};"
 					class="min-h-full w-full transition-all [padding-inline-end:0px]"
-					src={desktopWidth ? desktopImage : mobileImage}
+					src={changeImage ? desktopImage : mobileImage}
 					alt="a cute dog" />
 			</a>
 			<span
