@@ -28,6 +28,7 @@
 		return new Promise((resolve) => {
 			const YAxisRotationInterval = setInterval(() => {
 				const rotateY = getYAxisRotation(element);
+				// 88 represents 88 degrees
 				if (rotateY >= 88) {
 					clearInterval(YAxisRotationInterval);
 					resolve((desktopWidth = !desktopWidth));
@@ -155,7 +156,7 @@
 	}
 
 	.project-info {
-		transition: transform 0s 0.45s;
+		transition: transform 0s 0.48s;
 		transform: translateZ(var(--translateZ)) rotateY(var(--rotateY));
 	}
 
