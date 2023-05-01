@@ -47,7 +47,7 @@
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-<!-- transition the width -->
+<!-- TODO: transition the width -->
 <div
 	class="flex flex-col gap-4 rounded-xl border {desktopWidth ? 'w-full' : ''} scrollMarginTop
 	max-w-[620px] border-primaryColor p-1 shadow-rest [--scrollMarginTop:160px]">
@@ -59,8 +59,8 @@
 		<div
 			bind:this={element}
 			class="{showDesktop
-				? '[--rotateY:180deg] [--scrollBarSize:0px] [--translateZ:-60px]'
-				: ''}  three-d-item-one h-full w-full transition-all duration-1400">
+				? '[--rotateY:180deg] [--translateZ:-60px]'
+				: ''} three-d-item-one h-full w-full transition-all duration-1400">
 			<a href="/portfolio/{project}" class="rounded-lg">
 				<img
 					loading="lazy"
@@ -86,6 +86,7 @@
 				Project:
 				{project}
 			</span>
+			<!-- TODO: implement custom scrollbar -->
 		</div>
 
 		<figcaption
@@ -127,7 +128,6 @@
 	:root {
 		--rotateY: 0deg;
 		--translateZ: 60px;
-		--scrollBarSize: 4px;
 	}
 
 	.three-d-container {
@@ -140,7 +140,8 @@
 		transform-style: preserve-3d;
 	}
 
-	.three-d-item-one :nth-child(1) {
+	.three-d-item-one :nth-child(1),
+	.three-d-item-one :nth-child(2) {
 		position: absolute;
 		inset: 0;
 		overflow-y: auto;
@@ -149,10 +150,6 @@
 
 	.three-d-item-one :nth-child(2) {
 		transform: translateZ(-0.1px) rotateY(180deg);
-		position: absolute;
-		inset: 0;
-		overflow-y: auto;
-		overflow-x: hidden;
 	}
 
 	.project-info {
@@ -161,7 +158,7 @@
 	}
 
 	::-webkit-scrollbar {
-		inline-size: 0;
+		inline-size: 6px;
 	}
 
 	/* Handle */
