@@ -8,7 +8,7 @@
 		<h1 class="text-5xl">Selected Projects</h1>
 
 		<small>
-			These are some of the projects that showcase my skills in development, design, and research.
+			These are some of the projects that I have developed, designed, and/or researched.
 		</small>
 	</header>
 	<div class="flexStuff" id="mainContent">
