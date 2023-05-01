@@ -14,26 +14,34 @@
 
 	function scrollIntoView({ target }) {
 		const figureParent = target.parentNode;
-		setTimeout(() => {
-			figureParent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-		}, 30);
+		figureParent.scrollIntoView({ behavior: 'smooth', block: 'start' });
 	}
 
-	let box: HTMLElement;
-	function handleClick(event) {
+	let element: HTMLElement;
+	async function handleClick(event: MouseEvent) {
 		showDesktop = !showDesktop;
-		const intervalId = setInterval(() => {
-			const computedStyle = window.getComputedStyle(box);
-			const transformValue = computedStyle.getPropertyValue('transform');
-			const matrixValues = transformValue.split('(')[1].split(')')[0].split(',');
-			const rotateY = Math.round(Math.asin(matrixValues[8]) * (180 / Math.PI));
+		await trackYAxisRotation(element);
+		scrollIntoView(event);
+	}
 
-			if (rotateY >= 88) {
-				clearInterval(intervalId);
-				desktopWidth = !desktopWidth;
-				scrollIntoView(event);
-			}
-		}, 10);
+	function trackYAxisRotation(element: HTMLElement) {
+		return new Promise((resolve) => {
+			const YAxisRotationInterval = setInterval(() => {
+				const rotateY = getYAxisRotation(element);
+				if (rotateY >= 88) {
+					clearInterval(YAxisRotationInterval);
+					resolve((desktopWidth = !desktopWidth));
+				}
+			}, 10);
+		});
+	}
+
+	function getYAxisRotation(element: HTMLElement) {
+		const computedStyle = window.getComputedStyle(element);
+		const transformValue = computedStyle.getPropertyValue('transform');
+		const matrixValues = transformValue.split('(')[1].split(')')[0].split(',');
+		const rotateY = Math.round(Math.asin(parseFloat(matrixValues[8])) * (180 / Math.PI));
+		return rotateY;
 	}
 </script>
 
@@ -48,7 +56,7 @@
 		{showDesktop ? Number(blockSize) : blockSize}px;"
 		class="group/project three-d-container transition-all duration-1000">
 		<div
-			bind:this={box}
+			bind:this={element}
 			class="{showDesktop
 				? '[--rotateY:180deg] [--scrollBarSize:0px] [--translateZ:-60px]'
 				: ''}  three-d-item-one h-full w-full transition-all duration-1400">
@@ -110,7 +118,7 @@
 		</figcaption>
 	</figure>
 
-	<button on:click={handleClick} class=" m-auto rounded-md border px-4 py-1">
+	<button on:click={handleClick} class=" m-auto rounded-md border border-primaryColor px-4 py-1">
 		View {showDesktop ? 'mobile' : 'desktop'} design</button>
 </div>
 

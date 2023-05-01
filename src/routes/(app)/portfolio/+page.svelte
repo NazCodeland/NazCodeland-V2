@@ -1,45 +1,50 @@
 <script lang="ts">
 	import Project from '$lib/components/Project.svelte';
-	import Link from '$lib/elements/InlineLink.svelte';
 </script>
 
 <!-- TODO: add a sorting navigation to sort by project roles-->
-<div class="flexstuff" id="mainContent">
-	<Project
-		imageName="nazCodelandMobile"
-		project="NazCodeland"
-		roles="User Research / User Interface / Front-end / Back-end"
-		tools="Pen & Paper / Miro / Figma"
-		duration="4 Months" />
+<main class="m-auto flex max-w-[94ch] flex-col gap-88-124">
+	<header>
+		<h1 class="text-5xl">Selected Projects</h1>
 
-	<Project
-		imageName="pawFoodMobile"
-		project="PawFood"
-		roles="User Research / User Interface / Front-end / Back-end"
-		tools="Pen & Paper / Miro / Figma"
-		duration="4 Months" />
-	<Project imageName="pawFood" project="THE FUTURE" roles="--" tools="--" duration="--" />
-</div>
+		<small>
+			These are some of the projects that showcase my skills in development, design, and research.
+		</small>
+	</header>
+	<div class="flexStuff" id="mainContent">
+		<Project
+			imageName="nazCodelandMobile"
+			project="NazCodeland"
+			roles="User Research / User Interface / Front-end / Back-end"
+			tools="Pen & Paper / Miro / Figma"
+			duration="4 Months" />
+
+		<Project
+			imageName="pawFoodMobile"
+			project="PawFood"
+			roles="User Research / User Interface / Front-end / Back-end"
+			tools="Pen & Paper / Miro / Figma"
+			duration="4 Months" />
+		<Project imageName="pawFood" project="THE FUTURE" roles="--" tools="--" duration="--" />
+
+		<Project
+			imageName="pawFoodMobile"
+			project="PawFood"
+			roles="User Research / User Interface / Front-end / Back-end"
+			tools="Pen & Paper / Miro / Figma"
+			duration="4 Months" />
+		<Project imageName="pawFood" project="THE FUTURE" roles="--" tools="--" duration="--" />
+	</div>
+</main>
 
 <style lang="css">
-	.flexstuff {
+	.flexStuff {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 3rem;
-		justify-content: center;
+		column-gap: theme(spacing.16-48);
+		row-gap: 10rem;
+		justify-content: space-evenly;
 		transition: all;
 		transition-duration: 4000;
 	}
-	/* .projects {
-		border: 2px solid blue;
-		display: flex;
-		flex-direction: column;
-		gap: 32px;
-		align-items: center;
-		flex-grow: 1;
-		place-items: center;
-		gap: 32px;
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-	} */
 </style>
