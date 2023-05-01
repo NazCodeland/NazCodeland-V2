@@ -50,7 +50,7 @@
 <!-- transition the width -->
 <div
 	class="flex flex-col gap-4 rounded-xl border {desktopWidth ? 'w-full' : ''} scrollMarginTop
-					max-w-[620px] border-primaryColor p-1 [--scrollMarginTop:160px]">
+	max-w-[620px] border-primaryColor p-1 shadow-rest [--scrollMarginTop:160px]">
 	<figure
 		tabindex="0"
 		style="min-inline-size: {inlineSize}px; block-size: 
@@ -92,7 +92,7 @@
 			class="{showDesktop
 				? 'me-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] ms-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] [--rotateY:180deg] [--translateZ:-60px]'
 				: 'me-4 ms-4'} 
-					three-d-item-two text-sm transition-[transform,margin] duration-1400">
+				three-d-item-two text-sm transition-[transform,margin] duration-1400">
 			<span
 				class="{desktopWidth ? 'right-0' : 'left-0'} project-info pointer-events-none absolute
 							bottom-[80px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
@@ -119,7 +119,7 @@
 		</figcaption>
 	</figure>
 
-	<button on:click={handleClick} class=" m-auto rounded-md border border-primaryColor px-4 py-1">
+	<button on:click={handleClick} class="m-auto rounded-md border border-primaryColor px-4 py-1">
 		View {showDesktop ? 'mobile' : 'desktop'} design</button>
 </div>
 
@@ -148,7 +148,7 @@
 	}
 
 	.three-d-item-one :nth-child(2) {
-		transform: translateZ(-1px) rotateY(180deg);
+		transform: translateZ(-0.1px) rotateY(180deg);
 		position: absolute;
 		inset: 0;
 		overflow-y: auto;
