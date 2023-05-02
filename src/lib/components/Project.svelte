@@ -10,7 +10,6 @@
 	export let objectPosition: string = 'top center';
 	export let parentInlineSize: number = 0;
 
-	$: console.log(parentInlineSize);
 	let before: boolean = $$slots.before;
 	let after: boolean = $$slots.after;
 
@@ -53,7 +52,7 @@
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <!-- TODO: transition the width -->
 
-<div class="flex gap-10 {desktopInlineSize ? 'w-full' : ''}">
+<div class="flex gap-10 {desktopInlineSize ? 'w-[650px] max-w-[90%] flex-grow' : 'min-w-[280px]'}">
 	<!-- 988 parent container size = viewport of 1100 -->
 	{#if parentInlineSize >= 988}
 		{#if before}
@@ -67,7 +66,7 @@
 	when the project is expanding vs. collapsing-->
 	<div
 		style="
-		{desktopInlineSize ? `inline-size: ${parentInlineSize - 400}px;` : ''}
+		{desktopInlineSize ? `inline-size: ${parentInlineSize - 400}px; flex-grow: 1;` : ''}
 		{showDesktop ? '' : `inline-size: 280px;`}"
 		class="scrollMarginTop flex w-[280px] flex-col gap-4 self-start rounded-xl
 		border border-primaryColor p-1 shadow-rest transition-[width] delay-0 duration-[0.5s] [--scrollMarginTop:160px]">
