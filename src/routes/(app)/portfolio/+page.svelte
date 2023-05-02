@@ -38,51 +38,6 @@
 
 		<Project
 			{parentInlineSize}
-			imageName="nazCodelandMobile"
-			project="NazCodeland"
-			roles="User Research / User Interface / Front-end / Back-end"
-			tools="Pen & Paper / Miro / Figma"
-			duration="4 Months">
-			<div slot="before">
-				<p><strong>Project: </strong>: NazCodeland</p>
-				<p><strong>Roles: </strong>User Research / User Interface / Front-end / Back-end</p>
-				<p><strong>Tools:</strong>Pen & Paper / Miro / Figma</p>
-				<p><strong>Duration</strong>4 Months</p>
-				<br />
-				<br />
-				<strong>Summary:</strong>
-				<br />
-				<br />
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt unde quo animi consequuntur
-				placeat dolor ipsum eos asperiores similique fugiat? Lorem ipsum dolor sit amet consectetur,
-			</div>
-		</Project>
-
-		<Project
-			{parentInlineSize}
-			imageName="pawFoodMobile"
-			project="NazCodeland"
-			roles="User Research / User Interface / Front-end / Back-end"
-			tools="Pen & Paper / Miro / Figma"
-			duration="4 Months">
-			<div slot="after">
-				<p><strong>Project: </strong>: NazCodeland</p>
-				<p><strong>Roles: </strong>User Research / User Interface / Front-end / Back-end</p>
-				<p><strong>Tools:</strong>Pen & Paper / Miro / Figma</p>
-				<p><strong>Duration</strong>4 Months</p>
-				<br />
-				<br />
-				<strong>Summary:</strong>
-				<br />
-				<br />
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt unde quo animi consequuntur
-				placeat dolor ipsum eos asperiores similique fugiat? Lorem ipsum dolor sit amet consectetur,
-				adipisicing elit. Animi quidem aliquid culpa. Placeat nulla beatae sint molestias, fugit tempora
-			</div>
-		</Project>
-
-		<Project
-			{parentInlineSize}
 			imageName="pawFood"
 			project="NazCodeland"
 			roles="User Research / User Interface / Front-end / Back-end"
@@ -126,27 +81,6 @@
 			</div>
 		</Project>
 
-		<Project
-			{parentInlineSize}
-			imageName="pawFood"
-			project="NazCodeland"
-			roles="User Research / User Interface / Front-end / Back-end"
-			tools="Pen & Paper / Miro / Figma"
-			duration="4 Months">
-			<div slot="before">
-				<p><strong>Project: </strong>: NazCodeland</p>
-				<p><strong>Roles: </strong>User Research / User Interface / Front-end / Back-end</p>
-				<p><strong>Tools:</strong>Pen & Paper / Miro / Figma</p>
-				<p><strong>Duration</strong>4 Months</p>
-				<br />
-				<br />
-				<strong>Summary:</strong>
-				<br />
-				<br />
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt unde quo animi consequuntur
-				placeat dolor ipsum eos asperiores similique fugiat? Lorem ipsum dolor sit amet consectetur,
-			</div>
-		</Project>
 		<Project
 			{parentInlineSize}
 			imageName="pawFood"
