@@ -75,10 +75,18 @@
 			tabindex="0"
 			style="min-inline-size: {inlineSize}px; block-size: {blockSize}px;"
 			class="group/project three-d-container transition-all duration-1000">
+			<!-- (before ? '[--rotateY:-180deg]' : '[--rotateY:180deg]') -->
+
 			<div
 				bind:this={element}
-				class="{showDesktop ? '[--rotateY:180deg] [--translateZ:-60px]' : ''} 
-							{showDesktop && before ? '[--rotateY:-180deg]' : ''} 
+				class="{showDesktop ? ' [--translateZ:-60px]' : ''} 
+							{showDesktop
+					? parentInlineSize >= 988
+						? before
+							? '[--rotateY:-180deg]'
+							: '[--rotateY:180deg]'
+						: '[--rotateY:180deg]'
+					: ''} 
 							three-d-item-one h-full w-full transition-all duration-1400">
 				<a href="/portfolio/{project}" class="rounded-lg">
 					<img
@@ -115,9 +123,10 @@
 				<figcaption
 					class="{showDesktop
 						? `me-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] ms-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] 
-					[--rotateY:180deg] [--translateZ:-60px]`
+							[--rotateY:180deg] [--translateZ:-60px]`
 						: 'me-5 ms-4'} 
-						{showDesktop && before ? '[--rotateY:-180deg]' : ''}
+						
+
 					three-d-item-two text-sm transition-[transform,margin] duration-1400">
 					<span
 						class="{desktopInlineSize
