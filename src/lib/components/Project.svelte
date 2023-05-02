@@ -66,16 +66,15 @@
 	when the project is expanding vs. collapsing-->
 	<div
 		style="
-		{desktopInlineSize ? `inline-size: ${parentInlineSize - 400}px; flex-grow: 1;` : ''}
-		{showDesktop ? '' : `inline-size: 280px;`}"
+		{desktopInlineSize
+			? `inline-size: ${parentInlineSize - 400}px; flex-grow: 1;`
+			: 'inline-size: 280px;'}"
 		class="scrollMarginTop flex w-[280px] flex-col gap-4 self-start rounded-xl
-		border border-primaryColor p-1 shadow-rest transition-[width] delay-0 duration-[0.5s] [--scrollMarginTop:160px]">
+		border border-primaryColor p-1 shadow-rest transition-all delay-0 duration-[0.5s] [--scrollMarginTop:160px]">
 		<figure
 			tabindex="0"
 			style="min-inline-size: {inlineSize}px; block-size: {blockSize}px;"
 			class="group/project three-d-container transition-all duration-1000">
-			<!-- (before ? '[--rotateY:-180deg]' : '[--rotateY:180deg]') -->
-
 			<div
 				bind:this={element}
 				class="{showDesktop ? '[--translateZ:-60px]' : ''} 
@@ -122,7 +121,7 @@
 				<figcaption
 					class="{showDesktop
 						? `me-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] ms-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] 
-							[--rotateY:180deg] [--translateZ:-60px]`
+							[--translateZ:-60px] [--rotateY:180deg]`
 						: 'me-5 ms-4'} 
 						
 
