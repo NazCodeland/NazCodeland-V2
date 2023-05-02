@@ -4,13 +4,17 @@
 	export let roles: string;
 	export let tools: string;
 	export let duration: string;
-	export let inlineSize: string = '270';
-	export let blockSize: string = '500';
+	export let inlineSize: number = 270;
+	export let blockSize: number = 500;
 	export let objectFit: string = 'cover';
 	export let objectPosition: string = 'top center';
+	export let parentInlineSize: number = 0;
+
+	let before: boolean = $$slots.before;
+	let after: boolean = $$slots.after;
 
 	let showDesktop: boolean = false;
-	let desktopWidth: boolean;
+	let desktopInlineSize: boolean;
 
 	function scrollIntoView({ target }) {
 		const figureParent = target.parentNode;
@@ -31,7 +35,7 @@
 				// 88 represents 88 degrees
 				if (rotateY >= 88) {
 					clearInterval(YAxisRotationInterval);
-					resolve((desktopWidth = !desktopWidth));
+					resolve((desktopInlineSize = !desktopInlineSize));
 				}
 			}, 10);
 		});
@@ -41,87 +45,121 @@
 		const computedStyle = window.getComputedStyle(element);
 		const transformValue = computedStyle.getPropertyValue('transform');
 		const matrixValues = transformValue.split('(')[1].split(')')[0].split(',');
-		const rotateY = Math.round(Math.asin(parseFloat(matrixValues[8])) * (180 / Math.PI));
+		const rotateY = Math.abs(Math.round(Math.asin(parseFloat(matrixValues[8])) * (180 / Math.PI)));
 		return rotateY;
 	}
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <!-- TODO: transition the width -->
-<div
-	class="flex flex-col gap-4 rounded-xl border {desktopWidth ? 'w-full' : ''} scrollMarginTop
-	max-w-[620px] border-primaryColor p-1 shadow-rest [--scrollMarginTop:160px]">
-	<figure
-		tabindex="0"
-		style="min-inline-size: {inlineSize}px; block-size: 
-		{showDesktop ? Number(blockSize) : blockSize}px;"
-		class="group/project three-d-container transition-all duration-1000">
-		<div
-			bind:this={element}
-			class="{showDesktop
-				? '[--rotateY:180deg] [--translateZ:-60px]'
-				: ''} three-d-item-one h-full w-full transition-all duration-1400">
-			<a href="/portfolio/{project}" class="rounded-lg">
-				<img
-					loading="lazy"
-					style="object-fit:{objectFit}; object-position:{objectPosition};"
-					class="min-h-full w-full transition-all [padding-inline-end:0px]"
-					src={`/images/${imageName}.png`}
-					alt="a cute dog" />
-			</a>
-			<a href="/portfolio/{project}" class="rounded-lg">
-				<img
-					loading="lazy"
-					style="object-fit:{objectFit}; object-position:{objectPosition};"
-					class="min-h-full w-full transition-all [padding-inline-end:0px]"
-					src={`/images/${imageName.replace('Mobile', '')}.png`}
-					alt="a cute dog" />
-			</a>
-			<span
-				class="{desktopWidth ? 'right-0' : 'left-0'} 
-								{showDesktop
-					? 'me-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)] ms-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)]'
-					: ''} project-info pointer-events-none absolute ml-[18px] mr-10 rounded-md bg-secondaryColor
-								px-2 py-0.5 text-sm text-bodyCopy outline outline-1 outline-current">
-				Project:
-				{project}
-			</span>
-			<!-- TODO: implement custom scrollbar -->
-		</div>
 
-		<figcaption
-			class="{showDesktop
-				? 'me-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] ms-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] [--rotateY:180deg] [--translateZ:-60px]'
-				: 'me-4 ms-4'} 
-				three-d-item-two text-sm transition-[transform,margin] duration-1400">
-			<span
-				class="{desktopWidth ? 'right-0' : 'left-0'} project-info pointer-events-none absolute
+<div class="flex gap-10 {desktopInlineSize ? 'w-[650px] max-w-[90%] flex-grow' : 'min-w-[280px]'}">
+	<!-- 988 parent container size = viewport of 1100 -->
+	{#if parentInlineSize >= 988}
+		{#if before}
+			<div class="w-fit flex-grow basis-80">
+				<slot name="before" />
+			</div>
+		{/if}
+	{/if}
+
+	<!-- the two conditional checks for width is to achieve different animation
+	when the project is expanding vs. collapsing-->
+	<div
+		style="
+		{desktopInlineSize ? `inline-size: ${parentInlineSize - 400}px; flex-grow: 1;` : ''}
+		{showDesktop ? '' : `inline-size: 280px;`}"
+		class="scrollMarginTop flex w-[280px] flex-col gap-4 self-start rounded-xl
+		border border-primaryColor p-1 shadow-rest transition-[width] delay-0 duration-[0.5s] [--scrollMarginTop:160px]">
+		<figure
+			tabindex="0"
+			style="min-inline-size: {inlineSize}px; block-size: {blockSize}px;"
+			class="group/project three-d-container transition-all duration-1000">
+			<div
+				bind:this={element}
+				class="{showDesktop ? '[--rotateY:180deg] [--translateZ:-60px]' : ''} 
+							{showDesktop && before ? '[--rotateY:-180deg]' : ''} 
+							three-d-item-one h-full w-full transition-all duration-1400">
+				<a href="/portfolio/{project}" class="rounded-lg">
+					<img
+						loading="lazy"
+						style="object-fit:{objectFit}; object-position:{objectPosition};"
+						class="min-h-full w-full transition-all [padding-inline-end:0px]"
+						src={`/images/${imageName}.png`}
+						alt="a cute dog" />
+				</a>
+				<a href="/portfolio/{project}" class="rounded-lg">
+					<img
+						loading="lazy"
+						style="object-fit:{objectFit}; object-position:{objectPosition};"
+						class="min-h-full w-full transition-all [padding-inline-end:0px]"
+						src={`/images/${imageName.replace('Mobile', '')}.png`}
+						alt="a cute dog" />
+				</a>
+				{#if parentInlineSize < 988}
+					<span
+						class="{desktopInlineSize ? 'right-0' : 'left-0'} 
+								{showDesktop
+							? 'me-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)] ms-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)]'
+							: ''} project-info pointer-events-none absolute ml-[18px] mr-10 rounded-md bg-secondaryColor
+								px-2 py-0.5 text-sm text-bodyCopy outline outline-1 outline-current">
+						Project:
+						{project}
+					</span>
+				{/if}
+				<!-- TODO: implement custom scrollbar -->
+			</div>
+
+			<!-- 988 parent container size = viewport of 1100 -->
+			{#if parentInlineSize < 988}
+				<figcaption
+					class="{showDesktop
+						? `me-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] ms-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] 
+					[--rotateY:180deg] [--translateZ:-60px]`
+						: 'me-5 ms-4'} 
+						{showDesktop && before ? '[--rotateY:-180deg]' : ''}
+					three-d-item-two text-sm transition-[transform,margin] duration-1400">
+					<span
+						class="{desktopInlineSize
+							? 'right-0'
+							: 'left-0'} project-info pointer-events-none absolute
 							bottom-[80px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
 							outline-current">
-				Roles:
-				{roles}
-			</span>
-			<span
-				class="{desktopWidth
-					? 'right-0'
-					: 'left-0'} project-info pointer-events-none absolute bottom-[52px]
+						Roles:
+						{roles}
+					</span>
+					<span
+						class="{desktopInlineSize
+							? 'right-0'
+							: 'left-0'} project-info pointer-events-none absolute bottom-[52px]
 							rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
 							outline-current">
-				Tools:
-				{tools}
-			</span>
-			<span
-				class="{desktopWidth ? 'right-0' : 'left-0'} project-info pointer-events-none absolute
+						Tools:
+						{tools}
+					</span>
+					<span
+						class="{desktopInlineSize
+							? 'right-0'
+							: 'left-0'} project-info pointer-events-none absolute
 							bottom-[24px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline
 							outline-1 outline-current">
-				Duration:
-				{duration}
-			</span>
-		</figcaption>
-	</figure>
+						Duration:
+						{duration}
+					</span>
+				</figcaption>
+			{/if}
+		</figure>
 
-	<button on:click={handleClick} class="m-auto rounded-md border border-primaryColor px-4 py-1">
-		View {showDesktop ? 'mobile' : 'desktop'} design</button>
+		<button on:click={handleClick} class="m-auto rounded-md border border-primaryColor px-4 py-1">
+			View {showDesktop ? 'mobile' : 'desktop'} design</button>
+	</div>
+	{#if parentInlineSize >= 988}
+		{#if after}
+			<div class=" w-fit flex-grow basis-80">
+				<slot name="after" />
+			</div>
+		{/if}
+	{/if}
 </div>
 
 <style>
