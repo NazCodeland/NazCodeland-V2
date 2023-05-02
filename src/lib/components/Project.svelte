@@ -78,7 +78,7 @@
 
 			<div
 				bind:this={element}
-				class="{showDesktop ? ' [--translateZ:-60px]' : ''} 
+				class="{showDesktop ? '[--translateZ:-60px]' : ''} 
 							{showDesktop
 					? parentInlineSize >= 988
 						? before
