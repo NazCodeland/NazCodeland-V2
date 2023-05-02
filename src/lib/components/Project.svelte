@@ -52,7 +52,7 @@
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <!-- TODO: transition the width -->
 
-<div class="flex gap-10 {desktopInlineSize ? 'w-[650px] max-w-[90%] flex-grow' : 'min-w-[280px]'}">
+<div class="flex gap-10 {desktopInlineSize ? 'flex-grow basis-[650px]' : 'min-w-[280px]'}">
 	<!-- 988 parent container size = viewport of 1100 -->
 	{#if parentInlineSize >= 988}
 		{#if before}
@@ -168,7 +168,7 @@
 	}
 
 	.three-d-container {
-		perspective: 800px;
+		perspective: 1200px;
 	}
 
 	.three-d-item-one,

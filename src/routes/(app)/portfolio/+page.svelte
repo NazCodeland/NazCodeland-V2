@@ -12,7 +12,7 @@
 			These are some of the projects that I have developed, designed, and/or researched.
 		</small>
 	</header>
-	<div class="flexStuff" id="mainContent">
+	<div class="flex flex-wrap justify-evenly gap-x-16-48 gap-y-[10rem]" id="mainContent">
 		<Project
 			{parentInlineSize}
 			imageName="nazCodelandMobile"
@@ -172,13 +172,4 @@
 </main>
 
 <style lang="css">
-	.flexStuff {
-		display: flex;
-		flex-wrap: wrap;
-		column-gap: theme(spacing.16-48);
-		row-gap: 10rem;
-		justify-content: space-evenly;
-		transition: all;
-		transition-duration: 4000;
-	}
 </style>
