@@ -32,6 +32,7 @@
 		return new Promise((resolve) => {
 			const YAxisRotationInterval = setInterval(() => {
 				const rotateY = getYAxisRotation(element);
+				// 88 represents 88 degrees
 				if (rotateY >= 88) {
 					clearInterval(YAxisRotationInterval);
 					resolve((desktopInlineSize = !desktopInlineSize));
@@ -73,7 +74,7 @@
 			? `inline-size: ${parentInlineSize - 400}px; flex-grow: 1;`
 			: 'inline-size: 280px;'}"
 		class="scrollMarginTop flex w-[280px] flex-col gap-4 self-start rounded-xl
-		border border-primaryColor p-1 shadow-rest transition-all delay-0 duration-[.5s] [--scrollMarginTop:160px]">
+				border p-1 shadow-rest transition-all delay-0 duration-[.5s] [--scrollMarginTop:160px] dark:border-primaryColor">
 		<figure
 			tabindex="0"
 			style="min-inline-size: {inlineSize}px; block-size: {blockSize}px;"
@@ -97,7 +98,7 @@
 						src={`/images/${imageName}.png`}
 						alt="a cute dog" />
 				</a>
-				<a href="/portfolio/{project}" class="rounded-lg">
+				<a href="/portfolio/{project}" class="rounded-xl">
 					<img
 						loading="lazy"
 						style="object-fit:{objectFit}; object-position:{objectPosition};"
@@ -163,6 +164,7 @@
 		<button on:click={handleClick} class="m-auto rounded-md border border-primaryColor px-4 py-1">
 			View {showDesktop ? 'mobile' : 'desktop'} design</button>
 	</div>
+
 	{#if parentInlineSize >= 988}
 		{#if after}
 			<div class=" w-fit flex-grow basis-80">
@@ -201,22 +203,11 @@
 	}
 
 	.project-info {
-		transition: transform 0s 0.45s;
+		transition: transform 0s 0.48s;
 		transform: translateZ(var(--translateZ)) rotateY(var(--rotateY));
 	}
 
 	::-webkit-scrollbar {
-		inline-size: 6px;
-	}
-
-	/* Handle */
-	::-webkit-scrollbar-thumb {
-		background: rgba(var(--primary, 90, 102, 110));
-	}
-
-	/* Handle on hover */
-	::-webkit-scrollbar-thumb:hover {
-		background: rgba(var(--tertiary));
-		border: none;
+		inline-size: 0px;
 	}
 </style>
