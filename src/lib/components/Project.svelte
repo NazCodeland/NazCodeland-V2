@@ -111,7 +111,7 @@
 						class="{desktopInlineSize ? 'right-0' : 'left-0'} 
 								{showDesktop
 							? 'me-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)] ms-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)]'
-							: ''} project-info pointer-events-none absolute ml-[18px] mr-10 rounded-md bg-secondaryColor
+							: ''} project-info pointer-events-none absolute -top-2 ml-[18px] mr-10 rounded-md bg-secondaryColor
 								px-2 py-0.5 text-sm text-bodyCopy outline outline-1 outline-current">
 						Project:
 						{project}
