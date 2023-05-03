@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let imageName: string;
+	export let fileType: string;
 	export let project: string;
 	export let roles: string;
 	export let tools: string;
@@ -95,15 +96,15 @@
 						loading="lazy"
 						style="object-fit:{objectFit}; object-position:{objectPosition};"
 						class="min-h-full w-full transition-all [padding-inline-end:0px]"
-						src={`/images/${imageName}.png`}
+						src={`/images/${imageName}.${fileType}`}
 						alt="a cute dog" />
 				</a>
-				<a href="/portfolio/{project}" class="rounded-xl">
+				<a href="/portfolio/{project}" class="rounded-lg">
 					<img
 						loading="lazy"
 						style="object-fit:{objectFit}; object-position:{objectPosition};"
 						class="min-h-full w-full transition-all [padding-inline-end:0px]"
-						src={`/images/${imageName.replace('Mobile', '')}.png`}
+						src={`/images/${imageName.replace('Mobile', '')}.${fileType}`}
 						alt="a cute dog" />
 				</a>
 				{#if parentInlineSize < 988}
