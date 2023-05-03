@@ -59,7 +59,6 @@
 				<br />
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt unde quo animi consequuntur
 				placeat dolor ipsum eos asperiores similique fugiat? Lorem ipsum dolor sit amet consectetur,
-				adipisicing elit. Animi quidem aliquid culpa. Placeat nulla beatae sint molestias, fugit tempora
 			</div>
 		</Project>
 	</div>
