@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let imageName: string;
 	export let fileType: string;
+	export let buttonDisabled: boolean;
 	export let project: string;
 	export let roles: string;
 	export let tools: string;
@@ -57,7 +58,7 @@
 <div
 	class="flex gap-10 {desktopInlineSize
 		? 'flex-grow basis-[650px]'
-		: 'min-w-[280px]'} justify-center transition-all duration-[0.5s]">
+		: 'min-w-[280px]'} justify-center">
 	<!-- 988 parent container size = viewport of 1100 -->
 	{#if parentInlineSize >= 988}
 		{#if before}
@@ -162,7 +163,13 @@
 			{/if}
 		</figure>
 
-		<button on:click={handleClick} class="m-auto rounded-md border border-primaryColor px-4 py-1">
+		<button
+			type="button"
+			disabled={buttonDisabled}
+			on:click={handleClick}
+			class="{buttonDisabled
+				? 'opacity-30 hover:outline-none'
+				: 'border-primaryColor opacity-85'} m-auto mb-2 rounded-lg border px-4 py-1 text-lg">
 			View {showDesktop ? 'mobile' : 'desktop'} design</button>
 	</div>
 

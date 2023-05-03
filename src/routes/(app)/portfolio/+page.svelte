@@ -19,6 +19,7 @@
 			{parentInlineSize}
 			imageName="pawFood"
 			fileType="gif"
+			buttonDisabled={true}
 			project="NazCodeland"
 			roles="User Research / User Interface / Front-end / Back-end"
 			tools="Pen & Paper / Miro / Figma"

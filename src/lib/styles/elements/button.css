@@ -15,7 +15,7 @@
 		background-color: rgba(var(--btn-bg), var(--btn-bg-opacity));
 
 		box-shadow: var(--box-shadow-rest);
-		transition: ease-in-out transform 0.15s;
+		transition: transform 0.15s 0s ease-in-out;
 	}
 
 	/* TODO: does :focus do anything in this situation? */
