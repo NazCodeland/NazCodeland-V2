@@ -25,10 +25,10 @@
 			tools="Pen & Paper / Miro / Figma"
 			duration="4 Months">
 			<div slot="after">
-				<p><strong>Project: </strong>: NazCodeland</p>
+				<p><strong>Project: </strong>NazCodeland</p>
 				<p><strong>Roles: </strong>User Research / User Interface / Front-end / Back-end</p>
-				<p><strong>Tools:</strong>Pen & Paper / Miro / Figma</p>
-				<p><strong>Duration</strong>4 Months</p>
+				<p><strong>Tools: </strong>Pen & Paper / Miro / Figma</p>
+				<p><strong>Duration: </strong>4 Months</p>
 				<br />
 				<br />
 				<strong>Summary:</strong>
@@ -48,10 +48,10 @@
 			tools="Pen & Paper / Miro / Figma"
 			duration="4 Months">
 			<div slot="before">
-				<p><strong>Project: </strong>: NazCodeland</p>
+				<p><strong>Project: </strong>NazCodeland</p>
 				<p><strong>Roles: </strong>User Research / User Interface / Front-end / Back-end</p>
-				<p><strong>Tools:</strong>Pen & Paper / Miro / Figma</p>
-				<p><strong>Duration</strong>4 Months</p>
+				<p><strong>Tools: </strong>Pen & Paper / Miro / Figma</p>
+				<p><strong>Duration: </strong>4 Months</p>
 				<br />
 				<br />
 				<strong>Summary:</strong>

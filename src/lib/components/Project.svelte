@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let imageName: string;
 	export let fileType: string;
-	export let buttonDisabled: boolean;
+	export let buttonDisabled: boolean = false;
 	export let project: string;
 	export let roles: string;
 	export let tools: string;
@@ -62,7 +62,7 @@
 	<!-- 988 parent container size = viewport of 1100 -->
 	{#if parentInlineSize >= 988}
 		{#if before}
-			<div class="w-fit flex-grow basis-80">
+			<div class="w-fit max-w-[50ch] flex-grow basis-80">
 				<slot name="before" />
 			</div>
 		{/if}
@@ -175,7 +175,7 @@
 
 	{#if parentInlineSize >= 988}
 		{#if after}
-			<div class=" w-fit flex-grow basis-80">
+			<div class=" w-fit max-w-[50ch] flex-grow basis-80">
 				<slot name="after" />
 			</div>
 		{/if}
