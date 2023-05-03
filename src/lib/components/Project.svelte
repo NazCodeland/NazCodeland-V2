@@ -126,7 +126,7 @@
 					class="{showDesktop
 						? `me-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] ms-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] 
 							[--translateZ:-60px] [--rotateY:180deg]`
-						: 'me-5 ms-4'} 
+						: 'me-4 ms-4'} 
 						
 
 					three-d-item-two text-sm transition-[transform,margin] duration-1400">
