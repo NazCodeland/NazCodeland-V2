@@ -9,7 +9,7 @@
 	import { showContactLinks } from '$lib/stores/contactLinksStore';
 </script>
 
-<main class="m-auto flex max-w-[94ch] flex-col gap-88-124" id="mainContent">
+<main class="m-auto flex w-full max-w-[94ch] flex-col gap-88-124" id="mainContent">
 	<!--profileCard-->
 	<div class="introduction-section">
 		<ProfileCard />
