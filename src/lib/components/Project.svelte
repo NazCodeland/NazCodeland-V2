@@ -53,7 +53,10 @@
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <!-- TODO: transition the width -->
 
-<div class="flex gap-10 {desktopInlineSize ? 'flex-grow basis-[650px]' : 'min-w-[280px]'}">
+<div
+	class="flex gap-10 {desktopInlineSize
+		? 'flex-grow basis-[650px]'
+		: 'min-w-[280px]'} justify-center transition-all duration-[0.5s]">
 	<!-- 988 parent container size = viewport of 1100 -->
 	{#if parentInlineSize >= 988}
 		{#if before}
@@ -71,7 +74,7 @@
 			? `inline-size: ${parentInlineSize - 400}px; flex-grow: 1;`
 			: 'inline-size: 280px;'}"
 		class="scrollMarginTop flex w-[280px] flex-col gap-4 self-start rounded-xl
-		border border-primaryColor p-1 shadow-rest transition-all delay-0 duration-[0.5s] [--scrollMarginTop:160px]">
+		border border-primaryColor p-1 shadow-rest transition-all delay-0 duration-[.5s] [--scrollMarginTop:160px]">
 		<figure
 			tabindex="0"
 			style="min-inline-size: {inlineSize}px; block-size: {blockSize}px;"
@@ -195,7 +198,7 @@
 	}
 
 	.three-d-item-one :nth-child(2) {
-		transform: translateZ(-0.1px) rotateY(180deg);
+		transform: translateZ(-0.3px) rotateY(180deg);
 	}
 
 	.project-info {

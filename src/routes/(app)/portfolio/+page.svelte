@@ -12,7 +12,7 @@
 			These are some of the projects that I have developed, designed, and/or researched.
 		</small>
 	</header>
-	<div class="flex flex-wrap justify-evenly gap-x-16-48 gap-y-[10rem]" id="mainContent">
+	<div class="flex flex-wrap justify-evenly gap-x-[74px] gap-y-[10rem]" id="mainContent">
 		<Project
 			{parentInlineSize}
 			imageName="nazCodelandMobile"
