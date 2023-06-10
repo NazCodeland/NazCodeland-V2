@@ -8,7 +8,7 @@
 	let showMoveToTop = false;
 </script>
 
-<main class="m-auto w-full max-w-[60ch]">
+<main class="m-auto w-full">
 	<img
 		use:viewport
 		on:enteringViewport={() => (showMoveToTop = false)}

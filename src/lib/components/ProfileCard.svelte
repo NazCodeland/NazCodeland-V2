@@ -36,12 +36,14 @@
 
 		<footer class="mt-2">
 			<ul class="flex flex-wrap gap-2 [@media(width>=328px)]:gap-4">
-				<li
-					class="btn btn-filled-primary flex-grow-[10] transition-[flex-grow,transform] delay-[0s] duration-[4s,0.15s] [@media(width>900px)]:flex-grow-0">
-					<a href="/portfolio">View Portfolio</a>
+				<li>
+					<a
+						class="btn btn-filled-primary block flex-grow-[10] transition-[flex-grow,transform] delay-[0s] duration-[4s,0.15s] [@media(width>900px)]:flex-grow-0"
+						href="/#portfolio">View Portfolio</a>
 				</li>
-				<li class="btn btn-outlined-primary flex-grow tablet:flex-grow-0">
-					<a href="/resume">View Resume</a>
+				<li>
+					<a class="btn btn-outlined-primary block flex-grow tablet:flex-grow-0" href="/resume"
+						>View Resume</a>
 				</li>
 			</ul>
 		</footer>

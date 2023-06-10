@@ -3,7 +3,8 @@
 
 ACCESSIBILITY:
 	-> make <abbr> element mobile/keyboard accessible
-
+	-> apply prefers-reduced-motion on animations
+	
 -:> generate the blog article images using AI, midJourney
 -:> Check for accessibility issues once the site is done,
 -:> check for prefers-less-motion

@@ -19,10 +19,8 @@ const config = {
 	preprocess: [vitePreprocess(), mdsvex(mdsvexConfig)],
 
 	vitePlugin: {
-		experimental: {
-			inspector: {
-				toggleKeyCombo: 'control-alt'
-			}
+		inspector: {
+			toggleKeyCombo: 'control-alt'
 		}
 	},
 
