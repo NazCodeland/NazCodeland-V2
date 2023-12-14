@@ -19,11 +19,7 @@ const config = {
 	preprocess: [vitePreprocess(), mdsvex(mdsvexConfig)],
 
 	vitePlugin: {
-		experimental: {
-			inspector: {
-				toggleKeyCombo: 'control-alt'
-			}
-		}
+		inspector: true
 	},
 
 	// this build option is so vercel can locate the Giscus component

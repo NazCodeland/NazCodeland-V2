@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { menuStore } from '$lib/stores/menuStore';
+	import { navStore } from '$src/lib/stores/navStore';
 	import { showContactLinks } from '$lib/stores/contactLinksStore';
 	export let bgColor: string = 'bg-secondaryColor';
 </script>
@@ -7,11 +7,11 @@
 <nav
 	class="absolute inset-x-menuInline top-menuBlock -z-20 mx-4 mt-2 border-b
 	border-solid border-primaryColor md:relative md:inset-x-0 md:top-0 md:z-0 md:mt-0
-	md:border-none {bgColor} px-4 pt-10 pb-2 text-primaryColor
+	md:border-none {bgColor} px-4 pb-2 pt-10 text-primaryColor
 	group-data-[themePalette=main]:text-bodyCopy md:p-0">
 	<ul
 		class="flex flex-wrap justify-center gap-16-32
-		{$menuStore ? 'inline-block' : 'hidden'} md:flex">
+		{$navStore ? 'inline-block' : 'hidden'} md:flex">
 		<li><a class="navLink" href="/">Home</a></li>
 		<li><a class="navLink" href="/#aboutMe">About Me</a></li>
 		<li><a class="navLink" href="/portfolio">Portfolio</a></li>
