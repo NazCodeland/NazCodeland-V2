@@ -2,6 +2,19 @@
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
+	corePlugins: {
+		// grid: false,
+		// gridAutoColumns: false,
+		// gridAutoRows: false,
+		// gridColumn: false,
+		// gridColumnEnd: false,
+		// gridColumnStart: false,
+		// gridRow: false,
+		// gridRowEnd: false,
+		// gridRowStart: false,
+		// gridTemplateColumns: false,
+		// gridTemplateRows: false
+	},
 	content: ['./src/**/*.{html,js,svelte,ts,svg}'],
 	darkMode: ['class', '[color-scheme="dark"]'],
 	theme: {

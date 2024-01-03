@@ -1,11 +1,18 @@
 <script>
-	export let data;
 	import TableOfContents from '$lib/components/TableOfContents.svelte';
 	import moveToTop from '$lib/icons/themeBased/moveToTop/moveToTopMain.svg';
+	import viewport from '$lib/actions/viewportAction';
+
+	export let data;
+
+	let showMoveToTop = false;
 </script>
 
-<main class="m-auto w-full max-w-[60ch]">
+<main class="m-auto w-full">
 	<img
+		use:viewport
+		on:enteringViewport={() => (showMoveToTop = false)}
+		on:exitingViewport={() => (showMoveToTop = true)}
 		loading="lazy"
 		id="mainContent"
 		class="absolute left-0 right-0 top-0 m-auto h-[100vh] w-full max-w-[1470px] object-cover"
@@ -78,13 +85,15 @@
 			veritatis cupiditate corporis, ex nulla, ab!
 		</p>
 
-		<a href="#mainContent">
-			<img
-				loading="lazy"
-				src={moveToTop}
-				alt="move to top"
-				class="fixed bottom-[6vh] left-[45vw] z-10 rounded-full border border-primaryColor bg-secondaryColor shadow-rest hover:shadow-hover active:shadow-active sm:left-[48vw]" />
-		</a>
+		{#if showMoveToTop}
+			<a href="#mainContent">
+				<img
+					loading="lazy"
+					src={moveToTop}
+					alt="move to top"
+					class="fixed bottom-[6vh] left-[45vw] z-10 rounded-full border border-primaryColor bg-secondaryColor shadow-rest hover:shadow-hover active:shadow-active sm:left-[48vw]" />
+			</a>
+		{/if}
 	</article>
 </main>
 
