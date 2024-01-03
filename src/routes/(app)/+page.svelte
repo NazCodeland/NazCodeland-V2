@@ -7,9 +7,6 @@
 	import webDesign from '$lib/icons/webDesign.svg';
 	import LazyLoad from '$lib/components/LazyLoad.svelte';
 	import { showContactLinks } from '$lib/stores/contactLinksStore';
-
-	import Project from '$lib/components/Project.svelte';
-	let parentInlineSize;
 </script>
 
 <main class="m-auto flex w-full max-w-[94ch] flex-col gap-88-124" id="mainContent">
@@ -17,67 +14,6 @@
 	<div class="introduction-section">
 		<ProfileCard />
 	</div>
-
-	<section
-		id="portfolio"
-		bind:clientWidth={parentInlineSize}
-		class="scrollMarginTop m-auto mt-4 flex w-full max-w-[94ch] flex-col gap-88-124 [--scrollMarginTop:150px]">
-		<header>
-			<h2 class="text-5xl">Selected Projects</h2>
-
-			<small>
-				These are some of the projects that I have developed, designed, and/or researched.
-			</small>
-		</header>
-		<div class="flex flex-wrap justify-evenly gap-x-[74px] gap-y-[10rem]" id="mainContent">
-			<Project
-				{parentInlineSize}
-				imageName="pawFood"
-				fileType="gif"
-				buttonDisabled={true}
-				project="NazCodeland"
-				roles="User Research / User Interface / Front-end / Back-end"
-				tools="Pen & Paper / Miro / Figma"
-				duration="4 Months">
-				<div slot="after">
-					<p><strong>Project: </strong>NazCodeland</p>
-					<p><strong>Roles: </strong>User Research / User Interface / Front-end / Back-end</p>
-					<p><strong>Tools: </strong>Pen & Paper / Miro / Figma</p>
-					<p><strong>Duration: </strong>4 Months</p>
-					<br />
-					<br />
-					<strong>Summary:</strong>
-					<br />
-					<br />
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt unde quo animi consequuntur
-					placeat dolor ipsum eos asperiores similique fugiat? Lorem ipsum dolor sit amet consectetur,
-				</div>
-			</Project>
-
-			<Project
-				{parentInlineSize}
-				imageName="nazCodelandMobile"
-				fileType="png"
-				project="NazCodeland"
-				roles="User Research / User Interface / Front-end / Back-end"
-				tools="Pen & Paper / Miro / Figma"
-				duration="4 Months">
-				<div slot="before">
-					<p><strong>Project: </strong>NazCodeland</p>
-					<p><strong>Roles: </strong>User Research / User Interface / Front-end / Back-end</p>
-					<p><strong>Tools: </strong>Pen & Paper / Miro / Figma</p>
-					<p><strong>Duration: </strong>4 Months</p>
-					<br />
-					<br />
-					<strong>Summary:</strong>
-					<br />
-					<br />
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt unde quo animi consequuntur
-					placeat dolor ipsum eos asperiores similique fugiat? Lorem ipsum dolor sit amet consectetur,
-				</div>
-			</Project>
-		</div>
-	</section>
 
 	<!-- aboutMe -->
 	<section id="aboutMe" class="scrollMarginTop [--scrollMarginTop:150px]">
