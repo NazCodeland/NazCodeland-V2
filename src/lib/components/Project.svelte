@@ -6,14 +6,13 @@
 	export let roles: string;
 	export let tools: string;
 	export let duration: string;
+	export let shortDescription: string;
 	export let inlineSize: number = 270;
 	export let blockSize: number = 500;
 	export let objectFit: string = 'cover';
 	export let objectPosition: string = 'top center';
 	export let parentInlineSize: number = 0;
-
-	let before: boolean = $$slots.before;
-	let after: boolean = $$slots.after;
+	export let after: boolean = false;
 
 	let showDesktop: boolean = false;
 	let desktopInlineSize: boolean;
@@ -61,9 +60,14 @@
 		: 'min-w-[280px]'} justify-center">
 	<!-- 988 parent container size = viewport of 1100 -->
 	{#if parentInlineSize >= 988}
-		{#if before}
+		{#if !after}
 			<div class="w-fit max-w-[50ch] flex-grow basis-80">
-				<slot name="before" />
+				<p><strong>Project: </strong>{project}</p>
+				<p><strong>Roles: </strong>{roles}</p>
+				<p><strong>Tools: </strong>{tools}</p>
+				<p><strong>Duration: </strong>{duration}</p>
+				<br />
+				<p>{shortDescription}</p>
 			</div>
 		{/if}
 	{/if}
@@ -86,13 +90,13 @@
 				class="{showDesktop ? '[--translateZ:-60px]' : ''} 
 							{showDesktop
 					? parentInlineSize >= 988
-						? before
+						? after
 							? '[--rotateY:-180deg]'
 							: '[--rotateY:180deg]'
 						: '[--rotateY:180deg]'
 					: ''} 
 							three-d-item-one h-full w-full transition-all duration-1400">
-				<a href="/portfolio/{project}" class="rounded-lg">
+				<a href="/portfolio/{project}" class="rounded-lg" target="_blank">
 					<img
 						loading="lazy"
 						style="object-fit:{objectFit}; object-position:{objectPosition};"
@@ -175,8 +179,13 @@
 
 	{#if parentInlineSize >= 988}
 		{#if after}
-			<div class=" w-fit max-w-[50ch] flex-grow basis-80">
-				<slot name="after" />
+			<div class="w-fit max-w-[50ch] flex-grow basis-80">
+				<p><strong>Project: </strong>{project}</p>
+				<p><strong>Roles: </strong>{roles}</p>
+				<p><strong>Tools: </strong>{tools}</p>
+				<p><strong>Duration: </strong>{duration}</p>
+				<br />
+				<p>{shortDescription}</p>
 			</div>
 		{/if}
 	{/if}

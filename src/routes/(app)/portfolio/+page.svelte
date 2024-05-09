@@ -20,47 +20,38 @@
 			imageName="pawFood"
 			fileType="gif"
 			buttonDisabled={true}
-			project="NazCodeland"
-			roles="User Research / User Interface / Front-end / Back-end"
+			project="pawfood"
+			roles="UX/UI Designer"
 			tools="Pen & Paper / Miro / Figma"
-			duration="4 Months">
-			<div slot="after">
-				<p><strong>Project: </strong>NazCodeland</p>
-				<p><strong>Roles: </strong>User Research / User Interface / Front-end / Back-end</p>
-				<p><strong>Tools: </strong>Pen & Paper / Miro / Figma</p>
-				<p><strong>Duration: </strong>4 Months</p>
-				<br />
-				<br />
-				<strong>Summary:</strong>
-				<br />
-				<br />
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt unde quo animi consequuntur
-				placeat dolor ipsum eos asperiores similique fugiat? Lorem ipsum dolor sit amet consectetur,
-			</div>
-		</Project>
+			duration="6 Months"
+			shortDescription="
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga eligendi hic nihil 
+			maiores, sed rem facilis! Culpa excepturi neque eligendi." />
 
 		<Project
 			{parentInlineSize}
 			imageName="nazCodelandMobile"
 			fileType="png"
-			project="NazCodeland"
-			roles="User Research / User Interface / Front-end / Back-end"
+			project="nazcodeland"
+			roles="Developer"
 			tools="Pen & Paper / Miro / Figma"
-			duration="4 Months">
-			<div slot="before">
-				<p><strong>Project: </strong>NazCodeland</p>
-				<p><strong>Roles: </strong>User Research / User Interface / Front-end / Back-end</p>
-				<p><strong>Tools: </strong>Pen & Paper / Miro / Figma</p>
-				<p><strong>Duration: </strong>4 Months</p>
-				<br />
-				<br />
-				<strong>Summary:</strong>
-				<br />
-				<br />
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt unde quo animi consequuntur
-				placeat dolor ipsum eos asperiores similique fugiat? Lorem ipsum dolor sit amet consectetur,
-			</div>
-		</Project>
+			duration="4 Months"
+			after={true}
+			shortDescription="
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga eligendi hic nihil 
+			maiores, sed rem facilis! Culpa excepturi neque eligendi." />
+
+		<Project
+			{parentInlineSize}
+			imageName="saigonMobile"
+			fileType="png"
+			project="saigon"
+			roles="UX/UI Designer and Developer"
+			tools="Figma"
+			duration="2 Weeks"
+			shortDescription="
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga eligendi hic nihil 
+			maiores, sed rem facilis! Culpa excepturi neque eligendi." />
 	</div>
 </main>
 

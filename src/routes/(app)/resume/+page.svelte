@@ -1,3 +1,3 @@
-<main>
-	<h1 class="text-9xl">COMING SOON</h1>
+<main class="h-[100vh]">
+	<h1 class="">COMING SOON</h1>
 </main>
