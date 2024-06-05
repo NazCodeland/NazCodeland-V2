@@ -11,22 +11,23 @@
 		<h1 class="text-5xl">Selected Projects</h1>
 
 		<small>
-			These are some of the projects that I have developed, designed, and/or researched.
+			These are some of the projects that I have researched, designed, and/or developed.
 		</small>
 	</header>
 	<div class="flex flex-wrap justify-evenly gap-x-[74px] gap-y-[10rem]" id="mainContent">
 		<Project
 			{parentInlineSize}
+			project="PawFood"
 			imageName="pawFood"
 			fileType="gif"
 			buttonDisabled={true}
-			project="pawfood"
 			roles="UX/UI Designer"
-			tools="Pen & Paper / Miro / Figma"
-			duration="6 Months"
+			timeline="March - July 2023 + June of 2024"
 			shortDescription="
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga eligendi hic nihil 
-			maiores, sed rem facilis! Culpa excepturi neque eligendi." />
+			PawFood is a design concept for a mobile app I created during the Google UX Design Course. 
+			The course taught me a tremendous amount about the UX/UI design process, including the 
+			Design Thinking Framework, which I followed to conduct both the research and design for PawFood. 
+			This was my first UX/UI project and I had a lot of fun." />
 
 		<Project
 			{parentInlineSize}
@@ -34,8 +35,7 @@
 			fileType="png"
 			project="nazcodeland"
 			roles="Developer"
-			tools="Pen & Paper / Miro / Figma"
-			duration="4 Months"
+			timeline="4 Months"
 			after={true}
 			shortDescription="
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga eligendi hic nihil 
@@ -47,8 +47,7 @@
 			fileType="png"
 			project="saigon"
 			roles="UX/UI Designer and Developer"
-			tools="Figma"
-			duration="2 Weeks"
+			timeline="2 Weeks"
 			shortDescription="
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga eligendi hic nihil 
 			maiores, sed rem facilis! Culpa excepturi neque eligendi." />

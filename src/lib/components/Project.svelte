@@ -4,8 +4,7 @@
 	export let buttonDisabled: boolean = false;
 	export let project: string;
 	export let roles: string;
-	export let tools: string;
-	export let duration: string;
+	export let timeline: string;
 	export let shortDescription: string;
 	export let inlineSize: number = 270;
 	export let blockSize: number = 500;
@@ -62,12 +61,13 @@
 	{#if parentInlineSize >= 988}
 		{#if !after}
 			<div class="w-fit max-w-[50ch] flex-grow basis-80">
-				<p><strong>Project: </strong>{project}</p>
-				<p><strong>Roles: </strong>{roles}</p>
-				<p><strong>Tools: </strong>{tools}</p>
-				<p><strong>Duration: </strong>{duration}</p>
+				<p>Project: {project}</p>
+				<p>Roles: {roles}</p>
+				<p>Duration: {timeline}</p>
 				<br />
 				<p>{shortDescription}</p>
+				<br />
+				<p>Please click the image to learn more about the project</p>
 			</div>
 		{/if}
 	{/if}
@@ -150,10 +150,7 @@
 							? 'right-0'
 							: 'left-0'} project-info pointer-events-none absolute bottom-[52px]
 							rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
-							outline-current">
-						Tools:
-						{tools}
-					</span>
+							outline-current" />
 					<span
 						class="{desktopInlineSize
 							? 'right-0'
@@ -161,7 +158,7 @@
 							bottom-[24px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline
 							outline-1 outline-current">
 						Duration:
-						{duration}
+						{timeline}
 					</span>
 				</figcaption>
 			{/if}
@@ -180,10 +177,9 @@
 	{#if parentInlineSize >= 988}
 		{#if after}
 			<div class="w-fit max-w-[50ch] flex-grow basis-80">
-				<p><strong>Project: </strong>{project}</p>
-				<p><strong>Roles: </strong>{roles}</p>
-				<p><strong>Tools: </strong>{tools}</p>
-				<p><strong>Duration: </strong>{duration}</p>
+				<p>Project: {project}</p>
+				<p>Roles: {roles}</p>
+				<p>Duration: {timeline}</p>
 				<br />
 				<p>{shortDescription}</p>
 			</div>

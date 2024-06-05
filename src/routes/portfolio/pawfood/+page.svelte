@@ -3,86 +3,79 @@
 	import moveToTop from '$lib/icons/themeBased/moveToTop/moveToTopMain.svg';
 	import viewport from '$lib/actions/viewportAction';
 
-	export let data;
-
 	let showMoveToTop = false;
 </script>
 
-<main class="">
+<main class="m-auto max-w-[1440px]">
 	<img
 		use:viewport
 		on:enteringViewport={() => (showMoveToTop = false)}
 		on:exitingViewport={() => (showMoveToTop = true)}
+		class="w-full"
 		loading="lazy"
 		id="mainContent"
-		src="/images/frame.jpg"
+		src="/images/pawFoodHeroImage.png"
 		alt="" />
 
-	<article class="flex flex-col gap-4 pt-[100vh]">
+	<article class="relative m-auto flex max-w-[1000px] flex-col gap-4 p-4">
+		<h1 class="m-auto pt-20 text-4xl">Welcome to PawFood</h1>
+		<p class="m-auto max-w-[800px] pt-4 text-lg">
+			For the best viewing experience, please view the
+			<a
+				class="text-[#0056B3] underline"
+				href="https://www.figma.com/design/XrgvnlKjimABXsyksoHdKs/PawFood?node-id=2-3929&t=WxV6mdZVqdj0oTWE-1">
+				PawFood files
+			</a> directly in Figma. However, I have embedded the prototype right here for you to interact with
+			- it should load any second.
+		</p>
+		<p class="m-auto max-w-[800px] pb-20 text-lg">
+			Just below the prototype, I've also included an image of The PawFood Case Study for quick
+			viewing.
+		</p>
+
+		<iframe
+			title="PawFood App Figma Prototype"
+			style="border: 1px solid rgba(0, 0, 0, 0.1);"
+			class="m-auto h-[810px] w-full max-w-[800px] rounded-3xl border-2 border-gray-900"
+			width="800"
+			height="450"
+			src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FXrgvnlKjimABXsyksoHdKs%2FPawFood%3Fpage-id%3D2%253A3929%26node-id%3D15732-62176%26viewport%3D1133%252C5420%252C0.06%26t%3DqiLw6tepIh0fZhki-1%26scaling%3Dscale-down%26starting-point-node-id%3D15732%253A61628"
+			allowfullscreen />
+
+		<!-- 
 		<TableOfContents
 			contents={[
-				'Overview',
-				'Understanding',
+				'The Problem',
+				'The Why',
+				'The Solutions',
 				'Research',
+				'Concept',
 				'Design',
-				'Flow-1',
-				'Flow-2',
-				'Prototype',
-				'Evaluation',
-				'Visual',
-				'Next Steps',
-				'Reflection'
-			]} />
+				'The Final Screens',
+				'The Final Product',
+				'PawFood Files',
+				'The Style Guide',
+				'Takeaways',
+				'Special Thanks'
+			]} /> -->
 
-		<!--  -->
+		<!-- Div elements with IDs corresponding to each section of the 
+			image-based case study for accurate referencing -->
+		<!-- 
+		<div id="TheProblem" class="absolute top-[49.3rem] opacity-0" />
+		<div id="TheWhy" class="absolute top-[112rem] opacity-0" />
+		<div id="TheSolutions" class="absolute top-[170rem] opacity-0" />
+		<div id="Research" class="absolute top-[331rem] opacity-0" />
+		<div id="Concept" class="absolute top-[531.2rem] opacity-0" />
+		<div id="Design" class="absolute top-[707.3rem] opacity-0" />
+		<div id="TheFinalScreens" class="absolute top-[938rem] opacity-0" />
+		<div id="TheFinalProduct" class="absolute top-[974rem] opacity-0" />
+		<div id="PawFoodFiles" class="absolute top-[989rem]" />
+		<div id="TheStyleGuide" class="absolute top-[1006rem]" />
+		<div id="Takeaways" class="absolute top-[1137.7rem]" />
+		<div id="SpecialThanks" class="absolute top-[1260rem]" /> -->
 
-		<h2 id="Overview">Some SubTitle</h2>
-		<p>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ab dolores excepturi iusto, cum
-			incidunt, commodi saepe enim nemo amet eos veritatis porro cupiditate est aliquam consectetur
-			eveniet at illum! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae nisi
-			molestiae quo accusantium eligendi autem aliquam necessitatibus obcaecati a sint quae tempora
-			provident at, architecto, eveniet molestias aliquid laudantium repellat dolore iure
-			voluptatibus laboriosam nesciunt temporibus voluptatum! Fugit, odio corrupti rem eveniet,
-			architecto hic nihil non corporis vero ipsa sapiente eaque assumenda expedita consectetur
-			culpa? Voluptates, aliquid numquam soluta, placeat facere voluptas atque ab sunt error sed
-			maiores eaque quidem, harum enim sint reiciendis cupiditate ducimus dolorem repellat. Eum,
-			reiciendis maxime maiores doloribus iure aut? Repellat suscipit consectetur eaque dolore
-			perspiciatis asperiores officiis dolor veritatis tempora natus! Corrupti minus voluptatum illo
-			qui adipisci aliquam praesentium nihil mollitia, inventore quis! Tempore nesciunt, fuga neque,
-			eum provident temporibus laboriosam quia libero ullam asperiores aut. Accusamus saepe rem
-			debitis! Temporibus adipisci amet officia dignissimos, rerum exercitationem! Laboriosam dicta
-			dignissimos deserunt cum repellat numquam a eveniet aperiam natus, unde nam minus fugiat
-			dolore ducimus atque hic voluptatibus aut iste nostrum distinctio quae molestias non ex vitae!
-			Rerum autem in excepturi architecto eligendi error possimus exercitationem incidunt, laborum
-			temporibus saepe unde quas quam nam. Sequi, fugiat quam doloribus ex eos voluptatem deserunt
-			iure, rem, adipisci quas distinctio magni exercitationem nesciunt iusto fugit! Iure, natus
-			rerum.
-		</p>
-
-		<br />
-		<br />
-
-		<h2 id="Design">Design</h2>
-		<p>
-			Lorem ipsum dolor sit, amet adipisicing elit. Voluptatum enim distinctio ratione repudiandae
-			doloribus quas animi quo ipsum odit fuga sed, molestias magni odio, asperiores minima. Sit
-			velit minima ab quas impedit modi eaque est, molestiae veritatis optio explicabo officia?
-			Corrupti blanditiis, quasi veritatis veniam quo minima, alias, tempore repellat aliquid ipsam
-			velit. Mollitia, nostrum laboriosam magni totam voluptatum nesciunt veniam, eaque modi ad ab
-			officiis possimus voluptatem incidunt, explicabo fuga recusandae obcaecati ipsa tempore atque
-			saepe similique itaque a harum assumenda! Explicabo laboriosam molestiae repellat id voluptas.
-			Inventore neque, non cum quo consequatur deleniti eligendi optio id aspernatur, maiores
-			laudantium fugit quis mollitia nesciunt minima sapiente voluptate sed quia blanditiis dolorem
-			officiis nulla voluptatem quasi! Sunt pariatur possimus in hic voluptatem recusandae quam
-			excepturi, blanditiis obcaecati iste maiores iusto inventore. Iste, vitae! Dolores rem
-			architecto ea eius nobis dolorem veniam. Animi enim placeat laborum totam asperiores?
-			Voluptatum praesentium facere saepe. Alias, nostrum. Similique fugiat voluptates laudantium
-			expedita excepturi nobis magni provident facere sint eligendi. Commodi odit, fuga consequuntur
-			maiores beatae ex vitae mollitia facere laboriosam. Excepturi ipsa ipsum ducimus sunt
-			distinctio iure rem tempora saepe perferendis. Soluta quidem incidunt suscipit deserunt dolor,
-			veritatis cupiditate corporis, ex nulla, ab!
-		</p>
+		<img src="/images/pawFoodCaseStudy.png" alt="" />
 
 		{#if showMoveToTop}
 			<a href="#mainContent">
@@ -97,7 +90,4 @@
 </main>
 
 <style>
-	img {
-		inline-size: 100%;
-	}
 </style>

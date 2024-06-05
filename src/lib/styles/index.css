@@ -3,3 +3,4 @@
 @import './components/index.css';
 @import './syntaxHighlighting/index.css';
 @import './utilities.css';
+@import './tailwind.css';
