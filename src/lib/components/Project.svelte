@@ -96,7 +96,7 @@
 						: '[--rotateY:180deg]'
 					: ''} 
 							three-d-item-one h-full w-full transition-all duration-1400">
-				<a href="/portfolio/{project}" class="rounded-lg" target="_blank">
+				<a href="/portfolio/{project.toLocaleLowerCase()}" class="rounded-lg" target="_blank">
 					<img
 						loading="lazy"
 						style="object-fit:{objectFit}; object-position:{objectPosition};"
@@ -104,7 +104,7 @@
 						src={`/images/${imageName}.${fileType}`}
 						alt="a cute dog" />
 				</a>
-				<a href="/portfolio/{project}" class="rounded-lg">
+				<a href="/portfolio/{project.toLocaleLowerCase()}" class="rounded-lg" target="_blank">
 					<img
 						loading="lazy"
 						style="object-fit:{objectFit}; object-position:{objectPosition};"

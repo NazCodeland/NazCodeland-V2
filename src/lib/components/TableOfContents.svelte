@@ -4,9 +4,19 @@
 
 	export let contents: string[] = [];
 
-	let open: Boolean = true;
+	let open: Boolean = false;
 	function showTableOfContents() {
 		open = !open;
+	}
+
+	function scrollIntoView(event: MouseEvent) {
+		const target = event.target as Element;
+		const id = target.getAttribute('href');
+		if (id) {
+			const element = document.querySelector(id);
+			element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			showTableOfContents();
+		}
 	}
 </script>
 
@@ -30,6 +40,7 @@
 			{#each contents as content, i}
 				<li class="rounded-md hover:bg-gray-800 hover:text-white">
 					<a
+						on:click|preventDefault={scrollIntoView}
 						class="inline-block h-full w-full p-2 px-4 text-fluid-3"
 						href="#{content.replace(/ /g, '')}">
 						{i + 1}. {content}

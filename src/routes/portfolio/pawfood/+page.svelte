@@ -14,7 +14,7 @@
 		class="w-full"
 		loading="lazy"
 		id="mainContent"
-		src="/images/pawFoodHeroImage.png"
+		src="/images/PawFoodHeroImage.webp"
 		alt="" />
 
 	<article class="relative m-auto flex max-w-[1000px] flex-col gap-4 p-4">
@@ -33,16 +33,15 @@
 			viewing.
 		</p>
 
-		<iframe
+		<!-- <iframe
 			title="PawFood App Figma Prototype"
 			style="border: 1px solid rgba(0, 0, 0, 0.1);"
 			class="m-auto h-[810px] w-full max-w-[800px] rounded-3xl border-2 border-gray-900"
 			width="800"
 			height="450"
 			src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FXrgvnlKjimABXsyksoHdKs%2FPawFood%3Fpage-id%3D2%253A3929%26node-id%3D15732-62176%26viewport%3D1133%252C5420%252C0.06%26t%3DqiLw6tepIh0fZhki-1%26scaling%3Dscale-down%26starting-point-node-id%3D15732%253A61628"
-			allowfullscreen />
+			allowfullscreen /> -->
 
-		<!-- 
 		<TableOfContents
 			contents={[
 				'The Problem',
@@ -57,25 +56,24 @@
 				'The Style Guide',
 				'Takeaways',
 				'Special Thanks'
-			]} /> -->
+			]} />
 
-		<!-- Div elements with IDs corresponding to each section of the 
-			image-based case study for accurate referencing -->
-		<!-- 
-		<div id="TheProblem" class="absolute top-[49.3rem] opacity-0" />
-		<div id="TheWhy" class="absolute top-[112rem] opacity-0" />
-		<div id="TheSolutions" class="absolute top-[170rem] opacity-0" />
-		<div id="Research" class="absolute top-[331rem] opacity-0" />
-		<div id="Concept" class="absolute top-[531.2rem] opacity-0" />
-		<div id="Design" class="absolute top-[707.3rem] opacity-0" />
-		<div id="TheFinalScreens" class="absolute top-[938rem] opacity-0" />
-		<div id="TheFinalProduct" class="absolute top-[974rem] opacity-0" />
-		<div id="PawFoodFiles" class="absolute top-[989rem]" />
-		<div id="TheStyleGuide" class="absolute top-[1006rem]" />
-		<div id="Takeaways" class="absolute top-[1137.7rem]" />
-		<div id="SpecialThanks" class="absolute top-[1260rem]" /> -->
+		<!-- prettier-ignore -->
+		<div>
+			<img id="TheProblem" src="/images/caseStudy/Problem.webp" alt="The Problem" />
+			<div id="TheWhy"><img  src="/images/caseStudy/Why.webp" alt="The Why" class="border" /></div>
+			<div id="TheSolutions"><img  src="/images/caseStudy/Solutions.webp" alt="The Solutions" /></div>
+			<div id="Research"><img  src="/images/caseStudy/Research.webp" alt="Research" /></div>
+			<div id="Concept"><img  src="/images/caseStudy/Concept.webp" alt="Concept" /></div>
+			<div id="Design"><img  src="/images/caseStudy/Design.webp" alt="Design" /></div>
+			<div id="TheFinalScreens"><img  src="/images/caseStudy/Final Screens.webp" alt="The Final Screens" /></div>
+			<div id="TheFinalProduct"><img  src="/images/caseStudy/Final Product.webp" alt="The Final Product" /></div>
+			<div id="PawFoodFiles"><img  src="/images/caseStudy/Files.webp" alt="PawFood Files" /></div>
+			<div id="TheStyleGuide"><img  src="/images/caseStudy/Style Guide.webp" alt="The Style Guide" /></div>
+			<div id="Takeaways"><img  src="/images/caseStudy/Takeaways.webp" alt="Takeaways" /></div>
+			<img id="SpecialThanks" src="/images/caseStudy/Thanks.webp" alt="Special Thanks" />
 
-		<img src="/images/pawFoodCaseStudy.png" alt="" />
+		</div>
 
 		{#if showMoveToTop}
 			<a href="#mainContent">
@@ -90,4 +88,7 @@
 </main>
 
 <style>
+	div {
+		scroll-margin-top: 400px; /* Adjust this value as needed */
+	}
 </style>
