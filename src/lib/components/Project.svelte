@@ -61,9 +61,9 @@
 	{#if parentInlineSize >= 988}
 		{#if !after}
 			<div class="w-fit max-w-[50ch] flex-grow basis-80">
-				<p>Project: {project}</p>
-				<p>Roles: {roles}</p>
-				<p>Duration: {timeline}</p>
+				<p><strong>Project:</strong> {project}</p>
+				<p><strong>Roles:</strong> {roles}</p>
+				<p><strong>Duration:</strong> {timeline}</p>
 				<br />
 				<p>{shortDescription}</p>
 				<br />
@@ -101,7 +101,7 @@
 						loading="lazy"
 						style="object-fit:{objectFit}; object-position:{objectPosition};"
 						class="min-h-full w-full transition-all [padding-inline-end:0px]"
-						src={`/images/${imageName}.${fileType}`}
+						src={`/images/projects/${imageName}.${fileType}`}
 						alt="a cute dog" />
 				</a>
 				<a href="/portfolio/{project.toLocaleLowerCase()}" class="rounded-lg" target="_blank">
@@ -109,7 +109,7 @@
 						loading="lazy"
 						style="object-fit:{objectFit}; object-position:{objectPosition};"
 						class="min-h-full w-full transition-all [padding-inline-end:0px]"
-						src={`/images/${imageName.replace('Mobile', '')}.${fileType}`}
+						src={`/images/projects/${imageName.replace('Mobile', '')}.webp`}
 						alt="a cute dog" />
 				</a>
 				{#if parentInlineSize < 988}
@@ -177,9 +177,9 @@
 	{#if parentInlineSize >= 988}
 		{#if after}
 			<div class="w-fit max-w-[50ch] flex-grow basis-80">
-				<p>Project: {project}</p>
-				<p>Roles: {roles}</p>
-				<p>Duration: {timeline}</p>
+				<p><strong>Project:</strong> {project}</p>
+				<p><strong>Roles:</strong> {roles}</p>
+				<p><strong>Duration:</strong> {timeline}</p>
 				<br />
 				<p>{shortDescription}</p>
 			</div>

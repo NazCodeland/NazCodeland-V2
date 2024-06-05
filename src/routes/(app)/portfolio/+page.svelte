@@ -18,7 +18,7 @@
 		<Project
 			{parentInlineSize}
 			project="PawFood"
-			imageName="pawFood"
+			imageName="pawFoodMobile"
 			fileType="gif"
 			buttonDisabled={true}
 			roles="UX/UI Designer"
@@ -31,26 +31,31 @@
 
 		<Project
 			{parentInlineSize}
+			project="NazCodeland"
 			imageName="nazCodelandMobile"
 			fileType="png"
-			project="nazcodeland"
 			roles="Developer"
 			timeline="4 Months"
 			after={true}
 			shortDescription="
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga eligendi hic nihil 
-			maiores, sed rem facilis! Culpa excepturi neque eligendi." />
+			This is my personal website and it is also my first professional project. 
+			The current version is the second iteration, the first iteration was built 
+			using the MVC (Model View Controller) Architecture using ExpressJS for the 
+			backend and Handlebars for the View layer. The current iteration employs the 
+			same MVC Architecture but it uses Svelte for the View layer, and the Model 
+			and Controller are handled by SvelteKit." />
 
 		<Project
 			{parentInlineSize}
+			project="Saigon"
 			imageName="saigonMobile"
 			fileType="png"
-			project="saigon"
-			roles="UX/UI Designer and Developer"
+			roles="Developer"
 			timeline="2 Weeks"
 			shortDescription="
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga eligendi hic nihil 
-			maiores, sed rem facilis! Culpa excepturi neque eligendi." />
+			This is a static website designed for Saigon Restaurant, it provides a straightforward
+			navigation for customers to explore the menu, make reservations, contact the restaurant,
+			and order online." />
 	</div>
 </main>
 

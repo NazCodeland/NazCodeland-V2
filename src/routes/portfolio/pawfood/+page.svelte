@@ -60,18 +60,18 @@
 
 		<!-- prettier-ignore -->
 		<div>
-			<img id="TheProblem" src="/images/caseStudy/Problem.webp" alt="The Problem" />
-			<div id="TheWhy"><img  src="/images/caseStudy/Why.webp" alt="The Why" class="border" /></div>
-			<div id="TheSolutions"><img  src="/images/caseStudy/Solutions.webp" alt="The Solutions" /></div>
-			<div id="Research"><img  src="/images/caseStudy/Research.webp" alt="Research" /></div>
-			<div id="Concept"><img  src="/images/caseStudy/Concept.webp" alt="Concept" /></div>
-			<div id="Design"><img  src="/images/caseStudy/Design.webp" alt="Design" /></div>
-			<div id="TheFinalScreens"><img  src="/images/caseStudy/Final Screens.webp" alt="The Final Screens" /></div>
-			<div id="TheFinalProduct"><img  src="/images/caseStudy/Final Product.webp" alt="The Final Product" /></div>
-			<div id="PawFoodFiles"><img  src="/images/caseStudy/Files.webp" alt="PawFood Files" /></div>
-			<div id="TheStyleGuide"><img  src="/images/caseStudy/Style Guide.webp" alt="The Style Guide" /></div>
-			<div id="Takeaways"><img  src="/images/caseStudy/Takeaways.webp" alt="Takeaways" /></div>
-			<img id="SpecialThanks" src="/images/caseStudy/Thanks.webp" alt="Special Thanks" />
+			<img id="TheProblem" src="/images/projects/caseStudy/Problem.webp" alt="The Problem" />
+			<div id="TheWhy"><img  src="/images/projects/caseStudy/Why.webp" alt="The Why" class="border" /></div>
+			<div id="TheSolutions"><img  src="/images/projects/caseStudy/Solutions.webp" alt="The Solutions" /></div>
+			<div id="Research"><img  src="/images/projects/caseStudy/Research.webp" alt="Research" /></div>
+			<div id="Concept"><img  src="/images/projects/caseStudy/Concept.webp" alt="Concept" /></div>
+			<div id="Design"><img  src="/images/projects/caseStudy/Design.webp" alt="Design" /></div>
+			<div id="TheFinalScreens"><img  src="/images/projects/caseStudy/Final Screens.webp" alt="The Final Screens" /></div>
+			<div id="TheFinalProduct"><img  src="/images/projects/caseStudy/Final Product.webp" alt="The Final Product" /></div>
+			<div id="PawFoodFiles"><img  src="/images/projects/caseStudy/Files.webp" alt="PawFood Files" /></div>
+			<div id="TheStyleGuide"><img  src="/images/projects/caseStudy/Style Guide.webp" alt="The Style Guide" /></div>
+			<div id="Takeaways"><img  src="/images/projects/caseStudy/Takeaways.webp" alt="Takeaways" /></div>
+			<img id="SpecialThanks" src="/images/projects/caseStudy/Thanks.webp" alt="Special Thanks" />
 
 		</div>
 
