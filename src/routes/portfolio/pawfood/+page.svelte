@@ -33,14 +33,14 @@
 			viewing.
 		</p>
 
-		<!-- <iframe
+		<iframe
 			title="PawFood App Figma Prototype"
 			style="border: 1px solid rgba(0, 0, 0, 0.1);"
 			class="m-auto h-[810px] w-full max-w-[800px] rounded-3xl border-2 border-gray-900"
 			width="800"
 			height="450"
 			src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FXrgvnlKjimABXsyksoHdKs%2FPawFood%3Fpage-id%3D2%253A3929%26node-id%3D15732-62176%26viewport%3D1133%252C5420%252C0.06%26t%3DqiLw6tepIh0fZhki-1%26scaling%3Dscale-down%26starting-point-node-id%3D15732%253A61628"
-			allowfullscreen /> -->
+			allowfullscreen />
 
 		<TableOfContents
 			contents={[
