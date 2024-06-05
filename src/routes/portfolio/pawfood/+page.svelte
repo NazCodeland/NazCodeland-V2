@@ -14,7 +14,7 @@
 		class="w-full"
 		loading="lazy"
 		id="mainContent"
-		src="/images/PawFoodHeroImage.webp"
+		src="/images/pawFoodHeroImage.webp"
 		alt="" />
 
 	<article class="relative m-auto flex max-w-[1000px] flex-col gap-4 p-4">
