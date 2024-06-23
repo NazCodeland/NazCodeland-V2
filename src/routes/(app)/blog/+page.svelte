@@ -15,7 +15,7 @@
 		'Vue.js Tutorial'
 	];
 
-	let search: any = '';
+	let search = '';
 	let results: ArrayLike<unknown>; // how can I give it the type of object returned by fuse.search()
 
 	const options = { threshold: 0.4 };
@@ -81,12 +81,12 @@
 			</div>
 			<nav>
 				<ul class="flex flex-col gap-2 text-[1.25rem] leading-6">
-					{#each data.posts as post}
+					{#each data.blogPosts as blogPost}
 						<li>
 							<a
-								href="/blog/{post.path.replaceAll(' ', '-')}"
+								href="/blog/{blogPost.path.replaceAll(' ', '-')}"
 								class="underline decoration-primaryColor opacity-70 hover:opacity-1">
-								{post.metadata.title}
+								{blogPost.title}
 							</a>
 						</li>
 					{/each}
@@ -114,21 +114,21 @@
 				<summary class="titleLayout mb-20">Blog Posts</summary>
 				<div class="list-decimal">
 					{#each data.posts as post}
-						<a href="/" title={post.metadata.title} />
+						<a href="/" title={post.title} />
 					{/each}
 				</div>
 			</details> -->
 			<!-- blog posts -->
 			<!-- sm:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] -->
 			<ul class="grid gap-48-64">
-				{#each data.posts as post}
+				{#each data.blogPosts as blogPost}
 					<li class="flex">
 						<BlogPost
-							href={post.path.replaceAll(' ', '-')}
-							title={post.metadata.title}
-							published={post.metadata.published}
-							description={post.metadata.description}
-							tags={post.metadata.tags} />
+							href={blogPost.path.replaceAll(' ', '-')}
+							title={blogPost.title}
+							published={blogPost.published}
+							description={blogPost.description}
+							tags={blogPost.tags} />
 					</li>
 				{/each}
 			</ul>

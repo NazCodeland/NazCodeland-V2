@@ -31,7 +31,7 @@ export async function load({ params }) {
 			updated,
 			tags
 		};
-	} catch (error: any) {
+	} catch (error) {
 		console.log(`Error occured:\n`, error);
 	}
 }

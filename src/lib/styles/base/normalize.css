@@ -63,4 +63,8 @@
 	button:focus-visible {
 		outline-style: dashed;
 	}
+
+	img {
+		display: inline-block;
+	}
 }

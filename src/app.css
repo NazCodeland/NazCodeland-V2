@@ -1,14 +1,13 @@
-@import './lib/styles/index.css';
+@import '$lib/styles/index.css';
 
-@font-face {
+/* @font-face {
 	font-family: 'Alkes';
 	src: url('./lib/styles/fonts/Alkes-Regular.woff') format('woff'),
 		url('./lib/styles/fonts/Alkes-Regular.woff') format('woff');
-}
+} */
 
 /* TODO move these styles somewhere else */
 html {
-	font-family: IBM Plex Mono;
 	scroll-behavior: smooth;
 }
 
@@ -55,4 +54,9 @@ code .line::before {
 	text-align: end;
 	font-variant-numeric: tabular-nums;
 	color: rgb(255, 255, 255);
+}
+
+.project-grid {
+	display: grid;
+	grid-template-columns: [full-start] 1fr [breakout-start] 1fr [article-start] 924px [article-end] 1fr [breakout-end] 1fr [full-end];
 }

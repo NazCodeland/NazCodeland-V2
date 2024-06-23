@@ -14,7 +14,7 @@
 			: ''} mail grid h-8 w-8 place-items-center rounded-lg bg-primaryColor/38 outline outline-transparent
 		transition-all duration-500 hover:scale-[2] hover:duration-150 [&:not(:hover)]:group-hover/contact:scale-50">
 		<a href="mailto:nazcodeland@gmail.com" rel="noopener" target="_blank">
-			<img src={email} alt="email icon" loading="lazy" />
+			<img class="block" src={email} alt="email icon" loading="lazy" />
 		</a>
 	</li>
 	<li
@@ -23,14 +23,14 @@
 			: ''} discord grid h-8 w-8 place-items-center rounded-lg bg-primaryColor/38 outline outline-transparent
 		transition-all duration-500 hover:scale-[2] hover:duration-150 [&:not(:hover)]:group-hover/contact:scale-50">
 		<a href="https://discordapp.com/users/804118317299400734" target="_blank">
-			<img src={discord} alt="discord icon" loading="lazy" />
+			<img class="block" src={discord} alt="discord icon" loading="lazy" />
 		</a>
 	</li>
 	<li
 		class="{$contactLinksStore
 			? 'contactLinksAnimation [--animationDelay:600ms]'
-			: ''} grid h-8 w-8 place-items-center rounded-lg bg-primaryColor/38 outline outline-transparent transition-all duration-500
-		hover:scale-[2] hover:duration-150 [&:not(:hover)]:group-hover/contact:scale-50">
+			: ''} grid h-8 w-8 place-items-center rounded-lg bg-primaryColor/38 outline outline-transparent
+			transition-all duration-500 hover:scale-[2] hover:duration-150 [&:not(:hover)]:group-hover/contact:scale-50">
 		<a href="https://github.com/NazCodeland?tab=repositories" target="_blank">
 			<img src={github} alt="github icon" loading="lazy" />
 		</a>

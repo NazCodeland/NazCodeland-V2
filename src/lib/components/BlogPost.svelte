@@ -1,10 +1,10 @@
 <script lang="ts">
-	export let src: string = 'https://picsum.photos/800/200';
+	export let src = 'https://picsum.photos/800/200';
 	export let href: string;
 	export let title: string;
 	export let description: string;
 	export let published: string;
-	export let updated: string = '';
+	export let updated = '';
 	export let tags: string[];
 </script>
 
@@ -28,7 +28,7 @@
 
 	<div class="mt-auto flex gap-1">
 		{#each tags as tag}
-			<a class="tag" href="/">{tag.toUpperCase()}</a>
+			<a class="tag rounded-sm" href="/">{tag.toUpperCase()}</a>
 		{/each}
 	</div>
 </article>

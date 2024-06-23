@@ -7,7 +7,7 @@
 	import loadThemeBasedIcon from '$lib/actions/loadThemeBasedIconAction';
 
 	export let position: string;
-	export let paddingInlineStart: string = '10px';
+	export let paddingInlineStart = '10px';
 	export let paddingInlineEnd: string;
 	export let inlineSize: string;
 </script>
@@ -40,7 +40,7 @@
 			on:click={toggleNav}	
 			type="button" tabindex="0" 
 			class="md:hidden rounded-sm p-0.5" aria-label="menu">
-			<img src={hamburger} use:loadThemeBasedIcon={'hamburger'} alt="menu" loading="lazy">
+			<img class="block"  src={hamburger} use:loadThemeBasedIcon={'hamburger'} alt="menu" loading="lazy">
 		</button>
 
 		<Nav />

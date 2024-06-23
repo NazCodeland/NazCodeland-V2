@@ -4,7 +4,7 @@
 
 	export let contents: string[] = [];
 
-	let open: Boolean = false;
+	let open = false;
 	function showTableOfContents() {
 		open = !open;
 	}

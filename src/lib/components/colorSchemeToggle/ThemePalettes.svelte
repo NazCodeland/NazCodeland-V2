@@ -20,7 +20,7 @@
 <!-- TODO: form elements must have labels, check devTools for the a11y suggestion -->
 <form
 	action=""
-	class="forcedClrAdjust absolute top-2 left-2 -z-10 {$colorSchemeStore ? 'showPalettes' : ''}">
+	class="forcedClrAdjust absolute left-2 top-2 -z-10 {$colorSchemeStore ? 'showPalettes' : ''}">
 	{#each Object.keys(ThemePaletteEnum) as palette}
 		<label for={palette}>
 			<input
@@ -93,7 +93,7 @@
 		}
 
 		.showPalettes .main {
-			@apply left-0.5 -top-[35px];
+			@apply -top-[35px] left-0.5;
 		}
 		.showPalettes .desert {
 			@apply -left-[31px] -top-[18px];

@@ -1,0 +1,9 @@
+@import './github-markdown-light.css';
+@import './github-markdown-dark.css';
+
+/* revert tailwind list styles */
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body li {
+	list-style: revert;
+}

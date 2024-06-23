@@ -1,5 +1,5 @@
 <script lang="ts">
-	let logoText: string = 'NazCodeland';
+	let logoText = 'NazCodeland';
 
 	const logoTextArray = [...logoText];
 </script>

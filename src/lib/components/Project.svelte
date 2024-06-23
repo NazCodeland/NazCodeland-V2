@@ -1,23 +1,23 @@
 <script lang="ts">
 	export let imageName: string;
 	export let fileType: string;
-	export let buttonDisabled: boolean = false;
+	export let buttonDisabled = false;
 	export let project: string;
 	export let roles: string;
 	export let timeline: string;
 	export let shortDescription: string;
-	export let inlineSize: number = 270;
-	export let blockSize: number = 500;
-	export let objectFit: string = 'cover';
-	export let objectPosition: string = 'top center';
-	export let parentInlineSize: number = 0;
-	export let after: boolean = false;
+	export let inlineSize = 270;
+	export let blockSize = 500;
+	export let objectFit = 'cover';
+	export let objectPosition = 'top center';
+	export let parentInlineSize = 0;
+	export let after = false;
 
-	let showDesktop: boolean = false;
+	let showDesktop = false;
 	let desktopInlineSize: boolean;
 
-	function scrollIntoView({ target }) {
-		const figureParent = target.parentNode;
+	function scrollIntoView({ target }: { target: HTMLElement }) {
+		const figureParent = target.parentNode as Element;
 		figureParent.scrollIntoView({ behavior: 'smooth', block: 'start' });
 	}
 
@@ -25,7 +25,9 @@
 	async function handleClick(event: MouseEvent) {
 		showDesktop = !showDesktop;
 		await trackYAxisRotation(element);
-		scrollIntoView(event);
+		if (event.target instanceof HTMLElement) {
+			scrollIntoView({ target: event.target });
+		}
 	}
 
 	function trackYAxisRotation(element: HTMLElement) {
@@ -58,6 +60,7 @@
 		? 'flex-grow basis-[650px]'
 		: 'min-w-[280px]'} justify-center">
 	<!-- 988 parent container size = viewport of 1100 -->
+
 	{#if parentInlineSize >= 988}
 		{#if !after}
 			<div class="w-fit max-w-[50ch] flex-grow basis-80">
@@ -94,33 +97,38 @@
 							? '[--rotateY:-180deg]'
 							: '[--rotateY:180deg]'
 						: '[--rotateY:180deg]'
-					: ''} 
-							three-d-item-one h-full w-full transition-all duration-1400">
+					: ''} three-d-item-one h-full w-full transition-all duration-1400">
 				<a href="/portfolio/{project.toLocaleLowerCase()}" class="rounded-lg" target="_blank">
 					<img
 						loading="lazy"
 						style="object-fit:{objectFit}; object-position:{objectPosition};"
 						class="min-h-full w-full transition-all [padding-inline-end:0px]"
-						src={`/images/projects/${imageName}.${fileType}`}
+						src={`/images/projects/${project.toLocaleLowerCase()}/${imageName}.${fileType}`}
 						alt="a cute dog" />
 				</a>
+
 				<a href="/portfolio/{project.toLocaleLowerCase()}" class="rounded-lg" target="_blank">
-					<img
-						loading="lazy"
-						style="object-fit:{objectFit}; object-position:{objectPosition};"
-						class="min-h-full w-full transition-all [padding-inline-end:0px]"
-						src={`/images/projects/${imageName.replace('Mobile', '')}.webp`}
-						alt="a cute dog" />
+					{#if imageName !== 'pawFoodMobile'}
+						<img
+							loading="lazy"
+							style="object-fit:{objectFit}; object-position:{objectPosition};"
+							class="min-h-full w-full transition-all [padding-inline-end:0px]"
+							src={`/images/projects/${project.toLocaleLowerCase()}/${imageName.replace(
+								'Mobile',
+								''
+							)}.webp`}
+							alt="a cute dog" />
+					{/if}
 				</a>
+
 				{#if parentInlineSize < 988}
 					<span
 						class="{desktopInlineSize ? 'right-0' : 'left-0'} 
 								{showDesktop
-							? 'me-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)] ms-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)]'
+							? ' me-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)] ms-[clamp(1.25rem, calc(-0.13rem + 6.90vw),2.50rem)]'
 							: ''} project-info pointer-events-none absolute -top-2 ml-[18px] mr-10 rounded-md bg-secondaryColor
 								px-2 py-0.5 text-sm text-bodyCopy outline outline-1 outline-current">
-						Project:
-						{project}
+						Project: {project}
 					</span>
 				{/if}
 				<!-- TODO: implement custom scrollbar -->
@@ -131,34 +139,23 @@
 				<figcaption
 					class="{showDesktop
 						? `me-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] ms-[clamp(1.25rem,calc(-0.13rem+6.90vw),2.50rem)] 
-							[--translateZ:-60px] [--rotateY:180deg]`
-						: 'me-4 ms-4'} 
-						
-
-					three-d-item-two text-sm transition-[transform,margin] duration-1400">
+							[--rotateY:180deg] [--translateZ:-60px]`
+						: 'me-4 ms-4'} three-d-item-two text-sm transition-[transform,margin] duration-1400">
 					<span
 						class="{desktopInlineSize
 							? 'right-0'
 							: 'left-0'} project-info pointer-events-none absolute
 							bottom-[80px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
 							outline-current">
-						Roles:
-						{roles}
+						Roles: {roles}
 					</span>
-					<span
-						class="{desktopInlineSize
-							? 'right-0'
-							: 'left-0'} project-info pointer-events-none absolute bottom-[52px]
-							rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline outline-1
-							outline-current" />
 					<span
 						class="{desktopInlineSize
 							? 'right-0'
 							: 'left-0'} project-info pointer-events-none absolute
 							bottom-[24px] rounded-md bg-secondaryColor px-2 py-0.5 text-bodyCopy outline
 							outline-1 outline-current">
-						Duration:
-						{timeline}
+						Duration: {timeline}
 					</span>
 				</figcaption>
 			{/if}

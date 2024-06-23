@@ -20,9 +20,9 @@
 			project="PawFood"
 			imageName="pawFoodMobile"
 			fileType="gif"
-			buttonDisabled={true}
 			roles="UX/UI Designer"
 			timeline="March - July 2023 + June of 2024"
+			buttonDisabled={true}
 			shortDescription="
 			PawFood is a design concept for a mobile app I created during the Google UX Design Course. 
 			The course taught me a tremendous amount about the UX/UI design process, including the 

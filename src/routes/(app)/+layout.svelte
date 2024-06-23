@@ -1,5 +1,4 @@
 <script lang="ts">
-	import '$src/app.css';
 	import SiteWrapper from '$lib/components/SiteWrapper.svelte';
 	import Site from '$lib/components/Site.svelte';
 	import Header from '$lib/components/Header.svelte';

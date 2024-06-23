@@ -1,7 +1,7 @@
-<script context="module">
+<script>
+	export let content;
 </script>
 
-<slot />
-
-<style>
-</style>
+<article class="">
+	<svelte:component this={content} />
+</article>

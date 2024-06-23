@@ -5,21 +5,23 @@
 	export let title: string;
 
 	let blockSize: number;
-	let open: Boolean = false;
+	let open = false;
 
 	function expandCard() {
 		open = !open;
 	}
-	function scrollIntoView({ target }) {
+	function scrollIntoView({ target }: { target: HTMLElement }) {
 		if (open) return;
 
 		let selectedArticle = target.closest('article');
-		selectedArticle.scrollIntoView({ behavior: 'smooth' });
+		if (selectedArticle) selectedArticle.scrollIntoView({ behavior: 'smooth' });
 	}
 
-	function handleClick(event) {
+	function handleClick(event: MouseEvent) {
 		expandCard();
-		scrollIntoView(event);
+		if (event.target instanceof HTMLElement) {
+			scrollIntoView({ target: event.target });
+		}
 	}
 </script>
 
@@ -60,7 +62,7 @@
 			use:loadThemeBasedIcon={'arrowDown'}
 			class="{open
 				? 'bottom-4 rotate-180 animate-rotate'
-				: 'animate-bounce'}  absolute left-[50cqw] bottom-0" />
+				: 'animate-bounce'}  absolute bottom-0 left-[50cqw]" />
 	</button>
 </article>
 

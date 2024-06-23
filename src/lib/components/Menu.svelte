@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { menuStore } from '$lib/stores/menuStore';
 	import { showContactLinks } from '$lib/stores/contactLinksStore';
-	export let bgColor: string = 'bg-secondaryColor';
+	export let bgColor = 'bg-secondaryColor';
 </script>
 
 <nav
