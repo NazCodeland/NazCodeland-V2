@@ -6,20 +6,13 @@
 	<title>{title}</title>
 </svelte:head>
 
-<div />
-
-<main class="markdown-body project-grid">
-	<article class="m-auto outline">
-		<h1>{title}</h1>
+<main class="markdown-body">
+	<article>
 		<slot />
 	</article>
 </main>
 
 <style>
-	article {
-		grid-column: breakout;
-	}
-
 	article > :not(section) {
 		padding-inline: 12rem;
 	}

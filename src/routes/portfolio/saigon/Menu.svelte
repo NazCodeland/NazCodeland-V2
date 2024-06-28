@@ -127,13 +127,17 @@
 	<div class="flex flex-wrap items-center justify-center gap-2">
 		<button
 			type="button"
-			class="w-32 select-none rounded border py-2 {showDrinks ? '' : ' border-theme-primary '}"
+			class="w-32 select-none rounded border py-2 {showDrinks
+				? ''
+				: ' border-theme-primary '}"
 			on:click={() => (showDrinks = false)}>
 			FOOD
 		</button>
 		<button
 			type="button"
-			class="w-32 select-none rounded border py-2 {showDrinks ? ' border-theme-primary' : ''}"
+			class="w-32 select-none rounded border py-2 {showDrinks
+				? ' border-theme-primary'
+				: ''}"
 			on:click={() => (showDrinks = true)}>
 			DRINKS
 		</button>
@@ -209,7 +213,8 @@
 										{#if variant.name}
 											<p>
 												- {variant.name}
-												{#if variant.price}<strong>${variant.price}</strong>{/if}
+												{#if variant.price}<strong>${variant.price}</strong
+													>{/if}
 											</p>
 										{/if}
 									{/each}
@@ -219,7 +224,8 @@
 									{/if}
 									<!-- addons -->
 									{#each item.addons as addon}
-										<span> {addon.name} + <strong> ${addon.price}</strong></span>
+										<span>
+											{addon.name} + <strong> ${addon.price}</strong></span>
 									{/each}
 								</li>
 							{/each}

@@ -1,25 +1,28 @@
 <script>
 	export let data;
+	console.log('data', data);
 
 	import Giscus from '@giscus/svelte';
 	import moveToTop from '$lib/icons/themeBased/moveToTop/moveToTopMain.svg';
 </script>
 
 <main class="flex flex-col gap-80-104" id="mainContent">
-	<article id="top" class="relative m-auto flex w-full flex-col gap-4 md:max-w-[70ch]">
+	<article
+		id="top"
+		class="relative m-auto flex w-full flex-col gap-4 md:max-w-[70ch]">
 		<header class="">
-			<h1 class="mb-4 text-center md:-mx-20">{data.title}</h1>
-			<p class="text-center text-fluid-2 text-slate-400 md:-mx-8">{data.description}</p>
+			<h1 class="mb-4 text-center md:-mx-20">{data.blogPost?.title}</h1>
+			<!-- <p class="text-center text-fluid-2 text-slate-400 md:-mx-8">{data.blogPost?.description}</p> -->
 			<div class="mb-20 mt-8 flex flex-col text-fluid-4">
-				<p>Published: {data.published}</p>
-				<p>Updated: {data.updated}</p>
+				<p>Created: {data.blogPost?.created}</p>
+				<p>Updated: {data.blogPost?.updated}</p>
 			</div>
 		</header>
 
 		<!-- dynamic component; it renders an arbitrary Svelte component
 				(provided as the this prop value) when the exact component isn't known beforehand.
 				since .md files are configured to be treated as Svelte components,-->
-		<svelte:component this={data.content} />"
+		<svelte:component this={data.blogPost?.content} />"
 		<a href="#mainContent">
 			<img src={moveToTop} alt="" loading="lazy" />
 		</a>
@@ -46,6 +49,3 @@
 			loading="lazy" />
 	</section>
 </main>
-
-<style>
-</style>

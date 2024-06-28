@@ -1,4 +1,4 @@
-@layer components {
+@layer element {
 	.btn {
 		/* display: inline-block; is this needed?*/
 		min-inline-size: 110px;

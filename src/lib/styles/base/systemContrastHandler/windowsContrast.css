@@ -7,7 +7,7 @@
 			to light/dark mode.
 */
 
-@layer components {
+@layer theme {
 	@media (forced-colors: active) {
 		.btn {
 			forced-color-adjust: none;

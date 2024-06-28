@@ -1,6 +1,6 @@
 @import './themesBase.css';
 
-@layer base {
+@layer theme {
 	[color-scheme='light'][data-themePalette='nightSky'] {
 		--primary: 118, 80, 155;
 		--secondary: 188, 227, 250;

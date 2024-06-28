@@ -11,10 +11,13 @@
 		<h1 class="text-5xl">Selected Projects</h1>
 
 		<small>
-			These are some of the projects that I have researched, designed, and/or developed.
+			These are some of the projects that I have researched, designed, and/or
+			developed.
 		</small>
 	</header>
-	<div class="flex flex-wrap justify-evenly gap-x-[74px] gap-y-[10rem]" id="mainContent">
+	<div
+		class="flex flex-wrap justify-evenly gap-x-[74px] gap-y-[10rem]"
+		id="mainContent">
 		<Project
 			{parentInlineSize}
 			project="PawFood"

@@ -47,7 +47,9 @@
 		const computedStyle = window.getComputedStyle(element);
 		const transformValue = computedStyle.getPropertyValue('transform');
 		const matrixValues = transformValue.split('(')[1].split(')')[0].split(',');
-		const rotateY = Math.abs(Math.round(Math.asin(parseFloat(matrixValues[8])) * (180 / Math.PI)));
+		const rotateY = Math.abs(
+			Math.round(Math.asin(parseFloat(matrixValues[8])) * (180 / Math.PI))
+		);
 		return rotateY;
 	}
 </script>
@@ -98,7 +100,10 @@
 							: '[--rotateY:180deg]'
 						: '[--rotateY:180deg]'
 					: ''} three-d-item-one h-full w-full transition-all duration-1400">
-				<a href="/portfolio/{project.toLocaleLowerCase()}" class="rounded-lg" target="_blank">
+				<a
+					href="/portfolio/{project.toLocaleLowerCase()}"
+					class="rounded-lg"
+					target="_blank">
 					<img
 						loading="lazy"
 						style="object-fit:{objectFit}; object-position:{objectPosition};"
@@ -107,7 +112,10 @@
 						alt="a cute dog" />
 				</a>
 
-				<a href="/portfolio/{project.toLocaleLowerCase()}" class="rounded-lg" target="_blank">
+				<a
+					href="/portfolio/{project.toLocaleLowerCase()}"
+					class="rounded-lg"
+					target="_blank">
 					{#if imageName !== 'pawFoodMobile'}
 						<img
 							loading="lazy"

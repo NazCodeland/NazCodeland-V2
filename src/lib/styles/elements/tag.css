@@ -1,6 +1,10 @@
-.tag {
-	font-size: 12.8px;
-	color: theme(colors.secondaryColor);
-	background-color: theme(colors.primaryColor);
-	padding-inline: 1em;
+@layer element {
+	.tag {
+		font-size: 12.8px;
+		color: theme(colors.secondaryColor);
+		font-weight: bold;
+		background-color: theme(colors.primaryColor);
+		padding-inline: 1em;
+		display: block;
+	}
 }

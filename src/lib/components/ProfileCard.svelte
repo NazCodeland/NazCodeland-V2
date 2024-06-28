@@ -1,5 +1,5 @@
 <script>
-	import Link from '$lib/elements/InlineLink.svelte';
+	import Link from '$src/lib/elements/Link.svelte';
 	import ContactLinks from '$lib/components/ContactLinks.svelte';
 </script>
 
@@ -14,12 +14,14 @@
 		loading="lazy" />
 
 	<div class="relative flex flex-grow flex-col gap-y-4 sm:w-[40ch]">
-		<h2 class="forcedClrAdjust leading-5 selection:bg-green-700 tablet:leading-6 sm:leading-7">
+		<h2
+			class="forcedClrAdjust leading-5 selection:bg-green-700 tablet:leading-6 sm:leading-7">
 			Nazar K. I.
 			<br />
 			<!-- using 'display: block' on the below small elements class, 
             causes an undesirable pause in the NVDA screen reader. '<br> does not.'-->
-			<small class="text-fluid-4 font-normal opacity-70">Front-end Developer</small>
+			<small class="text-fluid-4 font-normal opacity-70"
+				>Front-end Developer</small>
 		</h2>
 
 		<div class="absolute right-0 se:top-[5%] tablet:top-[6%]">
@@ -27,11 +29,12 @@
 		</div>
 
 		<p class="max-w-[60ch]">
-			Hey👋 <br />Welcome to my personal corner of the web. I've created this website with the aim
-			of presenting my skill set to potential employers, which is showcased through my
-			<Link href="/portfolio" title="Portfolio" />. It also serves as a place for me to share my
-			ongoing learning through my
-			<Link href="/blog" title="Blog" />
+			Hey👋 <br />Welcome to my personal corner of the web. I've created this
+			website with the aim of presenting my skill set to potential employers,
+			which is showcased through my
+			<Link href="/portfolio" linkText="Portfolio" />. It also serves as a place
+			for me to share my ongoing learning through my
+			<Link href="/blog" linkText="Blog" />
 		</p>
 
 		<footer class="mt-2">
@@ -42,8 +45,9 @@
 						href="/#portfolio">View Portfolio</a>
 				</li>
 				<li>
-					<a class="btn btn-outlined-primary block flex-grow tablet:flex-grow-0" href="/resume"
-						>View Resume</a>
+					<a
+						class="btn btn-outlined-primary block flex-grow tablet:flex-grow-0"
+						href="/resume">View Resume</a>
 				</li>
 			</ul>
 		</footer>

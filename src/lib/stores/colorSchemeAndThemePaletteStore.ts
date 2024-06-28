@@ -18,8 +18,12 @@ export enum ThemePaletteEnum {
 }
 
 // subscriptions always run with the initial value
-export const colorSchemeStore: Writable<ColorSchemeEnum> = writable(ColorSchemeEnum.light);
-export const themePaletteStore: Writable<ThemePaletteEnum> = writable(ThemePaletteEnum.main);
+export const colorSchemeStore: Writable<ColorSchemeEnum> = writable(
+	ColorSchemeEnum.light
+);
+export const themePaletteStore: Writable<ThemePaletteEnum> = writable(
+	ThemePaletteEnum.main
+);
 
 function getColorSchemeList() {
 	return Object.keys(ColorSchemeEnum);
@@ -46,7 +50,9 @@ export function trySetThemePalette(value: unknown) {
 
 export function toggleColorScheme() {
 	colorSchemeStore.update((colorScheme: ColorSchemeEnum) => {
-		return colorScheme === ColorSchemeEnum.light ? ColorSchemeEnum.dark : ColorSchemeEnum.light;
+		return colorScheme === ColorSchemeEnum.light
+			? ColorSchemeEnum.dark
+			: ColorSchemeEnum.light;
 	});
 }
 
@@ -61,7 +67,9 @@ export function getBrowserPreferredColorScheme(): ColorSchemeEnum {
 
 function initializeColorScheme() {
 	if (browser) {
-		if (!trySetColorScheme(window.localStorage.getItem('NazCodeland.colorScheme'))) {
+		if (
+			!trySetColorScheme(window.localStorage.getItem('NazCodeland.colorScheme'))
+		) {
 			colorSchemeStore.set(getBrowserPreferredColorScheme());
 		}
 	}
@@ -69,7 +77,9 @@ function initializeColorScheme() {
 
 function initializeThemePalette() {
 	if (browser) {
-		trySetThemePalette(window.localStorage.getItem('NazCodeland.data-themePalette'));
+		trySetThemePalette(
+			window.localStorage.getItem('NazCodeland.data-themePalette')
+		);
 	}
 }
 

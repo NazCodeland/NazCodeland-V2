@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 import plugin from 'tailwindcss/plugin';
 
-export const content = ['./src/**/*.{html,js,svelte,ts,svg}'];
+export const content = ['./src/**/*.{html,js,svelte,ts,svg,md,svx}'];
 export const darkMode = ['class', '[color-scheme="dark"]'];
 export const corePlugins = {
 	// grid: false,

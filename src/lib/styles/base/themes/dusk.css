@@ -1,6 +1,6 @@
 @import './themesBase.css';
 
-@layer base {
+@layer theme {
 	[color-scheme='light'][data-themePalette='dusk'] {
 		--primary: 0, 92, 99;
 		--secondary: 215, 222, 221;

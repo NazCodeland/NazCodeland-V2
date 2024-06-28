@@ -49,7 +49,9 @@
 	</header>
 
 	<div class="mb-9 overflow-hidden">
-		<div class="mb-[50px] contrast-more:!text-[canvasText]" bind:offsetHeight={blockSize}>
+		<div
+			class="mb-[50px] contrast-more:!text-[canvasText]"
+			bind:offsetHeight={blockSize}>
 			<slot />
 		</div>
 	</div>

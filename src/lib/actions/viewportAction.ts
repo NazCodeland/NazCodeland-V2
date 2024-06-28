@@ -12,7 +12,9 @@ let intersectionObserver: IntersectionObserver;
 export default function viewport(element: HTMLElement) {
 	function handleObserver(entries: IntersectionEntryType[]) {
 		entries.forEach((entry) => {
-			const eventName = entry.isIntersecting ? 'enteringViewport' : 'exitingViewport';
+			const eventName = entry.isIntersecting
+				? 'enteringViewport'
+				: 'exitingViewport';
 			entry.target.dispatchEvent(new CustomEvent(eventName));
 		});
 	}

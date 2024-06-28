@@ -39,14 +39,16 @@
 
 <style lang="postcss">
 	/* prettier-ignore */
-
 	.contactLinksAnimation {
 		outline-color: theme(colors.primaryColor);
-		/* duration | easing-function | delay |
-iteration-count | direction | fill-mode | play-state | name */
+		/* 
+			name | duration | easing-function | delay | 
+			iteration-count | direction | fill-mode | play-state 
+		*/
 		animation: 
 		contactLinksScale 200ms linear var(--animationDelay) 2 alternate,
-		contactLinksBlink 200ms linear 1s 2 alternate;}
+		contactLinksBlink 200ms linear 1s 2 alternate;
+	}
 
 	@keyframes contactLinksBlink {
 		0% {

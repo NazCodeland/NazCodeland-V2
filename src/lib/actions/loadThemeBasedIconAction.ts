@@ -1,9 +1,15 @@
-import { colorSchemeStore, themePaletteStore } from '$lib/stores/colorSchemeAndThemePaletteStore';
+import {
+	colorSchemeStore,
+	themePaletteStore
+} from '$lib/stores/colorSchemeAndThemePaletteStore';
 
 let colorScheme: string;
 let themePalette: string;
 
-export default function loadThemeBasedIcon(element: HTMLElement, param: string) {
+export default function loadThemeBasedIcon(
+	element: HTMLElement,
+	param: string
+) {
 	const iconName = param;
 	colorSchemeStore.subscribe((value) => {
 		colorScheme = value[0].toUpperCase() + value.slice(1);

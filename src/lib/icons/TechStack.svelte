@@ -14,7 +14,9 @@
 			viewBox="0 0 500 700">
 			<title>Circular Text Path</title>
 			<defs>
-				<path id="textcircle" d="M225,140 a0,0 0 0, 0 0, 0 a190,150 0 0,1 0,570Z" />
+				<path
+					id="textcircle"
+					d="M225,140 a0,0 0 0, 0 0, 0 a190,150 0 0,1 0,570Z" />
 			</defs>
 			<g class="">
 				<text>

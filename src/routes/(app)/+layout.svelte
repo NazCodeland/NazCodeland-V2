@@ -8,7 +8,11 @@
 <SiteWrapper>
 	<Site>
 		<slot name="header">
-			<Header inlineSize="1430" position="sticky" paddingInlineStart="10px" paddingInlineEnd="0" />
+			<Header
+				inlineSize="1430"
+				position="sticky"
+				paddingInlineStart="10px"
+				paddingInlineEnd="0" />
 		</slot>
 
 		<slot />

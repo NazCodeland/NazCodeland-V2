@@ -5,19 +5,22 @@
 </script>
 
 <nav
-	class="absolute inset-x-menuInline top-menuBlock -z-20 mx-4 mt-2 border-b
-	border-solid border-primaryColor md:relative md:inset-x-0 md:top-0 md:z-0 md:mt-0
-	md:border-none {bgColor} px-4 pb-2 pt-10 text-primaryColor
+	class="absolute inset-x-menuInline top-menuBlock -z-20 mx-4 mt-2 outline
+	outline-secondaryColor md:relative md:inset-x-0 md:top-0 md:z-0 md:mt-0
+	{bgColor} px-4 pb-2 pt-10 text-primaryColor
 	group-data-[themePalette=main]:text-bodyCopy md:p-0">
 	<ul
-		class="flex flex-wrap justify-center gap-16-32
+		class="flex justify-center gap-16-32
 		{$navStore ? 'inline-block' : 'hidden'} md:flex">
 		<li><a class="navLink" href="/">Home</a></li>
-		<li><a class="navLink" href="/#aboutMe">About Me</a></li>
+		<li class="whitespace-nowrap">
+			<a class="navLink" href="/#aboutMe">About Me</a>
+		</li>
 		<li><a class="navLink" href="/portfolio">Portfolio</a></li>
 		<li><a class="navLink" href="/resume">Resume</a></li>
 		<li>
-			<a on:click={showContactLinks} class="navLink" href="/#contact">Contact</a>
+			<a on:click={showContactLinks} class="navLink" href="/#contact">
+				Contact</a>
 		</li>
 		<li><a class="navLink" href="/blog">Blog</a></li>
 	</ul>

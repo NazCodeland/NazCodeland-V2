@@ -17,7 +17,8 @@
 		<li><a class="navLink" href="/portfolio">Portfolio</a></li>
 		<li><a class="navLink" href="/resume">Resume</a></li>
 		<li>
-			<a on:click={showContactLinks} class="navLink" href="/#contact">Contact</a>
+			<a on:click={showContactLinks} class="navLink" href="/#contact"
+				>Contact</a>
 		</li>
 		<li><a class="navLink" href="/blog">Blog</a></li>
 	</ul>

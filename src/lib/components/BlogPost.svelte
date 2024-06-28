@@ -3,7 +3,7 @@
 	export let href: string;
 	export let title: string;
 	export let description: string;
-	export let published: string;
+	export let created: string;
 	export let updated = '';
 	export let tags: string[];
 </script>
@@ -13,24 +13,26 @@
 
 	<div class="">
 		<h2>
-			<a class="decoration-primaryColor hover:underline" href="/blog/{href}">
+			<a class="decoration-primaryColor hover:underline" {href}>
 				{title}
 			</a>
 		</h2>
 
 		<div class="text-fluid-4 opacity-70">
-			<span>{published}</span>
+			<span>{created}</span>
 			<span>{updated}</span>
 		</div>
 	</div>
 
 	<p class="mb-1">{description}</p>
 
-	<div class="mt-auto flex gap-1">
+	<ul class="mt-auto flex gap-1">
 		{#each tags as tag}
-			<a class="tag rounded-sm" href="/">{tag.toUpperCase()}</a>
+			<li>
+				<a class="tag rounded-sm" href="/">{tag.toUpperCase()}</a>
+			</li>
 		{/each}
-	</div>
+	</ul>
 </article>
 
 <style>

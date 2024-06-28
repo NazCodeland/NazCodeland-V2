@@ -5,7 +5,9 @@
 </script>
 
 <!-- TODO: this should not be an H1 -->
-<span class="mb-0 flex-shrink-0 items-center rounded-sm text-center" aria-labelledby="logo">
+<span
+	class="mb-0 flex-shrink-0 items-center rounded-sm text-center"
+	aria-labelledby="logo">
 	{#each logoTextArray as letter}
 		{#if letter === 'N'}
 			<a

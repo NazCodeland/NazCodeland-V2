@@ -25,12 +25,12 @@
 				class="text-[#0056B3] underline"
 				href="https://www.figma.com/design/XrgvnlKjimABXsyksoHdKs/PawFood?node-id=2-3929&t=WxV6mdZVqdj0oTWE-1">
 				PawFood files
-			</a> directly in Figma. However, I have embedded the prototype right here for you to interact with
-			- it should load any second.
+			</a> directly in Figma. However, I have embedded the prototype right here for
+			you to interact with - it should load any second.
 		</p>
 		<p class="m-auto max-w-[800px] pb-20 text-lg">
-			Just below the prototype, I've also included an image of The PawFood Case Study for quick
-			viewing.
+			Just below the prototype, I've also included an image of The PawFood Case
+			Study for quick viewing.
 		</p>
 
 		<iframe

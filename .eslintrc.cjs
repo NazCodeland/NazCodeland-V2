@@ -11,7 +11,7 @@ module.exports = {
 		'@typescript-eslint/no-namespace': 'off'
 	},
 	parser: '@typescript-eslint/parser',
-	plugins: ['@typescript-eslint'],
+	plugins: ['@typescript-eslint', 'markdown'],
 	parserOptions: {
 		sourceType: 'module',
 		ecmaVersion: 2020,
@@ -29,6 +29,10 @@ module.exports = {
 			parserOptions: {
 				parser: '@typescript-eslint/parser'
 			}
+		},
+		{
+			files: ['**/*.md'],
+			processor: 'markdown/markdown'
 		}
 	]
 };
