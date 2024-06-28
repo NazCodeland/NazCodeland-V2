@@ -1,4 +1,5 @@
 @layer markdown {
+	/* ======================================= light-theme */
 	[color-scheme='light'] .markdown-body {
 		-ms-text-size-adjust: 100%;
 		-webkit-text-size-adjust: 100%;
@@ -1129,6 +1130,7 @@
 		color: #d1242f;
 	}
 
+	/* ======================================= dark-theme */
 	[color-scheme='dark'] .markdown-body {
 		color-scheme: dark;
 		-ms-text-size-adjust: 100%;
