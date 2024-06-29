@@ -2,7 +2,7 @@
 	import ColorSchemeToggle from '$lib/components/ColorSchemeToggle.svelte';
 	import Logo from '$lib/components/Logo.svelte';
 	import Nav from '$src/lib/components/Nav.svelte';
-	import { toggleNav } from '$src/lib/stores/navStore';
+	import { toggleNav } from '$src/lib/stores/toggleNavStore';
 	import hamburger from '$lib/icons/themeBased/hamburger/hamburgerMain.svg';
 	import loadThemeBasedIcon from '$lib/actions/loadThemeBasedIconAction';
 

@@ -1,6 +1,5 @@
 <script>
 	export let data;
-	console.log('data', data);
 
 	import Giscus from '@giscus/svelte';
 	import moveToTop from '$lib/icons/themeBased/moveToTop/moveToTopMain.svg';
@@ -8,11 +7,11 @@
 
 <main class="" id="mainContent">
 	<article class="markdown-body me-auto ms-auto w-full max-w-[80ch]">
-		<h1 class="mb-4">{data.blogPost?.title}</h1>
+		<h1 class="mb-4 text-center">{data.blogPost?.title}</h1>
 		<!-- <p class="text-center text-fluid-2 text-slate-400 md:-mx-8">{data.blogPost?.description}</p> -->
-		<div class="flex text-fluid-5">
-			<p>Created: {data.blogPost?.created}</p>
-			<p>Updated: {data.blogPost?.updated}</p>
+		<div class="flex flex-col text-fluid-5">
+			<p class="mb-0">Created: {data.blogPost?.created}</p>
+			<p class="">Updated: {data.blogPost?.updated}</p>
 		</div>
 
 		<!-- dynamic component; it renders an arbitrary Svelte component

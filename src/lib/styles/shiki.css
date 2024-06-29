@@ -47,13 +47,47 @@ code {
 	font-size: 1rem;
 }
 
-.highlighted-lines {
-	display: inline-block;
+.highlighted.warning {
+	background-color: rgb(250, 155, 30);
+}
 
-	background-color: rgb(51, 56, 66);
+.highlighted.error {
+	background-color: rgb(255, 0, 0);
+}
+
+.has-highlighted {
+	background-color: silver !important;
+}
+
+
+
+.highlighted {
+	/* display: inline-block; */
+
+	background-color: orange !important;
 	/* inline-size: calc(var(--max-width-full) + var(--spacing-4)); */
-	border-inline-start: theme(spacing.1) solid rgb(250, 155, 30);
-	margin-inline-start: theme(spacing.1);
+	/* border-inline-start: theme(spacing.1) solid rgb(250, 155, 30); */
+	/* margin-inline-start: theme(spacing.1); */
+}
+
+.focused {
+	background-color: orange
+}
+
+.has-focused {
+	background-color: darkblue !important;
+}
+
+.highlighted-word {
+	background-color: orange !important;
+}
+
+.diff.add {
+	background-color: lightgreen;
+}
+
+.diff.remove {
+	background-color: lightcoral;
 }
 
 code .line::before {

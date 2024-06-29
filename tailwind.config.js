@@ -122,7 +122,7 @@ export const theme = {
 			se: '320px',
 			tablet: '600px',
 			sm: '820px',
-			md: '1044px'
+			md: '1072px'
 		},
 		animation: {
 			rotate: 'rotate 1s linear 1'

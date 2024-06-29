@@ -1,9 +1,9 @@
 import { type Writable, writable } from 'svelte/store';
 
-export const navStore: Writable<boolean> = writable(false);
+export const toggleNavStore: Writable<boolean> = writable(false);
 
 export function toggleNav() {
-	navStore.update((value) => {
+	toggleNavStore.update((value) => {
 		return (value = !value);
 	});
 }
