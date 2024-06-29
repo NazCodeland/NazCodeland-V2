@@ -6,18 +6,14 @@
 	import moveToTop from '$lib/icons/themeBased/moveToTop/moveToTopMain.svg';
 </script>
 
-<main class="flex flex-col gap-80-104" id="mainContent">
-	<article
-		id="top"
-		class="relative m-auto flex w-full flex-col gap-4 md:max-w-[70ch]">
-		<header class="">
-			<h1 class="mb-4 text-center md:-mx-20">{data.blogPost?.title}</h1>
-			<!-- <p class="text-center text-fluid-2 text-slate-400 md:-mx-8">{data.blogPost?.description}</p> -->
-			<div class="mb-20 mt-8 flex flex-col text-fluid-4">
-				<p>Created: {data.blogPost?.created}</p>
-				<p>Updated: {data.blogPost?.updated}</p>
-			</div>
-		</header>
+<main class="" id="mainContent">
+	<article class="markdown-body me-auto ms-auto w-full max-w-[80ch]">
+		<h1 class="mb-4">{data.blogPost?.title}</h1>
+		<!-- <p class="text-center text-fluid-2 text-slate-400 md:-mx-8">{data.blogPost?.description}</p> -->
+		<div class="flex text-fluid-5">
+			<p>Created: {data.blogPost?.created}</p>
+			<p>Updated: {data.blogPost?.updated}</p>
+		</div>
 
 		<!-- dynamic component; it renders an arbitrary Svelte component
 				(provided as the this prop value) when the exact component isn't known beforehand.
@@ -30,7 +26,7 @@
 
 	<hr class="mx-60 h-[1px] border-none bg-primaryColor bg-gradient-to-r" />
 
-	<section class="m-auto w-full max-w-[70ch]">
+	<section class="m-auto w-full max-w-[80ch]">
 		<h2 class="mb-10">Comments</h2>
 
 		<Giscus

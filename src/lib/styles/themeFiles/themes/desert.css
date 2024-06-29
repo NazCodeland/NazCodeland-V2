@@ -1,27 +1,25 @@
 @import './themesBase.css';
 
-@layer theme {
-	[data-themePalette='desert'] {
-	}
+[data-themePalette='desert'] {
+}
 
-	[color-scheme='light'][data-themePalette='desert'] {
-		--primary: 4, 94, 129;
-		--secondary: 255, 250, 235;
-		--tertiary: var(--primary);
+[color-scheme='light'][data-themePalette='desert'] {
+	--primary: 4, 94, 129;
+	--secondary: 255, 250, 235;
+	--tertiary: var(--primary);
 
-		--shiki-color-text: rgb(var(--primary));
-		--shiki-color-background: rgb(var(--secondary));
-		/* map other Shiki tokens to your colors here */
-		/* --box-shadow-logo: desert theme uses the main theme box shadow */
-	}
+	--shiki-color-text: rgb(var(--primary));
+	--shiki-color-background: rgb(var(--secondary));
+	/* map other Shiki tokens to your colors here */
+	/* --box-shadow-logo: desert theme uses the main theme box shadow */
+}
 
-	[color-scheme='dark'][data-themePalette='desert'] {
-		--primary: 145, 184, 205;
-		--secondary: 95, 56, 31;
-		--tertiary: 255, 152, 0;
+[color-scheme='dark'][data-themePalette='desert'] {
+	--primary: 145, 184, 205;
+	--secondary: 95, 56, 31;
+	--tertiary: 255, 152, 0;
 
-		--shiki-color-text: rgb(var(--primary));
-		--shiki-color-background: rgb(var(--secondary));
-		/* map other Shiki tokens to your colors here */
-	}
+	--shiki-color-text: rgb(var(--primary));
+	--shiki-color-background: rgb(var(--secondary));
+	/* map other Shiki tokens to your colors here */
 }

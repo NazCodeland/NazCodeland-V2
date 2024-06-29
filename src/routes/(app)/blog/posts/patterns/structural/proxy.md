@@ -1,5 +1,4 @@
 ---
-layout: Blog
 title: Proxy Design Pattern
 created: June 25th, 2024
 updated:

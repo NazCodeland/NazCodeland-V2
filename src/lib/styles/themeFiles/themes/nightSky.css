@@ -1,18 +1,16 @@
 @import './themesBase.css';
 
-@layer theme {
-	[color-scheme='light'][data-themePalette='nightSky'] {
-		--primary: 118, 80, 155;
-		--secondary: 188, 227, 250;
-		--tertiary: var(--primary);
+[color-scheme='light'][data-themePalette='nightSky'] {
+	--primary: 118, 80, 155;
+	--secondary: 188, 227, 250;
+	--tertiary: var(--primary);
 
-		--box-shadow-logo: 0.8px 0.8px 0.8px 0.8px rgb(113, 131, 145, 0.4),
-			-0.8px -0.8px 0.8px 0.8px rgb(175, 201, 222, 0.1);
-	}
+	--box-shadow-logo: 0.8px 0.8px 0.8px 0.8px rgb(113, 131, 145, 0.4),
+		-0.8px -0.8px 0.8px 0.8px rgb(175, 201, 222, 0.1);
+}
 
-	[color-scheme='dark'][data-themePalette='nightSky'] {
-		--primary: 196, 143, 243;
-		--secondary: 0, 60, 106;
-		--tertiary: 255, 242, 0;
-	}
+[color-scheme='dark'][data-themePalette='nightSky'] {
+	--primary: 196, 143, 243;
+	--secondary: 0, 60, 106;
+	--tertiary: 255, 242, 0;
 }

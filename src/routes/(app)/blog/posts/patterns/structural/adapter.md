@@ -1,5 +1,4 @@
 ---
-layout: Blog
 title: Adapter Design Pattern
 created: June 25th, 2024
 updated:
@@ -47,10 +46,6 @@ source code) to be able to communicate with each other.
 
   <br/>
 
-- list item outline
-- list item outline
-- list item outline
-
 ## Code Example
 
 ```js
@@ -90,8 +85,9 @@ class Translator extends Person {
 			this.translatableLanguages.includes(messageObj.message.nativeLanguage)
 		) {
 			if (messageObj.to.nativeLanguage === 'Spanish') {
-				return `${this.name}(Translator): ${messageObj.to.name} says: Hola ${messageObj.message.name}, mucho gusto, soy ${messageObj.to.name}.
-                  Which means, Hello ${messageObj.message.name}, nice to meet you, I am ${messageObj.to.name}.
+				return `
+				${this.name}(Translator): ${messageObj.to.name} says: Hola ${messageObj.message.name}, mucho gusto, soy ${messageObj.to.name}.
+				Which means, Hello ${messageObj.message.name}, nice to meet you, I am ${messageObj.to.name}.
           `;
 			} else if (messageObj.to.nativeLanguage === 'French') {
 				return `${this.name}: Bonjour ${messageObj.name}, enchanté de te rencontrer, je suis ${this.name}.`;

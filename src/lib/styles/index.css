@@ -1,8 +1,6 @@
-@layer tailwind, markdown, shiki;
-
 @import './normalize.css';
 @import './themeFiles/index.css';
 @import './elements/index.css';
-@import './tailwind.css';
 @import './markdown.css';
+@import './tailwind.css';
 @import './shiki.css';

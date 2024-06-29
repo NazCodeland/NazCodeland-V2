@@ -1,5 +1,4 @@
 ---
-layout: Blog
 title: Design Patterns
 pubcreatedlished: June 25th, 2024
 updated:

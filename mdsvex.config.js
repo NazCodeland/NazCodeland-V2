@@ -1,8 +1,5 @@
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { createHighlighter } from 'shiki';
 
-const dirname = path.resolve(fileURLToPath(import.meta.url), '../');
 
 let highlighter;
 (async () => {
@@ -26,15 +23,6 @@ let highlighter;
 // filled an issue: https://github.com/pngwn/MDsveX/issues/505
 const config = {
 	extensions: ['.md', '.svx'],
-	layout: {
-		Blog: path.join(dirname, './src/lib/components/layout/Blog.svelte'),
-		// InterviewQandA: path.join(
-		// 	dirname,
-		// 	'./src/lib/components/layout/InterviewQandA.svelte'
-		// ),
-	},
-	// remarkPlugins: [],
-	// rehypePlugins: [],
 	highlight: {
 		highlighter: async (code, lang) => {
 			return highlighter

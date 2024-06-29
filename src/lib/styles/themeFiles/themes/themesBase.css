@@ -1,21 +1,19 @@
 /* TODO: people who prefer less contrast, do they mind elevation/box shadow?  */
 
-@layer theme {
-	/* themeing interface  */
-	:root {
-		--filled-bg: var(--primary);
+/* themeing interface  */
+:root {
+	--filled-bg: var(--primary);
 
-		--outline-color: var(--secondary);
+	--outline-color: var(--secondary);
 
-		--primary-color: var(--primary);
-		--secondary-color: var(--secondary);
-		--tertiary-color: var(--tertiary);
+	--primary-color: var(--primary);
+	--secondary-color: var(--secondary);
+	--tertiary-color: var(--tertiary);
 
-		--text-primary: var(--secondary);
-		--text-secondary: var(--tertiary);
+	--text-primary: var(--secondary);
+	--text-secondary: var(--tertiary);
 
-		--scrollbar-color: var(--secondary);
-	}
+	--scrollbar-color: var(--secondary);
 }
 
 /* scrollbar */

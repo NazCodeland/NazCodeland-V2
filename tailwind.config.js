@@ -18,9 +18,7 @@ export const corePlugins = {
 };
 export const theme = {
 	fontFamily: {
-		body: "'Times New Roman', Times, serif",
-		logoFirstL: "'Suez one', Georgia, 'Times New Roman', Times, serif",
-		logoNotFirstL: "'Suez one', system-ui, Arial, sans-serif"
+		body: "'Times New Roman', Times, serif"
 	},
 	opacity: {
 		0: '0%',
@@ -46,9 +44,6 @@ export const theme = {
 
 	extend: {
 		fontSize: {
-			logoFirstL: 'clamp(24px, calc(17.12px + 2.14vw), 3rem)',
-			logoNotFirstL: 'clamp(1.375rem, calc(0.75rem + 1.94vw), 2.25rem)',
-
 			/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1440,20,1.618,3,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 			'fluid-1': 'clamp(1.73rem, calc(1.02rem + 3.56vw), 4.22rem)',
 			'fluid-2': 'clamp(1.27rem, calc(0.82rem + 2.21vw), 2rem)',
@@ -61,7 +56,6 @@ export const theme = {
 			primaryColor: 'rgba(var(--primary-color))',
 			secondaryColor: 'rgba(var(--secondary-color))',
 			tertiaryColor: 'rgba(var(--tertiary-color))',
-			logoFirstLClr: 'rgba(var(--primary-color))',
 			colorSchemeToggle: 'rgba(var(--svg-background-color))',
 			bodyCopy: 'var(--text-color)',
 			slate: {
@@ -103,8 +97,6 @@ export const theme = {
 			'4/16-32/48': 'var(--padding-top-html)'
 		},
 		lineHeight: {
-			logoFirstL: 'clamp(48px, calc(31.36px + 5.22vw), 96px)',
-			logoNotFistL: 'clamp(1.5rem, calc(0.98rem + 2.61vw), 3rem)',
 			body: 'clamp(1.5rem, calc(1.36rem + 0.71vw), 2rem)'
 		},
 		letterSpacing: {},
@@ -122,7 +114,6 @@ export const theme = {
 			menuBlock: 'clamp(3rem, calc(1.96rem + 6vw), 4rem)'
 		},
 		boxShadow: {
-			logo: 'var(--box-shadow-logo)',
 			rest: 'var(--box-shadow-rest)',
 			hover: 'var(--box-shadow-hover)',
 			active: 'var(--box-shadow-active)'

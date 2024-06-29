@@ -1,18 +1,16 @@
 @import './themesBase.css';
 
-@layer theme {
-	[data-themePalette='main'] {
-		--primary: 96, 149, 245;
-		--tertiary: var(--primary);
-	}
+[data-themePalette='main'] {
+	--primary: 96, 149, 245;
+	--tertiary: var(--primary);
+}
 
-	[color-scheme='light'][data-themePalette='main'] {
-		--secondary: 251, 252, 253;
-		--box-shadow-hover: 0px 14px 28px rgba(204, 219, 232, 1),
-			0px 10px 10px rgba(255, 255, 255, 1);
-	}
+[color-scheme='light'][data-themePalette='main'] {
+	--secondary: 251, 252, 253;
+	--box-shadow-hover: 0px 14px 28px rgba(204, 219, 232, 1),
+		0px 10px 10px rgba(255, 255, 255, 1);
+}
 
-	[color-scheme='dark'][data-themePalette='main'] {
-		--secondary: 12, 12, 12;
-	}
+[color-scheme='dark'][data-themePalette='main'] {
+	--secondary: 12, 12, 12;
 }

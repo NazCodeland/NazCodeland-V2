@@ -7,56 +7,54 @@
 			to light/dark mode.
 */
 
-@layer theme {
-	@media (forced-colors: active) {
-		.btn {
-			forced-color-adjust: none;
-			color: activeText !important;
-			outline-color: activeText !important;
-		}
-		.btn:is(:hover, :focus-visible) {
-			outline-color: canvasText !important;
-		}
-		.btn.btn-filled-primary {
-			background: activeText !important;
-			color: canvas !important;
-		}
-
-		[data-themePalette='main'] .siteWrapper {
-			background-color: activeText;
-		}
-
-		[data-themePalette='main'] .skillCard {
-			outline-color: activeText !important;
-			outline-width: 2px !important;
-		}
-
-		.skillCard:hover,
-		.skillCard:focus-visible {
-			outline-color: canvasText !important;
-		}
-
-		[data-themePalette='desert'],
-		[data-themePalette='dusk'],
-		[data-themePalette='nightSky'] {
-			forced-color-adjust: none;
-		}
-
-		body:empty .siteWrapper {
-			background-color: mark !important;
-		}
-
-		/* https://modernizr.com/ */
-		/* https://www.paulirish.com/2009/browser-specific-css-hacks/ */
-		/* http://browserhacks.com/ */
-		_::-moz-progress-bar,
-		body:last-child .colorSchemeToggle {
-			display: none;
-		}
+@media (forced-colors: active) {
+	.btn {
+		forced-color-adjust: none;
+		color: activeText !important;
+		outline-color: activeText !important;
+	}
+	.btn:is(:hover, :focus-visible) {
+		outline-color: canvasText !important;
+	}
+	.btn.btn-filled-primary {
+		background: activeText !important;
+		color: canvas !important;
 	}
 
-	::-webkit-scrollbar-track,
-	::-webkit-scrollbar-thumb:hover {
+	[data-themePalette='main'] .siteWrapper {
+		background-color: activeText;
+	}
+
+	[data-themePalette='main'] .skillCard {
+		outline-color: activeText !important;
+		outline-width: 2px !important;
+	}
+
+	.skillCard:hover,
+	.skillCard:focus-visible {
+		outline-color: canvasText !important;
+	}
+
+	[data-themePalette='desert'],
+	[data-themePalette='dusk'],
+	[data-themePalette='nightSky'] {
 		forced-color-adjust: none;
 	}
+
+	body:empty .siteWrapper {
+		background-color: mark !important;
+	}
+
+	/* https://modernizr.com/ */
+	/* https://www.paulirish.com/2009/browser-specific-css-hacks/ */
+	/* http://browserhacks.com/ */
+	_::-moz-progress-bar,
+	body:last-child .colorSchemeToggle {
+		display: none;
+	}
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb:hover {
+	forced-color-adjust: none;
 }

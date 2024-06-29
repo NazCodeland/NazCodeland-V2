@@ -1,40 +1,39 @@
 /*  */
 /*  */
-@layer theme {
-	@media (prefers-color-scheme: dark) {
-		:root {
-			/* css theming variables can be placed here for a css fallback implementation for light/dark mode incase javascript fails */
-			--i-will-leave-it-empty: 0;
-		}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		/* css theming variables can be placed here for a css fallback implementation for light/dark mode incase javascript fails */
+		--i-will-leave-it-empty: 0;
 	}
+}
 
-	[color-scheme='dark'] {
-		color-scheme: dark;
-		--text-color: theme(colors.slate.1);
-		--padding-top-html: theme(spacing.16-48);
+[color-scheme='dark'] {
+	color-scheme: dark;
+	--text-color: theme(colors.slate.1);
+	--padding-top-html: theme(spacing.16-48);
 
-		/* light / dark icon variables */
-		--svg-angle-day: -90deg;
-		--svg-angle-night: 0deg;
-		--svg-background-color: 00, 00, 00;
-		animation: sunSet 2s;
+	/* light / dark icon variables */
+	--svg-angle-day: -90deg;
+	--svg-angle-night: 0deg;
+	--svg-background-color: 00, 00, 00;
+	animation: sunSet 2s;
 
-		--box-shadow-logo: none;
-		--box-shadow-rest: none;
-		--box-shadow-hover: none;
-		--box-shadow-active: none;
-	}
+	--box-shadow-logo: none;
+	--box-shadow-rest: none;
+	--box-shadow-hover: none;
+	--box-shadow-active: none;
+}
 
-	[color-scheme='dark'] h1,
-	[color-scheme='dark'] h2,
-	[color-scheme='dark'] h3,
-	[color-scheme='dark'] p {
-		opacity: theme(opacity.85);
-	}
+[color-scheme='dark'] h1,
+[color-scheme='dark'] h2,
+[color-scheme='dark'] h3,
+[color-scheme='dark'] p {
+	opacity: theme(opacity.85);
+}
 
-	@keyframes sunSet {
-		5% {
-			--svg-background-color: 230, 116, 81;
-		}
+@keyframes sunSet {
+	5% {
+		--svg-background-color: 230, 116, 81;
 	}
 }

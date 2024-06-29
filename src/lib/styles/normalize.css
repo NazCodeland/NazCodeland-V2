@@ -1,70 +1,68 @@
-@layer normalize {
-	h1,
-	h2,
-	h3 {
-		color: var(--text-color);
-		opacity: theme(opacity.85);
-	}
+h1,
+h2,
+h3 {
+	color: var(--text-color);
+	opacity: theme(opacity.85);
+}
 
-	h1,
-	h2,
-	h3 {
-		font-weight: bold;
-		font-weight: bold;
-		font-weight: bold;
-	}
+h1,
+h2,
+h3 {
+	font-weight: bold;
+	font-weight: bold;
+	font-weight: bold;
+}
 
-	h1 {
-		font-size: theme(fontSize.fluid-1);
-		line-height: 1;
-	}
+h1 {
+	font-size: theme(fontSize.fluid-1);
+	line-height: 1;
+}
 
-	h2 {
-		font-size: theme(fontSize.fluid-2);
-		line-height: 1.1;
-	}
+h2 {
+	font-size: theme(fontSize.fluid-2);
+	line-height: 1.1;
+}
 
-	h3 {
-		font-size: theme(fontSize.fluid-3);
-	}
+h3 {
+	font-size: theme(fontSize.fluid-3);
+}
 
-	h4 {
-		font-size: theme(fontSize.fluid-4);
-	}
+h4 {
+	font-size: theme(fontSize.fluid-4);
+}
 
-	h5 {
-		font-size: theme(fontSize.fluid-5);
-	}
+h5 {
+	font-size: theme(fontSize.fluid-5);
+}
 
-	h6 {
-		font-size: theme(fontSize.fluid-6);
-	}
+h6 {
+	font-size: theme(fontSize.fluid-6);
+}
 
-	a {
-		text-decoration: none;
-	}
+a {
+	text-decoration: none;
+}
 
-	a,
-	button,
-	li {
-		outline-width: 0.1rem;
-	}
+a,
+button,
+li {
+	outline-width: 0.1rem;
+}
 
-	button:hover {
-		outline-color: canvasText;
-		outline-style: solid;
-	}
+button:hover {
+	outline-color: canvasText;
+	outline-style: solid;
+}
 
-	button:focus-visible {
-		outline-color: canvasText;
-	}
+button:focus-visible {
+	outline-color: canvasText;
+}
 
-	a:focus-visible,
-	button:focus-visible {
-		outline-style: dashed;
-	}
+a:focus-visible,
+button:focus-visible {
+	outline-style: dashed;
+}
 
-	img {
-		display: inline-block;
-	}
+img {
+	display: inline-block;
 }

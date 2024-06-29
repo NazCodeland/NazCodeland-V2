@@ -1,18 +1,16 @@
 @import './themesBase.css';
 
-@layer theme {
-	[color-scheme='light'][data-themePalette='dusk'] {
-		--primary: 0, 92, 99;
-		--secondary: 215, 222, 221;
-		--tertiary: var(--primary);
+[color-scheme='light'][data-themePalette='dusk'] {
+	--primary: 0, 92, 99;
+	--secondary: 215, 222, 221;
+	--tertiary: var(--primary);
 
-		--box-shadow-logo: 0.8px 0.8px 0.8px 0.8px rgb(113, 131, 145, 0.4),
-			-0.8px -0.8px 0.8px 0.8px rgb(175, 201, 222, 0.4);
-	}
+	--box-shadow-logo: 0.8px 0.8px 0.8px 0.8px rgb(113, 131, 145, 0.4),
+		-0.8px -0.8px 0.8px 0.8px rgb(175, 201, 222, 0.4);
+}
 
-	[color-scheme='dark'][data-themePalette='dusk'] {
-		--primary: 56, 235, 244;
-		--secondary: 44, 50, 54;
-		--tertiary: 29, 158, 0;
-	}
+[color-scheme='dark'][data-themePalette='dusk'] {
+	--primary: 56, 235, 244;
+	--secondary: 44, 50, 54;
+	--tertiary: 29, 158, 0;
 }

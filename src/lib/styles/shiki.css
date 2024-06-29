@@ -1,70 +1,68 @@
-@layer shiki {
-	:root {
-		/* CREDIT: https://www.joshwcomeau.com/shadow-palette/ */
-		--shadow-color: 194deg 84% 18%;
-		--shadow-elevation-medium: -1px 1px 1.6px hsl(var(--shadow-color) / 0.36),
-			-3.3px 3.3px 5.3px -0.8px hsl(var(--shadow-color) / 0.36),
-			-8.2px 8.2px 13px -1.7px hsl(var(--shadow-color) / 0.36),
-			-20px 20px 31.8px -2.5px hsl(var(--shadow-color) / 0.36);
-	}
+:root {
+	/* CREDIT: https://www.joshwcomeau.com/shadow-palette/ */
+	--shadow-color: 194deg 84% 18%;
+	--shadow-elevation-medium: -1px 1px 1.6px hsl(var(--shadow-color) / 0.36),
+		-3.3px 3.3px 5.3px -0.8px hsl(var(--shadow-color) / 0.36),
+		-8.2px 8.2px 13px -1.7px hsl(var(--shadow-color) / 0.36),
+		-20px 20px 31.8px -2.5px hsl(var(--shadow-color) / 0.36);
+}
 
-	/* [data-themePalette='desert'], */
-	/* [data-themePalette='dusk'], */
-	/* [data-themePalette='nightSky'] { */
-	/* --shiki-foreground: #eeeeee; */
-	/* --shiki-background: var(--secondary); */
-	/* --shiki-token-constant: #660000; */
-	/* --shiki-token-string: #770000; */
-	/* --shiki-token-comment: #880000; */
-	/* --shiki-token-keyword: #990000; */
-	/* --shiki-token-parameter: #aa0000; */
-	/* --shiki-token-function: #bb0000; */
-	/* --shiki-token-string-expression: #cc0000; */
-	/* --shiki-token-punctuation: #dd0000; */
-	/* --shiki-token-link: #ee0000; */
-	/* } */
+/* [data-themePalette='desert'], */
+/* [data-themePalette='dusk'], */
+/* [data-themePalette='nightSky'] { */
+/* --shiki-foreground: #eeeeee; */
+/* --shiki-background: var(--secondary); */
+/* --shiki-token-constant: #660000; */
+/* --shiki-token-string: #770000; */
+/* --shiki-token-comment: #880000; */
+/* --shiki-token-keyword: #990000; */
+/* --shiki-token-parameter: #aa0000; */
+/* --shiki-token-function: #bb0000; */
+/* --shiki-token-string-expression: #cc0000; */
+/* --shiki-token-punctuation: #dd0000; */
+/* --shiki-token-link: #ee0000; */
+/* } */
 
-	/* .shiki, */
-	/* .shiki code { */
-	/* background-color: var(--shiki-background) !important; */
-	/* } */
+/* .shiki, */
+/* .shiki code { */
+/* background-color: var(--shiki-background) !important; */
+/* } */
 
-	code {
-		counter-reset: step;
-		counter-increment: step 0;
-	}
+code {
+	counter-reset: step;
+	counter-increment: step 0;
+}
 
-	.shiki {
-		resize: both;
-		overflow: scroll;
+.shiki {
+	resize: both;
+	overflow: scroll;
 
-		display: flex;
+	display: flex;
 
-		border-radius: theme(borderRadius.md);
-		padding: theme(padding.4) theme(padding.2);
-		margin: theme(spacing.4) auto theme(spacing.8);
-		box-shadow: var(--shadow-elevation-medium);
-		inline-size: 100%;
-		font-size: 1rem;
-	}
+	border-radius: theme(borderRadius.md);
+	padding: theme(padding.4) theme(padding.2);
+	margin: theme(spacing.4) auto theme(spacing.8);
+	box-shadow: var(--shadow-elevation-medium);
+	inline-size: 100%;
+	font-size: 1rem;
+}
 
-	.highlighted-lines {
-		display: inline-block;
+.highlighted-lines {
+	display: inline-block;
 
-		background-color: rgb(51, 56, 66);
-		/* inline-size: calc(var(--max-width-full) + var(--spacing-4)); */
-		border-inline-start: theme(spacing.1) solid rgb(250, 155, 30);
-		margin-inline-start: theme(spacing.1);
-	}
+	background-color: rgb(51, 56, 66);
+	/* inline-size: calc(var(--max-width-full) + var(--spacing-4)); */
+	border-inline-start: theme(spacing.1) solid rgb(250, 155, 30);
+	margin-inline-start: theme(spacing.1);
+}
 
-	code .line::before {
-		display: inline-block;
-		content: counter(step);
-		counter-increment: step;
-		inline-size: theme(spacing.6);
-		margin-inline-end: theme(spacing.6);
-		text-align: end;
-		font-variant-numeric: tabular-nums;
-		color: rgb(255, 255, 255);
-	}
+code .line::before {
+	display: inline-block;
+	content: counter(step);
+	counter-increment: step;
+	inline-size: theme(spacing.6);
+	margin-inline-end: theme(spacing.6);
+	text-align: end;
+	font-variant-numeric: tabular-nums;
+	color: rgb(255, 255, 255);
 }

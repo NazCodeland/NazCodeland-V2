@@ -4,32 +4,17 @@
 	const logoTextArray = [...logoText];
 </script>
 
-<!-- TODO: this should not be an H1 -->
 <span
 	class="mb-0 flex-shrink-0 items-center rounded-sm text-center"
 	aria-labelledby="logo">
 	{#each logoTextArray as letter}
 		{#if letter === 'N'}
-			<a
-				href="/"
-				class="relative mr-[2px] inline-block cursor-pointer rounded-sm px-[0.05rem] text-center
-				font-logoFirstL text-logoFirstL font-bold leading-logoFirstL
-				tracking-[clamp(0.15rem,_calc(-0.07rem_+_0.36vw),_0.5rem)] text-logoFirstLClr
-				shadow-logo outline outline-primaryColor transition-transform duration-200
-				hover:-translate-y-5 hover:rotate-[20deg] hover:scale-[2] hover:uppercase
-				focus-visible:outline-[canvasText]"
-				id="logo"
-				aria-label="NazCodeland">
+			<a href="/" class="firstLetter" id="logo" aria-label="NazCodeland">
 				{letter}
 			</a>
 		{:else}
 			<span
-				class="inline-block cursor-default px-[0.05rem] font-logoNotFirstL
-				text-logoNotFirstL
-				tracking-[clamp(0.15rem,_calc(-0.07rem_+_0.36vw),_0.5rem)]
-				shadow-logo transition-transform duration-200 hover:-translate-y-5
-				hover:rotate-[20deg] hover:scale-[2] hover:uppercase dark:outline
-				dark:outline-[0.1px] dark:outline-slate-50/20">
+				class="restOfLetters dark:outline dark:outline-[0.1px] dark:outline-slate-50/20">
 				{letter}
 			</span>
 		{/if}
@@ -37,4 +22,44 @@
 </span>
 
 <style lang="">
+	.firstLetter,
+	.restOfLetters {
+		display: inline-block;
+		box-shadow: var(--box-shadow-logo);
+		cursor: default;
+		padding-inline: 0.05rem;
+		transition-property: transform;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		transition-duration: 200ms;
+	}
+
+	.firstLetter {
+		position: relative;
+		color: rgba(var(--primary-color));
+		margin-inline-end: 2px;
+		border-radius: 0.125rem;
+		text-align: center;
+		font-size: clamp(24px, calc(17.12px + 2.14vw), 3rem);
+		font-family: 'Suez one', Georgia, 'Times New Roman', Times, serif;
+		font-weight: 700;
+		line-height: clamp(48px, calc(31.36px + 5.22vw), 96px);
+		outline: solid rgba(var(--primary-color));
+	}
+
+	.restOfLetters {
+		font-family: 'Suez one', system-ui, Arial, sans-serif;
+		font-size: clamp(1.375rem, calc(0.75rem + 1.94vw), 2.25rem);
+		line-height: clamp(1.5rem, calc(0.98rem + 2.61vw), 3rem);
+		letter-spacing: clamp(0.15rem, calc(-0.07rem + 0.36vw), 0.5rem);
+	}
+
+	.firstLetter:focus-visible {
+		outline-color: canvasText;
+	}
+
+	.restOfLetters:hover,
+	.firstLetter:hover {
+		text-transform: uppercase;
+		transform: translateY(-1.25rem) rotate(20deg) scale(2);
+	}
 </style>
