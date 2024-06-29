@@ -58,7 +58,6 @@ function sortBlogPosts(blogPosts: BlogPost[]) {
 
 export async function GET() {
 	const blogPosts = getBlogPosts();
-	console.log('blog2Posts', blogPosts);
 	const sortedBlogPosts = sortBlogPosts(blogPosts);
 
 	// return json(blogPosts);
