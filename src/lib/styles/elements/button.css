@@ -1,71 +1,69 @@
-@layer element {
-	.btn {
-		/* display: inline-block; is this needed?*/
-		min-inline-size: 110px;
-		white-space: nowrap;
-		padding: clamp(0.7rem, calc(0.66rem + -0.18vw), 0.63rem) 1rem;
-		text-align: center;
-		border-radius: theme(borderRadius.lg);
+.btn {
+	/* display: inline-block; is this needed?*/
+	min-inline-size: 110px;
+	white-space: nowrap;
+	padding: clamp(0.7rem, calc(0.66rem + -0.18vw), 0.63rem) 1rem;
+	text-align: center;
+	border-radius: theme(borderRadius.lg);
 
-		/* --btn-text-color is not defined so it will fallback to inheriting the color in this situation */
-		color: rgba(var(--btn-text-color));
+	/* --btn-text-color is not defined so it will fallback to inheriting the color in this situation */
+	color: rgba(var(--btn-text-color));
 
-		--btn-bg-opacity: theme(opacity.12);
-		--btn-bg: 255, 255, 255;
-		background-color: rgba(var(--btn-bg), var(--btn-bg-opacity));
+	--btn-bg-opacity: theme(opacity.12);
+	--btn-bg: 255, 255, 255;
+	background-color: rgba(var(--btn-bg), var(--btn-bg-opacity));
 
-		box-shadow: var(--box-shadow-rest);
-		transition: transform 0.15s 0s ease-in-out;
-	}
+	box-shadow: var(--box-shadow-rest);
+	transition: transform 0.15s 0s ease-in-out;
+}
 
-	/* TODO: does :focus do anything in this situation? */
-	.btn:is(:hover, :focus) {
-		--btn-bg-opacity: theme(opacity.20);
-		box-shadow: var(--box-shadow-hover);
-		transform: scale(theme(scale.hover));
-	}
+/* TODO: does :focus do anything in this situation? */
+.btn:is(:hover, :focus) {
+	--btn-bg-opacity: theme(opacity.20);
+	box-shadow: var(--box-shadow-hover);
+	transform: scale(theme(scale.hover));
+}
 
-	.btn:active {
-		--btn-bg-opacity: theme(opacity.12);
-		box-shadow: var(--box-shadow-active);
-		transform: scale(theme(scale.active));
-	}
+.btn:active {
+	--btn-bg-opacity: theme(opacity.12);
+	box-shadow: var(--box-shadow-active);
+	transform: scale(theme(scale.active));
+}
 
-	.btn:focus-visible {
-		outline-color: canvasText;
-	}
+.btn:focus-visible {
+	outline-color: canvasText;
+}
 
-	.btn-filled-primary,
-	.btn-outlined-primary {
-		outline-style: solid;
-		outline-color: rgba(var(--outline-color));
-	}
+.btn-filled-primary,
+.btn-outlined-primary {
+	outline-style: solid;
+	outline-color: rgba(var(--outline-color));
+}
 
-	[color-scheme='dark'] .btn-filled-primary:hover,
-	[color-scheme='dark'] .btn-outlined-primary:hover {
-		outline-color: canvasText;
-	}
+[color-scheme='dark'] .btn-filled-primary:hover,
+[color-scheme='dark'] .btn-outlined-primary:hover {
+	outline-color: canvasText;
+}
 
-	[data-themePalette='main'] .btn-filled-primary:hover,
-	[data-themePalette='main'] .btn-outlined-primary:hover {
-		outline-color: rgba(var(--primary));
-	}
+[data-themePalette='main'] .btn-filled-primary:hover,
+[data-themePalette='main'] .btn-outlined-primary:hover {
+	outline-color: rgba(var(--primary));
+}
 
-	.btn-filled-primary {
-		--btn-bg-opacity: 0.9;
-		--btn-bg: var(--primary);
-		color: canvas;
-		--outline-color: var(--primary-color);
-	}
+.btn-filled-primary {
+	--btn-bg-opacity: 0.9;
+	--btn-bg: var(--primary);
+	color: canvas;
+	--outline-color: var(--primary-color);
+}
 
-	.btn-filled-primary:is(:hover, :focus) {
-		--btn-bg-opacity: 1;
-	}
-	.btn-filled-primary:active {
-		--btn-bg-opacity: 0.9;
-	}
+.btn-filled-primary:is(:hover, :focus) {
+	--btn-bg-opacity: 1;
+}
+.btn-filled-primary:active {
+	--btn-bg-opacity: 0.9;
+}
 
-	.btn-outlined-primary {
-		--outline-color: var(--primary-color);
-	}
+.btn-outlined-primary {
+	--outline-color: var(--primary-color);
 }

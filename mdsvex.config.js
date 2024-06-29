@@ -28,11 +28,10 @@ const config = {
 	extensions: ['.md', '.svx'],
 	layout: {
 		Blog: path.join(dirname, './src/lib/components/layout/Blog.svelte'),
-		InterviewQandA: path.join(
-			dirname,
-			'./src/lib/components/layout/InterviewQandA.svelte'
-		),
-		Project: path.join(dirname, './src/lib/components/layout/Project.svelte')
+		// InterviewQandA: path.join(
+		// 	dirname,
+		// 	'./src/lib/components/layout/InterviewQandA.svelte'
+		// ),
 	},
 	// remarkPlugins: [],
 	// rehypePlugins: [],
@@ -41,14 +40,7 @@ const config = {
 			return highlighter
 				.codeToHtml(code, {
 					lang,
-					//  lang === 'python' ? 'tokyo-night' : 'poimandres'
-					themes: {
-						light: '',
-						dark: 'tokyo-night',
-						// desert: 'poimandres',
-						// dusk: '',
-						// nightSky: '',
-					}
+					theme: lang === 'python' ? 'tokyo-night' : 'poimandres'
 				})
 				.replace(/{/g, '&#123;')
 				.replace(/}/g, '&#125;');

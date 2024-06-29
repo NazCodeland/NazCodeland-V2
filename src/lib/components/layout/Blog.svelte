@@ -1,9 +1,19 @@
-<script>
-	import Default from './Default.svelte';
-
-	export let title;
+<script lang="ts">
+	export let title: string;
 </script>
 
-<Default {title}>
-	<slot />
-</Default>
+<svelte:head>
+	<title>{title}</title>
+</svelte:head>
+
+<main class="markdown-body">
+	<article>
+		<slot />
+	</article>
+</main>
+
+<style>
+	/* article > :not(section) {
+		padding-inline: 12rem;
+	} */
+</style>

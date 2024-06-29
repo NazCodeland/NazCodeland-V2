@@ -20,7 +20,7 @@ categories: ['design patterns']
 
 ## Explanation
 
-In OOP, the Adapter Design Pattern provides a new interface for an existing class's interface while maintaining the old class's functionality (properties and methods). This design pattern provides compatibility between otherwise incompatible interfaces. The value it offers is the ability for a codebase to change over time, due to refactoring or the introduction of new features, without breaking existing code that relies on the class's old interface.
+In OOP, the Adapter Design Pattern provides a new interface for an existing class’s interface while maintaining the old class’s functionality (properties and methods) through the new interface. This preservation of the old class’s functionality prevents existing code from becoming incompatible with the new interface. This is the value it offers: the ability to provide compatibility between otherwise incompatible interfaces, which allows a codebase to undergo changes incrementally due to various reasons, such as refactoring or the introduction of new features, without causing existing code to break or require a larger refactoring.
 
 <br/>
 
@@ -46,6 +46,10 @@ is that the individuals do not need to learn a new language (modify their
 source code) to be able to communicate with each other.
 
   <br/>
+
+- list item outline
+- list item outline
+- list item outline
 
 ## Code Example
 

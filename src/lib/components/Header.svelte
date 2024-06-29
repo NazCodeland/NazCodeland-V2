@@ -14,9 +14,9 @@
 
 <header
 	style="padding-inline-start: {paddingInlineStart}; padding-inline-end: {paddingInlineEnd}; max-inline-size: {inlineSize}px"
-	class="{position} left-0 right-0 top-0 z-20 m-auto flex w-full items-center justify-between gap-4
-					bg-secondaryColor pb-3 pt-6 outline outline-4 outline-secondaryColor sm:pt-3
-					md:border-b md:border-solid md:border-primaryColor md:pt-1">
+	class="{position} left-0 right-0 top-0 z-20 m-auto flex w-full items-center justify-between gap-4 bg-secondaryColor
+					pb-3 pt-6 outline outline-4 outline-secondaryColor sm:pt-3 md:border-b
+					md:border-solid md:border-primaryColor md:pt-1 md:outline-none">
 	<!-- TODO: opacity-0 isn't good practice for accessibility, find an accessible way to hide it yet available for screen readers -->
 	<a
 		href="#mainContent"

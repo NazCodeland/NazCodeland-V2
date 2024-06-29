@@ -8,6 +8,27 @@
 			-20px 20px 31.8px -2.5px hsl(var(--shadow-color) / 0.36);
 	}
 
+	/* [data-themePalette='desert'], */
+	/* [data-themePalette='dusk'], */
+	/* [data-themePalette='nightSky'] { */
+	/* --shiki-foreground: #eeeeee; */
+	/* --shiki-background: var(--secondary); */
+	/* --shiki-token-constant: #660000; */
+	/* --shiki-token-string: #770000; */
+	/* --shiki-token-comment: #880000; */
+	/* --shiki-token-keyword: #990000; */
+	/* --shiki-token-parameter: #aa0000; */
+	/* --shiki-token-function: #bb0000; */
+	/* --shiki-token-string-expression: #cc0000; */
+	/* --shiki-token-punctuation: #dd0000; */
+	/* --shiki-token-link: #ee0000; */
+	/* } */
+
+	/* .shiki, */
+	/* .shiki code { */
+	/* background-color: var(--shiki-background) !important; */
+	/* } */
+
 	code {
 		counter-reset: step;
 		counter-increment: step 0;
@@ -25,11 +46,6 @@
 		box-shadow: var(--shadow-elevation-medium);
 		inline-size: 100%;
 		font-size: 1rem;
-	}
-
-	.shiki,
-	.shiki code {
-		background-color: var(--shiki-color-background);
 	}
 
 	.highlighted-lines {

@@ -1,12 +1,19 @@
 @import '$lib/styles/index.css';
 
-/* @font-face {
-	font-family: 'Alkes';
-	src: url('./lib/styles/fonts/Alkes-Regular.woff') format('woff'),
-		url('./lib/styles/fonts/Alkes-Regular.woff') format('woff');
-} */
+:root {
+	--scrollMarginTop: 0;
+}
 
-/* TODO move these styles somewhere else */
 html {
 	scroll-behavior: smooth;
+}
+
+.forcedClrAdjust {
+	forced-color-adjust: none;
+}
+
+/* CREDIT: https://css-tricks.com/hash-tag-links-padding/ */
+.scrollMarginTop {
+	scroll-margin-top: var(--scrollMarginTop);
+	scroll-snap-margin-top: var(--scrollMarginTop); /* iOS 11 and older */
 }

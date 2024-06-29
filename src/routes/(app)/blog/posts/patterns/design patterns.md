@@ -1,4 +1,5 @@
 ---
+layout: Blog
 title: Design Patterns
 pubcreatedlished: June 25th, 2024
 updated:
@@ -12,8 +13,6 @@ tags: ['javascript', 'python']
 categories: ['design patterns']
 ---
 
-# Design Patterns
-
 ## Creational Design Patterns
 
 - [Constructor](/blog/posts/patterns/creational/constructor.md)
@@ -21,18 +20,18 @@ categories: ['design patterns']
 - [Singleton](/blog/posts/patterns/creational/singleton.md)
 - [Prototype](/blog/posts/patterns/creational/prototype.md)
 - [Factory](/blog/posts/patterns/creational/factory.md)
-<!-- - [AbstractFactory](/blog/posts/patterns/creational/abstract factory.md) -->
+- [Abstract Factory](/blog/posts/patterns/creational/abstract%20factory.md)
 - [Builder](/blog/posts/patterns/creational/builder.md)
 
 <br/>
 
 ## Structural Design Patterns
 
-[Adapter](/blog/posts/patterns/structural/adapter.md)
-[Proxy](/blog/posts/patterns/structural/proxy.md)
+- [Adapter](/blog/posts/patterns/structural/adapter.md)
+- [Proxy](/blog/posts/patterns/structural/proxy.md)
 
 <br/>
 
 ## Behavioral Design Patterns
 
-[Null Object](/blog/posts/patterns/behavioral/null object.md)
+- [Null Object](/blog/posts/patterns/behavioral/null%20object.md)

@@ -31,4 +31,10 @@
 	[color-scheme='dark'] p {
 		opacity: theme(opacity.85);
 	}
+
+	@keyframes sunSet {
+		5% {
+			--svg-background-color: 230, 116, 81;
+		}
+	}
 }

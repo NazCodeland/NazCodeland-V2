@@ -6,7 +6,7 @@
 
 <nav
 	class="absolute inset-x-menuInline top-menuBlock -z-20 mx-4 mt-2 outline
-	outline-secondaryColor md:relative md:inset-x-0 md:top-0 md:z-0 md:mt-0
+	outline-secondaryColor md:relative md:inset-x-0 md:top-0 md:z-0 md:mt-0 md:outline-none
 	{bgColor} px-4 pb-2 pt-10 text-primaryColor
 	group-data-[themePalette=main]:text-bodyCopy md:p-0">
 	<ul
