@@ -1,6 +1,6 @@
 ---
 title: Singleton Design Pattern
-created: March 1st, 2023
+created: March 3rd, 2023
 updated: March 3rd, 2023
 description:
   Create a simple CRUD application using the Django web framework. This is just

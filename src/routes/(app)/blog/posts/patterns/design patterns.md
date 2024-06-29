@@ -1,6 +1,7 @@
 ---
 title: Design Patterns
 pubcreatedlished: June 25th, 2024
+created: June 25th, 2021
 updated:
 description:
   This is an introduction to a series of posts on design patterns in software

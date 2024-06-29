@@ -1,7 +1,7 @@
 // CREDIT: https://cloudcannon.com/tutorials/sveltekit-beginner-tutorial/blogging-in-sveltekit/
 // CREDIT: https://youtu.be/RhScu3uqGd0?si=ALLCsLnd6wYdb9dw&t=2336
 
-import type { File } from '$src/lib/types';
+import type { BlogPost, File } from '$src/lib/types';
 
 function getBlogPosts() {
 	const paths = import.meta.glob('/src/routes/\\(app\\)/blog/posts/**/*.md', {
@@ -47,11 +47,22 @@ function getBlogPosts() {
 	return blogPosts;
 }
 
+function sortBlogPosts(blogPosts: BlogPost[]) {
+	return blogPosts.sort((a, b) => {
+		return (
+			new Date(b.created.replace(/(st|nd|rd|th)/, '')).getTime() -
+			new Date(a.created.replace(/(st|nd|rd|th)/, '')).getTime()
+		);
+	});
+}
+
 export async function GET() {
 	const blogPosts = getBlogPosts();
+	console.log('blog2Posts', blogPosts);
+	const sortedBlogPosts = sortBlogPosts(blogPosts);
 
 	// return json(blogPosts);
-	return new Response(JSON.stringify(blogPosts), {
+	return new Response(JSON.stringify(sortedBlogPosts), {
 		status: 200,
 		headers: {
 			'content-type': 'application/json'

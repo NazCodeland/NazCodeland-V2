@@ -24,7 +24,7 @@
 		bottom: 0;
 		height: 0.2px;
 		inline-size: 100%;
-		background-color: theme(colors.primaryColor);
+		background-color: var(--primaryColor);
 		transition-name: height;
 		transition-delay: 0s;
 		transition-duration: 0.2s;
@@ -38,7 +38,7 @@
 	a:focus-visible::before {
 		height: 100%;
 		z-index: -10;
-		background-color: theme(colors.primaryColor);
+		background-color: var(--primaryColor);
 	}
 
 	a:focus-visible {

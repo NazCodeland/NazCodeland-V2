@@ -9,8 +9,9 @@ function isBlogPost(file: object): file is File {
 
 async function getBlogPost(params: RouteParams) {
 	const slug = params.slug.replaceAll('-', ' ');
-	const paths = import.meta.glob('/src/routes/\\(app\\)/blog/posts/**/*.md');
-	const path = await paths[`/src/routes/(app)/blog/posts/${slug}.md`]();
+	const path = await import(
+		/* @vite-ignore */ `/src/routes/(app)/blog/posts/${slug}.md`
+	);
 
 	if (path && typeof path === 'object' && isBlogPost(path)) {
 		const blogPost = { ...path.metadata, content: path.default };

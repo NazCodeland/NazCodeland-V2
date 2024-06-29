@@ -1,6 +1,5 @@
 import { createHighlighter } from 'shiki';
 
-
 let highlighter;
 (async () => {
 	if (!highlighter) {

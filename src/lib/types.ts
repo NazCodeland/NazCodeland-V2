@@ -1,11 +1,11 @@
 import type { ComponentType, SvelteComponent } from 'svelte';
 
 export interface File {
-	metadata: BlogPostMetadata;
+	metadata: BlogPost;
 	default: ComponentType<SvelteComponent>;
 }
 
-export interface BlogPostMetadata {
+export interface BlogPost {
 	title: string;
 	created: string;
 	updated: string;
