@@ -4,7 +4,7 @@
 import type { BlogPost, File } from '$src/lib/types';
 
 function getBlogPosts() {
-	const paths = import.meta.glob('/src/routes/\\(app\\)/blog/posts/**/*.md', {
+	const paths = import.meta.glob('/src/routes/\\(app\\)/blog/posts/**/*.svx', {
 		eager: true
 	});
 	const blogPosts = [];

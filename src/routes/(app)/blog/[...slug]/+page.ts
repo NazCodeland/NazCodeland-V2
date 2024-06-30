@@ -10,7 +10,7 @@ function isBlogPost(file: object): file is File {
 async function getBlogPost(params: RouteParams) {
 	const slug = params.slug.replaceAll('-', ' ');
 	const path = await import(
-		/* @vite-ignore */ `/src/routes/(app)/blog/posts/${slug}.md`
+		/* @vite-ignore */ `/src/routes/(app)/blog/posts/${slug}.svx`
 	);
 
 	if (path && typeof path === 'object' && isBlogPost(path)) {

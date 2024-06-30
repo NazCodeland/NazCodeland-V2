@@ -3,14 +3,15 @@ title: Adapter Design Pattern
 created: June 25th, 2024
 updated:
 description:
-  In OOP, the Adapter Design Pattern acts as a wrapper over an exsiting class's
-  interface by providing a new interface that has a 1:1 schema to the classes
-  funcitonality that it wraps. This is usually done when the original interface
-  is not compatible with external code that wants to interact with the class.
-  Essentially, the adapter design pattern provides a compatible interface
-  between otherwise incompatible interfaces.
+  In OOP, the Adapter Design Pattern provides a new interface for an existing class’s interface
+  while maintaining the old class’s functionality (properties and methods) through the new interface.
+  This preservation of the old class’s functionality prevents existing code from becoming incompatible with
+  the new interface. This is the value it offers; the ability to provide compatibility between otherwise
+  incompatible interfaces, which allows a codebase to undergo changes incrementally due to various reasons,
+  such as refactoring or the introduction of new features, without causing existing code to break or require
+  a larger refactoring.
 tags: ['javascript', 'python']
-categories: ['design patterns']
+categories: ['design patterns', 'oop']
 ---
 
 <script lang="ts">
@@ -19,19 +20,22 @@ categories: ['design patterns']
 
 ## Explanation
 
-In OOP, the Adapter Design Pattern provides a new interface for an existing class’s interface while maintaining the old class’s functionality (properties and methods) through the new interface. This preservation of the old class’s functionality prevents existing code from becoming incompatible with the new interface. This is the value it offers: the ability to provide compatibility between otherwise incompatible interfaces, which allows a codebase to undergo changes incrementally due to various reasons, such as refactoring or the introduction of new features, without causing existing code to break or require a larger refactoring.
+In <abbr title="Object Oriented Programming">OOP</abbr>, the Adapter Design Pattern provides a new
+interface for an existing class’s interface while maintaining the old class’s functionality
+(properties and methods) through the new interface. This preservation of the old class’s functionality
+prevents existing code from becoming incompatible with the new interface. This is the value it offers:
+the ability to provide compatibility between otherwise incompatible interfaces, which allows a codebase
+to undergo changes incrementally due to various reasons, such as refactoring or the introduction of
+new features, without causing existing code to break or require a larger refactoring.
 
 <br/>
 
 <Link href="https://en.wikipedia.org/wiki/Adapter_pattern" linkText="Wikipedia article" block={true} /> says:
 
-<!-- [Wikipedia article ](https://en.wikipedia.org/wiki/Adapter_pattern) says: -->
-
-> "In software engineering, the adapter pattern is a software design pattern (also
-> known as wrapper, an alternative naming shared with the decorator pattern) that
-> allows the interface of an existing class to be used as another interface. It is
-> often used to make existing classes work with others without modifying their
-> source code."
+> "In software engineering, the adapter pattern is a software design pattern (also known as wrapper, an
+> alternative naming shared with the decorator pattern) that allows the interface of an existing class to
+> be used as another interface. It is often used to make existing classes work with others without modifying
+> their source code."
 
 <br/>
 

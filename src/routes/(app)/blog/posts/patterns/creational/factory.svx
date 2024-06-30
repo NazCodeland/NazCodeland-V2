@@ -7,7 +7,7 @@ description:
   extra text to make this sentence go into two paragraphs instead of one. Have a
   good day!
 tags: ['html', 'css', 'javascript']
-categories: ['design patterns']
+categories: ['design patterns', 'oop']
 ---
 
 This blog post is a part of my series of blog posts on design patterns.

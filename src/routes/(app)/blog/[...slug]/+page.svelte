@@ -1,33 +1,37 @@
 <script>
 	export let data;
 
-	import Giscus from '@giscus/svelte';
+	import viewport from '$lib/actions/viewportAction';
 	import moveToTop from '$lib/icons/themeBased/moveToTop/moveToTopMain.svg';
+	import Giscus from '@giscus/svelte';
+
+	let showMoveToTop = false;
 </script>
 
-<main class="" id="mainContent">
-	<article class="markdown-body me-auto ms-auto w-full max-w-[80ch]">
-		<h1 class="mb-4 text-center">{data.blogPost?.title}</h1>
-		<!-- <p class="text-center text-fluid-2 text-slate-400 md:-mx-8">{data.blogPost?.description}</p> -->
-		<div class="flex flex-col text-fluid-5">
-			<p class="mb-0">Created: {data.blogPost?.created}</p>
-			<p class="">Updated: {data.blogPost?.updated}</p>
-		</div>
+<main class="flex flex-col gap-20" id="mainContent">
+	<article
+		class="markdown-body me-auto ms-auto flex w-full max-w-[80ch] flex-col gap-8">
+		<header>
+			<h1 class="mb-4 text-center">{data.blogPost?.title}</h1>
+			<div class="flex flex-col text-fluid-5">
+				<p class="!mb-1">Created: {data.blogPost?.created}</p>
+				<!-- <p class=""> Updated: {data.blogPost?.updated}</p> -->
+			</div>
+		</header>
 
 		<!-- dynamic component; it renders an arbitrary Svelte component
 				(provided as the this prop value) when the exact component isn't known beforehand.
 				since .md files are configured to be treated as Svelte components,-->
-		<svelte:component this={data.blogPost?.content} />"
-		<a href="#mainContent">
-			<img src={moveToTop} alt="" loading="lazy" />
-		</a>
+		<svelte:component this={data.blogPost?.content} />
 	</article>
 
-	<hr class="mx-60 h-[1px] border-none bg-primaryColor bg-gradient-to-r" />
+	<hr class="mx-60 h-[1px] border-none bg-tertiaryColor bg-gradient-to-r" />
 
-	<section class="m-auto w-full max-w-[80ch]">
-		<h2 class="mb-10">Comments</h2>
-
+	<div
+		class="m-auto w-full max-w-[80ch]"
+		use:viewport
+		on:enteringViewport={() => (showMoveToTop = true)}
+		on:exitingViewport={() => (showMoveToTop = false)}>
 		<Giscus
 			id="comments"
 			repo="NazCodeland/NazCodeland-V2"
@@ -42,5 +46,15 @@
 			theme="dark_dimmed"
 			lang="en"
 			loading="lazy" />
-	</section>
+	</div>
+
+	{#if showMoveToTop}
+		<a
+			class="fixed bottom-[10vh] left-[50%] z-10 -translate-x-1/2 transform rounded-full border
+		border-primaryColor bg-secondaryColor shadow-rest hover:shadow-hover
+		active:shadow-active"
+			href="#mainContent">
+			<img loading="lazy" src={moveToTop} alt="move to top" />
+		</a>
+	{/if}
 </main>
