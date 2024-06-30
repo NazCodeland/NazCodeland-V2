@@ -9,9 +9,8 @@
 </script>
 
 <main class="flex flex-col gap-20" id="mainContent">
-	<article
-		class="markdown-body me-auto ms-auto flex w-full max-w-[80ch] flex-col gap-8">
-		<header>
+	<article class="markdown-body me-auto ms-auto mt-36-40 w-full max-w-[80ch]">
+		<header class="mb-48-64 md:mb-80-104">
 			<h1 class="mb-4 text-center">{data.blogPost?.title}</h1>
 			<div class="flex flex-col text-fluid-5">
 				<p class="!mb-1">Created: {data.blogPost?.created}</p>
@@ -19,10 +18,12 @@
 			</div>
 		</header>
 
-		<!-- dynamic component; it renders an arbitrary Svelte component
-				(provided as the this prop value) when the exact component isn't known beforehand.
-				since .md files are configured to be treated as Svelte components,-->
-		<svelte:component this={data.blogPost?.content} />
+		<section class="flex flex-col gap-14">
+			<!-- dynamic component; it renders an arbitrary Svelte component
+					(provided as the this prop value) when the exact component isn't known beforehand.
+					since .md files are configured to be treated as Svelte components,-->
+			<svelte:component this={data.blogPost?.content} />
+		</section>
 	</article>
 
 	<hr class="mx-60 h-[1px] border-none bg-tertiaryColor bg-gradient-to-r" />
