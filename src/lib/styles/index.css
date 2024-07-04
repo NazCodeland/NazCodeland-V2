@@ -1,6 +1,6 @@
-@import './normalize.css';
 @import './themeFiles/index.css';
 @import './elements/index.css';
 @import './markdown.css';
 @import './tailwind.css';
+@import './normalize.css';
 @import './shiki.css';

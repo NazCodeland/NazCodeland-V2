@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let src = 'https://picsum.photos/800/200';
+	export let src = `https://picsum.photos/800/200?random=1`;
 	export let href: string;
 	export let title: string;
 	export let description: string;
@@ -11,7 +11,7 @@
 <article class="flex w-full flex-col gap-3">
 	<img class="img aspect-[800/200]" {src} alt="a cute dog" loading="lazy" />
 
-	<div class="">
+	<section class="">
 		<h2>
 			<a class="decoration-primaryColor hover:underline" {href}>
 				{title}
@@ -22,7 +22,7 @@
 			<span>{created}</span>
 			<span>{updated}</span>
 		</div>
-	</div>
+	</section>
 
 	<p class="mb-1">{description}</p>
 

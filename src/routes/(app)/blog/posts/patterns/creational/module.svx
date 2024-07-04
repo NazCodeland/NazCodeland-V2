@@ -1,76 +1,590 @@
 ---
 title: Module Design Pattern
-created: March 2nd, 2023
-updated: March 3rd, 2023
-description:
-  Create a simple CRUD application using the Django web framework. This is just
-  extra text to make this sentence go into two paragraphs instead of one. Have a
-  good day!
-tags: ['html', 'css', 'javascript']
+created: July 1st, 2024
+updated:
+description: 
+  In OOP, the Module Design Pattern is used to encapsulate state and logic to
+  a given namespace - the name of module.
+
+tags: ['javascript']
 categories: ['design patterns', 'oop']
 ---
 
-This blog post is a part of my series of blog posts on design patterns.
 
-# Singleton Design Pattern
+<script lang="ts">
+	import Link from '$lib/elements/Link.svelte';
 
-Hey, it's me learning Singleton pattern today!
+    let publicVariable = 10
+  function publicFunction() {
+    console.log("Original console log message at time of closure")
+    console.log("Value of 'publicVariable' at time of closure:", publicVariable)
+  }
 
-## What's this Singleton thing?
+  function privateFunction() {
+    publicFunction()
+  }
+  let textAreaValue = "This is a textarea";
+</script>
 
-Singleton is a design pattern that makes sure there's only one instance of a
-class. It's like the boss of all patterns, because there can only be one!
+<section>
 
-## Why Singleton?
+  ## Explanation
 
-Sometimes in coding, we need just one instance of a class. Like, imagine having
-multiple databases in an app. Chaos, right? Singleton to the rescue!
+  <br/>
 
-## How to do Singleton?
+  **NOTE**
+  > In this article, the term ***encapsulate*** is used to refer to the 
+  organization of code under a namespace. It does **not** mean making code private. 
 
-Here's how I learned to implement Singleton:
+  <br/>
 
-- Write some cool code here
+  The Module Design Pattern encapsulates related state and logic within a module.
+  If the module has any exports, named or default, then those exports form the
+  public interface of the module, and the remaining non-exported code forms the
+  private interface, which is only accessible within the module. External code 
+  can interact with the module's encapsulated code through the controlled 
+  exported public interface. 
 
-## Good Parts
+  The reason the module design pattern in JavaScript is able to provide a public 
+  and private interface is due to the way the JavaScript module system works. 
+  The import/export mechanism allows for exposing only selected parts of the module 
+  for import by other modules, creating a public interface while the rest of the 
+  module remains private.
 
-Singleton is great because:
+  When a module is imported, all of its top level code is executed. During this phase,
+  the module's private and public interfaces are defined. If the exported public
+  interface contains functions, then a <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" linkText="closure" />
+  gets created that retains access to the private interface even after the module's 
+  initial execution on first import.
 
-- List some advantages here
 
-## Not-so-good Parts
 
-But, it's not all rainbows and unicorns. Here are some downsides:
+</section>
 
-- List some disadvantages here
+<section>
+	<Link 
+    href="https://en.wikipedia.org/wiki/Modular_programming" 
+    linkText="Wikipedia article" 
+    block={true} /> says:
 
-## Variations on a Theme
+    > Modular programming is a software design technique that emphasizes separating the functionality of a 
+    program into independent, interchangeable modules, such that each contains everything necessary to 
+    execute only one aspect of the desired functionality.
 
-Turns out, there's more than one way to do Singleton! Here are some variations I
-found:
+    > A module interface expresses the elements that are provided and required by the module. The elements 
+    defined in the interface are detectable by other modules. The implementation contains the working code 
+    that corresponds to the elements declared in the interface.
 
-- Discuss variations here
+</section>
 
-## Real-world Uses
+<section>
 
-I found some real-world examples of Singleton. Check these out:
+  ## Analogy
 
-- List some use cases here
+  We can think of a vending machine as a module that encapsulates a variety of snacks and provides
+  a public interface and a private interface. The keypads and payment slot are used to interact with
+  the vending machine to select and pay for snacks, which can be thought of as the public interface. 
+  The private interface is available to the vending machine for dispensing and replenishing snacks.
+  All analogies fall short 😢... so lets look at some code 😃
 
-## When to Use Singleton?
+</section>
 
-Singleton is like a hammer. But remember, not everything is a nail! Here's when
-to use Singleton:
+<section>
 
-- Explain when to use Singleton here
+  ## Code Example
 
-## Wrapping Up
+  In this code example, we have a module named `bankAccount.mjs` and this module exports a default 
+  `bankAccount` object that forms the **public interface** of the module. 
 
-So, that's Singleton for you. It's a pretty cool pattern with some neat uses.
-Can't wait to learn the next one!
+  The encapsulated **state** includes `accountTypes` and `accountBalances`, and the encapsulated 
+  **logic** includes the functions `calculateInterestPrivate`, `getAccountTypes`, `getAccountBalance`, 
+  `deposit`, `withdraw`, and `calculateInterest`.
 
-## Cool Resources
+  Notice that the `calculateInterest` function in the public interface invokes the `calculateInterestPrivate` 
+  function from the private interface. When using the module design pattern, this is a way to hide 
+  implementation details of the module from external users while still making the functionality of the 
+  private interface available through the public interface.
 
-Oh, and here are some resources I found super helpful:
+  ```js
+    // bankAccount.mjs
 
-- List some references here
+    // private interface
+    let accountTypes = ['checking', 'savings'];
+    let accountBalances = {
+      checking: 100,
+      savings: 50
+    } 
+
+    // private interface
+    function calculateInterestPrivate(amount, timePeriod) {
+      // private interest rate calculation implementation
+    }
+
+
+    // public interface
+    const bankAccount = {
+      getAccountTypes: function() { 
+        return accountTypes
+      },
+
+      getAccountBalance: function(accountType){
+        return accountBalances[accountType]
+      },
+
+
+      deposit: function(amount, accountType){
+        accountBalances[accountType] += amount;
+      },
+
+      withdraw: function(amount, accountType){
+        if(accountTypes.includes(accountType)){
+          if(accountBalances[accountType] >= amount){
+            accountBalances[accountType] -= amount;
+            console.log(`Withdrew ${amount} from ${accountType}`);
+          }
+          else {
+            console.log(`You don't have enough money in ${accountType}`);
+            console.log(`Your balance is ${accountBalances[accountType]}`);
+          }
+        } else {
+          console.log(`Invalid account type`);
+          console.log(`Valid account types are ${accountTypes}`);
+        }
+      },
+
+      calculateInterest: function(amount, timePeriod){
+        calculateInterestPrivate(amount, timePeriod)
+      }
+    };
+
+    export default bankAccount
+  ```
+
+
+  <br>
+
+  #### Advantages
+
+  - **Encapsulation**: Ability to organize related code into one file improves the readability of that code and the overall codebase.
+
+  - **Public & Private interfaces**: The ability to hide implementation details and expose only certain parts is beneficial.
+
+  - **Namespace management**: When importing a module, the import name given to the module becomes the namespace by which the module’s 
+  functionality is accessed. This namespace, used as a prefix before identifiers of the imported module, avoids name collisions with 
+  identifiers of the same name in other modules.
+
+  - **Ability to Patch Public Methods**: Public members can be overridden or "patched" by external module users to make it fit their
+  use cases.
+
+  <br>
+
+
+  #### Disadvantages
+  
+  - **Visibility Change Overhead**: If you change the visibility of a member (state or logic), from private to public or vice versa, you need to:  
+    - Update all instances of where that member was accessed, as the way to access the member will change based on its visibility.
+
+    - If adding a private member to the public interface, we need to remove it from the private interface scope and add it to the public
+    interface scope, and vice versa.
+
+
+    - **No Access To Private Members**: Depending on the context, you might be working with an external module whose source code you can’t 
+    modify. Private members become a limitation in such scenarios because if you want to add additional functionality to the module, you won’t 
+    be able to access the private members.
+
+    - **Limitation in Testing Granularity**: Since only the public interface is exposed, testing of private members is only possible  
+    through unit testing of the public members. 
+
+
+</section>
+
+<section>
+
+  ## Variations 
+  ### The Revealing Module Design Pattern
+
+  The Revealing Module Design Pattern variation differs from the main design pattern by defining all 
+  the state and logic in the private interface and exporting only references to them in the public 
+  interface.
+
+  #### Code Example
+
+  ```js
+    // bankAccount.mjs
+
+    // private interface
+    let accountTypes = ['checking', 'savings'];
+    let accountBalances = {
+      checking: 100,
+      savings: 50
+    } 
+
+    // private interface
+    function calculateInterestPrivate(amount, timePeriod) {
+      // private interest rate calculation implementation
+    }
+
+    // private interface
+    function getAccountTypes() { 
+        return accountTypes
+    },
+    // private interface
+    function getAccountBalance(accountType){
+        return accountBalances[accountType]
+    },
+    // private interface
+    function deposit(amount, accountType){
+        accountBalances[accountType] += amount;
+    },
+    // private interface
+    function withdraw(amount, accountType){
+      if(accountTypes.includes(accountType)){
+        if(accountBalances[accountType] >= amount){
+          accountBalances[accountType] -= amount;
+          console.log(`Withdrew ${amount} from ${accountType}`);
+        }
+        else {
+          console.log(`You don't have enough money in ${accountType}`);
+          console.log(`Your balance is ${accountBalances[accountType]}`);
+        }
+      } else {
+        console.log(`Invalid account type`);
+        console.log(`Valid account types are ${accountTypes}`);
+      }
+    },
+    // private interface
+    function calculateInterest(amount, timePeriod){
+      calculateInterestPrivate(amount, timePeriod)
+    }
+
+    // public interface
+    export default = {
+      getAccountTypes,
+      getAccountBalance,
+      deposit,
+      withdraw,
+      calculateInterest,
+    };
+  ```
+
+
+    <br>
+
+  #### Advantages
+
+  **NOTE:** All the advantages of the original Module Design Pattern apply to the Revealing Module Pattern as well as, 
+
+  - **Simplified Visibility Management**: In the Revealing Module Design Pattern, all the state and logic is always defined in the
+  private interface scope so, if you want to expose a private member to the public interface, you simply add it to the returned 
+  object (public interface). If you want to a public member private, you simply remove it from the returned object or comment it out.
+  This is much simpler than the original Module Design Pattern, where changing the visibility of a member required updating all
+  instances of where that member was accessed.
+
+
+  <br>
+
+  #### Disadvantages
+    
+  **NOTE:** Besides "Visibility Change Overhead", all the disadvantages of the original Module Design Pattern apply to The 
+  Revealing Module Design Pattern. 
+
+  The reason "Visibility Change Overhead" doesn't apply is because all the state and logic is 
+  always defined in the private interface scope. Therefore, its scope always remains private and accessing it always remains 
+  consistent whether the member is exposed through the public interface or not. But the following is a a new disadvantage, 
+
+  - **No Patching of Public Methods and Variables**: If a **private** function refers to a public state (variable) or logic (function), 
+  then that public state or logic can’t be patched. This is because the value of the state and the implementation of the logic 
+  will still refer to the original value and implementation at the time the closure was created - at the module’s initial import.
+
+  <br/>
+
+
+  Example of how overriding a public variable on the public interface from within moduleTwo.mjs, doesn't "patch" publicVariable
+  within moduleOne.mjs, because publicFunction still retains the rerference to the original publicVariable value, this is 
+  because that is that is the value that was available at the time the closure was created on the modules initial import:
+
+
+  ```js
+    // moduleOne.mjs
+
+    // Define a public variable
+    let publicVariable = 10
+
+    // Define a public function that logs the publicVariable
+    function publicFunction() {
+      console.log("publicVariable:", publicVariable)
+    }
+
+    // Export publicVariable and publicFunction as the public interface
+    export default {
+      publicVariable, 
+      publicFunction
+    }
+  ```
+
+  ```js
+    // moduleTwo.mjs
+
+    import moduleOne from './moduleOne.mjs';
+
+    // Log the initial value of the publicVariable (will be '10')
+    console.log('publicVariable:', moduleOne.publicVariable);
+
+    // Call the public function (logs "publicVariable: 10")
+    moduleOne.publicFunction();
+
+    // Attempt to override ("patch") the publicVariable 
+    moduleOne.publicVariable = 88;
+
+    // logs "publicVariable: 88"
+    console.log('publicVariable:', moduleOne.publicVariable);
+
+    // Call the public function again (still logs "publicVariable: 10")
+    // This is because publicFunction is still referring to the original
+    // value of publicVariable from when the closure was first created.
+    moduleOne.publicFunction(); 
+  ```
+
+  <br/>
+
+  #### Solution: 
+  To solve this issue, we can expose a setter function as a member of the public interface that allows us to 
+  update the publicVariable from within the module. This will work because the setter function has access to the
+  closure identifier 'publicVariable'.
+
+  ```js
+    // moduleOne.mjs
+
+    // Define a public variable
+    let publicVariable = 10
+
+    // Define a public function that logs the publicVariable
+    function publicFunction() {
+      console.log("publicVariable:", publicVariable)
+    }
+
+    // Define a setter for the publicVariable // [!code focus:4]
+    function setPublicVariable(value){
+      publicVariable = value;
+    }
+
+    // Export the publicVariable and function
+    export default {
+      publicVariable, 
+      publicFunction,
+      // add the setter function to the public interface // [!code focus:1]
+      setPublicVariable // [!code focus:1]
+    }
+  ```
+
+  ```js
+    // moduleTwo.mjs
+
+    import moduleOne from './moduleOne.mjs';
+
+    // Log the initial value of the publicVariable (will be '10')
+    console.log('publicVariable:', moduleOne.publicVariable);
+
+    // Call the public function (logs "publicVariable: 10")
+    moduleOne.publicFunction();
+
+    // Use setPublicVariable to set the publicVariable // [!code focus:5] 
+    moduleOne.setPublicVariable(88);
+
+    // logs "publicVariable: 88"
+    moduleOne.publicFunction(); 
+  ```
+
+
+  <br>
+
+  ---
+
+  <br>
+
+  Example of how overriding a method on the public interface from within moduleTwo.mjs, doesn't "patch" publicFunction
+  within moduleOne.mjs, because privateFunction still retains the reference to the original publicFunction 
+  implementation, this is because that is the implementation that was available at the time the closure was created on 
+  the modules initial import:
+
+  ```js
+    // moduleOne.mjs
+
+    // Define a public function that logs "Hello World!"
+    function publicFunction() {
+      console.log("Hello World!");
+    }
+
+    // define a private function that calls the public function
+    function privateFunction() {
+      publicFunction();
+    }
+
+    // Call the private function after two seconds
+    setTimeout(() => {
+      privateFunction();
+    }, 2000);
+
+    // Export the public function
+    export default {
+      publicFunction
+    };
+  ```
+
+  ```js
+    // moduleTwo.mjs
+
+    import moduleOne from './moduleOne.mjs';
+
+    // Call the public function (logs "Hello World!")
+    moduleOne.publicFunction();
+
+    // Attempt to override ("patch") the public function
+    moduleOne.publicFunction = function () {
+      console.log("Hello Universe!");
+    };
+
+    // Logs "Hello Universe!"
+    moduleOne.publicFunction();
+
+    // After two seconds the `setTimeout` function will call the privateFunction 
+    // which calls publicFunction, which will still log "Hello World!". This is 
+    // because privateFunction still retains a reference to the original 
+    // implementation of publicFunction from when the closure was first created.
+  ```
+
+  <br>
+
+  #### Solution: 
+  To solve this issue, we can define publicFunction using an expression and expose a setter function as a member 
+  of the public interface that allows us to update assign a new function to the 'publicFunction' identifier from within 
+  the module. This will work because the setter function has access to the closure identifier 'publicVariable'.
+
+  ```js
+    // moduleOne.mjs
+
+    // Define publicFunction using an expression rather than a function declaration // [!code focus:4]
+    let publicFunction = () => { 
+      console.log("Hello World!");
+    }
+
+    // define a private function that calls the public function
+    function privateFunction() {
+      publicFunction();
+    }
+
+    // Define a setter for the publicFunction // [!code focus:4]
+    function setPublicFunction(newPublicFunction){ 
+      publicFunction = newPublicFunction;
+    };
+
+    // Call the private function after two seconds
+    setTimeout(() => {
+      privateFunction();
+    }, 2000);
+
+    // Export publicFunction and setPublicFunction
+    export default {
+      publicFunction,
+      // add the setter function to the public interface // [!code focus:2]
+      setPublicFunction 
+    };
+  ```
+
+  ```js
+    // moduleTwo.mjs
+
+    import moduleOne from './moduleOne.mjs';
+
+    // Call the public function (logs "Hello World!")
+    moduleOne.publicFunction();
+
+    // Use setPublicFunction to set the publicFunction // [!code focus:4]
+    moduleOne.publicFunction(function () {
+      console.log("Hello Universe!");
+    });
+
+    // Logs "Hello World!"
+    moduleOne.publicFunction();
+
+    // After two seconds the `setTimeout` function will call the privateFunction
+    // which calls publicFunction, which logs "Hello Universe!". 
+    // We'll patched the `publicFunction` within the moduleOne.mjs module,
+  ```
+
+  <br>
+
+  ---
+
+  <br>
+
+  Example of how overriding a method on the public interface from within moduleTwo.mjs, doesn't "patch" publicFunction
+  within moduleOne.mjs because privateFunction still retains the reference to the original publicFunction 
+  implementation, this is because that is the implementation that was available at the time the closure was created on 
+  the modules initial import:
+
+
+  ```js
+    // moduleOne.mjs
+
+    // Define a public variable
+    let privateVariable = 10
+
+    // Define a public function that logs the public variable
+    function publicFunction() {
+      console.log("privateVariable:", privateVariable)
+    }
+
+    // Call the public function after two seconds
+    setTimeout(() => {
+      publicFunction();
+    }, 2000);
+
+    // Export the public variable
+    export default {
+      publicFunction,
+    }
+  ```
+
+  ```js
+    // moduleTwo.mjs
+
+    import moduleOne from './moduleOne.mjs'
+
+    // Call the public function (logs "privateVariable: 10")
+    moduleOne.publicFunction() 
+
+    // Attempt to override ("patch") the public function
+    moduleOne.publicFunction = function () {
+      console.log("I have been overridden!");
+    };
+
+    // Call the public function again (still logs "privateVariable: 10")
+    // This is because publicFunction is still referring to the original
+    // value of privateVariable from when the closure was first created.
+    moduleOne.publicFunction() 
+  ```
+
+
+</section>
+
+<section>
+
+    ## Wrapping Up
+      So, just for clarity, I'll recap the 3 similiar drawbacks of the revealing module design pattern:
+      - Overriding "patching" a public variable doesn't change its original value within the module.
+      - Overriding "patching" a public function doesn't change the implementation of the function within the module.
+      - Overriding "patching" a public function that references a private variable doesn't change the value of the 
+      private variable within the module.
+    
+
+</section>
+
+<section>
+
+    ## Resources
+
+    - "Learning JavaScript Design Patterns" Second Edition by Addy Osmani, specifically Chapter 7: 
+      JavaScript Design Patterns.
+
+</section>

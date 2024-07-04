@@ -1,6 +1,5 @@
 ---
 title: Design Patterns
-pubcreatedlished: June 25th, 2024
 created: June 25th, 2021
 updated:
 description:
@@ -10,7 +9,7 @@ description:
   and to have a future reference in my own words. Each post will include
   explanations, analogies, and code examples using Javascript and Python.
 tags: ['javascript', 'python']
-categories: ['design patterns, oop']
+categories: ['design patterns', 'oop']
 ---
 
 ## Creational Design Patterns

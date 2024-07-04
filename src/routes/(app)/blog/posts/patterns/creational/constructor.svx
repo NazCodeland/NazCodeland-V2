@@ -8,7 +8,7 @@ description:
   of the newly created instance by assigning its initial properties and methods. If the class is a
   subclass, meaning it inherits from a superclass, the constructor invokes the superclass’s constructor
   to ensure newly created instances are assigned the properties and methods of the superclass.
-tags: ['javascript', 'python']
+tags: ['javascript']
 categories: ['design patterns', 'oop']
 ---
 
@@ -31,9 +31,9 @@ categories: ['design patterns', 'oop']
 <section>
 	<Link href="https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming)" linkText="Wikipedia article" block={true} /> says:
 
-	> In class-based, object-oriented programming, a constructor (abbreviation: ctor) is a special type of
-	> function called to create an object. It prepares the new object for use, often accepting arguments that
-	> the constructor uses to set required member variables.
+		> In class-based, object-oriented programming, a constructor (abbreviation: ctor) is a special type of
+		function called to create an object. It prepares the new object for use, often accepting arguments that
+		the constructor uses to set required member variables.
 
 </section>
 
@@ -62,8 +62,7 @@ categories: ['design patterns', 'oop']
 	The non-blurred code is the focus of the current article, and the blurred code introduces topics for future articles.
 
 ```js
-	// [!code focus:2]
-	class Bicycle {
+	class Bicycle { 	// [!code focus:1]
 		// class fields are instance specific properties
 		// I will cover class fields in another article
 		model = 'regular bike';
@@ -71,8 +70,7 @@ categories: ['design patterns', 'oop']
 		year = 2024;
 		tires = 2;
 
-		// [!code focus:11]
-		constructor(color, size) {
+		constructor(color, size) { 		// [!code focus:10]
 			// Properties defined in the constructor are instance specific
 			this.color = color;
 			this.size = size;
@@ -92,8 +90,8 @@ categories: ['design patterns', 'oop']
 			// regular bike implementation
 		}
 	}
-	// [!code focus:3]
-	// instantiate a new instance of Bicycle class
+
+	// instantiate a new instance of Bicycle class 	// [!code focus:2]
 	let bicycle = new Bicycle('red', 'large');
 ```
 
@@ -104,14 +102,13 @@ constructor of its superclass by using the `super` keyword and passing in the
 required arguments.
 
 ```js
-	// [!code focus:2]
-	class MountainBike extends Bicycle {
+	class MountainBike extends Bicycle { 	// [!code focus:1]
 		model = 'mountain bike';
 		chain = 'advanced chain';
 		terrainTypes = ['trail', 'downhill', 'cross-country'];
 
-		// [!code focus:4]
-		constructor(color, size, terrainType) {
+
+		constructor(color, size, terrainType) { 		// [!code focus:3]
 			// super needs to be invoked before using `this` keyword
 			super(color, size);
 
@@ -120,8 +117,8 @@ required arguments.
 			} else {
 				this.terrainType = terrainType;
 			}
-			// [!code focus:2]
-		}
+		} 			// [!code focus:1]
+
 
 		// override the method defined in the superclass by
 		// adding a specific implementation for mountain bikes
@@ -129,8 +126,7 @@ required arguments.
 			// mountain bike implementation
 		}
 	}
-	// [!code focus:2]
-	const mountainBike = new MountainBike('black', 'medium', 'trail');
+	const mountainBike = new MountainBike('black', 'medium', 'trail'); 	// [!code focus:1]
 ```
 </section>
 
@@ -149,14 +145,14 @@ required arguments.
 	that is shared between all instances of that class.
 
 	But, as my mentor <Link href="https://github.com/ericchase" linkText="Chase"  /> 
-	pointed out, <abbr title="Mozilla Developer Network">MDN</abbr> says, `A property's 
-	value can be a function, in which case the property is known as a method.` He also 
-	pointed out that we developers only write the constructor method, but behind the 
-	scenes, there is probably a lot more going on in the construction phase. So, 
-	therefore, there probably is a use case for initializing methods within the 
+	pointed out, <abbr title="Mozilla Developer Network">MDN</abbr> says, 
+	`A property's value can be a function, in which case the property is known as a method.`
+	He also pointed out that we developers only write the constructor method, but 
+	behind the scenes, there is probably a lot more going on in the construction phase.
+	So, therefore, there probably is a use case for initializing methods within the 
 	constructor that I just don't know about due to my lack of knowledge.
 
-	I’ve even asked <Link href="https://www.youtube.com/@jmagrippis" linkText="Jonny Magrippis"  />, 
+	I’ve also asked <Link href="https://www.youtube.com/@jmagrippis" linkText="Jonny Magrippis"  />, 
 	who is a great instructor, and even he says he hasn’t seen a legit use case for it. 
 	If you do know of a use case, please do share!
 </section>

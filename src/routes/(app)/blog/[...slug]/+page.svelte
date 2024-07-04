@@ -3,7 +3,7 @@
 
 	import viewport from '$lib/actions/viewportAction';
 	import moveToTop from '$lib/icons/themeBased/moveToTop/moveToTopMain.svg';
-	import Giscus from '@giscus/svelte';
+	// import Giscus from '@giscus/svelte';
 
 	let showMoveToTop = false;
 </script>
@@ -33,7 +33,7 @@
 		use:viewport
 		on:enteringViewport={() => (showMoveToTop = true)}
 		on:exitingViewport={() => (showMoveToTop = false)}>
-		<Giscus
+		<!-- <Giscus
 			id="comments"
 			repo="NazCodeland/NazCodeland-V2"
 			repoId="R_kgDOJDWq2A"
@@ -46,7 +46,7 @@
 			inputPosition="bottom"
 			theme="dark_dimmed"
 			lang="en"
-			loading="lazy" />
+			loading="lazy" /> -->
 	</div>
 
 	{#if showMoveToTop}
