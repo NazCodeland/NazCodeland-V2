@@ -340,8 +340,9 @@ categories: ['design patterns', 'oop']
     console.log('publicVariable:', moduleOne.publicVariable);
 
     // Call the public function again (still logs "publicVariable: 10")
-    // This is because publicFunction is still referring to the original
-    // value of publicVariable from when the closure was first created.
+    // This is because publicFunction within moduleOne.mjs is still 
+    // referring to the original value of publicVariable from when the 
+    // closure was first created.
     moduleOne.publicFunction(); 
   ```
 
@@ -500,7 +501,7 @@ categories: ['design patterns', 'oop']
     moduleOne.publicFunction();
 
     // Use setPublicFunction to set the publicFunction // [!code focus:4]
-    moduleOne.publicFunction(function () {
+    moduleOne.setPublicFunction(function () {
       console.log("Hello Universe!");
     });
 
@@ -518,10 +519,10 @@ categories: ['design patterns', 'oop']
 
   <br>
 
-  Example of how overriding a method on the public interface from within moduleTwo.mjs, doesn't "patch" publicFunction
-  within moduleOne.mjs because privateFunction still retains the reference to the original publicFunction 
-  implementation, this is because that is the implementation that was available at the time the closure was created on 
-  the modules initial import:
+  Example of how overriding a method on the public interface that references a private variable, 
+  doesn't actually "patch" the publicFunction within moduleOne.mjs, because privateFunction still retains the 
+  reference to the original publicFunction implementation, this is because that is the implementation 
+  that was available at the time the closure was created on the modules initial import:
 
 
   ```js
@@ -556,7 +557,7 @@ categories: ['design patterns', 'oop']
 
     // Attempt to override ("patch") the public function
     moduleOne.publicFunction = function () {
-      console.log("I have been overridden!");
+      console.log("I have been overridden within moduleTwo.mjs!");
     };
 
     // Call the public function again (still logs "privateVariable: 10")

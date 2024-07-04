@@ -12,9 +12,10 @@ async function getBlogPost(params: RouteParams) {
 	const path = await import(
 		/* @vite-ignore */ `/src/routes/(app)/blog/posts/${slug}.svx`
 	);
-
+	console.log('path', path);
 	if (path && typeof path === 'object' && isBlogPost(path)) {
 		const blogPost = { ...path.metadata, content: path.default };
+		console.log('blogPost', blogPost);
 		return { blogPost };
 	}
 }
