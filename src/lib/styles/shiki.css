@@ -34,9 +34,6 @@ code {
 }
 
 .shiki {
-	resize: both;
-	overflow: scroll;
-
 	display: flex;
 
 	border-radius: theme(borderRadius.md);
