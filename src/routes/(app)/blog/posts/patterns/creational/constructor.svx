@@ -18,7 +18,7 @@ categories: ['design patterns', 'oop']
 
 <section>
 
-	## Explanation
+  ## Explanation
 
 	In <abbr title="Object Oriented Programming">OOP</abbr>, the Constructor Design Pattern is a special
 	method that gets invoked every time we instantiate a new instance of a class using the **new** keyword.
@@ -40,7 +40,7 @@ categories: ['design patterns', 'oop']
 
 <section>
 
-	## Analogy
+  ## Analogy
 
 	We can think of a bicycle manufacturing factory as an analogy for the constructor design pattern.
 	The factory uses a blueprint to ensure all bicycles have the same components, such as tires,
@@ -52,82 +52,82 @@ categories: ['design patterns', 'oop']
 </section>
 
 
-
-
-
 <section>
 
-	## Code Example
+  ## Code Example
 
-	The non-blurred code is the focus of the current article, and the blurred code introduces topics for future articles.
+  The non-blurred code is the focus of the current article, and the blurred code introduces topics for future articles.
 
-```js
-	class Bicycle { 	// [!code focus:1]
-		// class fields are instance specific properties
-		// I will cover class fields in another article
-		model = 'regular bike';
-		chain = 'standard chain';
-		year = 2024;
-		tires = 2;
+  ```js
+    class Bicycle { 	// [!code focus:1]
+      // class fields are instance specific properties
+      // I will cover class fields in another article
+      model = 'regular bike';
+      chain = 'standard chain';
+      year = 2024;
+      tires = 2;
+  
+      constructor(color, size) { 		// [!code focus:10]
+        // Properties defined in the constructor are instance specific
+        this.color = color;
+        this.size = size;  
+        // See 'Wrapping Up' for more on defining methods in the constructor
+        this.someMethod = function () {
+          // do something
+        };
+      }
+  
+      // Methods defined within the class body are shared among all instances
+      honk() {
+        console.log('honk');
+      }   
+      gearShiftingMechanism() {
+      	// regular bike implementation
+      }
+    }
 
-		constructor(color, size) { 		// [!code focus:10]
-			// Properties defined in the constructor are instance specific
-			this.color = color;
-			this.size = size;
+    // instantiate a new instance of Bicycle class 	// [!code focus:2]
+    let bicycle = new Bicycle('red', 'large');
 
-			// See 'Wrapping Up' for more on defining methods in the constructor
-			this.someMethod = function () {
-				// do something
-			};
-		}
+  ```
 
-		// Methods defined within the class body are shared among all instances
-		honk() {
-			console.log('honk');
-		}
-
-		gearShiftingMechanism() {
-			// regular bike implementation
-		}
-	}
-
-	// instantiate a new instance of Bicycle class 	// [!code focus:2]
-	let bicycle = new Bicycle('red', 'large');
-```
-
-<br/>
-
-`MountainBike` is a subclass of `Bicycle` and therefore it needs to invoke the 
-constructor of its superclass by using the `super` keyword and passing in the 
-required arguments.
-
-```js
-	class MountainBike extends Bicycle { 	// [!code focus:1]
-		model = 'mountain bike';
-		chain = 'advanced chain';
-		terrainTypes = ['trail', 'downhill', 'cross-country'];
+  <br/>
 
 
-		constructor(color, size, terrainType) { 		// [!code focus:3]
-			// super needs to be invoked before using `this` keyword
-			super(color, size);
-
-			if (!this.terrainTypes.includes(terrainType)) {
-				throw new Error('Invalid terrain type');
-			} else {
-				this.terrainType = terrainType;
-			}
-		} 			// [!code focus:1]
+	`MountainBike` is a subclass of `Bicycle` and therefore it needs to invoke the 
+	constructor of its superclass by using the `super` keyword and passing in the 
+	required arguments.
 
 
-		// override the method defined in the superclass by
-		// adding a specific implementation for mountain bikes
-		gearShiftingMechanism() {
-			// mountain bike implementation
-		}
-	}
-	const mountainBike = new MountainBike('black', 'medium', 'trail'); 	// [!code focus:1]
-```
+  ```js
+    class MountainBike extends Bicycle { 	// [!code focus:1]
+      model = 'mountain bike';
+      chain = 'advanced chain';
+      terrainTypes = ['trail', 'downhill', 'cross-country'];
+
+
+      constructor(color, size, terrainType) { 		
+        // super needs to be invoked before using `this` keyword
+        super(color, size);      // [!code focus:1]
+        if (!this.terrainTypes.includes(terrainType)) {
+          throw new Error('Invalid terrain type');
+        } else {
+          this.terrainType = terrainType;
+        }
+      } 			
+
+
+      // override the method defined in the superclass by
+      // adding a specific implementation for mountain bikes
+      gearShiftingMechanism() {
+     	  // mountain bike implementation
+      }
+    } // [!code focus:1]
+
+    // instantiate a new instance of Bicycle class
+    const mountainBike = new MountainBike('black', 'medium', 'trail'); 	// [!code focus:1]
+  ```
+
 </section>
 
 

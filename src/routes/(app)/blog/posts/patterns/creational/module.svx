@@ -299,9 +299,11 @@ categories: ['design patterns', 'oop']
   <br/>
 
 
+  _Disadvantage #1_
+
   Example of how overriding a public variable on the public interface from within moduleTwo.mjs, doesn't "patch" publicVariable
   within moduleOne.mjs, because publicFunction still retains the rerference to the original publicVariable value, this is 
-  because that is that is the value that was available at the time the closure was created on the modules initial import:
+  because that is the value that was available at the time the closure was created on the modules initial import:
 
 
   ```js
@@ -403,6 +405,68 @@ categories: ['design patterns', 'oop']
 
   <br>
 
+
+  _Disadvantage #2_
+
+  Example of how overriding a method on the public interface that references a private variable, 
+  doesn't actually "patch" the publicFunction within moduleOne.mjs, because privateFunction still retains the 
+  reference to the original publicFunction implementation, this is because that is the implementation 
+  that was available at the time the closure was created on the modules initial import:
+
+
+  ```js
+    // moduleOne.mjs
+
+    // Define a public variable
+    let privateVariable = 10
+
+    // Define a public function that logs the public variable
+    function publicFunction() {
+      console.log("privateVariable:", privateVariable)
+    }
+
+    // Call the public function after two seconds
+    setTimeout(() => {
+      publicFunction();
+    }, 2000);
+
+    // Export the public variable
+    export default {
+      publicFunction,
+    }
+  ```
+
+  ```js
+    // moduleTwo.mjs
+
+    import moduleOne from './moduleOne.mjs'
+
+    // Call the public function (logs "privateVariable: 10")
+    moduleOne.publicFunction() 
+
+    // Attempt to override ("patch") the public function
+    moduleOne.publicFunction = function () {
+      console.log("I have been overridden within moduleTwo.mjs!");
+    };
+
+    moduleOne.publicFunction() 
+  ```
+
+  ## No Solution
+  In this scenario, it would defeat the purpose of exposing a setter funciton to set the privateVariable from 
+  outside of the module because the privateVariable is meant to be private and therefore, there is no solution 
+  to this disadvantage of The Revealing Module Design Pattern variation.
+
+
+  <br>
+
+  ---
+
+  <br>
+
+
+  _Disadvantage #3_
+
   Example of how overriding a method on the public interface from within moduleTwo.mjs, doesn't "patch" publicFunction
   within moduleOne.mjs, because privateFunction still retains the reference to the original publicFunction 
   implementation, this is because that is the implementation that was available at the time the closure was created on 
@@ -458,8 +522,8 @@ categories: ['design patterns', 'oop']
 
   #### Solution: 
   To solve this issue, we can define publicFunction using an expression and expose a setter function as a member 
-  of the public interface that allows us to update assign a new function to the 'publicFunction' identifier from within 
-  the module. This will work because the setter function has access to the closure identifier 'publicVariable'.
+  of the public interface that allows us to assign a new function to the 'publicFunction' identifier from within 
+  the module. This will work because the setter function has access to the closure identifier 'publicFunction'.
 
   ```js
     // moduleOne.mjs
@@ -513,71 +577,40 @@ categories: ['design patterns', 'oop']
     // We'll patched the `publicFunction` within the moduleOne.mjs module,
   ```
 
-  <br>
-
-  ---
-
-  <br>
-
-  Example of how overriding a method on the public interface that references a private variable, 
-  doesn't actually "patch" the publicFunction within moduleOne.mjs, because privateFunction still retains the 
-  reference to the original publicFunction implementation, this is because that is the implementation 
-  that was available at the time the closure was created on the modules initial import:
-
-
-  ```js
-    // moduleOne.mjs
-
-    // Define a public variable
-    let privateVariable = 10
-
-    // Define a public function that logs the public variable
-    function publicFunction() {
-      console.log("privateVariable:", privateVariable)
-    }
-
-    // Call the public function after two seconds
-    setTimeout(() => {
-      publicFunction();
-    }, 2000);
-
-    // Export the public variable
-    export default {
-      publicFunction,
-    }
-  ```
-
-  ```js
-    // moduleTwo.mjs
-
-    import moduleOne from './moduleOne.mjs'
-
-    // Call the public function (logs "privateVariable: 10")
-    moduleOne.publicFunction() 
-
-    // Attempt to override ("patch") the public function
-    moduleOne.publicFunction = function () {
-      console.log("I have been overridden within moduleTwo.mjs!");
-    };
-
-    // Call the public function again (still logs "privateVariable: 10")
-    // This is because publicFunction is still referring to the original
-    // value of privateVariable from when the closure was first created.
-    moduleOne.publicFunction() 
-  ```
-
 
 </section>
 
 <section>
 
     ## Wrapping Up
-      So, just for clarity, I'll recap the 3 similiar drawbacks of the revealing module design pattern:
+      So, just for clarity, I'll recap the 3 similiar disadvantages of the revealing module design pattern:
       - Overriding "patching" a public variable doesn't change its original value within the module.
-      - Overriding "patching" a public function doesn't change the implementation of the function within the module.
       - Overriding "patching" a public function that references a private variable doesn't change the value of the 
+      - Overriding "patching" a public function doesn't change the implementation of the function within the module.
       private variable within the module.
+
+
+    The "Learning JavaScript Design Patterns" closes off the chapter with the following: 
     
+    >"A disadvantage of this pattern is that if a private function refers to a public
+    function, that public function can’t be overridden if a patch is necessary.
+    This is because the private function will continue to refer to the private
+    implementation, and the pattern doesn’t apply to public members, only to
+    functions.
+    
+    > Public object members, which refer to private variables, are also subject to
+    the no-patch rule."
+
+    I found the language in the book slightly confusing as someone else that I spoke with did too, as they mentioned,
+    "overriding" is usually always mentioned in the context of overriding **class methods** and not methods 
+    of an object. Also, I understood the word "overriding" and "patching" to be interchangeable and have used it as so
+    in my article. 
+
+    Also, "and the pattern doesn’t apply to public members, only to functions." to me this means that public variables can't 
+    be overridden, but as I've shown in the solution to disadvantage #1, they can be overriden if a setter function is exposed.
+
+    If I am wrong about any of the code examples, please correct me. I enjoyed writing this article and learned 
+    from it, thank you for reading.
 
 </section>
 
