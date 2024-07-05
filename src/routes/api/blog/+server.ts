@@ -3,7 +3,7 @@
 
 import type { BlogPost, File } from '$src/lib/types';
 
-async function getBlogPosts() {
+function getBlogPosts() {
 	const paths = import.meta.glob('/src/routes/\\(app\\)/blog/posts/**/*.svx', {
 		eager: true
 	});
@@ -57,7 +57,7 @@ function sortBlogPosts(blogPosts: BlogPost[]) {
 }
 
 export async function GET() {
-	const blogPosts = await getBlogPosts();
+	const blogPosts = getBlogPosts();
 	const sortedBlogPosts = sortBlogPosts(blogPosts);
 
 	// return json(blogPosts);

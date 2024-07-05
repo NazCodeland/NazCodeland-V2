@@ -3,19 +3,20 @@
 import type { File } from '$src/lib/types.js';
 import type { RouteParams } from './$types.js';
 
+
+const modules = import.meta.glob(`../posts/**/*.svx`, { eager: true });
+console.log(modules);
+
 function isBlogPost(file: object): file is File {
 	return 'metadata' in file && file !== null && 'default' in file;
 }
 
 async function getBlogPost(params: RouteParams) {
 	const slug = params.slug.replaceAll('-', ' ');
-	const path = await import(
-		/* @vite-ignore */ `/src/routes/(app)/blog/posts/${slug}.svx`
-	);
-	console.log('path', path);
+	const path = modules[`../posts/${slug}.svx`];
+	console.log(path);
 	if (path && typeof path === 'object' && isBlogPost(path)) {
 		const blogPost = { ...path.metadata, content: path.default };
-		console.log('blogPost', blogPost);
 		return { blogPost };
 	}
 }
