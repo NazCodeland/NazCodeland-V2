@@ -18,7 +18,7 @@
 			</a>
 		</h2>
 
-		<div class="mt-2 text-fluid-5 opacity-70">
+		<div class="mt-2 text-fluid-5 opacity-70 md:text-fluid-4">
 			<p class="mr-4">Created: {created}</p>
 			{#if updated} <p>Updated: {updated}</p> {/if}
 		</div>

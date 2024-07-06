@@ -111,20 +111,19 @@ categories: ['design patterns', 'oop']
   ```js
     // bankAccount.mjs
 
-    // private interface
+    // All these are private interfaces
     let accountTypes = ['checking', 'savings'];
     let accountBalances = {
       checking: 100,
       savings: 50
     } 
 
-    // private interface
     function calculateInterestPrivate(amount, timePeriod) {
-      // private interest rate calculation implementation
+      // Private interest rate calculation implementation
     }
 
 
-    // public interface
+    // Public interface
     const bankAccount = {
       getAccountTypes: function() { 
         return accountTypes
@@ -216,31 +215,29 @@ categories: ['design patterns', 'oop']
   ```js
     // bankAccount.mjs
 
-    // private interface
+    // All these are private interfaces
     let accountTypes = ['checking', 'savings'];
     let accountBalances = {
       checking: 100,
       savings: 50
     } 
 
-    // private interface
     function calculateInterestPrivate(amount, timePeriod) {
-      // private interest rate calculation implementation
+      // Private interest rate calculation implementation
     }
 
-    // private interface
     function getAccountTypes() { 
         return accountTypes
     }
-    // private interface
+
     function getAccountBalance(accountType){
         return accountBalances[accountType]
     }
-    // private interface
+
     function deposit(amount, accountType){
         accountBalances[accountType] += amount;
     }
-    // private interface
+
     function withdraw(amount, accountType){
       if(accountTypes.includes(accountType)){
         if(accountBalances[accountType] >= amount){
@@ -256,12 +253,12 @@ categories: ['design patterns', 'oop']
         console.log(`Valid account types are ${accountTypes}`);
       }
     }
-    // private interface
+    
     function calculateInterest(amount, timePeriod){
       calculateInterestPrivate(amount, timePeriod)
     }
 
-    // public interface
+    // Public interface
     export default {
       getAccountTypes,
       getAccountBalance,
@@ -390,8 +387,8 @@ categories: ['design patterns', 'oop']
     export default {
       publicVariable, 
       publicFunction,
-      // add the setter function to the public interface // [!code focus:1]
-      setPublicVariable // [!code focus:1]
+      // Add the setter function to the public interface // [!code focus:2]
+      setPublicVariable 
     }
   ```
 
@@ -462,7 +459,7 @@ categories: ['design patterns', 'oop']
 
     import moduleOne from './moduleOne.mjs';
     
-    // logs the original message
+    // Logs the original message
     moduleOne.publicFunction();
     
     // Redefine publicFunction
@@ -470,7 +467,7 @@ categories: ['design patterns', 'oop']
       console.log("publicFunction: redefined implementation");
     };
     
-    // logs the new message
+    // Logs the new message
     moduleOne.publicFunction();
     
     // After two seconds the `setTimeout` function will call the privateFunction
@@ -517,12 +514,12 @@ categories: ['design patterns', 'oop']
       console.log("publicFunction: original implementation");
     };
     
-    // define a setter function for the publicFunction // [!code focus:4]
+    // Define a setter function for the publicFunction // [!code focus:4]
     function setPublicFunction(newPublicFunction) {
       publicFunction = newPublicFunction;
     };
     
-    // define a getter function for the publicFunction // [!code focus:3]
+    // Define a getter function for the publicFunction // [!code focus:3]
     function getPublicFunction() {
       return publicFunction;
     }
@@ -544,9 +541,9 @@ categories: ['design patterns', 'oop']
     
     import moduleOne from './moduleOne.mjs';
     
-    // use the getter funciton to get the public function // [!code focus:2]
+    // Use the getter funciton to get the public function // [!code focus:2]
     let publicFunction = moduleOne.getPublicFunction();
-    // logs the original message
+    // Logs the original message
     publicFunction();
     
     const newPublicFunction = function () { 
