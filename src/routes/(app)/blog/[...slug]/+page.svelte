@@ -14,7 +14,9 @@
 			<h1 class="mb-4 text-center">{data.blogPost?.title}</h1>
 			<div class="flex flex-col text-fluid-5">
 				<p class="!mb-1">Created: {data.blogPost?.created}</p>
-				<!-- <p class=""> Updated: {data.blogPost?.updated}</p> -->
+				{#if data.blogPost?.updated}
+					<p>Updated: {data.blogPost?.updated}</p>
+				{/if}
 			</div>
 		</header>
 

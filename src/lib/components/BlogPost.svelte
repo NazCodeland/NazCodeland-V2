@@ -4,7 +4,7 @@
 	export let title: string;
 	export let description: string;
 	export let created: string;
-	export let updated = '';
+	export let updated: string;
 	export let tags: string[];
 </script>
 
@@ -18,9 +18,9 @@
 			</a>
 		</h2>
 
-		<div class="text-fluid-4 opacity-70">
-			<span>{created}</span>
-			<span>{updated}</span>
+		<div class="mt-2 text-fluid-5 opacity-70">
+			<p class="mr-4">Created: {created}</p>
+			{#if updated} <p>Updated: {updated}</p> {/if}
 		</div>
 	</section>
 

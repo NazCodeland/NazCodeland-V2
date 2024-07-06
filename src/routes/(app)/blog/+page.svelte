@@ -37,6 +37,7 @@
 							href="/blog{blogPost.path}"
 							title={blogPost.title}
 							created={blogPost.created}
+							updated={blogPost.updated}
 							description={blogPost.description}
 							tags={blogPost.tags} />
 					</li>
