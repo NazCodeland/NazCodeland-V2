@@ -1,0 +1,69 @@
+---
+title: Singleton Design Pattern
+created: July 5th, 2024
+updated:
+description: In OOP, the Singleton Design Pattern restricts the
+  ability of a class from being able to instantiate multiple instances to only a single instance.
+  Normally, a class can instantiate as many instances as desired but in some scenarios it’s crucial
+  that only a single instance of a class exists. Since the constructor method of a class is responsible
+  for instantiating new instances, the logic for the Singleton pattern is implemented there. The logic
+  checks if an instance already exists, if so, it returns the reference to that instance, otherwise the
+  constructor creates a new instance. The Singleton pattern provides a global point of access to the
+  single instance, regardless of where within your codebase you try to instantiate a new instance, you
+  always get the same instance back.
+tags: ['javascript']
+categories: ['design patterns', 'oop']
+---
+
+<script lang="ts">
+	import Link from '$lib/elements/Link.svelte';
+</script>
+
+<section>
+
+    ## Explanation
+
+    In <abbr title="Object Oriented Programming">OOP</abbr>, the Singleton Design Pattern restricts the
+    ability of a class from being able to instantiate multiple instances to only a single instance.
+    Normally, a class can instantiate as many instances as desired but in some scenarios it’s crucial
+    that only a single instance of a class exists. Since the constructor method of a class is responsible
+    for instantiating new instances, the logic for the Singleton pattern is implemented there. The logic
+    checks if an instance already exists, if so, it returns the reference to that instance, otherwise the
+    constructor creates a new instance. The Singleton pattern provides a global point of access to the
+    single instance, regardless of where within your codebase you try to instantiate a new instance, you
+    always get the same instance back.
+
+</section>
+
+<section>
+	<Link href="https://en.wikipedia.org/wiki/Singleton_pattern" linkText="Wikipedia article" block={true} /> says:
+
+    > In software engineering, the singleton pattern is a software design pattern that restricts the
+    instantiation of a class to a singular instance. … The pattern is useful when exactly one object is
+    needed to coordinate actions across a system.
+
+</section>
+
+<section>
+
+    ## Analogy
+
+    We can think of the steering wheel, accelerator, and brake pads in a car as a Singleton set. Since a car
+    can only have one such set to control its movements; no matter who is driving the car, they interact
+    with the same set of controls. Having multiple sets of controls would lead to unpredictability, just
+    as having multiple instances of a class that is meant to have only a single instance can lead to
+    unpredictable behavior in a software program.
+
+</section>
+
+<section>
+
+    ## Code Example
+
+
+
+</section>
+
+<section>
+
+</section>
