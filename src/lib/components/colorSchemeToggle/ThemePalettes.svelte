@@ -65,7 +65,7 @@
 	.dusk {
 		inset-inline-start: -31px;
 		inset-block-start: 18px;
-		background-color: rgb(188, 194, 194);
+		background-color: rgb(215, 222, 221);
 	}
 	:global([color-scheme='dark']) .dusk {
 		background-color: rgb(44, 50, 54);
