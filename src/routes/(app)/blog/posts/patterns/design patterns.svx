@@ -11,26 +11,33 @@ description:
 tags: ['javascript']
 categories: ['design patterns', 'oop']
 ---
+<!-- 
+- [Prototype](/blog/posts/patterns/creational/prototype)
+- [Factory](/blog/posts/patterns/creational/factory)
+- [Abstract Factory](/blog/posts/patterns/creational/abstract%20factory)
+- [Builder](/blog/posts/patterns/creational/builder) -->
+
+
+<!-- - [Adapter](/blog/posts/patterns/structural/adapter)
+- [Proxy](/blog/posts/patterns/structural/proxy)
+-->
+
+
+<!-- - [Null Object](/blog/posts/patterns/behavioral/null%20object) -->
 
 ## Creational Design Patterns
 
-- [Constructor](/blog/posts/patterns/creational/constructor.md)
-- [Module](/blog/posts/patterns/creational/module.md)
-- [Singleton](/blog/posts/patterns/creational/singleton.md)
-- [Prototype](/blog/posts/patterns/creational/prototype.md)
-- [Factory](/blog/posts/patterns/creational/factory.md)
-- [Abstract Factory](/blog/posts/patterns/creational/abstract%20factory.md)
-- [Builder](/blog/posts/patterns/creational/builder.md)
+- [Constructor](/blog/patterns/creational/constructor)
+- [Module](/blog/patterns/creational/module)
+- [Singleton](/blog/patterns/creational/singleton)
+
 
 <br/>
 
 ## Structural Design Patterns
 
-- [Adapter](/blog/posts/patterns/structural/adapter.md)
-- [Proxy](/blog/posts/patterns/structural/proxy.md)
 
 <br/>
 
 ## Behavioral Design Patterns
 
-- [Null Object](/blog/posts/patterns/behavioral/null%20object.md)

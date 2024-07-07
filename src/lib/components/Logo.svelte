@@ -1,6 +1,5 @@
 <script lang="ts">
 	let logoText = 'NazCodeland';
-
 	const logoTextArray = [...logoText];
 </script>
 
@@ -34,7 +33,6 @@
 	}
 
 	.firstLetter {
-		position: relative;
 		color: rgba(var(--primary-color));
 		margin-inline-end: 2px;
 		border-radius: 0.125rem;
