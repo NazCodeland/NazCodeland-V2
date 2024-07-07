@@ -58,6 +58,8 @@ categories: ['design patterns', 'oop']
 
   The non-blurred code is the focus of the current article, and the blurred code introduces topics for future articles.
 
+  ES6 Syntax
+  
   ```js
     class Bicycle { 	// [!code focus:1]
       // class fields are instance specific properties
