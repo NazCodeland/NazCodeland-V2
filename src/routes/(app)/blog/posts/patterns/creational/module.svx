@@ -108,6 +108,7 @@ categories: ['design patterns', 'oop']
   implementation details of the module from external users while still making the functionality of the 
   private interface available through the public interface.
 
+  ES6 Syntax
   ```js
     // bankAccount.mjs
 
@@ -198,8 +199,199 @@ categories: ['design patterns', 'oop']
     - **Limitation in Testing Granularity**: Since only the public interface is exposed, testing of private members is only possible  
     through unit testing of the public members. 
 
-
 </section>
+
+<section>
+
+  ## The Javascript Modules Journey
+
+  With the introduction of ES6, JavaScript got a built-in module system that allowed the import and export of specific logic and state between
+  JavaScript modules using the `import` and `export` keywords. But it wasn't always like this, let's take a quick look.
+
+  Before the introduction of ES6, JavaScript did not have a built-in module system for importing and exporting JavaScript modules within other
+  JavaScript modules. In a browser environment, to use code from another module, developers had to correctly arrange their script tags in HTML 
+  files so that variables and functions imported from earlier script tag modules would get added to the global scope before later imported 
+  modules could use them. This was not good practice, as it polluted the global scope and could lead to identifier conflicts between different 
+  modules using the same variable and function names.
+
+  In a Node.js environment, developers used `module.exports` to export variables and functions from a module. If a module needed to export 
+  multiple identifiers, an object containing those identifiers as properties would be exported. The `require()` function was then used to 
+  import that module. However, this syntax was only understood by the Node.js runtime and not by browsers, so modules using this syntax could 
+  not be used directly in the browser.
+
+  In both environments, all the code of the imported module would be added to the global scope. To get around this, developers use 
+  an <Link href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE" linkText="IIFE" /> to return the code that they want exposed to the 
+  global scope. Everything else within the IIFE scope remains private because functions create their own scope. The returned code, usually  
+  an object, would become the public interface of the module that other modules could interact with. Below are some code examples to illustrate
+  this.
+
+  An example of how defining everything at the top level of a module gets added to the global scope, which is `window` 
+  in the browser and `global` in Node.js. 
+
+  ```js
+    // moduleOne.mjs
+
+    var carModel = 'Toyota';
+    var carColor = 'Blue';
+    // we want this to be private but it's exposed anyway
+    var vinNumber = '123456789'; 
+    
+    // we want this to be private but it's exposed anyway
+    function getVinNumber() { 
+      return vinNumber;
+    }
+
+    function drive() {
+      console.log("Driving");
+    }
+
+    function stop() {
+      console.log("Stopping");
+    }
+  ```
+
+  ```js
+    // moduleTwo.mjs
+    // We're accessing code from moduleOne.mjs without 
+    // importing moduleOne.mjs because, once moduleOne.mjs 
+    // is imported using the script tag in the html file, 
+    // the code from it will be added to the global scope.
+    console.log(window.carModel); // or console.log(carModel);
+    window.drive(); //  or drive();
+    window.stop(); //  or jog();
+  ```
+
+  ```html
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      </head>
+      <body></body>
+      <script src="moduleOne.mjs"></script>  <!-- import moduleOne.mjs first --> // [!code focus:2]
+      <script src="moduleTwo.mjs"></script>  <!-- import moduleTwo.mjs second -->
+    </html>
+  ```
+
+  <br>
+
+  Output:
+  <img src="/images/blog/patterns/creational/module/window_scope.png" alt="Disadvantage #1" class="w-full">
+
+  <br/>
+  <br/>
+
+  ---
+
+  <br/>
+
+
+  An example of using an IIFE to create a private scope (interface). The returned object by the IIFE becomes the public interface. This
+  object is assigned to the `carDetails` variable and exposed to the global scope when the module is imported. 
+
+  ```js
+    // moduleOne.mjs
+    var carDetails = (function() {
+      // private interface
+      var carModel = 'Toyota';
+      var carColor = 'Blue';
+      var vinNumber = '123456789'; 
+      
+      function getVinNumber() { 
+        return vinNumber;
+      }
+  
+      function drive() {
+        console.log("Driving");
+      }
+  
+      function stop() {
+        console.log("Stopping");
+      }
+  
+      // public interface
+      return {
+        carModel,
+        carColor,
+        drive,
+        stop
+      }
+    })();
+  ```
+
+  ```js
+    // moduleTwo.mjs
+    // only the identifier 'carDetails' is added to the global scope
+    // and therefore we need to use it as the namespace to access
+    // the variables and functions returned frommoduleOne.mjs
+    console.log(carDetails.carModel);
+    carDetails.drive(); 
+    carDetails.stop(); 
+  ```
+
+  ```html
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      </head>
+      <body></body>
+      <script src="moduleOne.mjs"></script>  <!-- import moduleOne.mjs first --> // [!code focus:2]
+      <script src="moduleTwo.mjs"></script>  <!-- import moduleTwo.mjs second -->
+    </html>
+  ```
+
+  <br>
+
+  The reason this works is threefold:
+  1. Top level code within a module is executed only once, when the module is initially imported.
+  2. Functions create their own scope, so that allows for a private and public interface to be created.
+  3. An IIFE is invoked only once, in this case when the modile is imported, and because its an anonymous IIFE,
+  it cannot be invoked again. Even if it was a named IIFE, if the IIFE was not exposed on the public interface, it
+  could not be invoked again. But if it was a named IIFE and exposed, it could be invoked again. An example of what I mean:
+
+  ```js
+    // moduleOne.js
+    var carDetails = (function createCarDetails() {
+      // private interface code here
+      return {
+        createCarDetails
+      }
+    })();
+  ```
+  
+  In this case, `createCarDetails` is exposed on the the public interface and can be invoked again.
+
+  ```js
+  // moduleTwo.js
+  var carDetails.createCarDetails()
+  ```
+
+  I don't know why anyone would do this, but I wanted to show it because it's possible. 
+
+  <br>
+
+  Output:
+  <img src="/images/blog/patterns/creational/module/window_scope_using_IIFE.png" alt="Disadvantage #1" class="w-full">
+
+
+  <br/>
+  <br/>
+  <br/>
+
+  If you're interested in knowing more about the JavaScript module history, I found this <Link href="https://8thlight.com/insights/a-history-of-javascript-modules-and-bundling-for-the-post-es6-developer"  linkText="article"/>
+  helpful. 
+
+  <br/>
+
+  I wasn't programming during that phase of JavaScripts development and therefore did not experience this firsthand in a real project, 
+  so if my brief explanation contains errors, please correct me.
+
+  </section>
 
 <section>
 
@@ -411,8 +603,8 @@ categories: ['design patterns', 'oop']
 
   Output:
   <img src="/images/blog/patterns/creational/module/solution_1.png" alt="Disadvantage #1" class="w-full">
+  
   <br/>
-
   <br>
 
   ---
@@ -463,7 +655,7 @@ categories: ['design patterns', 'oop']
     moduleOne.publicFunction();
     
     // Redefine publicFunction
-    moduleOne.publicFunction = function () {
+    moduleOne.publicFunction = function() {
       console.log("publicFunction: redefined implementation");
     };
     
@@ -490,7 +682,7 @@ categories: ['design patterns', 'oop']
   **Solution**
 
   In this scenario, I can think of one solution, although it is not very practical. The solution involves three steps:
-    - Define the public function using a function expression instead of using a function declaration.
+    - Define the public function using a function expression instead of a function declaration.
     - Define a setter function that assigns the public function identifier to a new function and expose it as a member of the public interface.
     - Define a getter function that returns the public function and expose it as a member on the public interface.
 
@@ -546,7 +738,7 @@ categories: ['design patterns', 'oop']
     // Logs the original message
     publicFunction();
     
-    const newPublicFunction = function () { 
+    const newPublicFunction = function() { 
       console.log("publicFunction: redefined implementation");
     };
     // Use the setter function to set a new public function // [!code focus:2]
@@ -593,8 +785,11 @@ categories: ['design patterns', 'oop']
     **class methods** and not methods of an object And "patching" doesn't seem to be a thing in the javascript world. I am sure 
     these words were was used in a general sense, but I've opted not to use them in my article. 
 
-    If I am wrong about any of the code examples, please correct me. I enjoyed writing this article and learned a lot a lot from it. 
-    Thank you for reading.
+    I enjoyed learning all that I've documented in this article. I also learned that JavaScript modules are singletons!
+    They aren't implemented using the Singleton design pattern (from my little research), but after the initial import, 
+    the JavaScript runtime caches the module, and the same instance is returned every time the module is imported again.
+
+    If I am wrong about any of the code examples, please correct me. Thank you for reading.
 
 </section>
 
@@ -604,5 +799,8 @@ categories: ['design patterns', 'oop']
 
     - "Learning JavaScript Design Patterns" Second Edition by Addy Osmani, specifically Chapter 7: 
       JavaScript Design Patterns.
+    - <Link href="https://8thlight.com/insights/a-history-of-javascript-modules-and-bundling-for-the-post-es6-developer", 
+    linkText="A History of JavaScript Modules and Bundling, For the Post-ES6 Developer" />
+
 
 </section>
