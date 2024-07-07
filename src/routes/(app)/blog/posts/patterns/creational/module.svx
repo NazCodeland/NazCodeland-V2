@@ -1,7 +1,7 @@
 ---
 title: Module Design Pattern
 created: July 3th, 2024
-updated: July 5th, 2024
+updated: July 7th, 2024
 description: 
   The Module Design Pattern encapsulates related state and logic within a module.
   If the module has any exports, named or default, then those exports form the
