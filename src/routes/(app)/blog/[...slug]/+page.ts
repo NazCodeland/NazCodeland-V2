@@ -3,7 +3,6 @@
 import type { File } from '$src/lib/types.js';
 import type { RouteParams } from './$types.js';
 
-
 const modules = import.meta.glob(`../posts/**/*.svx`, { eager: true });
 console.log(modules);
 
