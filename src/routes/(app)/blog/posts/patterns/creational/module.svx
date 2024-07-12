@@ -108,7 +108,10 @@ categories: ['design patterns', 'oop']
   implementation details of the module from external users while still making the functionality of the 
   private interface available through the public interface.
 
-  ES6 Syntax
+
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
   ```js
     // bankAccount.mjs
 
