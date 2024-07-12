@@ -58,11 +58,12 @@ categories: ['design patterns', 'oop']
 
   The non-blurred code is the focus of the current article, and the blurred code introduces topics for future articles.
 
-  ES6 Syntax
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
   
   ```js
     class Bicycle { 	// [!code focus:1]
-      // class fields are instance specific properties
+      // Class fields are instance specific properties
       // I will cover class fields in another article
       model = 'regular bike';
       chain = 'standard chain';
@@ -75,7 +76,7 @@ categories: ['design patterns', 'oop']
         this.size = size;  
         // See 'Wrapping Up' for more on defining methods in the constructor
         this.someMethod = function () {
-          // do something
+          // Do something
         };
       }
   
@@ -84,12 +85,12 @@ categories: ['design patterns', 'oop']
         console.log('honk');
       }   
       gearShiftingMechanism() {
-      	// regular bike implementation
+      	// Regular bike implementation
       }
     }
 
-    // instantiate a new instance of Bicycle class 	// [!code focus:2]
-    let bicycle = new Bicycle('red', 'large');
+    // Instantiate a new instance of Bicycle class 	// [!code focus:2]
+    const bicycle = new Bicycle('blue', 'large');
 
   ```
 
@@ -119,16 +120,85 @@ categories: ['design patterns', 'oop']
       } 			
 
 
-      // override the method defined in the superclass by
-      // adding a specific implementation for mountain bikes
+      // Override the method defined in the superclass by
+      // Adding a specific implementation for mountain bikes
       gearShiftingMechanism() {
-     	  // mountain bike implementation
+     	  // Mountain bike implementation
       }
     } // [!code focus:1]
 
-    // instantiate a new instance of Bicycle class
+    // Instantiate a new instance of Bicycle class
     const mountainBike = new MountainBike('black', 'medium', 'trail'); 	// [!code focus:1]
   ```
+
+</section>
+
+<section>
+
+  ## Constructors Before ES6
+
+  Prior to ES6, the class syntax that we used above did not exist. The keywords `class`, `extends`, `super`, and the `constructor`
+  function were not a thing. Instead, constructor functions, which by convention usually start with a capital
+  letter, were used to create objects (instances), and  the inheritance chain was setup by assigning the prototype of
+  the constructor function to an object created from the prototype of another constructor function. This allowed failed lookup
+  calls on instance methods or properties to be delegated to the prototype of the parent constructor function. To share methods
+  between all instances of a constructor function, the method had to be defined on the prototype of the constructor function.
+  Here is an example of the Bicycle and MountainBike classes using constructor functions:
+
+  ```js
+    function Bicycle(color, size){ 	// [!code focus:10]
+      // Equivalent to instance specific properties
+      this.modal = 'regular bike';
+      this.chain = 'standard chain';
+      this.year = 2024;
+      this.tires = 2;
+      this.color = color;
+      this.size = size;
+    }
+
+    // Shared instance methods
+    Bicycle.prototype.honk = function(){
+      console.log('honk');
+    }
+
+    Bicycle.prototype.gearShiftingMechanism = function(){}
+
+    const bicycle = new Bicycle('blue', 'large');
+  ```
+
+  
+  ```js
+    function MountainBike(color, size, terrainType){ // [!code focus:8]
+      this.model = 'mountain bike';
+      this.chain = 'advanced chain';
+      this.terrainTypes = ['trail', 'downhill', 'cross-country'];
+    
+      // Equivalent to super(color, size);
+      Bicycle.call(this, color, size)
+    }
+
+    // Setup the inheritance chain
+    MountainBike.prototype = Object.create(Bicycle.prototype);
+  
+    // Reset the constructor property
+    // Resetting the constructor is important for correctly 
+    // identifying the constructor of an instance and for other reasons.
+    MountainBike.prototype.constructor = MountainBike
+  
+    // Steps for defining methods on the prototype of MountainBike:
+    // 1. Assign the prototype of MountainBike to a new object created
+    //  from the Bicycle.prototype object.
+    // 2. Reset the constructor property to point back to MountainBike.
+    // 3. Define methods on the prototype of MountainBike.
+    // Otherwise the methods/properties will be lost.
+    MountainBike.prototype.gearShiftingMechanism = function(){
+      // This method will override the method inherited from
+      // the Bicycle prototype
+    }
+
+    const mountainBike = new MountainBike('black', 'medium', 'trail'); 	
+  ```
+
 
 </section>
 
@@ -141,7 +211,7 @@ categories: ['design patterns', 'oop']
 	method of a class for initializing properties and methods of a new instance. 
 	Also, many definitions, just like mine, say that it is responsible for 
 	initializing properties and methods. But I have not come across a use case for
-	initialzing methods within the constructor, and if we were to intiialize a 
+	initializing methods within the constructor, and if we were to initialize a 
 	method within the constructor, it would be unique for each instance and therefore 
 	not a method in the sense of what a method means in OOP: a function on a class 
 	that is shared between all instances of that class.
@@ -156,6 +226,6 @@ categories: ['design patterns', 'oop']
 
 	I’ve also asked <Link href="https://www.youtube.com/@jmagrippis" linkText="Jonny Magrippis"  />, 
 	who is a great instructor, and even he says he hasn’t seen a legit use case for it. 
-	If you do know of a use case, please do share!
+	If you do know of a use case, please share!
 </section>
 
