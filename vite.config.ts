@@ -4,7 +4,15 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
 	plugins: [sveltekit()],
 	test: {
-		include: ['src/**/*.{test,spec}.{js,ts}']
+		environment: 'jsdom',
+		globals: true,
+		setupFiles: ['src/setupTests.ts'],
+		coverage: {
+			reportsDirectory: '/dont/out/put',
+			include: ['src/**/*'],
+			enabled: true,
+			reporter: ['html']
+		}
 	}
 	// option for vercel deployment
 	// resolve: {
