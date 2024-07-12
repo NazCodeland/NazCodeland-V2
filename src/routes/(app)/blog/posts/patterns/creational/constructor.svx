@@ -1,7 +1,7 @@
 ---
 title: Constructor Design Pattern
 created: June 30th, 2024
-updated:
+updated: July 11th, 2024
 description:
   In OOP, the Constructor Design Pattern is a special method that gets invoked every time we instantiate
   a new instance of a class using the new keyword. This method is responsible for initializing the state
@@ -163,7 +163,7 @@ categories: ['design patterns', 'oop']
 
     Bicycle.prototype.gearShiftingMechanism = function(){}
 
-    const bicycle = new Bicycle('blue', 'large');
+    var bicycle = new Bicycle('blue', 'large');
   ```
 
   
@@ -196,7 +196,7 @@ categories: ['design patterns', 'oop']
       // the Bicycle prototype
     }
 
-    const mountainBike = new MountainBike('black', 'medium', 'trail'); 	
+    var mountainBike = new MountainBike('black', 'medium', 'trail'); 	
   ```
 
 
