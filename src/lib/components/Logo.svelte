@@ -34,6 +34,7 @@
 
 	.firstLetter {
 		color: rgba(var(--primary-color));
+		padding-inline: 2px;
 		margin-inline-end: 2px;
 		border-radius: 0.125rem;
 		text-align: center;
