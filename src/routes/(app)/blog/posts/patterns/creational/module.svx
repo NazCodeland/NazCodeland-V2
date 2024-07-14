@@ -108,7 +108,10 @@ categories: ['design patterns', 'oop']
   implementation details of the module from external users while still making the functionality of the 
   private interface available through the public interface.
 
-  ES6 Syntax
+
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
   ```js
     // bankAccount.mjs
 
@@ -614,8 +617,7 @@ categories: ['design patterns', 'oop']
 
   ##### Disadvantage #2
 
-  Redefining a function on the public interface externally will only update that function within the local copy of the exported 
-  interface object. The redefinition does not redefine the public function within the `private` scope of the imported module. 
+  Redefining a function on the public interface externally does not redefine that same function within the `private` scope of the imported module. 
   Therefore, if any `private` function within the module references that public function, it will retain the original implementation
   due to the closure created at the time of the private function's definition, which occurs upon the module’s initial import.
 

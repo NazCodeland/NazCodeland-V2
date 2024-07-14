@@ -1,70 +1,270 @@
 ---
 title: Singleton Design Pattern
-created: July 5th, 2024
+created: July 12th, 2024
 updated:
-description: 
-    In OOP, the Singleton Design Pattern restricts the
-    ability of a class from being able to instantiate multiple instances to only a single instance.
-    Normally, a class can instantiate as many instances as desired but in some scenarios it’s crucial
-    that only a single instance of a class exists. Since the constructor method of a class is responsible
-    for instantiating new instances, the logic for the Singleton pattern is implemented there. The logic
-    checks if an instance already exists, if so, it returns the reference to that instance, otherwise the
-    constructor creates a new instance. The Singleton pattern provides a global point of access to the
-    single instance, regardless of where within your codebase you try to instantiate a new instance, you
-    always get the same instance back.
+description:
+  In OOP, the Singleton Design Pattern restricts the
+  ability of a class from being able to instantiate multiple instances to only a single instance.
+  Normally, a class can instantiate as many instances as desired but in some scenarios it’s crucial
+  that only a single instance of a class exists. Since the constructor method of a class is responsible
+  for instantiating new instances, the logic for the Singleton pattern is implemented there. The logic
+  checks if an instance already exists, if so, it returns the reference to that instance, otherwise the
+  constructor creates a new instance. The Singleton pattern provides a global point of access to the
+  single instance, regardless of where within your codebase you try to instantiate a new instance, you
+  always get the same instance back.
 tags: ['javascript']
 categories: ['design patterns', 'oop']
 ---
 
 <script lang="ts">
-	import Link from '$lib/elements/Link.svelte';
+  import Link from '$lib/elements/Link.svelte';
 </script>
 
 <section>
 
-    ## Explanation
-
-    In <abbr title="Object Oriented Programming">OOP</abbr>, the Singleton Design Pattern restricts the
-    ability of a class from being able to instantiate multiple instances to only a single instance.
-    Normally, a class can instantiate as many instances as desired but in some scenarios it’s crucial
-    that only a single instance of a class exists. Since the constructor method of a class is responsible
-    for instantiating new instances, the logic for the Singleton pattern is implemented there. The logic
-    checks if an instance already exists, if so, it returns the reference to that instance, otherwise the
-    constructor creates a new instance. The Singleton pattern provides a global point of access to the
-    single instance, regardless of where within your codebase you try to instantiate a new instance, you
-    always get the same instance back.
-
-</section>
-
-<section>
-	<Link href="https://en.wikipedia.org/wiki/Singleton_pattern" linkText="Wikipedia article" block={true} /> says:
-
-    > In software engineering, the singleton pattern is a software design pattern that restricts the
-    instantiation of a class to a singular instance. … The pattern is useful when exactly one object is
-    needed to coordinate actions across a system.
+  ## Explanation  
+  
+  In <abbr title="Object Oriented Programming">OOP</abbr>, the Singleton Design Pattern restricts the
+  ability of a class from being able to instantiate multiple instances to only a single instance.
+  Normally, a class can instantiate as many instances as desired but in some scenarios it’s crucial
+  that only a single instance of a class exists. Since the constructor method of a class is responsible
+  for instantiating new instances, the logic for the Singleton pattern is implemented there. The logic
+  checks if an instance already exists, if so, it returns the reference to that instance, otherwise the
+  constructor creates a new instance. The Singleton pattern provides a global point of access to the
+  single instance, regardless of where within your codebase you try to instantiate a new instance, you
+  always get the same instance back.
 
 </section>
 
 <section>
+  <Link href="https://en.wikipedia.org/wiki/Singleton_pattern" linkText="Wikipedia article" block={true} /> says:  
 
-    ## Analogy
-
-    We can think of the steering wheel, accelerator, and brake pads in a car as a Singleton set. Since a car
-    can only have one such set to control its movements; no matter who is driving the car, they interact
-    with the same set of controls. Having multiple sets of controls would lead to unpredictability, just
-    as having multiple instances of a class that is meant to have only a single instance can lead to
-    unpredictable behavior in a software program.
+  > In software engineering, the singleton pattern is a software design pattern that restricts the
+  instantiation of a class to a singular instance. … The pattern is useful when exactly one object is
+  needed to coordinate actions across a system.
 
 </section>
 
 <section>
 
-    ## Code Example
+  ## Analogy
 
-
+  We can think of the steering wheel, accelerator, and brake pads in a car as a Singleton set. Since a car
+  can only have one such set to control its movements; no matter who is driving the car, they interact
+  with the same set of controls. Having multiple sets of controls would lead to unpredictability, just
+  as having multiple instances of a class that is meant to have only a single instance can lead to
+  unpredictable behavior in a software program.
 
 </section>
 
 <section>
+
+  ## Code Example
+
+  The following Logger class implements the singleton design pattern by ensuring that only one instance of the Logger class is created.
+  It achieves this by checking if an instance does not already exist with `if (!Logger.instance)`. If so, which is the case when a Logger 
+  is created for the first time, the constructor creates a new instance by assigning `this` (the new Logger instance) to `Logger.instance` 
+  and then returns the instance with `return Logger.instance`. If an instance does exist, the constructor returns the reference to that existing 
+  instance.
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```ts
+    enum Levels {
+      DEBUG = 'DEBUG',
+      INFO = 'INFO',
+      WARN = 'WARN',
+      ERROR = 'ERROR',
+    }
+    
+    interface Log {
+      message: string;
+      level: Levels;
+      timestamp: string;
+    }
+    
+    class Logger {
+      #logs: Log[] = [];
+      #levels: Levels[] = [Levels.DEBUG, Levels.INFO, Levels.WARN, Levels.ERROR];
+      #level: Levels = Levels.DEBUG;
+      private static instance: Logger; // [!code focus:8]
+    
+      public constructor() {
+        if (!Logger.instance) {
+          Logger.instance = this;
+        }
+        return Logger.instance;
+      }
+    
+      public set level(level: Levels) {
+        if (this.#levels.includes(level)) {
+          this.#level = level;
+        }
+      }
+    
+      public get level(): Levels {
+        return this.#level;
+      }
+    
+      public get logs(): Log[] {
+        return this.#logs;
+      }
+    
+      public log(message: string, level: Levels): void {
+        if (this.#levels.indexOf(level) >= this.#levels.indexOf(this.#level)) {
+          const timestamp = new Date().toISOString();
+          this.#logs.push({ message, level, timestamp });
+          console.log(`${timestamp} [${level}] - ${message}`);
+        }
+      }
+    
+      public debug(message: string, level = Levels.DEBUG): void {
+        this.log(message, level);
+      }
+      public info(message: string, level = Levels.INFO): void {
+        this.log(message, level);
+      }
+      public warn(message: string, level = Levels.WARN): void {
+        this.log(message, level);
+      }
+      public error(message: string, level = Levels.ERROR): void {
+        this.log(message, level);
+      }
+    }
+    
+    
+    const logger = new Logger();
+    logger.level = Levels.WARN;
+    
+    logger.info('Info message');
+    logger.debug('Debug message');
+    logger.warn('Warn message');
+    logger.error('Error message');
+    
+    console.log("------------------------");
+    console.log('LOGS:', logger.logs);
+    console.log("------------------------");
+```
+
+  When the Logger class is imported and instantiated in multiple modules, the same instance will be returned for all modules and 
+  therefore, any changes to the state of the instance, such as log `level` or logged messages added to the `logs` array will be shared between all.
+</section>
+
+<section>
+
+  ## Singletons Before ES6
+
+  Prior to ES6, the singleton design pattern was implemented using an <abbr title="Immediately Invoked Function Expression">IIFE</abbr> and a closure. 
+  Since functions create their own scope and any inner function or object that references identifiers in its enclosing scope creates a closure, the 
+  combination of these two language features was taken advantage of to create a singleton instance. Additionally, depending on the implementation of 
+  this approach, a structure of private and public interfaces can be created within the IIFE. In this structure, the private interface keeps state and 
+  logic private, while the public interface exposes the functionality of the singleton instance to outside users.
+
+  The code example below re-implements the same Logger class as above, but using ES5 syntax.
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES5 Syntax</p>
+
+  ```js
+    var Logger = (function () { // [!code focus:2]
+      var instance;
+    
+      function getOrCreateInstance() {
+        var logs = [];
+        var levels = ['DEBUG', 'INFO', 'WARN', 'ERROR'];
+        var level = 'DEBUG';
+    
+    
+        function log(message, level) {
+          if (levels.indexOf(level) >= levels.indexOf(this.level)) {
+            var timestamp = new Date().toISOString();
+            logs.push({ message, level, timestamp });
+            console.log(`${timestamp} [${level}] - ${message}`);
+          }
+        };
+    
+        function info(message, level = "DEBUG") { this.log(message, level); };
+        function debug(message, level = "INFO") { this.log(message, level); };
+        function warn(message, level = "WARN") { this.log(message, level); };
+        function error(message, level = "ERROR") { this.log(message, level); };
+    
+        return {
+          log,
+          info,
+          debug,
+          warn,
+          error,
+    
+          get level() {
+            return level;
+          },
+          set level(newLevel) {
+            if (levels.includes(newLevel)) {
+              level = newLevel;
+            }
+          },
+          get logs() {
+            return logs;
+          }
+        };
+    
+      };
+    
+      function createInstance() { // [!code focus:9]
+        if (!instance) {
+          instance = getOrCreateInstance();
+        }
+        return instance;
+      }
+    
+      return createInstance;
+    })();
+    
+    var logger = new Logger(); // [!code focus:1]
+    export default logger;
+  ```
+
+</section>
+
+<section>
+
+  ## Wrapping Up
+
+  Some <Link href="https://www.sitepoint.com/whats-so-bad-about-the-singleton/" linkText="sources"/> deem the singleton design pattern 
+  a bad practice. Personally, out of the design patterns I've learned so far, it's my favorite because of how simple the implementation 
+  and purpose of the pattern is. This opinion might change as I get more real world experience with the pattern, and when I do, 
+  I'll make sure to update this article.
+
+  I've seen the <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze" linkText="Object.freeze()"/>
+  method used in ES5 syntax implementations of the singleton pattern because it's useful in certain implementations. Also, if you're
+  interested in having more control over the properties and methods, such as if they are writable, enumerable, configuraable and more, you can use 
+  the <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties" linkText="Object.defineProperties()"/>
+  method to define them.
+
+  Here's a quick example using `Object.defineProperties()` for the `level` and `logs` properties of the Logger class.
+
+  ```js
+    Object.defineProperties(instance, {
+      level: {
+        enumerable: true,
+        configurable: true,
+        get: function () { return level; },
+        set: function (newLevel) {
+          if (levels.includes(newLevel)) {
+            level = newLevel;
+          }
+        }
+      },
+
+      logs: {
+        enumerable: true,
+        configurable: false,
+        get: function () { return logs; },
+      }
+    });
+  ```
+
+
+  Learning how to implement design patterns, such as the singleton pattern, using ES5 syntax has been a great learning experience for 
+  me. I hope you'll find the comparison between ES6 and ES5 syntax useful too. Thank you for reading!
 
 </section>
