@@ -1,7 +1,7 @@
 ---
 title: Singleton Design Pattern
-created: July 12th, 2024
-updated:
+created: July 5th, 2024
+updated: July 12th, 2024
 description:
   In OOP, the Singleton Design Pattern restricts the
   ability of a class from being able to instantiate multiple instances to only a single instance.
