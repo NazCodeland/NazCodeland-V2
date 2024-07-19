@@ -45,10 +45,6 @@
 		color: markText;
 	}
 
-	a:focus-visible::before {
-		height: 100%;
-	}
-
 	@media (prefers-contrast: more) {
 		a {
 			color: canvasText;
