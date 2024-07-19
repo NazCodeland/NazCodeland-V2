@@ -30,6 +30,7 @@ categories: ['design patterns', 'oop']
 - [Constructor](/blog/patterns/creational/constructor)
 - [Module](/blog/patterns/creational/module)
 - [Singleton](/blog/patterns/creational/singleton)
+- [Prototype](/blog/patterns/creational/prototype)
 
 
 <br/>
