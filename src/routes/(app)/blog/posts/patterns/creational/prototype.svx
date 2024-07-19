@@ -1,0 +1,481 @@
+---
+title: Prototype Design Pattern
+created: July 19th, 2024
+updated: 
+description: 
+  The Prototype Design Pattern is a creational design pattern that provides the ability to create a new 
+  object by cloning an original object, known as the prototype. Since the newly created object is a copy 
+  of the prototype, it inherits the properties and methods defined on that prototype. This results in less 
+  duplicate code since, by copying, we're creating references to existing properties and methods rather 
+  than defining the same properties and methods on the new object, and that also results in memory efficiency. 
+  Altogether, it leads to better code readability and maintainability, as we have less code to review and changes
+  to make since properties and methods inherited by all objects only need to be changed in one location, 
+  which is on the prototype.
+tags: ['javascript']
+categories: ['design patterns', 'oop']
+---
+
+<script lang="ts">
+  import Link from '$lib/elements/Link.svelte';
+</script>
+
+<section>
+
+  ## Explanation  
+  The Prototype Design Pattern is a creational design pattern that provides the ability to create a new 
+  object by cloning an original object, known as the prototype. Since the newly created object is a copy 
+  of the prototype, it inherits the properties and methods defined on that prototype. This results in less 
+  duplicate code since, by copying, we're creating references to existing properties and methods rather 
+  than defining the same properties and methods on the new object, and that also results in memory efficiency. 
+  Altogether, it leads to better code readability and maintainability, as we have less code to review and changes
+  to make since properties and methods inherited by all objects only need to be changed in one location, 
+  which is on the prototype.
+
+
+</section>
+
+<section>
+  <Link href="https://en.wikipedia.org/wiki/Prototype_pattern" linkText="Wikipedia article" block={true} /> says:  
+
+  > The prototype pattern is a creational design pattern in software development. It is used when the types of 
+  objects to create is determined by a prototypical instance, which is cloned to produce new objects. This pattern 
+  is used .... to avoid the inherent cost of creating a new object ... when it is prohibitively expensive for a given 
+  application.
+
+</section>
+
+<section>
+
+  ## Analogy
+
+  Consider the process of photocopying a document, we can think of the original document as the 
+  `prototype` that we want to make copies of. The new photocopied document is a clone and therefore 
+  contains all the same information as the document, such as the text, images, etc. The
+  ability to photocopy a document saves us a lot of time and effort, and therefore is less costly
+  than creating a copy fo the samedocument from scratch.
+
+</section>
+
+<section>
+
+  ## Code Example
+
+  The following `Car` class defines class fields such as `make`, `model`, `year`, and the constructor method 
+  assigns instances with the  `color` and `features` property. The class body defines instance methods such as 
+  `start`, `drive`, `stop`, and a `clone` method that returns a new instance (object) of the Car class. Since make, 
+  model, and year are class fields, they will remain the same for all instances, while the color and features properties
+  can be different per instance but have default values if not passed in.
+
+  <br>
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+  class CarPrototype {
+    make = 'Honda';
+    model = 'Civic';
+    year = 2024;
+
+    constructor(carDetails = { color: 'blue', features: ['ac', 'heated seats'] }) {
+      this.color = carDetails.color;
+      this.features = carDetails.features;
+    }
+
+    start() {
+      console.log(`${this.make} ${this.model} starting`);
+    }
+
+    drive() {
+      console.log(`${this.make} ${this.model} driving`);
+    }
+
+    stop() {
+      console.log(`${this.make} ${this.model} stopping`);
+    }
+
+    clone(carDetails = { color: this.color, features: [] }) { // [!code focus:6]
+      return new CarPrototype({
+        color: carDetails.color,
+        features: [...this.features, ...carDetails.features]
+      });
+    }
+  }
+
+  const car = new CarPrototype(); // [!code focus:3]
+  const car1 = car.clone({ color: 'white', features: ['gps'] });
+  const car2 = car1.clone({ features: ['sunroof'] });
+
+  console.log(car.features); // output: ['ac', 'heated seats']
+  console.log(car1.features); // output: ['ac', 'heated seats', 'gps']
+  console.log(car2.features); // output: ['ac', 'heated seats', 'gps', 'sunroof']
+  console.log(car.features === car2.features); // output: false
+  ```
+
+  <br>
+
+  You might be wondering, why not create multiple instances using the `new` keyword instead of the `clone` method?
+  At least I had that question. According to Bing Copilot, the clone method is less error-prone since we don't need to 
+  manually pass arguments to the constructor method.  
+  
+  But that doesn't make much sense to me given that the purpose of the prototype design pattern is to clone 
+  objects; in other words, the properties and methods should be almost identical, if not identical, and therefore,
+  I can't see the use case for passing in multiple unique arguments to the constructor method.
+  
+  With that said, I do think that the clone method provides a hint as to the intention of the class to the dev. — that
+  the class might be implementing a prototype design pattern — a hint that I think matters. 
+
+  It's important to note that within the clone method, when instantiating a Car instance, we're spreading the 
+  `this.features` array, resulting in a deep copy of the array where each instance gets their own copy of the features
+  array. If we wanted a shallow copy of the features array, where all instances share the same features array reference, 
+  we could do the following:
+
+  <br>
+
+  ```js
+  clone(carDetails = { color: this.color, features: [] }) {
+    this.features.push(...carDetails.features); // [!code focus:1]
+    return new CarPrototype({
+      color: carDetails.color,
+      features: this.features // [!code focus:1]
+    });
+  }
+  console.log(car.features === car2.features); // output: true // [!code focus:1]
+  ```
+
+  <br>
+
+  This results in the newly created instance getting a reference to the same array as the instance that the clone method 
+  was called on, leading to the features array being shared between those instances. However, the features array reference of 
+  the instance that the clone method was called on points all the way back to the original instance's feature array reference because
+  each instance has been cloned from another, leading back to the original instance. This is great if that is the desired behavior.
+
+</section>
+
+<section>
+
+  ## Alternative Implementations
+
+  I enjoy using the class syntax for implementing design patterns, but in JavaScript the class syntax is just syntactical sugar
+  for the prototypal system. I have been learning a lot by understanding how design patterns are implemented using pre-class 
+  syntax, let's take a look at two alternative implementations of the prototype design pattern using ES6 syntax before we look
+  at some ES5 syntax examples.
+
+  <br>
+
+  ### Using <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" linkText="Object.assign()" /> 
+
+  The Object.assign() method, which performs a `shallow copy` on all `enumerable own properties`, takes a target object and an unlimited number of source 
+  objects. It copies properties and methods from the source objects to mutate the target object and returns the `target object`. If a property or method 
+  already exists on the target object, it will be overwritten by the following source object, and this is also true if multiple source objects contain 
+  the same property or method, with the last source object overwriting the previous ones.
+
+  This method contains a lot of gotchas that might not make it suitable for some use cases. I recommend looking it up on MDN or your favorite source
+  when you need to use it to understand the gotchas, there's too many gotchas for me to remember, so I'll definitely look it up when I need to use it.
+
+  <br>
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+  const carPrototype = {
+    make: 'Honda',
+    model: 'Civic',
+    year: 2024,
+    color: 'blue',
+    features: ['ac', 'heated seats'],
+    start() { console.log(`${this.make} ${this.model} starting`); },
+    drive() { console.log(`${this.make} ${this.model} driving`); },
+    stop() { console.log(`${this.make} ${this.model} stopping`); },
+    clone(carDetails = { color: this.color, features: [] }) { // [!code focus:9]
+      return Object.assign(
+        {}, // use 'Object.create(null)' to not inherit from Object.prototype
+        this,
+        {
+          color: carDetails['color'],
+          features: [...this.features, ...carDetails['features']]
+        });
+    }
+  };
+
+  const car = carPrototype.clone();
+  const car1 = car.clone({ color: 'white', features: ['gps'] });
+  const car2 = car1.clone({ features: ['sunroof'] });
+
+
+  console.log(car.features); // output: ['ac', 'heated seats']
+  console.log(car1.features); // output: ['ac', 'heated seats', 'gps']
+  console.log(car2.features); // output: ['ac', 'heated seats', 'gps', 'sunroof']
+  console.log(car.features === car2.features); // output: false
+  ```
+
+  <br>
+
+  If we wanted a shallow copy of the features array, where all instances share the same features array reference,
+  we could do the following:
+
+  ```js
+  clone(carDetails = { color: this.color, features: [] }) {
+    this.features.push(...carDetails.features); // [!code focus:1]
+    return Object.assign(
+      {},
+      this,
+      { color: carDetails['color'], features: this.features }); // [!code focus:1]
+  }
+  console.log(car.features === car2.features); // output: true // [!code focus:1]
+  ```
+
+
+  <br>
+
+  ### Using <Link href="https://developer.mozilla.org/en-US/docs/Web/API/structuredClone" linkText="structuredClone()" /> 
+
+  The global structuredClone() method, which reached Baseline in 2022, performs a `deep copy` of an object with a few gotchas,
+  such as cloning functions, methods, DOM elements, and more. Just as with the Object.assign method, I recommend looking 
+  it up on MDN or your favorite source when you need to use it to understand the gotchas. There are too many gotchas for me to 
+  remember, so I'll definitely look it up when I need to use it.
+
+  <br>
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+  const carProperties = {
+    make: 'Honda',
+    model: 'Civic',
+    year: 2024,
+    color: 'blue',
+    features: ['ac', 'heated seats'],
+  };
+
+  const carMethods = {
+    start() { console.log(`${this.make} ${this.model} starting`); },
+    drive() { console.log(`${this.make} ${this.model} driving`); },
+    stop() { console.log(`${this.make} ${this.model} stopping`); },
+  };
+
+  const car = structuredClone(carProperties); // [!code focus:2]
+  Object.assign(car, carMethods);
+
+  const car1 = structuredClone(carProperties); // [!code focus:4]
+  Object.assign(car1, carMethods);
+  car1.color = 'white';
+  car1.features.push('gps');
+
+  const car2 = structuredClone(carProperties); // [!code focus:3]
+  Object.assign(car2, carMethods);
+  car2.features.push('gps', 'sunroof');
+
+  console.log(car.features); // output: ['air', 'heated seats']
+  console.log(car1.features); // output: ['air', 'heated seats', 'gps']
+  console.log(car2.features); // output: ['air', 'heated seats', 'gps', 'sunroof']
+  console.log(car.features === car2.features); // output: false
+  ```
+
+  <br>
+
+  Notice that all cloned car properties are from the original `carProperties` object, whereas in the previous examples,
+  we were able to clone a car from any instance of carPrototype. This is because the moment we assign methods to any cloned
+  car instance and then try to make a car clone from that instance, we'll encounter a DataCloneError exception due to 
+  structuredClone not being able to clone methods. Implementing the prototype design pattern using structuredClone
+  feels a little verbose, but there might be scenarios where it's the preferred choice.
+
+  If we wanted a shallow copy of the features array, where all instances share the same features array reference, 
+  we could do the following:
+
+  ```js
+  const features = ['ac', 'heated seats']; // [!code focus:1]
+  const carProperties = {
+  // same properties as before
+  features: features, // [!code focus:1]
+  };
+
+  const carMethods = {
+    // same methods as before
+  }
+
+  const car = structuredClone(carProperties); 
+  Object.assign(car, carMethods);
+  car.features = features // [!code focus:1]
+
+  const car1 = structuredClone(carProperties); 
+  Object.assign(car1, carMethods);
+  car1.features = features; // [!code focus:1]
+
+  // same as before
+
+  console.log(car.features === car1.features); // output: true // [!code focus:1]
+  ```
+</section>
+
+
+<section>
+
+  ## Prototype Design Pattern Before ES6
+
+  Now that we've seen how to implement the prototype design pattern using ES6 syntax, let's take a look at how it's done using ES5 syntax.
+
+  <br>
+
+  ## Using <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create" linkText="Object.create()" />
+
+  _"The Object.create() static method creates a new object, using an existing object as the prototype of the newly created object."_ - MDN. The method 
+  also takes an additional optional object argument, in which the keys are properties or methods to be defined or redefined from the prototype on the 
+  newly created object, and the values
+  are <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create#using_propertiesobject_argument_with_object.create" linkText="descriptor objects" />.
+
+  <br>
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES5 Syntax</p>
+
+  ```js
+  var carPrototype = {
+    brand: 'Honda',
+    model: 'Civic',
+    color: 'blue',
+    year: 2024,
+    features: ['ac', 'heated seats'],
+    start: function () { console.log(this.make + ' ' + this.model + ' starting') },
+    drive: function () { console.log(this.make + ' ' + this.model + ' driving') },
+    stop: function () { console.log(this.make + ' ' + this.model + ' stopping') },
+    clone: function (carDetails = { color: this.color, features: [] }) { // [!code focus:14]
+      return Object.create(this, {
+        color: {
+          value: carDetails.color || this.color,
+          enumerable: true,
+          writable: true
+        },
+        features: {
+          value: this.features.concat(carDetails.features),
+          enumerable: true,
+          writable: true
+        }
+      });
+    }
+  };
+
+  const car = carPrototype.clone();  // [!code focus:1]
+  const car1 = car.clone({ color: 'white', features: ['gps'] });
+  const car2 = car1.clone({ features: ['sunroof'] });
+
+
+  console.log(car.features); // output: ['ac', 'heated seats']
+  console.log(car1.features); // output: ['ac', 'heated seats', 'gps']
+  console.log(car2.features); // output: ['ac', 'heated seats', 'gps', 'sunroof']
+  console.log(car.features === car2.features); // output: false
+  ```
+
+  <br>
+
+  If we wanted a shallow copy of the features array, where all instances share the same features array reference, 
+  we could do the following:
+
+  ```js
+  var carPrototype = {
+  // same as before
+    clone: function (carDetails = { color: this.color, features: [] }) {
+    Array.prototype.push.apply(this.features, carDetails.features); // [!code focus:1]
+    return Object.create(this, {
+      // same as before
+      features: {
+        value: this.features, // [!code focus:1]
+        // same as before
+        }
+      })
+    }
+  };
+  console.log(car.features === car2.features); // output: true // [!code focus:1]
+  ```
+
+  <br>
+
+  ## Using <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new" linkText="Constructor Functions" />
+  
+  When a normal function is invoked with the `new` keyword, it's referred to as a `constructor function`. This is because
+  the new keyword does the following:
+  1. It creates a new empty object.
+  2. Sets that newly created object's internal [[Prototype]] to the constructor function's prototype property, which
+  sets up the inheritance chain for the newly created object.
+  3. It binds the `this` keyword within the constructor function to the newly created object.
+  4. Invokes the constructor function with the passed-in arguments.
+  5. Returns the newly created object.
+
+
+  This way, a regular function is able to construct objects. 
+
+  <br>
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES5 Syntax</p>
+
+  ```js
+  function Car(carDetails) {  // [!code focus:8]
+    carDetails = carDetails || { color: 'blue', features: [] };
+    this.make = 'Honda';
+    this.model = 'Civic';
+    this.year = 2024;
+    this.color = carDetails.color;
+    this.features = ['ac', 'heated seats'].concat(carDetails.features);
+  }
+
+  Car.prototype.clone = function (carDetails) {  // [!code focus:3]
+    return new Car(carDetails);
+  };
+
+  var car = new Car();  // [!code focus:1]
+  var car1 = car.clone({ color: 'white', features: ['gps'] });  // [!code focus:1]
+  var car2 = car1.clone({ features: ['sunroof'] });
+
+
+  console.log(car.features); // output: ['ac', 'heated seats']
+  console.log(car1.features); // output: ['ac', 'heated seats', 'gps']
+  console.log(car2.features); // output: ['ac', 'heated seats', 'gps', 'sunroof']
+  console.log(car.features); // output: ['ac', 'heated seats', 'gps', 'sunroof']
+  console.log(car1.features === car2.features); // output: false
+  ```
+
+  <br>
+
+  If we wanted a shallow copy of the features array, where all instances share the same features array reference, we could do the following:
+
+  ```js
+  function Car(carDetails) {
+    // same as before 
+    this.features = ['ac', 'heated seats'].concat(carDetails.features); // [!code focus:1] // [!code --]
+    }
+
+  Car.prototype.features = ['ac', 'heated seats']; // [!code focus:1] // [!code ++]
+
+  Car.prototype.clone = function (carDetails) {
+    // Array.prototype.push.apply(this.features, carDetails.features);  // [!code focus:5]
+    // the above works and is a nice one liner, but we can also do it like this:
+    carDetails.features.forEach(function (feature) {
+      this.features.push(feature);
+    }, this);
+    return new Car(carDetails['color']);
+  };
+  console.log(car.features === car2.features); // output: true // [!code focus:1]
+  ```
+
+  <br>
+
+  Notice that we passed a second argument to the `forEach` method, the `this` keyword, which refers to the current instance 
+  that the `clone` method was invoked on. Without passing `this` as a second argument, the callback function passed to the 
+  forEach method would not be able to access the `features` array of the current instance because `this` within a function 
+  refers to the global object or is undefined if the function is 
+  in <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode" linkText="strict mode" />.
+  However, if we were using ES6 syntax, we could just define the callback function passed to the forEach method as an arrow function,
+  which inherits `this` from its enclosing execution context.
+
+</section>
+
+
+<section>
+
+  ## Wrapping Up
+
+  In this article, we've seen three different implementations for the prototype design pattern using ES6 syntax and two
+  implementations using ES5 syntax. I personally prefer the class syntax, but it's been a good learning experience to see
+  how the prototype design pattern can be implemented in various different ways using ES6 syntax and ES5 syntax.
+  
+  As always, if I am misunderstanding anything, please let me know. Thank you for reading!
+
+</section>

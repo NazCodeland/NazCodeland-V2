@@ -1,6 +1,6 @@
 import { createHighlighter } from 'shiki';
 import {
-	// 	transformerNotationDiff,
+	transformerNotationDiff,
 	// 	transformerMetaHighlight,
 	// 	transformerNotationHighlight,
 	// 	transformerNotationWordHighlight,
@@ -31,7 +31,7 @@ const config = {
 					theme: lang === 'python' ? 'tokyo-night' : 'poimandres',
 
 					transformers: [
-						// transformerNotationDiff(),
+						transformerNotationDiff(),
 						// transformerNotationHighlight(),
 						// transformerNotationWordHighlight(),
 						transformerNotationFocus()

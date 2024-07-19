@@ -12,7 +12,7 @@ description:
   constructor creates a new instance. The Singleton pattern provides a global point of access to the
   single instance, regardless of where within your codebase you try to instantiate a new instance, you
   always get the same instance back.
-tags: ['javascript']
+tags: ['javascript', 'typescript']
 categories: ['design patterns', 'oop']
 ---
 

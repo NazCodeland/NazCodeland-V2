@@ -88,11 +88,19 @@ code {
 }
 
 .diff.add {
-	background-color: lightgreen;
+	background-color: #1b3c35;
+}
+
+.diff.add::before {
+	content: '+';
 }
 
 .diff.remove {
-	background-color: lightcoral;
+	background-color: #42252d;
+}
+
+.diff.remove::before {
+	content: '-';
 }
 
 code .line::before {
