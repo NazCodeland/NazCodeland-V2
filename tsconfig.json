@@ -22,6 +22,6 @@
 		"resolveJsonModule": true,
 		"sourceMap": true,
 
-		"types": ["vitest/globals"]
+		"types": ["vitest/globals", "bun-types"]
 	}
 }

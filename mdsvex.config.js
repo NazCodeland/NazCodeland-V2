@@ -9,6 +9,14 @@ import {
 	// 	transformerMetaWordHighlight
 } from '@shikijs/transformers';
 
+
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const dirname = path.resolve(fileURLToPath(import.meta.url), '../');
+console.log({ dirname });
+
+// --------------------------------------------------------------------------------
+
 let highlighter;
 (async () => {
 	if (!highlighter) {
@@ -34,13 +42,21 @@ const config = {
 						transformerNotationDiff(),
 						// transformerNotationHighlight(),
 						// transformerNotationWordHighlight(),
-						transformerNotationFocus()
+						transformerNotationFocus(),
 						// transformerNotationErrorLevel(),
+						{
+							pre(node) {
+								delete node.properties.tabindex;
+							}
+						}
 					]
 				})
 				.replace(/{/g, '&#123;')
 				.replace(/}/g, '&#125;');
 		}
+	},
+	layout: {
+		// Blog: path.join(dirname, './src/lib/components/layout/Blog.svelte'),
 	}
 };
 
