@@ -113,7 +113,7 @@ categories: ['design patterns', 'oop']
 
   <br>
 
-  You might be wondering, why not create multiple instances using the `new` keyword instead of the `clone` method?
+  You might be wondering, why not create multiple instances using the `new` operator instead of the `clone` method?
   At least I had that question. According to Bing Copilot, the clone method is less error-prone since we don't need to 
   manually pass arguments to the constructor method.  
   
@@ -390,14 +390,13 @@ categories: ['design patterns', 'oop']
 
   ## Using <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new" linkText="Constructor Functions" />
   
-  When a normal function is invoked with the `new` keyword, it's referred to as a `constructor function`. This is because
-  the new keyword does the following:
+  When a normal function is invoked with the `new` operator, it's referred to as a `constructor function`. This is because
+  the new operator does the following:
   1. It creates a new empty object.
   2. Sets that newly created object's internal [[Prototype]] to the constructor function's prototype property, which
   sets up the inheritance chain for the newly created object.
-  3. It binds the `this` keyword within the constructor function to the newly created object.
-  4. Invokes the constructor function with the passed-in arguments.
-  5. Returns the newly created object.
+  3. Invokes the constructor function with the passed-in arguments and `this` set to the newly created object.
+  4. Returns the newly created object.
 
 
   This way, a regular function is able to construct objects. 
