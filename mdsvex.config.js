@@ -9,11 +9,8 @@ import {
 	// 	transformerMetaWordHighlight
 } from '@shikijs/transformers';
 
-
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-const dirname = path.resolve(fileURLToPath(import.meta.url), '../');
-console.log({ dirname });
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 // --------------------------------------------------------------------------------
 
@@ -56,7 +53,10 @@ const config = {
 		}
 	},
 	layout: {
-		// Blog: path.join(dirname, './src/lib/components/layout/Blog.svelte'),
+		blog: path.join(
+			path.resolve(fileURLToPath(import.meta.url), '../'),
+			'./src/lib/components/BlogPostLayout.svelte'
+		)
 	}
 };
 
