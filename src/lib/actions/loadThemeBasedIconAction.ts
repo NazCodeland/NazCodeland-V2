@@ -32,7 +32,12 @@ export default function loadThemeBasedIcon(
 
 		const moduleObj = import.meta.glob('/src/lib/icons/themeBased/**/*.svg');
 		const module = await moduleObj[iconPath]();
-		if (module && typeof module === 'object' && 'default' in module && typeof module.default === 'string') {
+		if (
+			module &&
+			typeof module === 'object' &&
+			'default' in module &&
+			typeof module.default === 'string'
+		) {
 			const icon = module.default;
 			element.setAttribute('src', icon);
 		}
