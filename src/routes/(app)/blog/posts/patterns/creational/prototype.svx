@@ -395,9 +395,8 @@ categories: ['design patterns', 'oop']
   1. It creates a new empty object.
   2. Sets that newly created object's internal [[Prototype]] to the constructor function's prototype property, which
   sets up the inheritance chain for the newly created object.
-  3. It binds the `this` keyword within the constructor function to the newly created object.
-  4. Invokes the constructor function with the passed-in arguments.
-  5. Returns the newly created object.
+  3. Invokes the constructor function with the passed-in arguments and `this` set to the newly created object.
+  4. Returns the newly created object.
 
 
   This way, a regular function is able to construct objects. 
