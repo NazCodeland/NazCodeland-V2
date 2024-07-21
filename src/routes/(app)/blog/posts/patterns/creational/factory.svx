@@ -176,9 +176,9 @@ categories: ['design patterns', 'oop']
 
   However, this implementation isn't memory efficient as the methods get defined for each object created from the factory function. 
   To get around this, we can define an object that contains all the methods for each factory function, and then, within each factory 
-  function, we can create an object using `Object.create(proto)` and pass the methods object as the `proto` argument. This will 
-  set up the prototype object for the factory function, which in turn sets up the prototypal inheritance chain for newly created 
-  objects. This way, the methods are inherited by all objects created from their respective factory functions.
+  function, we can create an object using `Object.create(proto)` and pass the object containing the methods as the `proto` argument. 
+  This will set up the prototypal inheritance chain for newly created object by setting its internal [[Prototype]] property to the
+  `proto` argument.
 
   Here's the code example:
 
