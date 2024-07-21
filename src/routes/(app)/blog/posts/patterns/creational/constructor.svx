@@ -42,12 +42,12 @@ categories: ['design patterns', 'oop']
 
   ## Analogy
 
-	We can think of a bicycle manufacturing factory as an analogy for the constructor design pattern.
-	The factory uses a blueprint to ensure all bicycles have the same components, such as tires,
-	chains, and a gear shifting mechanism. This is similar to how a constructor method assigns initial
-	properties and methods to new instances. Just as the factory may produce some parts in-house and
-	purchase others, a subclass might initialize some properties and methods and invoke the superclass’s
-	constructor for inheriting properties and methods.
+	We can think of a bicycle factory as an analogy for the constructor design pattern. A bicycle factory 
+  probably uses a blueprint to ensure all bicycles have the same components, such as tires, chains, and 
+  a gear shifting mechanism. This is similar to how a constructor method assigns initial properties and 
+  methods to new instances. Just as the factory may produce some parts in-house and purchase others, a 
+  subclass might initialize some properties and methods and invoke the superclass’s constructor for 
+  inheriting properties and methods.
 
 </section>
 
@@ -138,7 +138,7 @@ categories: ['design patterns', 'oop']
   ## Constructors Before ES6
 
   Prior to ES6, the class syntax that we used above did not exist. The keywords `class`, `extends`, `super`, and the `constructor`
-  method were not a thing. Instead, constructor functions, which by convention usually start with a capital
+  method were not a thing. Instead, constructor functions, which by convention should start with a capital
   letter, were used to create objects (instances), and  the inheritance chain was setup by assigning the prototype of
   the constructor function to an object created from the prototype of another constructor function. This allowed failed lookup
   calls on instance methods or properties to be delegated to the prototype of the parent constructor function. To share methods
