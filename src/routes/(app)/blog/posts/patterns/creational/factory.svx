@@ -110,7 +110,7 @@ categories: ['design patterns', 'oop']
   as an interface, the client's usage of the class won't be impacted.
 
   Also, since the implementation details of the other transportation services classes are encapsulated within their respective
-  classes and abstracted away from the logisticsBroker, this decoupling simplifies the overall code, which makes it easier to
+  classes and therefore abstracted away from the logisticsBroker, this decoupling simplifies the overall code, which makes it easier to
   maintain and modify different sections without impacting the rest of the code. 
 
 </section>
