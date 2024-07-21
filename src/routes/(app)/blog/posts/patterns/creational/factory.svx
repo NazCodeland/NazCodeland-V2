@@ -204,8 +204,8 @@ categories: ['design patterns', 'oop']
     };
 
     var landTransportationServiceMethods = {
-      calculateCost: function (from, to) { /* implementation */  },
-      schedueTransportation: function (from, to) { /* implementation */ },
+      calculateCost: function (from, to) { /* implementation */ },
+      scheduleTransportation: function (from, to) { /* implementation */ },
       trackTransportationStatus: function () { /* implementation */ },
     };
 
@@ -236,10 +236,16 @@ categories: ['design patterns', 'oop']
     }
 
     function railTransportationService(request) {
-      var service = Object.create(railTransportationServiceMethods);
-      service.request = request;
-      return service;
-    }
+      // we can also use a data descriptor to define the request property
+      return Object.create(railTransportationServiceMethods, {
+        request: {
+          value: request,
+          writable: true,
+          enumerable: true,
+          configurable: true
+        }
+      });
+    };
 
     // usage
     // same as before 
