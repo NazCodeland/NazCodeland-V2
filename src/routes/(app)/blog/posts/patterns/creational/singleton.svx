@@ -5,7 +5,7 @@ updated: July 12th, 2024
 description:
   In OOP, the Singleton Design Pattern restricts the
   ability of a class from being able to instantiate multiple instances to only a single instance.
-  Normally, a class can instantiate as many instances as desired but in some scenarios it’s crucial
+  Normally, a class can instantiate as many instances as desired but in some scenarios it's crucial
   that only a single instance of a class exists. Since the constructor method of a class is responsible
   for instantiating new instances, the logic for the Singleton pattern is implemented there. The logic
   checks if an instance already exists, if so, it returns the reference to that instance, otherwise the
@@ -26,7 +26,7 @@ categories: ['design patterns', 'oop']
   
   In <abbr title="Object Oriented Programming">OOP</abbr>, the Singleton Design Pattern restricts the
   ability of a class from being able to instantiate multiple instances to only a single instance.
-  Normally, a class can instantiate as many instances as desired but in some scenarios it’s crucial
+  Normally, a class can instantiate as many instances as desired but in some scenarios it's crucial
   that only a single instance of a class exists. Since the constructor method of a class is responsible
   for instantiating new instances, the logic for the Singleton pattern is implemented there. The logic
   checks if an instance already exists, if so, it returns the reference to that instance, otherwise the

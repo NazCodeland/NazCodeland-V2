@@ -175,12 +175,12 @@ categories: ['design patterns', 'oop']
 
   - **Public & Private interfaces**: The ability to hide implementation details and expose only certain parts is beneficial.
 
-  - **Namespace management**: When importing a module, the import name given to the module becomes the namespace by which the module’s 
+  - **Namespace management**: When importing a module, the import name given to the module becomes the namespace by which the module's 
   functionality is accessed. This namespace, used as a prefix before identifiers of the imported module, avoids name collisions with 
   identifiers of the same name in other modules.
 
   - **Ability to Update Public Members**: Public variables and functions on the exported object can be reassigned and redefined by external 
-  module users to make it fit their use cases. It’s important to note that these updates do affect the original module and therefore any 
+  module users to make it fit their use cases. It's important to note that these updates do affect the original module and therefore any 
   other modules that import it.
 
   <br>
@@ -195,8 +195,8 @@ categories: ['design patterns', 'oop']
     interface scope, and vice versa.
 
 
-    - **No Access To Private Members**: Depending on the context, you might be working with an external module whose source code you can’t 
-    modify. Private members become a limitation in such scenarios because if you want to add additional functionality to the module, you won’t 
+    - **No Access To Private Members**: Depending on the context, you might be working with an external module whose source code you can't 
+    modify. Private members become a limitation in such scenarios because if you want to add additional functionality to the module, you won't 
     be able to access the private members.
 
     - **Limitation in Testing Granularity**: Since only the public interface is exposed, testing of private members is only possible  
@@ -496,7 +496,7 @@ categories: ['design patterns', 'oop']
   Reassigning a public variable on the public interface externally will only update that variable within the scope of the 
   exported interface object. The reassignment does not reassign the public variable within the `private` scope of the module. 
   Therefore, if any function within the module refers to that variable, it will retain the original value assigned to it due 
-  to the closure created at the time of the function's definition, which occurs upon the module’s initial import.
+  to the closure created at the time of the function's definition, which occurs upon the module's initial import.
   
   <br/>
 
@@ -619,7 +619,7 @@ categories: ['design patterns', 'oop']
 
   Redefining a function on the public interface externally does not redefine that same function within the `private` scope of the imported module. 
   Therefore, if any `private` function within the module references that public function, it will retain the original implementation
-  due to the closure created at the time of the private function's definition, which occurs upon the module’s initial import.
+  due to the closure created at the time of the private function's definition, which occurs upon the module's initial import.
 
   <br/>
 
@@ -769,9 +769,9 @@ categories: ['design patterns', 'oop']
     The "Learning JavaScript Design Patterns" closes off the chapter with the following: 
     
     >"A disadvantage of this pattern is that if a private function refers to a public
-    function, that public function can’t be overridden if a patch is necessary.
+    function, that public function can't be overridden if a patch is necessary.
     This is because the private function will continue to refer to the private
-    implementation, and the pattern doesn’t apply to public members, only to
+    implementation, and the pattern doesn't apply to public members, only to
     functions.
     
     > Public object members, which refer to private variables, are also subject to

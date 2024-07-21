@@ -58,7 +58,7 @@ categories: ['design patterns', 'oop']
 
   ```js
     class LogisticsBroker {
-      handleTransportationRequest(request) {
+      handleTransportation(request) {
         switch (request.type) {
           case 'land':
             return new LandTransportationService(request);
@@ -96,22 +96,22 @@ categories: ['design patterns', 'oop']
     };
 
     const broker = new LogisticsBroker();
-    const service = broker.handleTransportationRequest(request);
+    const service = broker.handleTransportation(request);
   ```
 
   <br>
 
   The advantages of the factory design pattern can be seen here. The LogisticsBroker class simplifies the client's interaction
-  by abstracting away all the details and making `broker.handleTransportationRequest(request)` method the only interface available
+  by abstracting away all the details and making `broker.handleTransportation(request)` method the only interface available
   to request a transportation service.
 
   This abstraction also provides the logisticsBroker class flexibility. Its implementation details or the types of transportation 
-  services it provides can be added to or removed, but as long as it provides the broker.handleTransportationRequest(request) method
+  services it provides can be added to or removed, but as long as it provides the broker.handleTransportation(request) method
   as an interface, the client's usage of the class won't be impacted.
 
-  Also, since the implementation details of the other transportation services classes are encapsulated within their respective classes
-  and abstracted away from the logisticsBroker implementation, this simplifies the overall code as they are decoupled, which makes it 
-  easier to maintain and modify different sections without impacting the rest of the code. 
+  Also, since the implementation details of the other transportation services classes are encapsulated within their respective
+  classes and abstracted away from the logisticsBroker, this decoupling simplifies the overall code, which makes it easier to
+  maintain and modify different sections without impacting the rest of the code. 
 
 </section>
 
@@ -129,7 +129,7 @@ categories: ['design patterns', 'oop']
   ```js
     function logisticsBroker() {
       return {
-        handleTransportationRequest: function (request) {
+        handleTransportation: function (request) {
           switch (request.type) {
             case 'land':
               return landTransportationService(request);
@@ -169,16 +169,17 @@ categories: ['design patterns', 'oop']
     };
 
     var broker = logisticsBroker();
-    var service = broker.handleTransportationRequest(request);
+    var service = broker.handleTransportation(request);
     console.log(service);
   ```
 
   <br>
 
-  However, the above implementation isn't memory efficient as the methods get defined for each object created from the factory function,
+  However, this implementation isn't memory efficient as the methods get defined for each object created from the factory function,
   so to get around this, we can define an object that contains all the methods for each factory function, and then within each factory
-  function, we can create an object using the methods object as the prototype. This way, the methods are shared between all objects 
-  created from the factory function.
+  function, we can create an object using `Object.create(proto)` and passing the methods object as the `proto` argument, which will 
+  setup the prototype object for the factory function, which in turn sets up the prototypal inheritance chain for newly created objects. 
+  This way, the methods are inherited by all objects created from their respective factory functions.
 
   Here's the code example:
 
@@ -186,7 +187,7 @@ categories: ['design patterns', 'oop']
 
   ```js
     var logisticsBrokerMethods = {
-      handleTransportationRequest: function (request) {
+      handleTransportation: function (request) {
         switch (request.type) {
           case 'land':
             return landTransportationService(request);

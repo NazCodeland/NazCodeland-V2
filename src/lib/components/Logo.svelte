@@ -4,7 +4,7 @@
 </script>
 
 <span
-	class="mb-0 flex-shrink-0 items-center rounded-sm text-center"
+	class="mb-0 flex-shrink-0 select-none items-center rounded-sm text-center"
 	aria-labelledby="logo">
 	{#each logoTextArray as letter}
 		{#if letter === 'N'}
