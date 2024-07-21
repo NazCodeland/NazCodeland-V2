@@ -263,9 +263,9 @@ categories: ['design patterns', 'oop']
   can be implemented using the constructor pattern, but at that point, it can't be considered a factory pattern. Therefore, I've 
   learned that the moment we use the `new` operator, the ES5 example, with slight modifications, is considered a constructor pattern.
 
-  Through that insight, ~~I've come to learn some limitations of the factory design pattern that I find interesting~~. It makes sense
-  why the `instanceof` operator returns false for objects created from factory patterns because factory functions return objects
-  and not instances. Instances are only created when we use the `new` operator with a constructor function or class.
+  Through that insight, it now makes sense to me why the `instanceof` operator returns false for objects created from factory functions, 
+  because factory patterns return objects, not instances. Instances are only created when we use the `new` operator with a constructor 
+  function or class. This explains why they inherit from Object.prototype and not from the factory function's prototype object.
 
   I really like the factory design pattern! I hope you've found this article helpful. Thank you for reading!
   
