@@ -3,11 +3,12 @@ title: Constructor Design Pattern
 created: June 30th, 2024
 updated: July 11th, 2024
 description:
-  In OOP, the Constructor Design Pattern is a special method that gets invoked every time we instantiate
-  a new instance of a class using the new operator. This method is responsible for initializing the state
-  of the newly created instance by assigning its initial properties and methods. If the class is a
-  subclass, meaning it inherits from a superclass, the constructor invokes the superclass’s constructor
-  to ensure newly created instances are assigned the properties and methods of the superclass.
+  The Constructor Design Pattern is a creational design pattern and it is automatically invoked every 
+  time we instantiate a new instance of a class using the new operator. This method is responsible 
+  for initializing the state of the newly created instance by assigning its initial properties and 
+  methods. If the class is a subclass, meaning it inherits from a superclass, the constructor invokes 
+  the superclass's constructor to ensure newly created instances are assigned the properties and methods 
+  of the superclass.
 tags: ['javascript']
 categories: ['design patterns', 'oop']
 ---
@@ -20,12 +21,13 @@ categories: ['design patterns', 'oop']
 
   ## Explanation
 
-	In <abbr title="Object Oriented Programming">OOP</abbr>, the Constructor Design Pattern is a special
-	method that gets invoked every time we instantiate a new instance of a class using the **new** operator.
-	This method is responsible for initializing the state of the newly created instance by assigning
-	its _initial_ properties and methods. If the class is a subclass, meaning it inherits from a superclass,
-	the constructor invokes the superclass’s constructor to ensure newly created instances are assigned the
-	properties and methods of the superclass.
+	The Constructor Design Pattern is a creational design pattern and it is automatically invoked every 
+  time we instantiate a new instance of a class using the **new** operator. This method is responsible 
+  for initializing the state of the newly created instance by assigning its _initial_ properties and 
+  methods. If the class is a subclass, meaning it inherits from a superclass, the constructor invokes 
+  the superclass's constructor to ensure newly created instances are assigned the properties and methods 
+  of the superclass.
+
 </section>
 
 <section>
@@ -46,7 +48,7 @@ categories: ['design patterns', 'oop']
   probably uses a blueprint to ensure all bicycles have the same components, such as tires, chains, and 
   a gear shifting mechanism. This is similar to how a constructor method assigns initial properties and 
   methods to new instances. Just as the factory may produce some parts in-house and purchase others, a 
-  subclass might initialize some properties and methods and invoke the superclass’s constructor for 
+  subclass might initialize some properties and methods and invoke the superclass's constructor for 
   inheriting properties and methods.
 
 </section>
@@ -224,8 +226,8 @@ categories: ['design patterns', 'oop']
 	So, therefore, there probably is a use case for initializing methods within the 
 	constructor that I just don't know about due to my lack of knowledge.
 
-	I’ve also asked <Link href="https://www.youtube.com/@jmagrippis" linkText="Jonny Magrippis"  />, 
-	who is a great instructor, and even he says he hasn’t seen a legit use case for it. 
+	I've also asked <Link href="https://www.youtube.com/@jmagrippis" linkText="Jonny Magrippis"  />, 
+	who is a great instructor, and even he says he hasn't seen a legit use case for it. 
 	If you do know of a use case, please share!
 </section>
 

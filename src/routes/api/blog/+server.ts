@@ -12,7 +12,7 @@ function getBlogPosts() {
 	/**
 	 * The ': file is File' return type is a type predicate.
 	 * It tells the TypeScript compiler “if this function returns true,
-	 * this is the type I’m certain of; change the type accordingly.”
+	 * this is the type I'm certain of; change the type accordingly.”
 	 * This allows TypeScript to narrow down the type of 'file' within the scope
 	 * where the function returned true.
 	 */

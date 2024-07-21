@@ -31,6 +31,7 @@ categories: ['design patterns', 'oop']
 - [Module](/blog/patterns/creational/module)
 - [Singleton](/blog/patterns/creational/singleton)
 - [Prototype](/blog/patterns/creational/prototype)
+- [factory](/blog/patterns/creational/factory)
 
 
 <br/>
