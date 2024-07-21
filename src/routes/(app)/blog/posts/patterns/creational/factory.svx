@@ -1,0 +1,266 @@
+---
+layout: blog
+title: Factory Design Pattern
+created: July 20th, 2024
+updated:
+description:
+  The Factory Design Pattern is a creational design pattern that encapsulates logic for instantiating instances
+  of various classes. However, the pattern does not encapsulate the logic for initializing the state and/or behavior
+  of those instances; those implementation details are delegated to the classes of the instances themselves. Therefore, 
+  the pattern doesn't know the inner workings of the classes it creates instances of; it's decoupled from those classes.
+
+tags: ['javascript']
+categories: ['design patterns', 'oop']
+---
+
+
+<script lang="ts">
+	import Link from '$lib/elements/Link.svelte';
+</script>
+
+<section>
+
+  ## Explanation
+
+  The Factory Design Pattern is a creational design pattern that encapsulates logic for instantiating instances
+  of various classes. However, the pattern does not encapsulate the logic for initializing the state and/or behavior
+  of those instances; those implementation details are delegated to the classes of the instances themselves. Therefore, 
+  the pattern doesn't know the inner workings of the classes it creates instances of; it's decoupled from those classes.
+
+</section>
+
+<section>
+	<Link href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)" linkText="Wikipedia article" block={true} /> says:
+
+		> In object-oriented programming, a factory is an object for creating other objects; formally, it is a function or 
+    method that returns objects of a varying prototype or class from some method call, ...
+
+</section>
+
+
+<section>
+
+  ## Analogy
+
+  We can think of a logistics broker as the factory in the Factory Design Pattern. This broker might provide services to move items
+  from point A to point B using a variety of different types of transportation, such as land, air, sea, rail, etc. The broker delegates
+  the transportation requests to various logistic companies. These logistic companies can be thought of as the subclasses in the pattern,
+  each handling the actual implementation details of a type of transportation.
+
+</section>
+
+
+<section>
+
+  ## Code Example
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    class LogisticsBroker {
+      handleTransportationRequest(request) {
+        switch (request.type) {
+          case 'land':
+            return new LandTransportationService(request);
+          case 'air':
+            return new AirTransportationService(request);
+          case 'sea':
+            return new SeaTransportationService(request);
+          case 'rail':
+            return new RailTransportationService(request);
+          default:
+            throw new Error('Invalid transportation type');
+        }
+      }
+    }
+
+    class LandTransportationService { 
+      constructor(request) {
+        this.request = request;
+      }
+      calculateCost(from, to) { /* implementation */ }
+      schedueTransportation(from, to) { /* implementation */ } 
+      trackTransportationStatus(){ /* implementation */ }
+    }
+    class AirTransportationService { /* implementation */ }
+    class SeaTransportationService { /* implementation */ }
+    class RailTransportationService {  /* implementation */ }
+
+    // usage
+    const request = {
+      type: 'land',
+      fromAddress: '123 Main St Ottawa, ON',
+      toAddress: '123 Main St Toronto, ON',
+      date: '2024-07-20',
+      items: [ /* ... */]
+    };
+
+    const broker = new LogisticsBroker();
+    const service = broker.handleTransportationRequest(request);
+  ```
+
+  <br>
+
+  The advantages of the factory design pattern can be seen here. The LogisticsBroker class simplifies the client's interaction
+  by abstracting away all the details and making `broker.handleTransportationRequest(request)` method the only interface available
+  to request a transportation service.
+
+  This abstraction also provides the logisticsBroker class flexibility. Its implementation details or the types of transportation 
+  services it provides can be added to or removed, but as long as it provides the broker.handleTransportationRequest(request) method
+  as an interface, the client's usage of the class won't be impacted.
+
+  Also, since the implementation details of the other transportation services classes are encapsulated within their respective classes
+  and abstracted away from the logisticsBroker implementation, this simplifies the overall code as they are decoupled, which makes it 
+  easier to maintain and modify different sections without impacting the rest of the code. 
+
+</section>
+
+<section>
+
+  ## Factory Pattern Before ES6
+
+  Prior to ES6, the class syntax that we used above did not exist, so factory functions were used instead, which are regular functions
+  that return an object. The code example below re-implements the same logisticsBroker class as above, but using ES5 syntax.
+
+  <br>
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES5 Syntax</p>
+
+  ```js
+    function logisticsBroker() {
+      return {
+        handleTransportationRequest: function (request) {
+          switch (request.type) {
+            case 'land':
+              return landTransportationService(request);
+            case 'air':
+              return airTransportationService(request);
+            case 'sea':
+              return seaTransportationService(request);
+            case 'rail':
+              return railTransportationService(request);
+            default:
+              throw Error('Invalid transportation type');
+          }
+        }
+      };
+    };
+
+    function landTransportationService(request) {
+      return {
+        calculateCost: function (from, to) {},
+        schedueTransportation: function (from, to) {},
+        trackTransportationStatus: function () {},
+      };
+    }
+
+
+    function airTransportationService(request) { return {}; }
+    function seaTransportationService(request) { return {}; }
+    function railTransportationService(request) { return {}; }
+
+    // usage
+    var request = {
+      type: 'land',
+      fromAddress: '123 Main St Ottawa, ON',
+      toAddress: '123 Main St Toronto, ON',
+      date: '2024-07-20',
+      items: [ /* */]
+    };
+
+    var broker = logisticsBroker();
+    var service = broker.handleTransportationRequest(request);
+    console.log(service);
+  ```
+
+  <br>
+
+  However, the above implementation isn't memory efficient as the methods get defined for each object created from the factory function,
+  so to get around this, we can define an object that contains all the methods for each factory function, and then within each factory
+  function, we can create an object using the methods object as the prototype. This way, the methods are shared between all objects 
+  created from the factory function.
+
+  Here's the code example:
+
+  <br>
+
+  ```js
+    var logisticsBrokerMethods = {
+      handleTransportationRequest: function (request) {
+        switch (request.type) {
+          case 'land':
+            return landTransportationService(request);
+          case 'air':
+            return airTransportationService(request);
+          case 'sea':
+            return seaTransportationService(request);
+          case 'rail':
+            return railTransportationService(request);
+          default:
+            throw Error('Invalid transportation type');
+        }
+      }
+    };
+
+    var landTransportationServiceMethods = {
+      calculateCost: function (from, to) { /* implementation */  },
+      schedueTransportation: function (from, to) { /* implementation */ },
+      trackTransportationStatus: function () { /* implementation */ },
+    };
+
+    var airTransportationServiceMethods = { /* implementation */ };
+    var seaTransportationServiceMethods = { /* implementation */ };
+    var railTransportationServiceMethods = { /* implementation */ };
+
+    function logisticsBroker() {
+      return Object.create(logisticsBrokerMethods);
+    };
+
+    function landTransportationService(request) {
+      var service = Object.create(landTransportationServiceMethods);
+      service.request = request;
+      return service;
+    }
+
+    function airTransportationService(request) {
+      var service = Object.create(airTransportationServiceMethods);
+      service.request = request;
+      return service;
+    }
+
+    function seaTransportationService(request) {
+      var service = Object.create(seaTransportationServiceMethods);
+      service.request = request;
+      return service;
+    }
+
+    function railTransportationService(request) {
+      var service = Object.create(railTransportationServiceMethods);
+      service.request = request;
+      return service;
+    }
+
+    // usage
+    // same as before 
+  ```
+
+</section>
+
+
+<section>
+
+	## Wrapping Up
+
+  At the beginning of this article, I was a little confused as to what really differentiated the factory design pattern from 
+  the <Link href="/blog/patterns/creational/constructor" linkText="constructor design pattern"/>, because the ES5 example above
+  can be implemented using the constructor pattern, but at that point, it can't be considered a factory pattern. Therefore, I've 
+  learned that the moment we use the `new` operator, the ES5 example, with slight modifications, is considered a constructor pattern.
+
+  Through that insight, ~~I've come to learn some limitations of the factory design pattern that I find interesting~~. It makes sense
+  why the `instanceof` operator returns false for objects created from factory patterns because factory functions return objects
+  and not instances. Instances are only created when we use the `new` operator with a constructor function or class.
+
+  I really like the factory design pattern! I hope you've found this article helpful. Thank you for reading!
+  
+</section>
+
