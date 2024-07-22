@@ -1,7 +1,7 @@
 ---
 title: Constructor Design Pattern
 created: June 30th, 2024
-updated: July 21st, 2024
+updated: July 22nd, 2024
 description:
   The Constructor Design Pattern is a creational design pattern and it is automatically invoked every 
   time we instantiate a new instance of a class using the new operator. This method is responsible 
@@ -17,6 +17,7 @@ categories: ['design patterns', 'oop']
 	import Link from '$lib/elements/Link.svelte';
 </script>
 
+
 <section>
 
   ## Explanation
@@ -29,6 +30,7 @@ categories: ['design patterns', 'oop']
   of the superclass.
 
 </section>
+
 
 <section>
 	<Link href="https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming)" linkText="Wikipedia article" block={true} /> says:
@@ -127,6 +129,7 @@ categories: ['design patterns', 'oop']
 
 </section>
 
+
 <section>
 
   ## Constructors Before ES6
@@ -196,9 +199,11 @@ categories: ['design patterns', 'oop']
     var mountainBike = new MountainBike('black', 'medium', 'trail'); 	
   ```
 
-  </section>
+</section>
 
-  <section>
+
+<section>
+  <span class="scroll-mt-32" id="limitation"></span>
 
   ## Limitations of Accessing Function Scope Variables in Prototype Methods
 
@@ -206,10 +211,11 @@ categories: ['design patterns', 'oop']
   only be accessed from within the class where they're defined; otherwise, an error will be thrown if they are accessed from outside the 
   class.
 
-  To achieve data privacy in a constructor function, we can define the property using a `var`, `const` or `let` instead of on the `this` 
-  keyword and access it through the use of <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" linkText="closures" />. 
-  However, this solution leads to the problem where `methods defined on the prototype of the instance cannot access that private property`. 
-  It's easier to show this limitation with a code example:
+  In both ES5 and ES6, to achieve data privacy in any type of function, such as a constructor function, we can define the property using `var`,
+  `const` or `let` instead of on the `this` keyword and access it through the use 
+  of <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" linkText="closures" />. However, this solution leads to the
+  problem where `methods defined on the prototype of the instance cannot access that private property`. It's easier to show this limitation with
+  a code example:
 
   <br>
 
