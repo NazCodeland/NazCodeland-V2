@@ -204,9 +204,9 @@ categories: ['design patterns', 'oop']
   define private class fields, which are instance-specific properties or methods. These class fields can only be accessed from within the class
   where they're defined; otherwise, an error will be thrown if they are accessed from outside the class. 
 
-  To achieve data privacy in a constructor function using ES5 syntax, we can define the property with a `const` or `let` instead of on the `this`
-  keyword. However, this leads to the limitation where methods defined on the instance prototype won't be able to access that property.
-  It's easier to show this limitation with a code example:
+  The solution to achieve data privacy in a constructor function using ES5 syntax leads to another problem. We can make the property private by 
+  defining it using a `const` or `let` instead of on the `this` keyword. However, this leads to the problem where methods defined 
+  on the prototype of the instance won't be able to access that property. It's easier to show this limitation with a code example:
 
   <br>
 
