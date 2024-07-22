@@ -203,9 +203,9 @@ categories: ['design patterns', 'oop']
 
 
 <section>
-  <span class="scroll-mt-32" id="limitation"></span>
+  <span class="scroll-mt-32" id="behavior"></span>
 
-  ## Limitations of Accessing Function Scope Variables in Prototype Methods
+  ## Understanding Accessing Function Scope Variables in Prototype Methods
 
   The `#` symbol in ES6 is used to define `private` class fields, which are instance-specific properties or methods. These class fields can 
   only be accessed from within the class where they're defined; otherwise, an error will be thrown if they are accessed from outside the 
@@ -214,8 +214,8 @@ categories: ['design patterns', 'oop']
   In both ES5 and ES6, to achieve data privacy in any type of function, such as a constructor function, we can define the property using `var`,
   `const` or `let` instead of on the `this` keyword and access it through the use 
   of <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" linkText="closures" />. However, this solution leads to the
-  problem where `methods defined on the prototype of the instance cannot access that private property`. It's easier to show this limitation with
-  a code example:
+  problem where `methods defined on the prototype of the constructor function cannot access that private property`. It's easier to show this 
+  behavior with a code example:
 
   <br>
 
@@ -266,14 +266,14 @@ categories: ['design patterns', 'oop']
 
   <br>
 
-  So, since we want to keep `serialNumber` private, we'll defined it using `const` instead of on the `this` keyword because the 'this' 
-  keyword represents the instance returned by the constructor function, and therefore, if it were on the instance, it can be accessed 
-  by doing `this.serialNumber` and so it wouldn't be private. However, because it's not defined on 'this', methods defined on the 
-  prototype of the instance won't be able to access 'serialNumber' as it is defined within the constructor function's `scope` and 
-  not on the instance itself.
+  So, since we want to keep `serialNumber` private, we'll define it using `const` instead of on the `this` keyword because the 'this' 
+  keyword represents the instance returned by the constructor function, and therefore, if it was defined on the instance, it can be accessed 
+  by doing `this.serialNumber` and so it wouldn't be private. But this privacy means that methods defined on the prototype of
+  the constructor function won't be able to access 'serialNumber' as it is defined within the constructor function's `scope` and not on the 
+  instance itself.
 
-  However, methods and functions defined within the constructor functions `scope` can access 'serialNumber' because of closures.
-
+  However, methods and functions defined within the `scope` of the constructor function can access 'serialNumber' because of they share
+  the same scope or through closures.
 
   <br>
 
@@ -294,13 +294,16 @@ categories: ['design patterns', 'oop']
 
   <br>
 
-  So, this leads to the realization that there is a trade-off to be made between `memory efficiency` and `data privacy`.
+  So, this leads to the realization that there is a trade-off to be made between `memory efficiency` and `access to private data`.
   
-  - If the objective is to minimize memory usage, then we should define methods on the prototype of the constructor function,
-  as those methods are shared between all instances but in turn incur the loss of data privacy.
+  - If the objective is to minimize memory usage, then methods should be defined on the prototype of the constructor function, as 
+  these methods are shared between all instances. However, these methods will not have access to properties or functions that are 
+  defined within the scope of the constructor function, as they are considered "private" to the constructor function.
 
-  - If the objective is to have properties or methods that are private, then we should define methods and functions within the
-  constructor function scope and, in turn, incur the loss of using more memory.
+  - If the objective is to have access to private data, then we should define methods within the constructor function. These methods 
+  will have access to variables or functions defined within the constructor function because they were either defined in the same top 
+  level scope or have access due to closures. However, this results in using more memory as each instance will have its own copy of 
+  these methods.
   
 </section>
 
