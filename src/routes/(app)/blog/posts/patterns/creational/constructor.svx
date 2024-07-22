@@ -196,17 +196,20 @@ categories: ['design patterns', 'oop']
     var mountainBike = new MountainBike('black', 'medium', 'trail'); 	
   ```
 
-  <br>
+  </section>
 
-  ### ES5 Syntax limitation
+  <section>
 
-  The ES5 syntax has an important limitation, which is that there is no equivalent to private class fields. The `#` symbol in ES6 is used to 
-  define private class fields, which are instance-specific properties or methods. These class fields can only be accessed from within the class
-  where they're defined; otherwise, an error will be thrown if they are accessed from outside the class. 
+  ## Limitations of Accessing Function Scope Variables in Prototype Methods
 
-  The solution to achieve data privacy in a constructor function using ES5 syntax leads to another problem. We can make the property private by 
-  defining it using a `const` or `let` instead of on the `this` keyword. However, this leads to the problem where methods defined 
-  on the prototype of the instance won't be able to access that property. It's easier to show this limitation with a code example:
+  The `#` symbol in ES6 is used to define `private` class fields, which are instance-specific properties or methods. These class fields can 
+  only be accessed from within the class where they're defined; otherwise, an error will be thrown if they are accessed from outside the 
+  class.
+
+  To achieve data privacy in a constructor function, we can define the property using a `var`, `const` or `let` instead of on the `this` 
+  keyword and access it through the use of <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" linkText="closures" />. 
+  However, this solution leads to the problem where `methods defined on the prototype of the instance cannot access that private property`. 
+  It's easier to show this limitation with a code example:
 
   <br>
 
@@ -240,7 +243,7 @@ categories: ['design patterns', 'oop']
 
   ```js
     function Bicycle(color, size) {
-      const serialNumber = 123; 	// [!code focus:1]
+      var serialNumber = 123; 	// [!code focus:1]
       this.color = color;
       this.size = size;
     }
@@ -257,14 +260,13 @@ categories: ['design patterns', 'oop']
 
   <br>
 
-  So, since we want to keep `serialNumber` private, we'll have to define it using `const` or `let` instead of on the `this` keyword 
-  because the 'this' keyword represents the instance returned by the constructor function, and therefore, if it were on the instance, 
-  it can be accessed by doing `this.serialNumber` and so it wouldn't be private. However, because it's **not** defined on 'this', methods
-  defined on the prototype of the instance won't be able to access 'serialNumber' as it is defined within the constructor function's
-  **scope** and not on the instance itself.
+  So, since we want to keep `serialNumber` private, we'll defined it using `const` instead of on the `this` keyword because the 'this' 
+  keyword represents the instance returned by the constructor function, and therefore, if it were on the instance, it can be accessed 
+  by doing `this.serialNumber` and so it wouldn't be private. However, because it's not defined on 'this', methods defined on the 
+  prototype of the instance won't be able to access 'serialNumber' as it is defined within the constructor function's `scope` and 
+  not on the instance itself.
 
-  However, methods and functions defined within the constructor functions `scope` can access 'serialNumber' because 
-  of <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" linkText="closures" />.
+  However, methods and functions defined within the constructor functions `scope` can access 'serialNumber' because of closures.
 
 
   <br>
