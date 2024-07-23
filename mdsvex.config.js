@@ -9,9 +9,6 @@ import {
 	// 	transformerMetaWordHighlight
 } from '@shikijs/transformers';
 
-import path from 'path';
-import { fileURLToPath } from 'url';
-
 // --------------------------------------------------------------------------------
 
 let highlighter;
@@ -52,12 +49,6 @@ const config = {
 				.replace(/}/g, '&#125;');
 		}
 	},
-	layout: {
-		blog: path.join(
-			path.resolve(fileURLToPath(import.meta.url), '../'),
-			'./src/lib/components/BlogPostLayout.svelte'
-		)
-	}
 };
 
 export default config;
