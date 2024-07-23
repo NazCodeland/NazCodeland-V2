@@ -1,5 +1,4 @@
 ---
-layout: blog
 title: Factory Design Pattern
 created: July 20th, 2024
 updated: July 22nd, 2024
