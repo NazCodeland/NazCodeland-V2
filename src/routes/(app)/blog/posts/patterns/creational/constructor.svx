@@ -272,8 +272,8 @@ categories: ['design patterns', 'oop']
   the constructor function won't be able to access 'serialNumber' as it is defined within the constructor function's `scope` and not on the 
   instance itself.
 
-  However, methods and functions defined within the `scope` of the constructor function can access 'serialNumber' because of they share
-  the same scope or through closures.
+  However, methods and functions defined within the `scope` of the constructor function can access 'serialNumber' because they were either 
+  defined in the same top level scope or have access due to closures. 
 
   <br>
 
@@ -296,11 +296,11 @@ categories: ['design patterns', 'oop']
 
   So, this leads to the realization that there is a trade-off to be made between `memory efficiency` and `access to private data`.
   
-  - If the objective is to minimize memory usage, then methods should be defined on the prototype of the constructor function, as 
+  - `If the objective is to minimize memory usage`, then methods should be defined on the prototype of the constructor function, as 
   these methods are shared between all instances. However, these methods will not have access to properties or functions that are 
   defined within the scope of the constructor function, as they are considered "private" to the constructor function.
 
-  - If the objective is to have access to private data, then we should define methods within the constructor function. These methods 
+  - `If the objective is to have access to private data`, then we should define methods within the constructor function. These methods 
   will have access to variables or functions defined within the constructor function because they were either defined in the same top 
   level scope or have access due to closures. However, this results in using more memory as each instance will have its own copy of 
   these methods.
