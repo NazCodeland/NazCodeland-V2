@@ -1,7 +1,7 @@
 ---
 title: Constructor Design Pattern
 created: June 30th, 2024
-updated: July 11th, 2024
+updated: July 22nd, 2024
 description:
   The Constructor Design Pattern is a creational design pattern and it is automatically invoked every 
   time we instantiate a new instance of a class using the new operator. This method is responsible 
@@ -17,6 +17,7 @@ categories: ['design patterns', 'oop']
 	import Link from '$lib/elements/Link.svelte';
 </script>
 
+
 <section>
 
   ## Explanation
@@ -29,6 +30,7 @@ categories: ['design patterns', 'oop']
   of the superclass.
 
 </section>
+
 
 <section>
 	<Link href="https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming)" linkText="Wikipedia article" block={true} /> says:
@@ -58,15 +60,12 @@ categories: ['design patterns', 'oop']
 
   ## Code Example
 
-  The non-blurred code is the focus of the current article, and the blurred code introduces topics for future articles.
-
   <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
 
   
   ```js
     class Bicycle { 	// [!code focus:1]
-      // Class fields are instance specific properties
-      // I will cover class fields in another article
+      // Class fields are instance specific properties or methods
       model = 'regular bike';
       chain = 'standard chain';
       year = 2024;
@@ -81,8 +80,7 @@ categories: ['design patterns', 'oop']
           // Do something
         };
       }
-  
-      // Methods defined within the class body are shared among all instances
+
       honk() {
         console.log('honk');
       }   
@@ -93,11 +91,9 @@ categories: ['design patterns', 'oop']
 
     // Instantiate a new instance of Bicycle class 	// [!code focus:2]
     const bicycle = new Bicycle('blue', 'large');
-
   ```
 
   <br/>
-
 
 	`MountainBike` is a subclass of `Bicycle` and therefore it needs to invoke the 
 	constructor of its superclass by using the `super` keyword and passing in the 
@@ -110,7 +106,6 @@ categories: ['design patterns', 'oop']
       chain = 'advanced chain';
       terrainTypes = ['trail', 'downhill', 'cross-country'];
 
-
       constructor(color, size, terrainType) { 		
         // super needs to be invoked before using `this` keyword
         super(color, size);      // [!code focus:1]
@@ -120,7 +115,6 @@ categories: ['design patterns', 'oop']
           this.terrainType = terrainType;
         }
       } 			
-
 
       // Override the method defined in the superclass by
       // Adding a specific implementation for mountain bikes
@@ -135,6 +129,7 @@ categories: ['design patterns', 'oop']
 
 </section>
 
+
 <section>
 
   ## Constructors Before ES6
@@ -147,6 +142,10 @@ categories: ['design patterns', 'oop']
   between all instances of a constructor function, the method had to be defined on the prototype of the constructor function.
   Here is an example of the Bicycle and MountainBike classes using constructor functions:
 
+  <br>
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES5 Syntax</p>
+
   ```js
     function Bicycle(color, size){ 	// [!code focus:10]
       // Equivalent to instance specific properties
@@ -158,7 +157,6 @@ categories: ['design patterns', 'oop']
       this.size = size;
     }
 
-    // Shared instance methods
     Bicycle.prototype.honk = function(){
       console.log('honk');
     }
@@ -201,7 +199,112 @@ categories: ['design patterns', 'oop']
     var mountainBike = new MountainBike('black', 'medium', 'trail'); 	
   ```
 
+</section>
 
+
+<section>
+  <span class="scroll-mt-32" id="behavior"></span>
+
+  ## Understanding Accessing Function Scope Variables in Prototype Methods
+
+  The `#` symbol in ES6 is used to define `private` class fields, which are instance-specific properties or methods. These class fields can 
+  only be accessed from within the class where they're defined; otherwise, an error will be thrown if they are accessed from outside the 
+  class.
+
+  In both ES5 and ES6, to achieve data privacy in any type of function, such as a constructor function, we can define the property using `var`,
+  `const` or `let` instead of on the `this` keyword and access it through the use 
+  of <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" linkText="closures" />. However, this solution leads to the
+  problem where `methods defined on the prototype of the constructor function cannot access that private property`. It's easier to show this 
+  behavior with a code example:
+
+  <br>
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    class Bicycle {
+      #serialNumber = 123; 	// [!code focus:1]
+      constructor(color, size) {
+        this.color = color;
+        this.size = size;
+      }
+
+      logSerialNumber() { console.log(this.#serialNumber); } // [!code focus:1]
+    }
+
+    const bicycle = new Bicycle('blue', 'large'); // [!code focus:3]
+    console.log(bicycle.#serialNumber); // output: SyntaxError // 
+    bicycle.logSerialNumber(); // output: 123 // 
+  ```
+
+  <br>
+
+  Everything works as expected; the private class field `#serialNumber` is not accessible from outside the class, but the method `logSerialNumber`
+  is able to access the private class field.
+
+  <br>
+  <br>
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES5 Syntax</p>
+
+  ```js
+    function Bicycle(color, size) {
+      var serialNumber = 123; 	// [!code focus:1]
+      this.color = color;
+      this.size = size;
+    }
+
+    Bicycle.prototype.logSerialNumber = function () { // [!code focus:3]
+      // will throw 'ReferenceError: serialNumber is not defined'
+      console.log(serialNumber);
+    };
+
+    var bicycle = new Bicycle('blue', 'large'); // [!code focus:3]
+    console.log(bicycle.serialNumber); // output: undefined
+    bicycle.logSerialNumber(); // output: the above error
+  ```
+
+  <br>
+
+  So, since we want to keep `serialNumber` private, we'll define it using `const` instead of on the `this` keyword because the 'this' 
+  keyword represents the instance returned by the constructor function, and therefore, if it was defined on the instance, it can be accessed 
+  by doing `this.serialNumber` and so it wouldn't be private. But this privacy means that methods defined on the prototype of
+  the constructor function won't be able to access 'serialNumber' as it is defined within the constructor function's `scope` and not on the 
+  instance itself.
+
+  However, methods and functions defined within the `scope` of the constructor function can access 'serialNumber' because they were either 
+  defined in the same top level scope or have access due to closures. 
+
+  <br>
+
+  ```js
+    function Bicycle(color, size) {
+      const serialNumber = 123;
+      this.color = color;
+      this.size = size;
+      this.logSerialNumber = function () { log(); };
+      function log() { console.log(serialNumber); }
+    }
+
+    var bicycle = new Bicycle('blue', 'large');
+
+    console.log(bicycle.serialNumber); // output: undefined
+    bicycle.logSerialNumber(); // output: 123
+  ```
+
+  <br>
+
+  So, this leads to the realization that there is a trade-off to be made between `memory efficiency` and `access to private data`.
+  
+  - `If the objective is to minimize memory usage`, then methods should be defined on the prototype of the constructor function, as 
+  these methods are shared between all instances. However, these methods will not have access to properties or functions that are 
+  defined within the scope of the constructor function, as they are considered "private" to the constructor function.
+
+  - `If the objective is to have access to private data`, then we should define methods within the constructor function. These methods 
+  will have access to variables or functions defined within the constructor function because they were either defined in the same top 
+  level scope or have access due to closures. However, this results in using more memory as each instance will have its own copy of 
+  these methods.
+  
 </section>
 
 
@@ -209,25 +312,19 @@ categories: ['design patterns', 'oop']
 
 	## Wrapping Up
 
-	Some sources do not view the constructor as a design pattern but rather as a 
-	method of a class for initializing properties and methods of a new instance. 
-	Also, many definitions, just like mine, say that it is responsible for 
-	initializing properties and methods. But I have not come across a use case for
-	initializing methods within the constructor, and if we were to initialize a 
-	method within the constructor, it would be unique for each instance and therefore 
-	not a method in the sense of what a method means in OOP: a function on a class 
-	that is shared between all instances of that class.
+	Some sources do not view the constructor as a design pattern but rather as a method of a class for initializing properties and
+  methods of a new instance. Also, many definitions, just like mine, say that it is responsible for initializing properties and 
+  methods. But I have not come across a use case for initializing methods within the constructor, and if we were to initialize a 
+	method within the constructor, it would be unique for each instance and therefore not a method in the sense of what a method 
+  means in OOP: a function on a class that is shared between all instances of that class.
 
-	But, as my mentor <Link href="https://github.com/ericchase" linkText="Chase"  /> 
-	pointed out, <abbr title="Mozilla Developer Network">MDN</abbr> says, 
-	`A property's value can be a function, in which case the property is known as a method.`
-	He also pointed out that we developers only write the constructor method, but 
-	behind the scenes, there is probably a lot more going on in the construction phase.
-	So, therefore, there probably is a use case for initializing methods within the 
-	constructor that I just don't know about due to my lack of knowledge.
+	But, as my mentor <Link href="https://github.com/ericchase" linkText="Chase"  /> pointed out, <abbr title="Mozilla Developer Network">MDN</abbr> says, 
+	`A property's value can be a function, in which case the property is known as a method.` He also pointed out that we developers 
+  only write the constructor method, but behind the scenes, there is probably a lot more going on in the construction phase. So, 
+  therefore, there probably is a use case for initializing methods within the constructor that I just don't know about due to my 
+  lack of knowledge.
 
-	I've also asked <Link href="https://www.youtube.com/@jmagrippis" linkText="Jonny Magrippis"  />, 
-	who is a great instructor, and even he says he hasn't seen a legit use case for it. 
-	If you do know of a use case, please share!
+	I've also asked <Link href="https://www.youtube.com/@jmagrippis" linkText="Jonny Magrippis"  />, who is a great instructor, and 
+  even he says he hasn't seen a legit use case for it. If you do know of a use case, please share!
 </section>
 

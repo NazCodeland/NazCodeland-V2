@@ -2,7 +2,7 @@
 layout: blog
 title: Factory Design Pattern
 created: July 20th, 2024
-updated:
+updated: July 22nd, 2024
 description:
   The Factory Design Pattern is a creational design pattern that encapsulates logic for instantiating instances
   of various classes. However, the pattern does not encapsulate the logic for initializing the state and/or behavior
@@ -58,7 +58,7 @@ categories: ['design patterns', 'oop']
 
   ```js
     class LogisticsBroker {
-      handleTransportation(request) {
+      createTransportationService(request) {
         switch (request.type) {
           case 'land':
             return new LandTransportationService(request);
@@ -96,17 +96,17 @@ categories: ['design patterns', 'oop']
     };
 
     const broker = new LogisticsBroker();
-    const service = broker.handleTransportation(request);
+    const service = broker.createTransportationService(request);
   ```
 
   <br>
 
   The advantages of the factory design pattern can be seen here. The LogisticsBroker class simplifies the client's interaction
-  by abstracting away all the details and making `broker.handleTransportation(request)` method the only interface available
+  by abstracting away all the details and making `broker.createTransportationService(request)` method the only interface available
   to request a transportation service.
 
   This abstraction also provides the logisticsBroker class flexibility. Its implementation details or the types of transportation 
-  services it provides can be added to or removed, but as long as it provides the broker.handleTransportation(request) method
+  services it provides can be added to or removed, but as long as it provides the broker.createTransportationService(request) method
   as an interface, the client's usage of the class won't be impacted.
 
   Also, since the implementation details of the other transportation services classes are encapsulated within their respective
@@ -129,7 +129,7 @@ categories: ['design patterns', 'oop']
   ```js
     function logisticsBroker() {
       return {
-        handleTransportation: function (request) {
+        createTransportationService: function (request) {
           switch (request.type) {
             case 'land':
               return landTransportationService(request);
@@ -169,25 +169,28 @@ categories: ['design patterns', 'oop']
     };
 
     var broker = logisticsBroker();
-    var service = broker.handleTransportation(request);
-    console.log(service);
+    var service = broker.createTransportationService(request);
   ```
 
   <br>
 
-  However, this implementation isn't memory efficient as the methods get defined for each object created from the factory function,
-  so to get around this, we can define an object that contains all the methods for each factory function, and then within each factory
-  function, we can create an object using `Object.create(proto)` and passing the methods object as the `proto` argument, which will 
-  setup the prototype object for the factory function, which in turn sets up the prototypal inheritance chain for newly created objects. 
-  This way, the methods are inherited by all objects created from their respective factory functions.
+  However, this implementation isn't memory efficient as the methods get defined for each object created from the factory function.
+  At first, I thought we could just define the methods on the prototype of the factory function, but that doesn't work because the
+  objects returned from the factory function are not instances of the factory function and therefore don't inherit from the prototype
+  of the factory function. However, there is a solution, we can define an object that contains all the methods for each factory function,
+  and then, within each factory function, we can create an object using `Object.create(proto)` and pass the object containing the methods 
+  as the `proto` argument. This will set up the prototypal inheritance chain for the newly created object by setting its internal 
+  [[Prototype]] property to the `proto` argument.
 
   Here's the code example:
 
   <br>
 
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES5 Syntax</p>
+
   ```js
     var logisticsBrokerMethods = {
-      handleTransportation: function (request) {
+      createTransportationService: function (request) {
         switch (request.type) {
           case 'land':
             return landTransportationService(request);
@@ -204,8 +207,8 @@ categories: ['design patterns', 'oop']
     };
 
     var landTransportationServiceMethods = {
-      calculateCost: function (from, to) { /* implementation */  },
-      schedueTransportation: function (from, to) { /* implementation */ },
+      calculateCost: function (from, to) { /* implementation */ },
+      scheduleTransportation: function (from, to) { /* implementation */ },
       trackTransportationStatus: function () { /* implementation */ },
     };
 
@@ -236,16 +239,43 @@ categories: ['design patterns', 'oop']
     }
 
     function railTransportationService(request) {
-      var service = Object.create(railTransportationServiceMethods);
-      service.request = request;
-      return service;
-    }
+      // we can also use a data descriptor to define the request property
+      return Object.create(railTransportationServiceMethods, {
+        request: {
+          value: request,
+          writable: true,
+          enumerable: true,
+          configurable: true
+        }
+      });
+    };
 
     // usage
     // same as before 
   ```
 
+  <br>
+
+  This implementation is memory efficient, but it brings about a behavior that is important to be aware of: 
+  `any property or function defined within a factory function's scope is not accessible by methods defined on the prototype` of the service 
+  object. For example, the newly created `service` object within the `landTransportationService` factory function inherits all the methods
+  from the `proto` object passed to the `Object.create(proto)`. All those inherited methods do not have access to any property or function
+  defined witin the scope of the `landTransportationService` factory function, because those properties or functions become "private" to that
+  factory function. However, methods and functions defined within the factory function scope can access those properties because they were 
+  either defined in the same top level scope or have access due to closures.  
+
+  I've included a section on this behavior in my Constructor Design Pattern post, please check out the section 
+  titled <Link href="/blog/patterns/creational/constructor#behavior" linkText="Understanding Accessing Function Scope Variables in Prototype Methods" />.
+
+<br>
+
+  Whether we use this variation or the previous one, factory functions grant us the ability to have a private interface where we can
+  define private properties or private functions. If you're interested, I've covered private and public interfaces, which come
+  about due to closures, in my <Link href="/blog/patterns/creational/module" linkText="Module Design Pattern article"/>.
+
 </section>
+
+
 
 
 <section>
@@ -257,11 +287,20 @@ categories: ['design patterns', 'oop']
   can be implemented using the constructor pattern, but at that point, it can't be considered a factory pattern. Therefore, I've 
   learned that the moment we use the `new` operator, the ES5 example, with slight modifications, is considered a constructor pattern.
 
-  Through that insight, ~~I've come to learn some limitations of the factory design pattern that I find interesting~~. It makes sense
-  why the `instanceof` operator returns false for objects created from factory patterns because factory functions return objects
-  and not instances. Instances are only created when we use the `new` operator with a constructor function or class.
+  Through that insight, it now makes sense to me why the `instanceof` operator returns `false` for objects created from factory functions, 
+  because factory functions return objects, not instances. Instances are only created when we use the `new` operator with a constructor 
+  function or class. This explains why those objects inherit from Object.prototype, unless the prototype has been explitcly set to another
+  object, and not from the factory function's prototype object.
 
-  I really like the factory design pattern! I hope you've found this article helpful. Thank you for reading!
+  The comparison has also highlighted the simplicity of creating closures using factory functions as an advantage over constructor functions.
+  Although, It's not too difficult with constructor functions either, but it's not as clean as the factory function. But my main insight has
+  been that for both design patterns, there is a trade-off to be made between `memory efficiency` and `access to private data`.
+
+  <br>
+
+  I really like the factory design pattern! 
+
+  I hope you've found this article helpful. Thank you for reading!
   
 </section>
 

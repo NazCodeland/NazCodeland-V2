@@ -735,7 +735,7 @@ categories: ['design patterns', 'oop']
     
     import moduleOne from './moduleOne.mjs';
     
-    // Use the getter funciton to get the public function // [!code focus:2]
+    // Use the getter function to get the public function // [!code focus:2]
     let publicFunction = moduleOne.getPublicFunction();
     // Logs the original message
     publicFunction();
@@ -747,7 +747,7 @@ categories: ['design patterns', 'oop']
     moduleOne.setPublicFunction(newPublicFunction); 
     
     
-    // Again, use the getter funciton to get the new public function  // [!code focus:2]
+    // Again, use the getter function to get the new public function  // [!code focus:2]
     publicFunction = moduleOne.getPublicFunction();
     // logs the new message
     publicFunction();
