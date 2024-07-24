@@ -32,17 +32,24 @@
 max-w-[22rem] flex-shrink-0 overflow-y-auto
 overflow-x-hidden py-8-16 pr-8-16 md:block">
 	<section aria-labelledby="search-heading">
-		<form role="search">
-			<!-- label isn't needed for visual users, find an accessible way to hide it yet available for screen readers -->
-			<label for="search">Search post titles</label>
-			<input
-				bind:value={search}
-				class="w-[100.2%] p-2 py-1 outline outline-1 outline-current"
-				id="search"
-				name="search"
-				type="search"
-				placeholder="Search post titles" />
-		</form>
+		<search>
+			<!--
+			TODO: since search results show up as the user types
+			maybe the `form` element isn't necessary, look into it:
+			https://youtu.be/gi1sAH7DZQw?si=XqpDQynXNTaYGW-0&t=146
+			-->
+			<form>
+				<!-- label isn't needed for visual users, find an accessible way to hide it yet available for screen readers -->
+				<label for="search">Search post titles</label>
+				<input
+					bind:value={search}
+					class="w-[100.2%] p-2 py-1 outline outline-1 outline-current"
+					id="search"
+					name="search"
+					type="search"
+					placeholder="Search post titles" />
+			</form>
+		</search>
 
 		<ul
 			class="{search.length
