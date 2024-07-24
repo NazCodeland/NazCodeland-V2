@@ -6,7 +6,7 @@ description:
   The Factory Design Pattern is a creational design pattern that encapsulates logic for instantiating instances
   of various classes. However, the pattern does not encapsulate the logic for initializing the state and/or behavior
   of those instances; those implementation details are delegated to the classes of the instances themselves. Therefore, 
-  the pattern doesn't know the inner workings of the classes it creates instances of; it's decoupled from those classes.
+  the pattern doesn't know the inner workings of the classes it instantiates instances of; it's decoupled from those classes.
 
 tags: ['javascript']
 categories: ['design patterns', 'oop']
@@ -24,7 +24,7 @@ categories: ['design patterns', 'oop']
   The Factory Design Pattern is a creational design pattern that encapsulates logic for instantiating instances
   of various classes. However, the pattern does not encapsulate the logic for initializing the state and/or behavior
   of those instances; those implementation details are delegated to the classes of the instances themselves. Therefore, 
-  the pattern doesn't know the inner workings of the classes it creates instances of; it's decoupled from those classes.
+  the pattern doesn't know the inner workings of the classes it instantiates instances of; it's decoupled from those classes.
 
 </section>
 
