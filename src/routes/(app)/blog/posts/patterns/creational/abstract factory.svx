@@ -1,6 +1,6 @@
 ---
 title: Abstract Factory Design Pattern
-created: July 26th, 2024
+created: July 27th, 2024
 updated: 
 description:
   The Abstract Factory Design Pattern is a creational design pattern that provides an abstract interface to be implemented
