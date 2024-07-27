@@ -119,7 +119,7 @@ categories: ['design patterns', 'oop']
   ## Factory Pattern Before ES6
 
   Prior to ES6, the class syntax that we used above did not exist, so factory functions were used instead, which are regular functions
-  that return an object. The code example below re-implements the same logisticsBroker class as above, but using ES5 syntax.
+  that return an object. The code example below re-implements the logisticsBroker class, but using ES5 syntax.
 
   <br>
 
@@ -266,7 +266,7 @@ categories: ['design patterns', 'oop']
   I've included a section on this behavior in my Constructor Design Pattern post, please check out the section 
   titled <Link href="/blog/patterns/creational/constructor#behavior" linkText="Understanding Accessing Function Scope Variables in Prototype Methods" />.
 
-<br>
+  <br>
 
   Whether we use this variation or the previous one, factory functions grant us the ability to have a private interface where we can
   define private properties or private functions. If you're interested, I've covered private and public interfaces, which come

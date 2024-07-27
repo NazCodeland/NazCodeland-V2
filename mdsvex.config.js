@@ -48,7 +48,7 @@ const config = {
 				.replace(/{/g, '&#123;')
 				.replace(/}/g, '&#125;');
 		}
-	},
+	}
 };
 
 export default config;
