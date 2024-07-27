@@ -1,0 +1,729 @@
+---
+title: Abstract Factory Design Pattern
+created: July 26th, 2024
+updated: 
+description:
+  The Abstract Factory Design Pattern is a creational design pattern that provides an abstract interface to be implemented
+  by classes and collectively, these class implementations become known as concrete factory class variants of the abstract
+  factory. The implemented methods, collectively, of each variant create a set of related or dependent instances, that are 
+  known as a family of instances, which belong to the specific concrete factory class variant they were created from. The 
+  Abstract Factory Design Pattern is also referred to as a "Factory of Factories" or a "Super-Factory" because it provides
+  an interface that other classes implement to become factories.
+
+tags: ['javascript']
+categories: ['design patterns', 'oop']
+---
+
+
+<script lang="ts">
+	import Link from '$lib/elements/Link.svelte';
+</script>
+
+<section>
+
+  ## Explanation
+
+  The Abstract Factory Design Pattern is a creational design pattern that provides an abstract interface to be implemented
+  by classes and collectively, these class implementations become known as concrete factory class variants of the abstract
+  factory. The implemented methods, collectively, of each variant create a set of related or dependent instances, that are 
+  known as a family of instances, which belong to the specific concrete factory class variant they were created from. The 
+  Abstract Factory Design Pattern is also referred to as a "Factory of Factories" or a "Super-Factory" because it provides
+  an interface that other classes implement to become factories.
+
+  <br>
+
+  Also, the abstract factory pattern implementation usually consists of the following structure:
+  - **`Abstract Factory Interface:`** The interface that defines the methods that the concrete classes must implement.
+  These methods will be used by the client code to create instances of the concrete factory class variants.
+
+  - **`Concrete Factory Class Variants:`** The concrete factory class variants that implement the methods of the abstract
+  factory interface. These methods instantiate instances of the concrete product class variants.
+
+  - **`Abstract Product Interface:`** The interface that defines the methods that the concrete product classes must implement.
+
+  - **`Concrete Product Class Variants:`** The concrete product class variants that implement the methods of the abstract
+  product interface. These methods are used by the client code to interact with the concrete product class instances.
+
+  - **`Factory Configuration/Selection:`** This part of the code determines which concrete factory variant to use based on
+  certain conditions or application settings. It provides the selected concrete factory variant to the client code.
+
+  - **`Client Code:`** The code that uses the methods on the abstract factory interface to create instances of the concrete
+  factory class variants. It also uses the methods of the abstract product interface to interact with the concrete product class
+  instances. 
+
+
+  <br>
+
+  Since all concrete factory class variants implement the methods of the abstract factory interface, which are the only methods 
+  that the client code is aware of, this leads to several advantages:
+  
+  <span hidden>Decoupled</span>
+
+  - **The client code doesn't need to specificy which concrete factory class variant to use.** The client code is decoupled from
+  the concrete factories. The specific factory to use can be determined at runtime by configuration or environmental factors.
+  
+  <span hidden>Encapsulation</span>
+  - **The client code doesn't need to know or care about which concrete factory class variant exists or is being used.**
+  The client code interacts with the abstract factory interface, it's the only interface that the client code needs to know.
+  
+  <span hidden>Polymorphism</span>
+  - **The client code can interact with all variants of the abstract factory interface without having to change.** All concrete
+  factories implement the same interface and therefore, the client code can interact with all of them without having to change.
+  
+  <span hidden>Consistency</span>
+  - **The client code is consistently receives the right family of instances belonging to a specific concrete factory class variant.**
+  This is because each concrete factory produces a family of related or dependent products (instances)
+  
+  <span hidden>Maintainability</span>
+  - **Adding or removing a concrete factory class variant requires no change to the client code.** Because the client code is
+  decoupled from the concrete factories, adding or removing factories doesn't result in changes to the client code.
+  
+  <span hidden>Flexibility</span>
+  - **The Factory Configuration/Selection can easily substitute one concrete factory class variant with another with very little change.**
+  All concrete factories implement the same interface and therefore, the factory configuration/selection can switch between them. 
+
+
+  <br>
+
+  We are granted these advantages because, as mentioned, all concrete factory classes implement the abstract factory interface, which allows
+  the client code to be decoupled from the concrete factory class implementations. This abstraction is beneficial to the client code and
+  the implementor of the abstract factory interface.
+
+</section>
+
+<section>
+	<Link href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)" linkText="Wikipedia article" block={true} /> says:
+
+		> The abstract factory pattern in software engineering is a design pattern that provides a way to create families of related 
+    objects without imposing their concrete classes, by encapsulating a group of individual factories that have a common theme 
+    without specifying their concrete classes
+
+</section>
+
+
+<section>
+
+  ## Analogy
+
+  We can think of a logistics broker as the factory in the Factory Design Pattern. This broker might provide services to move items
+  from point A to point B using a variety of different types of transportation, such as land, air, sea, rail, etc. The broker delegates
+  the transportation requests to various logistic companies. These logistic companies can be thought of as the subclasses in the pattern,
+  each handling the actual implementation details of a type of transportation.
+
+</section>
+
+
+<section>
+
+  ## Code Example
+  For people who have worked with variants of buttons such as primary, secondary, tertiary, etc., the following code example
+  will be familiar. In this code example, the button themes are based on a holiday, such as `Easter`, `Halloween`, or `Christmas`, which serve as
+  our `concrete factory class variants` from the Explanation section. When the `holiday` variable is assigned to one of these holidays, the button
+  variants, `filled`, `outline`, and `disabled` will be rendered in the styles for that theme, and these button variants represent 
+  the `family of instances` for each holiday concrete factory class variant.
+
+  The code example follows the same implementation structure mentioned earlier. I've also included the HTML and CSS, incase you would
+  like to try it out or you can view 
+  a <Link href="https://codepen.io/NazCodeland/pen/oNrYBaq" linkText="live version" /> on Codepen.
+
+  <br>
+
+  ```html
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Abstract Factory Pattern</title>
+        <link rel="stylesheet" href="style.css" />
+      </head>
+      <body>
+        <script src="main.js"></script>
+      </body>
+    </html>
+  ```
+
+  <br>
+
+  ```css
+    body {
+      background-color: #1e1e1e;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      place-items: center;
+      block-size: 100vh;
+      margin: 0;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      inline-size: 110px;
+    }
+
+
+    .btn-easter-filled {
+      color: white;
+      background-color: mediumorchid;
+    }
+    .btn-easter-outlined {
+      background-color: transparent;
+      border: 1px solid mediumorchid;
+      color: mediumorchid;
+      font-weight: bold;
+    }
+
+
+    .btn-halloween-filled {
+      background-color: darkorange;
+    }
+    .btn-halloween-outlined {
+      background-color: transparent;
+      border: 1px solid darkorange;
+      color: darkorange;
+      font-weight: bold;
+    }
+
+
+    .btn-christmas-filled {
+      background-color: darkgreen;
+      color: white;
+    }
+    .btn-christmas-outlined {
+      background-color: transparent;
+      border: 1px solid #008000;
+      color: #008000;
+      font-weight: bold;
+    }
+
+
+    .btn-easter-disabled,
+    .btn-halloween-disabled,
+    .btn-christmas-disabled {
+      background-color: darkgray;
+      color: #686868;
+      cursor: unset;
+    }
+  ```
+
+  <br>
+
+  ### Implementation:
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    // Abstract Factory
+    class BaseButtonAbstractFactory {
+
+      constructor() {
+        if (new.target === BaseButtonAbstractFactory) {
+          throw new TypeError("Cannot instantiate BaseButtonAbstractFactory");
+        }
+      }
+
+      createFilledButton() {
+        throw new Error('This method should be overridden');
+      }
+      createOutlinedButton() {
+        throw new Error('This method should be overridden');
+      }
+      createDisabledButton() {
+        throw new Error('This method should be overridden');
+      }
+    }
+
+
+    // Concrete Factories
+    class EasterButtonFactory extends BaseButtonAbstractFactory {
+      createFilledButton() {
+        return new EasterFilledButton();
+      }
+      createOutlinedButton() {
+        return new EasterOutlinedButton();
+      }
+      createDisabledButton() {
+        return new EasterDisabledButton();
+      }
+    }
+
+    class HalloweenButtonFactory extends BaseButtonAbstractFactory {
+      createFilledButton() {
+        return new HalloweenFilledButton();
+      }
+      createOutlinedButton() {
+        return new HalloweenOutlinedButton();
+      }
+      createDisabledButton() {
+        return new HalloweenDisabledButton();
+      }
+    }
+
+    class ChristmasButtonFactory extends BaseButtonAbstractFactory {
+      createFilledButton() {
+        return new ChristmasFilledButton();
+      }
+      createOutlinedButton() {
+        return new ChristmasOutlinedButton();
+      }
+      createDisabledButton() {
+        return new ChristmasDisabledButton();
+      }
+    }
+
+
+    // Abstract Product
+    class AbstractBaseButton {
+      button = null;
+      constructor() {
+        if (new.target === AbstractBaseButton) {
+          throw new TypeError("Cannot instantiate AbstractBaseButton");
+        }
+      }
+      render() {
+        throw new Error('This method should be overridden');
+      }
+      onClick(callback) {
+        throw new Error('This method should be overridden');
+      }
+    }
+
+    // Concrete Products
+    class BaseButton extends AbstractBaseButton {
+      constructor() {
+        super();
+        this.button = document.createElement('button');
+        this.button.classList.add('btn');
+        // instead of adding styles through js, I've used css
+        // this.button.padding = '8px 16px';
+        // this.button.borderRadius = '4px';
+        // this.button.border = 'none';
+        // this.button.cursor = 'pointer';
+      }
+      render() {
+        document.body.appendChild(this.button);
+      }
+      onClick(callback) {
+        this.button.addEventListener('click', callback);
+      }
+    }
+
+    class EasterButton extends BaseButton {
+      constructor() {
+        super();
+        this.button.innerText = 'Easter';
+      }
+    }
+
+    class EasterFilledButton extends EasterButton {
+      constructor() {
+        super();
+        this.button.classList.add('btn-easter-filled');
+      }
+    }
+
+    class EasterOutlinedButton extends EasterButton {
+      constructor() {
+        super();
+        this.button.classList.add('btn-easter-outlined');
+      }
+    }
+
+    class EasterDisabledButton extends EasterButton {
+      constructor() {
+        super();
+        this.button.classList.add('btn-easter-disabled');
+      }
+    }
+
+
+    class HalloweenButton extends BaseButton {
+      constructor() {
+        super();
+        this.button.innerText = 'Halloween';
+      }
+    }
+
+    class HalloweenFilledButton extends HalloweenButton {
+      constructor() {
+        super();
+        this.button.classList.add('btn-halloween-filled');
+      }
+    }
+
+    class HalloweenOutlinedButton extends HalloweenButton {
+      constructor() {
+        super();
+        this.button.classList.add('btn-halloween-outlined');
+      }
+    }
+
+    class HalloweenDisabledButton extends HalloweenButton {
+      constructor() {
+        super();
+        this.button.classList.add('btn-halloween-disabled');
+      }
+    }
+
+
+    class ChristmasButton extends BaseButton {
+      constructor() {
+        super();
+        this.button.innerText = 'Christmas';
+      }
+    }
+
+    class ChristmasFilledButton extends ChristmasButton {
+      constructor() {
+        super();
+        this.button.classList.add('btn-christmas-filled');
+      }
+    }
+
+    class ChristmasOutlinedButton extends ChristmasButton {
+      constructor() {
+        super();
+        this.button.classList.add('btn-christmas-outlined');
+      }
+    }
+
+    class ChristmasDisabledButton extends ChristmasButton {
+      constructor() {
+        super();
+        this.button.classList.add('btn-christmas-disabled');
+      }
+    }
+  ```
+
+  <br>
+
+  ### Factory Selection:
+
+  The selection of the specific factory is usually handled outside of the client code, and it can be based on various factors
+  such as the operating system, application setup, configuration, etc. This steup provides the appropriate concrete factory variant 
+  to the client. Even if the client code was responsible for selecting the factory variant, the code change required would be
+  minimal to select a different factory variant.
+  
+  In this code example, the `holidy` variable could be assigned programmatically based on actual holiday dates, but for simplicity, it's 
+  just assigned the holidy as a string.
+
+  <br>
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    const holidayThemeButtons = {
+      'Easter': new EasterButtonFactory,
+      'Halloween': new HalloweenButtonFactory,
+      'Christmas': new ChristmasButtonFactory,
+    };
+
+    const holiday = 'Halloween';
+    const holidayThemeButtonFactory = holidayThemeButtons[holiday];
+  ```
+
+  <br>
+
+  ### Client Code:
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    let filledButton = holidayThemeButtonFactory.createFilledButton();
+    let outlinedButton = holidayThemeButtonFactory.createOutlinedButton();
+    let disabledButton = holidayThemeButtonFactory.createDisabledButton();
+
+    filledButton.render();
+    outlinedButton.render();
+    disabledButton.render();
+  ```
+
+  <br>
+
+  Easter Theme Output:
+  <img src="/images/blog/patterns/creational/abstract factory/easter.png" alt="Disadvantage #2" class="w-full">
+
+  <br>
+  <br>
+
+  Halloween Theme Output:
+  <img src="/images/blog/patterns/creational/abstract factory/halloween.png" alt="Disadvantage #2" class="w-full">
+
+  <br>
+  <br>
+
+  Christmas Theme Output:
+  <img src="/images/blog/patterns/creational/abstract factory/christmas.png" alt="Disadvantage #2" class="w-full">
+
+  <br>
+  <br>
+
+</section>
+
+<section>
+
+  ## Another Code Example
+
+  I've been trying to be mindful of practical use cases while learning design patterns, which has helped because I noticed
+  a problem that I am currently facing: `I would like to make blogposts available in JavaScript, TypeScript, and Python`,
+  is well suited for the abstract factory design pattern.
+
+  <br>
+
+  Potenital Solutions, Pros and Cons:  
+
+  1. Use different language codeblocks and make the whole blogpost generic so the contents apply to all languages.
+      - Cons: 
+        - Lose important pattern implementation details specific to each language.
+        - Lose language-specific syntax and concepts in the explanations.
+      - Pro: Easier than the next solution.
+
+  <br>
+
+  2. Create different versions of each blogpost and give the viewer the option to view it in their choice of language.
+      - Con: Requires more time to create two versions of each blogpost.
+      - Pro: 
+        - Retain important details specific to the implementations of the patterns in each language. 
+        - Retain language-specific syntax and concepts in the explanations.
+
+
+  <br>
+
+  I've decided to go with #2 because the language-specific details matter between Python and the other two languages, JS and TS.
+  However, between JavaScript and TypeScript, I only need to change the codeblocks to show the different syntaxes, and so I can
+  reuse the content of the blogpost. #2 is also beneficial because, by writing blogposts specific to each language, I will learn
+  more about the pattern implementation details in those languages.
+
+
+  <br>
+
+  ### Implementation:
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    // Abstract Factory
+    class BlogPostAbstractFactory {
+      constructor(){
+        if (new.target === BlogPostAbstractFactory){
+          throw new TypeError("Cannot instantiate BlogPostAbstractFactory");
+        }
+      }
+
+      createJavaScriptBlogPost(){
+        throw new Error('This method should be overridden');
+      }      
+      createTypeScriptBlogPost(){
+        throw new Error('This method should be overridden');
+      }      
+      createPythonBlogPost(){
+        throw new Error('This method should be overridden');
+      }      
+    }
+
+    // Concrete Factory
+    class BlogPostFactory extends BlogPostAbstractFactory {
+      createJavaScriptBlogPost(){
+        return new JavaScriptBlogPost();
+      }
+      createTypeScriptBlogPost(){
+        return new TypeScriptBlogPost();
+      }
+      createPythonBlogPost(){
+        return new PythonBlogPost();
+      }
+    }
+
+    // Abstract Product
+    class BlogPostAbstract {
+      constructor() {
+        if (new.target === BlogPostAbstract) {
+          throw new TypeError("Cannot instantiate BlogPostAbstract");
+        }
+      }
+
+      getBlogPost(fileName) {
+        throw new Error('This method should be overridden');
+      }
+
+      publishBlogPost() {
+        throw new Error('This method should be overridden');
+      }
+    }
+
+    // Concrete Products
+    class JavaScriptBlogPost extends BlogPostAbstract {
+      getBlogPost(fileName) {
+        const file = `filePath\${fileName}`
+        // Retrieve the JavaScript blogpost content
+      }
+
+      publishBlogPost() {
+        // Publish the JavaScript blogpost
+      }
+    }
+
+    // ...code for TypeScriptBlogPost and PythonBlogPost
+  ```
+
+  <br>
+
+  ### Factory Selection:
+
+  ```js
+    const blogPostFactory = new BlogPostFactory();
+    const blogPost = blogPostFactory.createJavaScriptBlogPost();
+  ```
+
+  <br>
+
+  ### Client Code:
+
+  ```js
+    blogPost.getBlogPost(fileName);
+    blogPost.publishBlogPost();
+  ```
+</section>
+
+
+<section>
+
+  ## Abstract Factory Pattern Before ES6
+
+  Prior to ES6, the class syntax that we used above did not exist, so functions and prototypes were used instead.
+  As can example, the below code re-implements the BlogPost Abstract Factory classes, but using ES5 syntax.
+
+  <br>
+
+  ### Implementation:
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES5 Syntax</p>
+
+  ```js
+    // Abstract Factory
+    function BlogPostAbstractFactory() {
+      if (this.constructor === BlogPostAbstractFactory) {
+        throw new TypeError("Cannot instantiate BlogPostAbstractFactory");
+      }
+    }
+
+    BlogPostAbstractFactory.prototype.createJavaScriptBlogPost = function() {
+      throw new Error('This method should be overridden');
+    };
+
+    BlogPostAbstractFactory.prototype.createTypeScriptBlogPost = function() {
+      throw new Error('This method should be overridden');
+    };
+
+    BlogPostAbstractFactory.prototype.createPythonBlogPost = function() {
+      throw new Error('This method should be overridden');
+    };
+
+    // Concrete Factory
+    function BlogPostFactory() {
+      BlogPostAbstractFactory.call(this);
+    }
+
+    BlogPostFactory.prototype = Object.create(BlogPostAbstractFactory.prototype);
+
+    BlogPostFactory.prototype.createJavaScriptBlogPost = function() {
+      return new JavaScriptBlogPost();
+    };
+
+    BlogPostFactory.prototype.createTypeScriptBlogPost = function() {
+      return new TypeScriptBlogPost();
+    };
+
+    BlogPostFactory.prototype.createPythonBlogPost = function() {
+      return new PythonBlogPost();
+    };
+
+    // Abstract Product
+    function BlogPostAbstract() {
+      if (this.constructor === BlogPostAbstract) {
+        throw new TypeError("Cannot instantiate BlogPostAbstract");
+      }
+    }
+
+    BlogPostAbstract.prototype.getBlogPost = function(fileName) {
+      throw new Error('This method should be overridden');
+    };
+
+    BlogPostAbstract.prototype.publishBlogPost = function() {
+      throw new Error('This method should be overridden');
+    };
+
+    // Concrete Products
+    function JavaScriptBlogPost() {
+      BlogPostAbstract.call(this);
+    }
+
+    JavaScriptBlogPost.prototype = Object.create(BlogPostAbstract.prototype);
+
+    JavaScriptBlogPost.prototype.getBlogPost = function(fileName) {
+      var file = 'filePath' + fileName;
+      // Retrieve the JavaScript blogpost content
+    };
+
+    JavaScriptBlogPost.prototype.publishBlogPost = function() {
+      // Publish the JavaScript blogpost
+    };
+
+    // ...code for TypeScriptBlogPost and PythonBlogPost
+  ```
+
+  <br>
+
+  ### Factory Selection:
+
+  ```js
+    var blogPostFactory = new BlogPostFactory();
+    var blogPost = blogPostFactory.createJavaScriptBlogPost();
+  ```
+
+  <br>
+
+  ### Client Code:
+
+  ```js
+    blogPost.getBlogPost(fileName);
+    blogPost.publishBlogPost();
+  ```
+  
+</section>
+
+
+
+
+<section>
+
+	## Wrapping Up
+
+  Learning about the factory design pattern has been a little confusing for me, and I think it's because of two reasons. 
+
+  1. while searching online, I've noticed there are many implementations of the pattern. Although I understand this is because
+  design patterns are general solutions to general software problems and hence the various ways of doing it, nonetheless, 
+  it added to my confusion. 
+
+  2. I realize there is confusion around the difference between the factory design pattern, the factory
+  method pattern, and the abstract factory design pattern.
+
+
+  <br>
+
+  I'm happy to understand another design pattern! I hope this blogpost was helpful, thank you for reading!
+
+</section>
+
+
+<section>
+
+    ## Resources
+
+    - https://www.youtube.com/watch?v=F9tQ46YkQLU&t=1041s
+    - https://www.linkedin.com/pulse/abstract-factory-amir-doosti-vexwf
+
+
+</section>
