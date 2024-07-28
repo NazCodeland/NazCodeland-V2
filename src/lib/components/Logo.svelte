@@ -8,11 +8,7 @@
 	aria-labelledby="logo">
 	{#each logoTextArray as letter}
 		{#if letter === 'N'}
-			<a
-				href="/"
-				class="firstLetter me-[3.1px] dark:me-[2.3px]"
-				id="logo"
-				aria-label="NazCodeland">
+			<a href="/" class="firstLetter" id="logo" aria-label="NazCodeland">
 				{letter}
 			</a>
 		{:else}
@@ -36,9 +32,11 @@
 	}
 
 	.firstLetter {
+		position: relative;
 		color: rgba(var(--primary-color));
 		padding-inline: 2px;
 		padding-inline-end: 3px;
+		margin-inline-end: 1.7px;
 		border-radius: 0.125rem;
 		text-align: center;
 		font-size: clamp(24px, calc(17.12px + 2.14vw), 3rem);
