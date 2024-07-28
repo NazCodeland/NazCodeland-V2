@@ -8,7 +8,11 @@
 	aria-labelledby="logo">
 	{#each logoTextArray as letter}
 		{#if letter === 'N'}
-			<a href="/" class="firstLetter" id="logo" aria-label="NazCodeland">
+			<a
+				href="/"
+				class="firstLetter me-[2.9px] dark:me-[2.3px]"
+				id="logo"
+				aria-label="NazCodeland">
 				{letter}
 			</a>
 		{:else}
@@ -34,8 +38,6 @@
 	.firstLetter {
 		color: rgba(var(--primary-color));
 		padding-inline: 2px;
-		padding-right: 3px;
-		margin-inline-end: 2px;
 		border-radius: 0.125rem;
 		text-align: center;
 		font-size: clamp(24px, calc(17.12px + 2.14vw), 3rem);
@@ -51,6 +53,10 @@
 		line-height: clamp(1.5rem, calc(0.98rem + 2.61vw), 3rem);
 		letter-spacing: clamp(0.15rem, calc(-0.07rem + 0.36vw), 0.5rem);
 		cursor: default;
+	}
+
+	.restOfLetters:first-child {
+		background-color: orange;
 	}
 
 	.firstLetter:focus-visible {
