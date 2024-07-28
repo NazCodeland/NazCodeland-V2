@@ -5,8 +5,8 @@ updated:
 description:
   The Abstract Factory Design Pattern is a creational design pattern that provides an abstract interface to be implemented
   by classes and collectively, these class implementations become known as concrete factory class variants of the abstract
-  factory. The implemented methods, collectively, of each variant create a set of related or dependent instances, that are 
-  known as a family of instances, which belong to the specific concrete factory class variant they were created from. The 
+  factory. The implemented methods, collectively, of each variant create a set of related or dependent objects, that are 
+  known as a family of objects, which belong to the specific concrete factory class variant they were created from. The 
   Abstract Factory Design Pattern is also referred to as a "Factory of Factories" or a "Super-Factory" because it provides
   an interface that other classes implement to become factories.
 
@@ -26,8 +26,8 @@ categories: ['design patterns', 'oop']
 
   The Abstract Factory Design Pattern is a creational design pattern that provides an abstract interface to be implemented
   by classes and collectively, these class implementations become known as concrete factory class variants of the abstract
-  factory. The implemented methods, collectively, of each variant create a set of related or dependent instances, that are 
-  known as a family of instances, which belong to the specific concrete factory class variant they were created from. The 
+  factory. The implemented methods, collectively, of each variant create a set of related or dependent objects, that are 
+  known as a family of objects, which belong to the specific concrete factory class variant they were created from. The 
   Abstract Factory Design Pattern is also referred to as a "Factory of Factories" or a "Super-Factory" because it provides
   an interface that other classes implement to become factories.
 
@@ -35,7 +35,7 @@ categories: ['design patterns', 'oop']
 
   Also, the abstract factory pattern implementation usually consists of the following structure:
   - **`Abstract Factory Interface:`** The interface that defines the methods that the concrete classes must implement.
-  These methods will be used by the client code to create instances of the concrete factory class variants.
+  These methods will be used by the client code to create objects of the concrete factory class variants.
 
   - **`Concrete Factory Class Variants:`** The concrete factory class variants that implement the methods of the abstract
   factory interface. These methods instantiate instances of the concrete product class variants.
@@ -72,8 +72,8 @@ categories: ['design patterns', 'oop']
   factories implement the same interface and therefore, the client code can interact with all of them without having to change.
   
   <span hidden>Consistency</span>
-  - **The client code is consistently receives the right family of instances belonging to a specific concrete factory class variant.**
-  This is because each concrete factory produces a family of related or dependent products (instances)
+  - **The client code is consistently receives the right family of objects belonging to a specific concrete factory class variant.**
+  This is because each concrete factory produces a family of related or dependent objects
   
   <span hidden>Maintainability</span>
   - **Adding or removing a concrete factory class variant requires no change to the client code.** Because the client code is
@@ -105,12 +105,50 @@ categories: ['design patterns', 'oop']
 
 <section>
 
+  ## Analogy
+
+  ### Abstract Factory Interface:
+  We can think of actions such as `draftEmail`, `sendEmail`, `deleteEmail`, and more, as methods on an interface that we'll call
+  the EmailServiceProviderInterface, which all email service providers such as Gmail, ICloud Mail, Outlook,Yahoo Mail, etc. have
+  to implement.
+
+  ### Concrete Factory Classes:
+  The email service providers that implement the EmailServiceProviderInterface interface become the concrete factory class variants,
+  and the methods on our concrete factory class implementations create a set of related or dependent objects, known as a family of 
+  objects. In our analogy, the family of objects are the different types of emails, such as `DraftedEmail`, `SentEmail`, 
+  `DeletedEmail`, etc.
+  
+  ### Abstract Product Interface: 
+  Properties such as `date`, `from`, etc., and methods like `open`, `close`, `reply`, `forward`, `moveToFolder`, etc., will be 
+  defined on the Abstract Product Interface. All the classes that implement this interface become the concrete product classes. 
+  Collectively, these form the family of objects. In our analogy, these objects are the instances of the different types of emails,
+  such as DraftEmail, SentEmail, DeletedEmail, etc.
+
+  ### Concrete Product Classes:
+  The different types of emails, such as `DraftEmail`, `SentEmail`, `DeletedEmail` that implement the Abstract Product Interface 
+  become the concrete product classes, which, as we know, represent the related or dependent objects, known as a family
+  of objects.
+
+  ### Client Code:
+  Let's consider an Email Viewer application as our Client Code. Some Email Viewer applications allow you to view emails from
+  various email providers all in one place. They allow you to access and manage emails from various email providers such as
+  Gmail, ICloud Mail, Outlook, Yahoo Mail, etc. within the same graphical user interface. 
+  
+  The Email Viewer appication can 
+  interact with any email provider without knowing or caring about their specific concrete factory implementations, because all of
+  the email providers implement the same interface. This is advantages for the reasons listed above.
+
+</section>
+
+
+<section>
+
   ## Code Example
   For people who have worked with variants of buttons such as primary, secondary, tertiary, etc., the following code example
   will be familiar. In this code example, the button themes are based on a holiday, such as `Easter`, `Halloween`, or `Christmas`, which serve as
   our `concrete factory class variants` from the Explanation section. When the `holiday` variable is assigned to one of these holidays, the button
   variants, `filled`, `outline`, and `disabled` will be rendered in the styles for that theme, and these button variants represent 
-  the `family of instances` for each holiday concrete factory class variant.
+  the `family of objects` for each holiday concrete factory class variant.
 
   The code example follows the same implementation structure mentioned earlier. I've also included the HTML and CSS, incase you would
   like to try it out or you can view 
