@@ -19,6 +19,7 @@ categories: ['design patterns', 'oop']
 	import Link from '$lib/elements/Link.svelte';
 </script>
 
+
 <section>
 
   ## Explanation
@@ -91,24 +92,13 @@ categories: ['design patterns', 'oop']
 
 </section>
 
+
 <section>
 	<Link href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)" linkText="Wikipedia article" block={true} /> says:
 
 		> The abstract factory pattern in software engineering is a design pattern that provides a way to create families of related 
     objects without imposing their concrete classes, by encapsulating a group of individual factories that have a common theme 
     without specifying their concrete classes
-
-</section>
-
-
-<section>
-
-  ## Analogy
-
-  We can think of a logistics broker as the factory in the Factory Design Pattern. This broker might provide services to move items
-  from point A to point B using a variety of different types of transportation, such as land, air, sea, rail, etc. The broker delegates
-  the transportation requests to various logistic companies. These logistic companies can be thought of as the subclasses in the pattern,
-  each handling the actual implementation details of a type of transportation.
 
 </section>
 
@@ -480,6 +470,7 @@ categories: ['design patterns', 'oop']
 
 </section>
 
+
 <section>
 
   ## Another Code Example
@@ -711,8 +702,6 @@ categories: ['design patterns', 'oop']
   ```
   
 </section>
-
-
 
 
 <section>
