@@ -721,9 +721,9 @@ categories: ['design patterns', 'oop']
 
   Learning about the factory design pattern has been a little confusing for me, and I think it's because of two reasons. 
 
-  1. while searching online, I've noticed there are many implementations of the pattern. Although I understand this is because
-  design patterns are general, reusable solutions to general software problems and hence the various ways of doing it, nonetheless, 
-  it added to my confusion. 
+  1. While searching online, I've noticed there are many implementations of the pattern. Even though I understand the 
+  various implementations are because design patterns are general, reusable solutions to commonly occurring problems in 
+  software design, nonetheless, these variations added to my confusion.
 
   2. I realize there is confusion around the difference between the factory design pattern, the factory
   method pattern, and the abstract factory design pattern.
