@@ -25,7 +25,6 @@
 	.restOfLetters {
 		display: inline-block;
 		box-shadow: var(--box-shadow-logo);
-		cursor: default;
 		padding-inline: 0.05rem;
 		transition-property: transform;
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -35,6 +34,7 @@
 	.firstLetter {
 		color: rgba(var(--primary-color));
 		padding-inline: 2px;
+		padding-right: 4px;
 		margin-inline-end: 2px;
 		border-radius: 0.125rem;
 		text-align: center;
@@ -50,6 +50,7 @@
 		font-size: clamp(1.375rem, calc(0.75rem + 1.94vw), 2.25rem);
 		line-height: clamp(1.5rem, calc(0.98rem + 2.61vw), 3rem);
 		letter-spacing: clamp(0.15rem, calc(-0.07rem + 0.36vw), 0.5rem);
+		cursor: default;
 	}
 
 	.firstLetter:focus-visible {
