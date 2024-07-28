@@ -210,17 +210,16 @@ categories: ['design patterns', 'oop']
 
   <br>
 
-  ### Implementation:
+  ### Abstract Factory:
 
   <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
 
   ```js
-    // Abstract Factory
-    class BaseButtonAbstractFactory {
+    class ButtonFactoryInterface {
 
       constructor() {
-        if (new.target === BaseButtonAbstractFactory) {
-          throw new TypeError("Cannot instantiate BaseButtonAbstractFactory");
+        if (new.target === ButtonFactoryInterface) {
+          throw new TypeError("Cannot instantiate ButtonFactoryInterface");
         }
       }
 
@@ -234,10 +233,16 @@ categories: ['design patterns', 'oop']
         throw new Error('This method should be overridden');
       }
     }
+  ```
 
+  <br>
 
-    // Concrete Factories
-    class EasterButtonFactory extends BaseButtonAbstractFactory {
+  ### Concrete Factories:
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    class EasterButtonFactory extends ButtonFactoryInterface {
       createFilledButton() {
         return new EasterFilledButton();
       }
@@ -249,7 +254,7 @@ categories: ['design patterns', 'oop']
       }
     }
 
-    class HalloweenButtonFactory extends BaseButtonAbstractFactory {
+    class HalloweenButtonFactory extends ButtonFactoryInterface {
       createFilledButton() {
         return new HalloweenFilledButton();
       }
@@ -261,7 +266,7 @@ categories: ['design patterns', 'oop']
       }
     }
 
-    class ChristmasButtonFactory extends BaseButtonAbstractFactory {
+    class ChristmasButtonFactory extends ButtonFactoryInterface {
       createFilledButton() {
         return new ChristmasFilledButton();
       }
@@ -272,14 +277,20 @@ categories: ['design patterns', 'oop']
         return new ChristmasDisabledButton();
       }
     }
+  ```
 
+  <br>
 
-    // Abstract Product
-    class AbstractBaseButton {
+  ### Abstract Product:
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    class ButtonProductInterface {
       button = null;
       constructor() {
-        if (new.target === AbstractBaseButton) {
-          throw new TypeError("Cannot instantiate AbstractBaseButton");
+        if (new.target === ButtonProductInterface) {
+          throw new TypeError("Cannot instantiate ButtonProductInterface");
         }
       }
       render() {
@@ -289,9 +300,16 @@ categories: ['design patterns', 'oop']
         throw new Error('This method should be overridden');
       }
     }
+  ```
 
-    // Concrete Products
-    class BaseButton extends AbstractBaseButton {
+  <br>
+
+  ### Concrete Products:
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    class BaseButton extends ButtonProductInterface {
       constructor() {
         super();
         this.button = document.createElement('button');
@@ -704,7 +722,7 @@ categories: ['design patterns', 'oop']
   Learning about the factory design pattern has been a little confusing for me, and I think it's because of two reasons. 
 
   1. while searching online, I've noticed there are many implementations of the pattern. Although I understand this is because
-  design patterns are general solutions to general software problems and hence the various ways of doing it, nonetheless, 
+  design patterns are general, reusable solutions to general software problems and hence the various ways of doing it, nonetheless, 
   it added to my confusion. 
 
   2. I realize there is confusion around the difference between the factory design pattern, the factory
