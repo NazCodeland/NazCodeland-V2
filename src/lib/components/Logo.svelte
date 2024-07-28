@@ -10,7 +10,7 @@
 		{#if letter === 'N'}
 			<a
 				href="/"
-				class="firstLetter me-[2.9px] dark:me-[2.3px]"
+				class="firstLetter me-[3.1px] dark:me-[2.3px]"
 				id="logo"
 				aria-label="NazCodeland">
 				{letter}
@@ -38,6 +38,7 @@
 	.firstLetter {
 		color: rgba(var(--primary-color));
 		padding-inline: 2px;
+		padding-inline-end: 3px;
 		border-radius: 0.125rem;
 		text-align: center;
 		font-size: clamp(24px, calc(17.12px + 2.14vw), 3rem);
