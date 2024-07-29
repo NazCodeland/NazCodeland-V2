@@ -337,6 +337,7 @@ categories: ['design patterns', 'oop']
   <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
 
   ```js
+    // This is a base class and not a concrete product
     class BaseButton extends ButtonProductInterface {
       constructor() {
         super();
@@ -356,57 +357,58 @@ categories: ['design patterns', 'oop']
       }
     }
 
-    class EasterButton extends BaseButton {
+    // This is a base class and not a concrete product
+    class BaseEasterButton extends BaseButton {
       constructor() {
         super();
         this.button.innerText = 'Easter';
       }
     }
 
-    class EasterFilledButton extends EasterButton {
+    class EasterFilledButton extends BaseEasterButton {
       constructor() {
         super();
         this.button.classList.add('btn-easter-filled');
       }
     }
 
-    class EasterOutlinedButton extends EasterButton {
+    class EasterOutlinedButton extends BaseEasterButton {
       constructor() {
         super();
         this.button.classList.add('btn-easter-outlined');
       }
     }
 
-    class EasterDisabledButton extends EasterButton {
+    class EasterDisabledButton extends BaseEasterButton {
       constructor() {
         super();
         this.button.classList.add('btn-easter-disabled');
       }
     }
 
-
-    class HalloweenButton extends BaseButton {
+    // This is a base class and not a concrete product
+    class BaseHalloweenButton extends BaseButton {
       constructor() {
         super();
         this.button.innerText = 'Halloween';
       }
     }
 
-    class HalloweenFilledButton extends HalloweenButton {
+    class HalloweenFilledButton extends BaseHalloweenButton {
       constructor() {
         super();
         this.button.classList.add('btn-halloween-filled');
       }
     }
 
-    class HalloweenOutlinedButton extends HalloweenButton {
+    class HalloweenOutlinedButton extends BaseHalloweenButton {
       constructor() {
         super();
         this.button.classList.add('btn-halloween-outlined');
       }
     }
 
-    class HalloweenDisabledButton extends HalloweenButton {
+    class HalloweenDisabledButton extends BaseHalloweenButton {
       constructor() {
         super();
         this.button.classList.add('btn-halloween-disabled');
@@ -414,34 +416,39 @@ categories: ['design patterns', 'oop']
     }
 
 
-    class ChristmasButton extends BaseButton {
+    // This is a base class and not a concrete product
+    class BaseChristmasButton extends BaseButton {
       constructor() {
         super();
         this.button.innerText = 'Christmas';
       }
     }
 
-    class ChristmasFilledButton extends ChristmasButton {
+    class ChristmasFilledButton extends BaseChristmasButton {
       constructor() {
         super();
         this.button.classList.add('btn-christmas-filled');
       }
     }
 
-    class ChristmasOutlinedButton extends ChristmasButton {
+    class ChristmasOutlinedButton extends BaseChristmasButton {
       constructor() {
         super();
         this.button.classList.add('btn-christmas-outlined');
       }
     }
 
-    class ChristmasDisabledButton extends ChristmasButton {
+    class ChristmasDisabledButton extends BaseChristmasButton {
       constructor() {
         super();
         this.button.classList.add('btn-christmas-disabled');
       }
     }
   ```
+
+  By having the classes `BaseButton`, `BaseEasterButton`, `BaseHalloweenButton`, and `BaseChristmasButton`, our abstract factory
+  design pattern implementation slightly deviates from the standard definition of the abstract factory pattern. This is okay because
+  we're supposed to customize design patterns to fit our needs rather than making our implementation fit the standard definition.
 
   <br>
 
