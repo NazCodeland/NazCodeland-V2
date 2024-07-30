@@ -22,6 +22,13 @@ categories: ['design patterns', 'oop']
 
 <section>
 
+  ## General Defintion
+  > Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
+  >
+  > -- Gang of Four, Design Patterns: Elements of Reusable Object-Oriented Software
+
+  <br>
+
   ## Explanation
 
   The Abstract Factory Design Pattern is a creational design pattern that provides an abstract interface to be implemented
