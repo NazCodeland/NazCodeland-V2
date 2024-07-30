@@ -4,11 +4,11 @@ created: July 27th, 2024
 updated: 
 description:
   The Abstract Factory Design Pattern is a creational design pattern that provides an abstract interface to be implemented
-  by classes and collectively, these class implementations become known as concrete factory class variants of the abstract
-  factory. The implemented methods, collectively, of each variant create a set of related or dependent objects, that are 
-  known as a family of objects, which belong to the specific concrete factory class variant they were created from. The 
-  Abstract Factory Design Pattern is also referred to as a "Factory of Factories" or a "Super-Factory" because it provides
-  an interface that other classes implement to become factories.
+  by classes and collectively, these class implementations become known as concrete factory class variants. The implemented
+  methods, collectively, of each variant create a set of related or dependent objects, that are known as a family of objects,
+  which belong to the specific concrete factory class variant they were created from. The Abstract Factory Design Pattern is
+  also referred to as a "Factory of Factories" or a "Super-Factory" because it provides an interface that other classes
+  implement to become factories.
 
 tags: ['javascript']
 categories: ['design patterns', 'oop']
@@ -32,11 +32,11 @@ categories: ['design patterns', 'oop']
   ## Explanation
 
   The Abstract Factory Design Pattern is a creational design pattern that provides an abstract interface to be implemented
-  by classes and collectively, these class implementations become known as concrete factory class variants of the abstract
-  factory. The implemented methods, collectively, of each variant create a set of related or dependent objects, that are 
-  known as a family of objects, which belong to the specific concrete factory class variant they were created from. The 
-  Abstract Factory Design Pattern is also referred to as a "Factory of Factories" or a "Super-Factory" because it provides
-  an interface that other classes implement to become factories.
+  by classes and collectively, these class implementations become known as concrete factory class variants. The implemented
+  methods, collectively, of each variant create a set of related or dependent objects, that are known as a family of objects,
+  which belong to the specific concrete factory class variant they were created from. The Abstract Factory Design Pattern is
+  also referred to as a "Factory of Factories" or a "Super-Factory" because it provides an interface that other classes
+  implement to become factories.
 
   <br>
 
