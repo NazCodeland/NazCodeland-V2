@@ -21,6 +21,13 @@ categories: ['design patterns', 'oop']
 
 <section>
 
+  ## General Defintion
+  > Specify the kinds of objects to create using a prototypical instance, and create newobjects by copying this prototype.
+  >
+  > -- Gang of Four, Design Patterns: Elements of Reusable Object-Oriented Software
+
+  <br>
+
   ## Explanation  
   The Prototype Design Pattern is a creational design pattern that provides the ability to create a new 
   object by cloning an original object, known as the prototype. Since the newly created object is a copy 
