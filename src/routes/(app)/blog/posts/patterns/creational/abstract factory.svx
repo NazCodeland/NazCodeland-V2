@@ -1,7 +1,7 @@
 ---
 title: Abstract Factory Design Pattern
 created: July 27th, 2024
-updated: 
+updated: July 30th, 2024
 description:
   The Abstract Factory Design Pattern is a creational design pattern that provides an abstract interface to be implemented
   by classes and collectively, these class implementations become known as concrete factory class variants. The implemented
@@ -40,7 +40,7 @@ categories: ['design patterns', 'oop']
 
   <br>
 
-  Also, the abstract factory pattern implementation usually consists of the following structure:
+  The abstract factory pattern implementation usually consists of the following structure:
   - **`Abstract Factory Interface:`** The interface that defines the methods that the concrete classes must implement.
 
   - **`Concrete Factory Class Variants:`** The concrete factory class variants that implement the methods of the abstract
