@@ -42,10 +42,9 @@ categories: ['design patterns', 'oop']
 
   Also, the abstract factory pattern implementation usually consists of the following structure:
   - **`Abstract Factory Interface:`** The interface that defines the methods that the concrete classes must implement.
-  These methods will be used by the client code to create objects of the concrete factory class variants.
 
   - **`Concrete Factory Class Variants:`** The concrete factory class variants that implement the methods of the abstract
-  factory interface. These methods instantiate instances of the concrete product class variants.
+  factory interface. These methods will be used by the client code to instantiate instances of the Concrete Product class variants.
 
   - **`Abstract Product Interface:`** The interface that defines the methods that the concrete product classes must implement.
 
