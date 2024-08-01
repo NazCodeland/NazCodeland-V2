@@ -29,6 +29,15 @@ categories: ['design patterns', 'oop']
 
   <br>
 
+	<Link href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)" linkText="Wikipedia article" block={true} /> says:
+
+		> The abstract factory pattern in software engineering is a design pattern that provides a way to create families of related 
+    objects without imposing their concrete classes, by encapsulating a group of individual factories that have a common theme 
+    without specifying their concrete classes
+
+
+  <br>
+
   ## Explanation
 
   The Abstract Factory Design Pattern is a creational design pattern that provides an abstract interface to be implemented
@@ -38,9 +47,10 @@ categories: ['design patterns', 'oop']
   also referred to as a "Factory of Factories" or a "Super-Factory" because it provides an interface that other classes
   implement to become factories.
 
+
   <br>
 
-  The abstract factory pattern implementation usually consists of the following structure:
+  ## Structure
   - **`Abstract Factory Interface:`** The interface that defines the methods that the concrete classes must implement.
 
   - **`Concrete Factory Class Variants:`** The concrete factory class variants that implement the methods of the abstract
@@ -61,9 +71,7 @@ categories: ['design patterns', 'oop']
 
   <br>
 
-  Since all concrete factory class variants implement the methods of the abstract factory interface, which are the only methods 
-  that the client code is aware of, this leads to several advantages:
-  
+  ## Advantages:
   <span hidden>Decoupled</span>
 
   - **The client code doesn't need to specificy which concrete factory class variant to use.** The client code is decoupled from
@@ -71,7 +79,8 @@ categories: ['design patterns', 'oop']
   
   <span hidden>Encapsulation</span>
   - **The client code doesn't need to know or care about which concrete factory class variant exists or is being used.**
-  The client code interacts with the abstract factory interface, it's the only interface that the client code needs to know.
+  The client code interacts with the factories using the abstract factory interface, and since all factories implement it,
+  it's the only interface that the client code needs to know.
   
   <span hidden>Polymorphism</span>
   - **The client code can interact with all variants of the abstract factory interface without having to change.** All concrete
@@ -92,19 +101,10 @@ categories: ['design patterns', 'oop']
 
   <br>
 
-  We are granted these advantages because, as mentioned, all concrete factory classes implement the abstract factory interface, which allows
-  the client code to be decoupled from the concrete factory class implementations. This abstraction is beneficial to the client code and
-  the implementor of the abstract factory interface.
+  ## Disadvantages:
 
-</section>
-
-
-<section>
-	<Link href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)" linkText="Wikipedia article" block={true} /> says:
-
-		> The abstract factory pattern in software engineering is a design pattern that provides a way to create families of related 
-    objects without imposing their concrete classes, by encapsulating a group of individual factories that have a common theme 
-    without specifying their concrete classes
+  - **Complexity**: This approach adds complexity to a codebase because it involves creating multiple classes to manage the creation
+  of a family of related objects.
 
 </section>
 
