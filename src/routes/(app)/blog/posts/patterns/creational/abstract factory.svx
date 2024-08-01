@@ -82,8 +82,8 @@ categories: ['design patterns', 'oop']
   This is because each concrete factory produces a family of related or dependent objects
   
   <span hidden>Maintainability</span>
-  - **Adding or removing a concrete factory class variant requires no change to the client code.** Because the client code is
-  decoupled from the concrete factories, adding or removing factories doesn't result in changes to the client code.
+  - **Adding or removing a concrete factory class variant requires no change to the client code** because the client code is
+  decoupled from the concrete factories.
   
   <span hidden>Flexibility</span>
   - **The Factory Configuration/Selection can easily substitute one concrete factory class variant with another with very little change.**
