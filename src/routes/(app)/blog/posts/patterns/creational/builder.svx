@@ -1,0 +1,1424 @@
+---
+title: Builder Design Pattern
+created: August 2nd, 2024
+updated:
+description: 
+  The Builder pattern is a creational design pattern that allows for the step-by-step construction of complex objects.
+  It separates the construction of an object from its representation, which enables the same construction process to create
+  different representations of the same object. The pattern consists of a Builder Interface, a Product class,
+  one or more Concrete Builder classes, and optionally, one or more Director classes. The Concrete Builder classes
+  implement the Builder Interface, which contains all the methods to create different parts of the complex Product object.
+  The Director classes, if used, employ these methods in a step-by-step manner to construct the final representation of a
+  complex Product object variant.
+
+  This approach, where Director classes construct a complex object in a step-by-step manner, results in the construction
+  of an object being separate from its representation. This is in contrast to a constructor method of a class using passed-in
+  parameters to initialize an object's initial state; in such a scenario, there is no separation between the class that
+  constructs the object and the object itself.
+
+tags: ['javascript']
+categories: ['design patterns', 'oop']
+---
+
+<script lang="ts">
+	import Link from '$lib/elements/Link.svelte';
+</script>
+
+
+<section>
+
+  ## General Defintion
+  > Separate the construction of a complex object from its representation so that the same construction process can create different
+  representations.
+  >
+  > -- Gang of Four, Design Patterns: Elements of Reusable Object-Oriented Software
+
+  <br>
+
+	<Link href="https://en.wikipedia.org/wiki/Builder_pattern" linkText="Wikipedia article" block={true} /> says:
+
+		> The builder pattern ... provides a flexible solution to various object creation problems in object-oriented programming. 
+    The builder pattern separates the construction of a complex object from its representation.
+
+
+  <br>
+
+  ## Explanation
+
+  The Builder pattern is a creational design pattern that allows for the step-by-step construction of complex objects.
+  It separates the construction of an object from its representation, which enables the same construction process to create
+  different representations of the same object. The pattern consists of a **Builder Interface**, a **Product** class,
+  one or more **Concrete Builder** classes, and optionally, one or more **Director** classes. The Concrete Builder classes
+  implement the Builder Interface, which contains all the methods to create different parts of the complex Product object.
+  The Director classes, if used, employ these methods in a step-by-step manner to construct the final representation of a
+  complex Product object variant.
+
+  This approach, where Director classes construct a complex object in a step-by-step manner, results in the construction
+  of an object being separate from its representation. This is in contrast to a constructor method of a class using passed-in
+  parameters to initialize an object's initial state; in such a scenario, there is no separation between the class that
+  constructs the object and the object itself.
+
+
+  <br>
+
+  ## Structure
+  The abstract factory pattern implementation usually consists of the following structure:
+
+  - **Builder Interface** This is the interface that defines the methods that the concrete classes must implement. These methods 
+  outline a specific part of the final Product object.
+
+  - **Concrete Builder Variants** These are the classes that implement the methods of the Builder Interface. 
+
+  - **Director** This class controls the construction process of the Product object. It uses methods on the Concrete Builder 
+  variants to construct a Product object in a step-by-step manner.
+
+  - **Product** This is the class that represents the final product to be constructed. The specific variant of the Product class
+  depends on the specific Concrete Builder variant used by the Director class. 
+
+
+  <br>
+
+  ## Advantages:
+
+  - **Flexibility**: We get the flexibility of constructing a complex object part by part, which allows us to defer certain steps as we gather the
+  data required for the object's final state. `vs` the inflexibility of having to pass in all the required parameters making up the 
+  objects state on the initial call to a classes constructor method.
+
+  - **Readability**: The Builder pattern provides code readability by design `vs` having to use a named parameters object with a constructor
+  method to gain readability.
+  
+  - **Decoupling**: The Direcor and client code are decoupled from the Concrete Builder classes which means:
+    - Adding or removing a Concrete Builder class doesn't require any code change to the Director.
+
+    - Adding or removing a Concrete Builder class requires minium change to the Client Code.
+
+  - **Consistency**: Since all the concrete Builders implement the same interface, this enables the Director and client code to interact with any of 
+  them without needing to change. 
+
+  - **Reusability**: The same Concrete Builder can be reused to create different representations of a Product object. This can be done by
+  following different steps in the same Director class used to produce a prior Product object or by using different a Director class.
+
+
+  <br>
+
+  ## Disadvantages:
+
+  - **Complexity**: While the Builder Design Pattern offers flexibility, it can also introduce complexity compared to using a simple constructor 
+  method. For objects with only a few properties, a constructor method is probably the better approach because, the Builder Design Pattern can 
+  quickly increase in complexity due to the various possible relationships between Concrete Builders and Directors:
+
+    - **One-to-One**: A single Director works with a single Builder to create different representations of a product.
+  
+    - **One-to-Many**: A single Director can work with multiple Builder implementations to create different representations of a product.
+  
+    - **Many-to-One**: Multiple Directors with different construction processes can work with a single Builder to create different
+    representations of a product.
+  
+    - **Many-to-Many**: Multiple Directors with different construction processes can work with multiple Builder implementations to create
+    different representations of a product.
+
+
+</section>
+
+
+<section>
+
+  ## Analogy
+
+  We can use the various elements of a fast food restaurant like McDonald's to illustrate how the Builder Design Pattern works:
+
+  - Each `burger` that a customer receives is the final representation of the `Product` object.
+  - The `Concrete Builder` provides the methods to add all the `options` available for making a burger.
+  - The `Director` contains functions that make `predefined burgers` from the menu.
+  - The `Client Code` is represented by the `cashier` and the `chef`. 
+  - The requirements from the `customer` represents the `inputs` to the Client Code.
+
+
+  If a customer requests a predefined burger from the menu, the Client Code can use the Director to make it. However, if the customer
+  requests a custom burger, the Client Code can take the place of the Director and directly interact with the `Concrete Builder` to make
+  a custom burger in a step-by-step manner based on the customer's requirements.
+
+</section>
+
+
+<section>
+
+  ## Code Example
+  
+  This code example implements the Analogy described above.
+
+  ### Product:
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    const availableBurgerItems = {
+      patties: ["Burger", "Chicken", "Fishish"],
+      toppings: ["Lettuce", "Tomato", "Onion", "Cheese"],
+      buns: ["Regular", "Sesame Seed", "Three Layer Sesame Seed", "Steamed"],
+      sauces: ["Ketchup", "Mayo", "Mustard", "Relish"]
+    };
+
+    class Burger { 	// [!code focus:5]
+      currentBurgerToppings = [];
+      currentBurgerPatties = [];
+      currentBurgerSauces = [];
+    }
+  ```
+
+  <br>
+
+  ### Abstract Builder Interface:
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    class BurgerInterface {
+      constructor() {
+        if (new.target === BurgerInterface) {
+          throw new TypeError("Cannot instantiate BurgerInterface");
+        }
+      }
+
+      addName(burger) {
+        throw new Error("Must implement method");
+      }
+      addBun(bun) {
+        throw new Error("Must implement method");
+      }
+      addPatty(patty) {
+        throw new Error("Must implement method");
+      }
+      addTopping(topping) {
+        throw new Error("Must implement method");
+      }
+      addSauce(sauce) {
+        throw new Error("Must implement method");
+      }
+      addNapkin() {
+        throw new Error("Must implement method");
+      }
+    }
+  ```
+
+  <br>
+
+  ### Concrete Builder
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    class BurgerBuilder extends BurgerInterface {
+      availableItems = structuredClone(availableBurgerItems);
+      burger = new Burger;
+
+      // used to reset BurgerProduct state to its default state
+      // so that a new burger can be made from scratch
+      reset() {
+        this.burger = new Burger();
+      }
+
+      addName(burger) {
+        this.burger.name = burger;
+        return this;
+      }
+
+      addBun(bun) {
+        if (this.availableItems.buns.includes(bun)) {
+          this.burger.bun = bun;
+          return this;
+        }
+        else {
+          console.log("That type of bun does not exist");
+        }
+      }
+
+      addPatty(patty) {
+        this.burger.currentBurgerPatties.push(patty);
+        return this;
+      }
+
+      addTopping(topping) {
+        this.burger.currentBurgerToppings.push(topping);
+        return this;
+      }
+
+      addSauce(sauce) {
+        this.burger.currentBurgerSauces.push(sauce);
+        return this;
+      }
+
+      addNapkin() {
+        this.burger.napkins = true;
+        return this;
+      };
+
+      build() {
+        const builtBurger = this.burger;
+        this.reset();
+        return builtBurger;
+      }
+    }
+  ```
+
+  <br>
+
+  ### Director
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    class BurgerDirector {
+      makeCheeseBurger(builder) {
+        builder.addName('Cheeseburger');
+        builder.addBun('Regular');
+        builder.addPatty('Burger');
+        builder.addTopping('Onions');
+        builder.addTopping('Pickles');
+        builder.addTopping('Cheese');
+        builder.addSauce('Mustard');
+        builder.addSauce('Ketchup');
+        builder.addNapkin();
+        return builder.build();
+      }
+
+      makeDoubleCheeseBurger(builder) {
+        builder.addName('Double Cheeseburger');
+        builder.addBun('Regular');
+        builder.addPatty('Burger');
+        builder.addPatty('Burger');
+        builder.addTopping('Onions');
+        builder.addTopping('Pickles');
+        builder.addTopping('Cheese');
+        builder.addTopping('Cheese');
+        builder.addSauce('Mustard');
+        builder.addSauce('Ketchup');
+        builder.addNapkin();
+        return builder.build();
+      }
+
+      makeBigMac(builder) {
+        builder.addName('Big Mac');
+        builder.addBun('Three Layer Sesame Seed');
+        builder.addPatty('Burger');
+        builder.addPatty('Burger');
+        builder.addPatty('Burger');
+        builder.addTopping('Lettuce');
+        builder.addTopping('Onions');
+        builder.addTopping('Pickles');
+        builder.addTopping('Cheese');
+        builder.addSauce('Big Mac Sauce');
+        builder.addNapkin();
+        return builder.build();
+      }
+
+      makeMcChicken(builder) {
+        builder.addName('McChicken');
+        builder.addBun('Sesame Seed');
+        builder.addPatty('Chicken');
+        builder.addTopping('Lettuce');
+        builder.addSauce('Mayo');
+        builder.addNapkin();
+        return builder.build();
+      }
+
+      makeFiletOFish(builder) {
+        builder.addName('Filet-o-Fish');
+        builder.addBun('Steamed');
+        builder.addPatty('Fish');
+        builder.addTopping('Cheese');
+        builder.addSauce('Tartar Sauce');
+        builder.addNapkin();
+        return builder.build();
+      }
+    }
+  ```
+
+  <br>
+
+  ### Client Code
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    // Client Code
+    const burgerBuilder = new BurgerBuilder();
+    const burgerDirector = new BurgerDirector();
+
+    // Premade Products
+    const cheeseBurger = burgerDirector.makeCheeseBurger(burgerBuilder);
+    console.log(cheeseBurger);
+
+    const doubleCheeseBurger = burgerDirector.makeDoubleCheeseBurger(burgerBuilder);
+    console.log(doubleCheeseBurger);
+
+    const mcChicken = burgerDirector.makeMcChicken(burgerBuilder);
+    console.log(mcChicken);
+
+    const bigMac = burgerDirector.makeBigMac(burgerBuilder);
+    console.log(bigMac);
+
+    const filetOFish = burgerDirector.makeFiletOFish(burgerBuilder);
+    console.log(filetOFish);
+
+    // Custom Product
+    const customMcChicken = burgerBuilder
+      .addName('McChicken')
+      .addBun('Sesame Seed')
+      .addPatty('Chicken')
+      .addTopping('Tomato')
+      .addNapkin()
+      .build();
+
+    console.log(customMcChicken);
+  ```
+
+  <br/>
+
+  Notice in the above implementation, we only have one Builder and one Director class, which uses the Builder to create different
+  Product representations. Instead of predefined methods in the Director, we could have different Builders for each product, such
+  as `CheeseBurgerBuilder`, `DoubleCheeseBurgerBuilder`, `McChickenBuilder`, `BigMacBuilder`, and `FiletOFishBuilder`, to be used by the
+  Director to create different representations of the burger product. However, given the code example, I believe this would reduce
+  the flexibility as we would have to know beforehand all the possible burger product representations. For a restaurant menu, where
+  products vary slightly, having different methods on the Director is a better approach, but there are scenarios where having multiple
+  Builders for a product is a better approach.
+
+  The following example extends the above code by providing the Client Code the ability to create not only single burger items but also
+  the ability to create a single Side, and/or Drink items as well as combo meals. First, we've renamed `BurgerDirector` to `LunchItemDirector`,
+  introduced classes for the different Products, Abstract Builder Interfaces, Concrete Builders, and Directors. The Product classes are,
+
+  <br>
+
+  This is a lengthy example, if you like, you can view 
+  a <Link href="https://codepen.io/NazCodeland/pen/vYqmLMv" linkText="live version"/> on CodePen.
+  <br>
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ### Products:
+
+  ```js
+    const availableBreakfastItems = {
+      proteins: ['Chicken', 'Sausage', 'Egg'],
+      toppings: ['Lettuce', 'Cheese', 'Tomato', 'Onion', 'Pepper'],
+      breads: [
+        'English Muffin',
+        'Plain Bagel',
+        'Sesame Bagel',
+        'Tortilla',
+        'Hotcakes'
+      ],
+      sauces: ['Salsa', 'Syrup', 'Mayo']
+    };
+
+    const availableBreakfastSideItems = {
+      sides: ['Hash Browns', 'Apple Slices'],
+      sizes: ['Regular', 'Medium', 'Large']
+    };
+
+    const availableBreakfastDrinkItems = {
+      drinks: ['Coffee', 'Tea', 'Orange Juice', 'Milk'],
+      sizes: ['Regular', 'Medium', 'Large'],
+      addIns: ['Sugar', 'Cream', 'Milk', 'Whipped Cream']
+    };
+
+    const availableLunchItems = {
+      patties: ['Burger', 'Chicken', 'Fishish'],
+      toppings: ['Lettuce', 'Cheese', 'Tomato', 'Onion', 'Pepper', 'Pickle'],
+      buns: ['Regular', 'Sesame Seed', 'Three Layer Sesame Seed', 'Steamed'],
+      sauces: ['Ketchup', 'Mayo', 'Mustard', 'Relish', 'Big Mac Sauce']
+    };
+
+    const availableLunchSideItems = {
+      sides: ['Fries', 'Onion Rings', 'Chicken Salad'],
+      sizes: ['Regular', 'Medium', 'Large'],
+      sauces: ['Ketchup', 'Mayo', 'Ranch']
+    };
+
+    const availableLunchDrinkItems = {
+      drinks: ['Coke', 'Pepsi', 'Sprite', 'Orange Crush'],
+      sizes: ['Regular', 'Medium', 'Large'],
+      addIns: ['Ice']
+    };
+
+
+    class BreakfastItem {     // [!code focus:20]
+      currentItemProteins = [];
+      currentItemToppings = [];
+      currentItemSauces = [];
+    }
+
+    class LunchItem {
+      currentItemPatties = [];
+      currentItemToppings = [];
+      currentItemSauces = [];
+    }
+
+    class SidesItem {
+      sides = {};
+    }
+
+    class DrinksItem {
+      drinks = {};
+    }
+  ```
+
+  <br>
+
+  ### Abstract Builder Interfaces:
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    class BreakfastItemInterface {
+      constructor() {
+        if (new.target === BreakfastItemInterface) {
+          throw new TypeError('Cannot instantiate BreakfastInterface');
+        }
+      }
+
+      reset() {
+        throw new Error('Must implement method');
+      }
+
+      addName(name) {
+        throw new Error('Must implement method');
+      }
+      addBread(bread) {
+        throw new Error('Must implement method');
+      }
+      addProtein(protein) {
+        throw new Error('Must implement method');
+      }
+      addTopping(topping) {
+        throw new Error('Must implement method');
+      }
+      addSauce(sauce) {
+        throw new Error('Must implement method');
+      }
+      addButter() {
+        throw new Error('Must implement method');
+      }
+      addCreamCheese() {
+        throw new Error('Must implement method');
+      }
+      build() {
+        throw new Error('Must implement method');
+      }
+    }
+
+    class BreakfastSideItemInterface {
+      constructor() {
+        if (new.target === LunchSideItemInterface) {
+          throw new TypeError('Cannot instantiate BreakfastSides');
+        }
+      }
+
+      reset() {
+        throw new Error('Must implement method');
+      }
+
+      addSide(side, size) {
+        throw new Error('Must implement method');
+      }
+
+      build() {
+        throw new Error('Must implement method');
+      }
+    }
+
+    class BreakfastDrinkItemInterface {
+      constructor() {
+        if (new.target === BreakfastDrinkItemInterface) {
+          throw new TypeError('Cannot instantiate DrinkInterface');
+        }
+      }
+
+      reset() {
+        throw new Error('Must implement method');
+      }
+
+      addDrink(drink, size, addIn) {
+        throw new Error('Must implement method');
+      }
+
+      build() {
+        throw new Error('Must implement method');
+      }
+    }
+
+    class LunchItemInterface {
+      constructor() {
+        if (new.target === LunchItemInterface) {
+          throw new TypeError('Cannot instantiate BurgerInterface');
+        }
+      }
+
+      reset() {
+        throw new Error('Must implement method');
+      }
+
+      addName(burger) {
+        throw new Error('Must implement method');
+      }
+      addBun(bun) {
+        throw new Error('Must implement method');
+      }
+      addPatty(patty) {
+        throw new Error('Must implement method');
+      }
+      addTopping(topping) {
+        throw new Error('Must implement method');
+      }
+      addSauce(sauce) {
+        throw new Error('Must implement method');
+      }
+      addNapkin() {
+        throw new Error('Must implement method');
+      }
+
+      build() {
+        throw new Error('Must implement method');
+      }
+    }
+
+    class LunchSideItemInterface {
+      constructor() {
+        if (new.target === LunchSideItemInterface) {
+          throw new TypeError('Cannot instantiate BreakfastSides');
+        }
+      }
+
+      reset() {
+        throw new Error('Must implement method');
+      }
+
+      addSide(side, size) {
+        throw new Error('Must implement method');
+      }
+      addSauce(sauce) {
+        throw new Error('Must implement method');
+      }
+
+      build() {
+        throw new Error('Must implement method');
+      }
+    }
+
+    class LunchDrinkItemInterface {
+      constructor() {
+        if (new.target === LunchDrinkItemInterface) {
+          throw new TypeError('Cannot instantiate DrinkInterface');
+        }
+      }
+
+      reset() {
+        throw new Error('Must implement method');
+      }
+
+      addDrink(drink, size, addIn) {
+        throw new Error('Must implement method');
+      }
+
+      build() {
+        throw new Error('Must implement method');
+      }
+    }
+  ```
+
+  <br>
+
+  ### Concrete Builders
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    class BreakfastItemBuilder extends BreakfastItemInterface {
+      availableItems = structuredClone(availableBreakfastItems);
+      breakfastItem = new BreakfastItem();
+
+      reset() {
+        this.breakfastItem = new BreakfastItem();
+      }
+
+      addName(name) {
+        this.breakfastItem.name = name;
+        return this;
+      }
+
+      addBread(bread) {
+        if (this.availableItems.breads.includes(bread)) {
+          this.breakfastItem.bread = bread;
+          return this;
+        } else {
+          console.log("We're all out or that type of bread does not exist:", bread);
+        }
+      }
+
+      addProtein(protein) {
+        if (this.availableItems.proteins.includes(protein)) {
+          this.breakfastItem.currentItemProteins.push(protein);
+          return this;
+        } else {
+          console.log(
+            "We're all out or that type of protein does not exist",
+            protein
+          );
+        }
+      }
+
+      addTopping(topping) {
+        if (this.availableItems.toppings.includes(topping)) {
+          this.breakfastItem.currentItemToppings.push(topping);
+          return this;
+        } else {
+          console.log(
+            "We're all out or that type of topping does not exist",
+            topping
+          );
+        }
+      }
+
+      addSauce(sauce) {
+        if (this.availableItems.sauces.includes(sauce)) {
+          this.breakfastItem.currentItemSauces.push(sauce);
+          return this;
+        } else {
+          console.log("We're all out or that type of sauce does not exist", sauce);
+        }
+      }
+
+      addButter() {
+        this.breakfastItem.butter = true;
+        return this;
+      }
+
+      addCreamCheese() {
+        this.breakfastItem.creamCheese = true;
+        return this;
+      }
+
+      build() {
+        const builtBreakfastItem = this.breakfastItem;
+        this.reset();
+        return builtBreakfastItem;
+      }
+    }
+
+    class BreakfastSideBuilder extends BreakfastSideItemInterface {
+      availableSideItems = structuredClone(availableBreakfastSideItems);
+      sidesItem = new SidesItem();
+
+      reset() {
+        this.sidesItem = new SidesItem();
+      }
+
+      addSide({ side, size } = {}) {
+        const options = { side: false, size: 'Regular', ...arguments[0] };
+
+        if (options.size && !this.availableSideItems.sides.includes(options.side)) {
+          console.log(
+            "We're all out or this type of side does not exist",
+            options.side
+          );
+          return this;
+        }
+        if (!this.sidesItem.sides[options.side]) {
+          this.sidesItem.sides[options.side] = {};
+        }
+        if (this.sidesItem.sides[options.side][options.size]) {
+          this.sidesItem.sides[options.side][options.size] += 1;
+        } else {
+          this.sidesItem.sides[options.side][options.size] = 1;
+        }
+        return this;
+      }
+
+      build() {
+        return this.sidesItem;
+      }
+    }
+
+    class BreakfastDrinkBuilder extends BreakfastDrinkItemInterface {
+      availableDrinkItems = structuredClone(availableBreakfastDrinkItems);
+      drinksItem = new DrinksItem();
+
+      reset() {
+        this.drinksItem = new DrinksItem();
+      }
+
+      addDrink({ drink, size, addIn } = {}) {
+        const options = {
+          drink: false,
+          size: 'Regular',
+          addIn: false,
+          ...arguments[0]
+        };
+
+        if (drink && !this.availableDrinkItems.drinks.includes(options.drink)) {
+          console.log(
+            "We're all out or that type of drink does not exist:",
+            options.drink
+          );
+          return this;
+        }
+        if (
+          options.addIn &&
+          !this.availableDrinkItems.addIns.includes(options.addIn)
+        ) {
+          console.log(
+            "We're all out or that type of add-in does not exist:",
+            options.addIn
+          );
+          return this;
+        }
+        if (!this.drinksItem.drinks[options.drink]) {
+          this.drinksItem.drinks[options.drink] = {};
+        }
+        if (!this.drinksItem.drinks[options.drink][options.size]) {
+          this.drinksItem.drinks[options.drink][options.size] = {};
+        }
+        if (this.drinksItem.drinks[options.drink][options.size][options.addIn]) {
+          this.drinksItem.drinks[options.drink][options.size][options.addIn] += 1;
+        } else {
+          this.drinksItem.drinks[options.drink][options.size][options.addIn] = 1;
+        }
+
+        return this;
+      }
+
+      build() {
+        return this.drinksItem;
+      }
+    }
+
+    class LunchItemBuilder extends LunchItemInterface {
+      availableItems = structuredClone(availableLunchItems);
+      burger = new LunchItem();
+
+      // used to reset BurgerProduct state to its default state
+      // so that a new burger can be made from scratch
+      reset() {
+        this.burger = new LunchItem();
+      }
+
+      addName(burger) {
+        this.burger.name = burger;
+        return this;
+      }
+
+      addBun(bun) {
+        if (this.availableItems.buns.includes(bun)) {
+          this.burger.bun = bun;
+          return this;
+        } else {
+          console.log('That type of bun does not exist', bun);
+        }
+      }
+
+      addPatty(patty) {
+        if (this.availableItems.patties.includes(patty)) {
+          this.burger.currentItemPatties.push(patty);
+          return this;
+        } else {
+          console.log('That type of patty does not exist', patty);
+        }
+      }
+
+      addTopping(topping) {
+        if (this.availableItems.toppings.includes(topping)) {
+          this.burger.currentItemToppings.push(topping);
+          return this;
+        } else {
+          console.log(
+            "We're all out or that type of topping does not exist",
+            topping
+          );
+        }
+      }
+
+      addSauce(sauce) {
+        if (this.availableItems.sauces.includes(sauce)) {
+          this.burger.currentItemSauces.push(sauce);
+          return this;
+        } else {
+          console.log("We're all out or that type of sauce does not exist", sauce);
+        }
+      }
+
+      addNapkin() {
+        this.burger.napkins = true;
+        return this;
+      }
+
+      build() {
+        const builtBurger = this.burger;
+        this.reset();
+        return builtBurger;
+      }
+    }
+
+    class LunchSideBuilder extends LunchSideItemInterface {
+      availableSideItems = structuredClone(availableLunchSideItems);
+      sidesItem = new SidesItem();
+
+      reset() {
+        this.sidesItem = new SidesItem();
+      }
+
+      addSide({ side, size } = {}) {
+        const options = { side: false, size: 'Regular', ...arguments[0] };
+
+        if (!this.availableSideItems.sides.includes(options.side)) {
+          console.log(
+            "We're all out or this type of side does not exist",
+            options.side
+          );
+          return this;
+        }
+        if (!this.sidesItem.sides[options.side]) {
+          this.sidesItem.sides[options.side] = {};
+        }
+        if (this.sidesItem.sides[options.side][options.size]) {
+          this.sidesItem.sides[options.side][options.size] += 1;
+        } else {
+          this.sidesItem.sides[options.side][options.size] = 1;
+        }
+        return this;
+      }
+
+      addSauce(sauce) {
+        if (!this.availableSideItems.sauces.includes(sauce)) {
+          console.log("We're all out or that type of sauce does not exist", sauce);
+          return this;
+        }
+
+        if (!this.sidesItem.sides[sauce]) {
+          this.sidesItem.sides[sauce] = 1;
+        } else {
+          this.sidesItem.sides[sauce] += 1;
+        }
+
+        return this;
+      }
+
+      build() {
+        return this.sidesItem;
+      }
+    }
+
+    class LunchDrinkBuilder extends LunchDrinkItemInterface {
+      availableDrinkItems = structuredClone(availableLunchDrinkItems);
+      drinksItem = new DrinksItem();
+
+      reset() {
+        this.drinksItem = new DrinksItem();
+      }
+
+      addDrink({ drink, size, addIn } = {}) {
+        const options = {
+          drink: false,
+          size: 'Regular',
+          addIn: false,
+          ...arguments[0]
+        };
+
+        if (
+          options.drink &&
+          !this.availableDrinkItems.drinks.includes(options.drink)
+        ) {
+          console.log(
+            "We're all out or that type of drink does not exist:",
+            options.drink
+          );
+          return this;
+        }
+        if (
+          options.addIn &&
+          !this.availableDrinkItems.addIns.includes(options.addIn)
+        ) {
+          console.log(
+            "We're all out or that type of add-in does not exist:",
+            options.addIn
+          );
+          return this;
+        }
+        if (!this.drinksItem.drinks[options.drink]) {
+          this.drinksItem.drinks[options.drink] = {};
+        }
+        if (!this.drinksItem.drinks[options.drink][options.size]) {
+          this.drinksItem.drinks[options.drink][options.size] = {};
+        }
+        if (options.addIn) {
+          this.drinksItem.drinks[options.drink][options.size]['addIn'] =
+            options.addIn;
+        }
+
+        return this;
+      }
+
+      build() {
+        return this.drinksItem;
+      }
+    }
+  ```
+
+  <br>
+
+  ### Directors
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    class BreakfastItemDirector {
+      makeChickenMcMuffin(builder) {
+        builder.addName('Chicken McMuffin');
+        builder.addBread('English Muffin');
+        builder.addProtein('Chicken');
+        builder.addTopping('Lettuce');
+        builder.addSauce('Mayo');
+        return builder.build();
+      }
+
+      makePlainBagel(builder) {
+        builder.addName('Plain Bagel With Butter');
+        builder.addBread('Plain Bagel');
+        builder.addButter();
+        return builder.build();
+      }
+
+      makeSesameBagel(builder) {
+        builder.addName('Sesame Bagel With Regular Cream Cheese');
+        builder.addBread('Sesame Bagel');
+        builder.addCreamCheese();
+        return builder.build();
+      }
+
+      makeBreakfastBurrito(builder) {
+        builder.addName('Breakfast Burrito');
+        builder.addBread('Tortilla');
+        builder.addProtein('Sausage');
+        builder.addProtein('Egg');
+        builder.addTopping('Cheese');
+        builder.addTopping('Onion');
+        builder.addTopping('Pepper');
+        builder.addSauce('Salsa');
+        return builder.build();
+      }
+
+      makeHotcakes(builder) {
+        builder.addName('Hotcakes with Syrup and Butter');
+        builder.addBread('Hotcakes');
+        builder.addButter();
+        builder.addSauce('Syrup');
+        return builder.build();
+      }
+    }
+
+    class BreakfastSideDirector {
+      makeAppleSlices(builder) {
+        builder.addSide({ side: 'Apple Slices' });
+        return builder.build();
+      }
+
+      makeHashBrowns(builder) {
+        builder.addSide({ side: 'Hash Browns' });
+        return builder.build();
+      }
+
+      reset(builder) {
+        builder.reset();
+      }
+    }
+
+    class BreakfastDrinkDirector {
+      makeCoffee(builder) {
+        builder.addDrink({ drink: 'Coffee', size: 'Large', addIn: 'Sugar' });
+        return builder.build();
+      }
+
+      makeTea(builder) {
+        builder.addDrink({ drink: 'Tea', size: 'Medium', addIn: 'Sugar' });
+        return builder.build();
+      }
+
+      makeOrangeJuice(builder) {
+        builder.addDrink({ drink: 'Orange Juice', size: 'Medium' });
+        return builder.build();
+      }
+
+      makeMilk(builder) {
+        builder.addDrink({ drink: 'Milk', size: 'Medium' });
+        return builder.build();
+      }
+
+      reset(builder) {
+        builder.reset();
+      }
+    }
+
+    class LunchItemDirector {
+      makeCheeseBurger(builder) {
+        builder.addName('Cheeseburger');
+        builder.addBun('Regular');
+        builder.addPatty('Burger');
+        builder.addTopping('Onion');
+        builder.addTopping('Pickle');
+        builder.addTopping('Cheese');
+        builder.addSauce('Mustard');
+        builder.addSauce('Ketchup');
+        builder.addNapkin();
+        return builder.build();
+      }
+
+      makeDoubleCheeseBurger(builder) {
+        builder.addName('Double Cheeseburger');
+        builder.addBun('Regular');
+        builder.addPatty('Burger');
+        builder.addPatty('Burger');
+        builder.addTopping('Onion');
+        builder.addTopping('Pickle');
+        builder.addTopping('Cheese');
+        builder.addTopping('Cheese');
+        builder.addSauce('Mustard');
+        builder.addSauce('Ketchup');
+        builder.addNapkin();
+        return builder.build();
+      }
+
+      makeBigMac(builder) {
+        builder.addName('Big Mac');
+        builder.addBun('Three Layer Sesame Seed');
+        builder.addPatty('Burger');
+        builder.addPatty('Burger');
+        builder.addPatty('Burger');
+        builder.addTopping('Lettuce');
+        builder.addTopping('Onion');
+        builder.addTopping('Pickle');
+        builder.addTopping('Cheese');
+        builder.addSauce('Big Mac Sauce');
+        builder.addNapkin();
+        return builder.build();
+      }
+
+      makeMcChicken(builder) {
+        builder.addName('McChicken');
+        builder.addBun('Sesame Seed');
+        builder.addPatty('Chicken');
+        builder.addTopping('Lettuce');
+        builder.addSauce('Mayo');
+        builder.addNapkin();
+        return builder.build();
+      }
+
+      makeFiletOFish(builder) {
+        builder.addName('Filet-o-Fish');
+        builder.addBun('Steamed');
+        builder.addPatty('Fish');
+        builder.addTopping('Cheese');
+        builder.addSauce('Tartar Sauce');
+        builder.addNapkin();
+        return builder.build();
+      }
+    }
+
+    class LunchSideDirector {
+      makeFries(builder) {
+        builder.addSide({ side: 'Fries', size: 'Small' });
+        builder.addSauce('Ketchup');
+        builder.addSauce('Mayo');
+        return builder.build();
+      }
+
+      makeOnionRings(builder) {
+        builder.addSide({ side: 'Onion Rings', size: 'Medium' });
+        return builder.build();
+      }
+
+      makeChickenSalad(builder) {
+        builder.addSide({ side: 'Chicken Salad', size: 'Large' });
+        builder.addSauce('Ranch');
+        return builder.build();
+      }
+
+      reset(builder) {
+        builder.reset();
+      }
+    }
+
+    class LunchDrinkDirector {
+      makeCoke(builder) {
+        builder.addDrink({ drink: 'Coke' });
+        return builder.build();
+      }
+
+      makePepsi(builder) {
+        builder.addDrink({ drink: 'Pepsi' });
+        return builder.build();
+      }
+
+      makeSprite(builder) {
+        builder.addDrink({ drink: 'Sprite' });
+        return builder.build();
+      }
+
+      makeOrangeCrush(builder) {
+        builder.addDrink({ drink: 'Orange Crush', size: 'Large', addIn: 'Ice' });
+        return builder.build();
+      }
+
+      reset(builder) {
+        builder.reset();
+      }
+    }
+
+    class BreakfastComboDirector {
+      constructor() {
+        this.itemBuilder = new BreakfastItemBuilder();
+        this.sideBuilder = new BreakfastSideBuilder();
+        this.drinkBuilder = new BreakfastDrinkBuilder();
+        this.itemDirector = new BreakfastItemDirector();
+        this.sideDirector = new BreakfastSideDirector();
+        this.drinkDirector = new BreakfastDrinkDirector();
+      }
+
+      makeChickenMcMuffinCombo() {
+        const item = this.itemDirector.makeChickenMcMuffin(this.itemBuilder);
+        const side = this.sideDirector.makeAppleSlices(this.sideBuilder);
+        const drink = this.drinkDirector.makeCoffee(this.drinkBuilder);
+        return { item, side, drink };
+      }
+
+      makePlainBagelCombo() {
+        const item = this.itemDirector.makePlainBagel(this.itemBuilder);
+        const side = this.sideDirector.makeHashBrowns(this.sideBuilder);
+        const drink = this.drinkDirector.makeTea(this.drinkBuilder);
+        return { item, side, drink };
+      }
+
+      makeSesameBagelCombo() {
+        const item = this.itemDirector.makeSesameBagel(this.itemBuilder);
+        const drink = this.drinkDirector.makeOrangeJuice(this.drinkBuilder);
+        return { item, side, drink };
+      }
+
+      makeBreakfastBurritoCombo() {
+        const item = this.itemDirector.makeBreakfastBurrito(this.itemBuilder);
+        const side = this.sideDirector.makeHashBrowns(this.sideBuilder);
+        const drink = this.drinkDirector.makeCoffee(this.drinkBuilder);
+        return { item, side, drink };
+      }
+
+      makeHotcakesCombo() {
+        const item = this.itemDirector.makeHotcakes(this.itemBuilder);
+        const side = this.sideDirector.makeAppleSlices(this.sideBuilder);
+        const drink = this.drinkDirector.makeCoffee(this.drinkBuilder);
+        return { item, side, drink };
+      }
+    }
+
+    class LunchComboDirector {
+      constructor() {
+        this.itemBuilder = new LunchItemBuilder();
+        this.sideBuilder = new LunchSideBuilder();
+        this.drinkBuilder = new LunchDrinkBuilder();
+        this.itemDirector = new LunchItemDirector();
+        this.sideDirector = new LunchSideDirector();
+        this.drinkDirector = new LunchDrinkDirector();
+      }
+
+      makeCheeseBurgerCombo() {
+        const item = this.itemDirector.makeCheeseBurger(this.itemBuilder);
+        const side = this.sideDirector.makeFries(this.sideBuilder);
+        const drink = this.drinkDirector.makeCoke(this.drinkBuilder);
+        return { item, side, drink };
+      }
+
+      makeDoubleCheeseBurgerCombo() {
+        const item = this.itemDirector.makeDoubleCheeseBurger(this.itemBuilder);
+        const side = this.sideDirector.makeOnionRings(this.sideBuilder);
+        const drink = this.drinkDirector.makePepsi(this.drinkBuilder);
+        return { item, side, drink };
+      }
+
+      makeBigMacCombo() {
+        const item = this.itemDirector.makeBigMac(this.itemBuilder);
+        const side = this.sideDirector.makeChickenSalad(this.sideBuilder);
+        const drink = this.drinkDirector.makeSprite(this.drinkBuilder);
+        return { item, side, drink };
+      }
+
+      makeMcChickenCombo() {
+        const item = this.itemDirector.makeMcChicken(this.itemBuilder);
+        const side = this.sideDirector.makeOnionRings(this.sideBuilder);
+        const drink = this.drinkDirector.makeOrangeCrush(this.drinkBuilder);
+        return { item, side, drink };
+      }
+
+      makeFiletOFishCombo() {
+        const item = this.itemDirector.makeFiletOFish(this.itemBuilder);
+        const side = this.sideDirector.makeOnionRings(this.sideBuilder);
+        const drink = this.drinkDirector.makeSprite(this.drinkBuilder);
+        return { item, side, drink };
+      }
+    }
+  ```
+
+  <br>
+
+  ### Client Code
+
+  <p class="bg-primaryColor/15 text-canvas px-2 py-1 rounded-md">ES6 Syntax</p>
+
+  ```js
+    console.log('----------------Premade Breakfast Combos----------------');
+    const breakfastComboDirector = new BreakfastComboDirector();
+    const breakFastCombo = breakfastComboDirector.makeBreakfastBurritoCombo();
+
+    console.log('Breakfast Combo:', JSON.stringify(breakFastCombo, null, 2));
+
+
+    console.log('----------------Custom Breakfast Combos----------------');
+    const breakfastItemBuilder = new BreakfastItemBuilder();
+    const breakFastSideBuilder = new BreakfastSideBuilder();
+    const breakfastDrinkBuilder = new BreakfastDrinkBuilder();
+    const breakfastItemDirector = new BreakfastItemDirector();
+    const breakfastSideDirector = new BreakfastSideDirector();
+    const breakfastDrinkDirector = new BreakfastDrinkDirector();
+
+    const hotCakes = breakfastItemDirector.makeHotcakes(breakfastItemBuilder);
+
+    let sides = breakfastSideDirector.makeAppleSlices(breakFastSideBuilder);
+    sides = breakfastSideDirector.makeHashBrowns(breakFastSideBuilder);
+    sides = breakfastSideDirector.makeHashBrowns(breakFastSideBuilder);
+    breakfastSideDirector.reset(breakFastSideBuilder);
+
+    let drinks = breakfastDrinkDirector.makeCoffee(breakfastDrinkBuilder);
+    drinks = breakfastDrinkDirector.makeTea(breakfastDrinkBuilder);
+    breakfastDrinkDirector.reset(breakfastDrinkBuilder);
+
+    console.log(JSON.stringify(hotCakes, null, 2));
+    console.log(JSON.stringify(sides, null, 2));
+    console.log(JSON.stringify(drinks, null, 2));
+
+
+    console.log('----------------Using Builders Directly----------------');
+    // Just like we did in the original code example, we
+    // can also use the builders directly to create combos
+    // or single items such as a burger, side or drink
+
+    const hashBrownOnly = breakFastSideBuilder
+      .addSide({ side: 'Hash Browns' })
+      .build();
+    breakFastSideBuilder.reset();
+
+    const largeFliesOnly = breakFastSideBuilder
+      .addSide({ side: 'Fries', size: 'Large' })
+      .build();
+    breakFastSideBuilder.reset();
+
+    console.log('hashBrownOnly', JSON.stringify(hashBrownOnly, null, 2));
+    console.log('largeFliesOnly', JSON.stringify(largeFliesOnly, null, 2));
+
+
+
+    console.log('----------------Premade Lunch Combos----------------');
+    const lunchComboDirector = new LunchComboDirector();
+    const lunchCombo = lunchComboDirector.makeFiletOFishCombo();
+    console.log('lunchCombo', JSON.stringify(lunchCombo, null, 2));
+
+
+    console.log('----------------Custom Lunch Combos----------------');
+    const lunchItemBuilder = new LunchItemBuilder();
+    const lunchSideBuilder = new LunchSideBuilder();
+    const lunchDrinkBuilder = new LunchDrinkBuilder();
+    const lunchItemDirector = new LunchItemDirector();
+    const lunchSideDirector = new LunchSideDirector();
+    const lunchDrinkDirector = new LunchDrinkDirector();
+
+    const bigMac = lunchItemDirector.makeBigMac(lunchItemBuilder);
+
+    let lunchSides = lunchSideDirector.makeFries(lunchSideBuilder);
+    lunchSides = lunchSideDirector.makeFries(lunchSideBuilder);
+    lunchSideBuilder.reset();
+
+    let lunchDrinks = lunchDrinkDirector.makeOrangeCrush(lunchDrinkBuilder);
+    lunchDrinkBuilder.reset();
+
+    console.log(JSON.stringify(bigMac, null, 2));
+    console.log(JSON.stringify(lunchSides, null, 2));
+    console.log(JSON.stringify(lunchDrinks, null, 2));
+
+
+    console.log('----------------Using Builders Directly----------------');
+    // Just like we did in the original code example, we
+    // can also use the builders directly to create combos
+    // or single items such as a burger, side or drink
+
+    const largeFries = lunchSideBuilder
+      .addSide({ side: 'Fries', size: 'Large' })
+      .addSauce('Ketchup')
+      .addSauce('Mayo')
+      .build();
+    lunchSideBuilder.reset();
+
+    const mediumOrangeCrush = lunchDrinkBuilder
+      .addDrink({ drink: 'Orange Crush', size: 'Medium', addIn: 'Ice' })
+      .build();
+    lunchDrinkBuilder.reset();
+
+    console.log('largeFries', JSON.stringify(largeFries, null, 2));
+    console.log('mediumOrangeCrush', JSON.stringify(mediumOrangeCrush, null, 2));
+  ```
+
+  <br>
+
+  A few things to note:
+  
+  - The build() methods within the Builders do not reset the Builders anymore; they simply return the built Product. I've delegated 
+  the responsibility of resetting the Builders to the Directors or Client Code. The reason for this choice is the flexibility it provides
+  by being able to make multiple Side or Drink items for one Combo meal. I could have done it another way, but that would have increased
+  the complexity of the code. After all, design patterns are meant to be adapted to our needs.
+
+  - For the combo Directors, I've decided to initialize the single item Builders and Directors within the combo class constructors. This
+  results in much cleaner Client Code, but it comes with the con of not having the flexibility of passing in different Builders and Directors
+  to the combo Directors. However, for the single item Directors, the Builders are passed to it instead of being instantiated within their
+  constructor methods; this provides us with the flexibility of using various Builders with the same Directors — even though, in this code
+  example, there's only one Builder per Product, so we're not able to take advantage of this flexibility.
+
+  - I could have made dual use of a few Product classes, which would have trickled down to dual use cases from Interfaces and Concrete Builders,
+  but for consistency, I've created a single class for Breakfast and Lunch items.
+
+</section>
+
+
+<section>
+
+  ## Constructors Before ES6
+
+  Prior to ES6, the class syntax that we used above did not exist, so functions and prototypes were used instead.
+  
+  I could provide the original `BurgerBuilder` and `BurgerDirector` implementations in ES5 Syntax, but this blogpost is long enough
+  as it is, so I've if you're interested in knowing how one might go about implementing them in ES5 syntax, please check out
+  the <Link href="/blog/patterns/creational/abstract-factory" linkText="Abstract Factory Pattern Before ES6" /> section of the Abstract
+  Factory Design Pattern blogpost.
+
+</section>
+
+
+<section>
+
+	## Wrapping Up
+  
+  This was a fun article to write! Writing a lengthy OOP example using the Builder Design pattern has helped me get a good understanding of
+  the pattern and the flexibility it provides. I hope you enjoyed reading this article, thank you for reading!
+
+</section>
+
+
+<section>
+
+    ## Resources
+    - Gang of Four, Design Patterns: Elements of Reusable Object-Oriented Software
+
+</section>
