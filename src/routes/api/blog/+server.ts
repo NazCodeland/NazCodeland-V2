@@ -50,8 +50,8 @@ function getBlogPosts() {
 function sortBlogPosts(blogPosts: BlogPost[]) {
 	return blogPosts.sort((a, b) => {
 		return (
-			new Date(b.created.replace(/(st|nd|rd|th)/, '')).getTime() -
-			new Date(a.created.replace(/(st|nd|rd|th)/, '')).getTime()
+			new Date(b.created.replace(/(\d+)(st|nd|rd|th)/, '$1')).getTime() -
+			new Date(a.created.replace(/(\d+)(st|nd|rd|th)/, '$1')).getTime()
 		);
 	});
 }
